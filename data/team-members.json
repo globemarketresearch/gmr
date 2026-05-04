@@ -1,0 +1,67 @@
+[
+  {
+    "id": "tm001",
+    "name": "Deepa Pandey",
+    "role": "Principal Consultant",
+    "imageUrl": "",
+    "shortBio": "15+ years of experience in healthcare market research, specializing in digital health transformation and market intelligence.",
+    "fullBio": "Deepa Pandey is a Principal Consultant with over 15 years of experience in healthcare market research. She specializes in digital health transformation, telemedicine adoption patterns, and AI-driven healthcare solutions. Deepa holds a Master's degree in Public Health from Harvard T.H. Chan School and has led numerous research projects for Fortune 500 healthcare companies. Her expertise spans across market sizing, competitive intelligence, and strategic advisory services. Before joining the research team, Deepa worked in strategy consulting at leading firms, helping healthcare organizations navigate complex market dynamics and regulatory landscapes.",
+    "expertise": [
+      "Digital Health Strategy",
+      "Market Sizing & Forecasting",
+      "Telemedicine & Remote Care",
+      "Healthcare AI & Analytics",
+      "Competitive Intelligence"
+    ],
+    "credentials": [
+      "M.P.H., Harvard T.H. Chan School of Public Health",
+      "B.S. in Biomedical Engineering, Johns Hopkins University",
+      "Certified Healthcare Market Research Professional (CHMRP)",
+      "Member, Healthcare Information and Management Systems Society (HIMSS)"
+    ]
+  },
+  {
+    "id": "tm002",
+    "name": "Aditi Shivarkar",
+    "role": "Senior Research Analyst",
+    "imageUrl": "",
+    "shortBio": "Expert in pharmaceutical markets and biotechnology innovation with deep expertise in drug development pipelines and market access strategies.",
+    "fullBio": "Aditi Shivarkar is a Senior Research Analyst specializing in pharmaceutical and biotechnology markets. With a Ph.D. in Pharmacology and over 10 years of industry experience, Aditi provides in-depth analysis of drug development pipelines, patent landscapes, and market access strategies. She has authored over 30 research reports covering oncology, rare diseases, immunology, and biosimilars. Prior to her research career, Aditi worked in clinical development at a leading pharmaceutical company, giving her unique insights into the drug development process. Her work helps clients understand complex regulatory environments, pricing dynamics, and competitive positioning in global pharmaceutical markets.",
+    "expertise": [
+      "Pharmaceutical Market Analysis",
+      "Drug Pipeline & Patent Analysis",
+      "Biosimilars & Biologics",
+      "Market Access & Reimbursement",
+      "Clinical Trial Landscape",
+      "Oncology & Rare Diseases"
+    ],
+    "credentials": [
+      "Ph.D. in Pharmacology, University of California, San Francisco",
+      "M.Sc. in Pharmaceutical Sciences, University of Michigan",
+      "Board Certified Pharmacotherapy Specialist (BCPS)",
+      "Member, American Society of Clinical Oncology (ASCO)"
+    ]
+  },
+  {
+    "id": "tm003",
+    "name": "Dr. Michael Chen",
+    "role": "Lead Analyst - Medical Devices",
+    "imageUrl": "",
+    "shortBio": "Medical device innovation expert with extensive experience in Asia Pacific markets and regulatory landscape analysis.",
+    "fullBio": "Dr. Michael Chen is a Lead Analyst specializing in medical device markets with particular expertise in the Asia Pacific region. He holds an MBA from INSEAD and a Ph.D. in Biomedical Engineering from MIT. Michael has conducted over 100 primary interviews with C-suite executives at leading medical device manufacturers and has advised Fortune 500 companies on market entry strategies, competitive positioning, and innovation trends. His research covers diagnostic imaging, surgical robotics, cardiovascular devices, and digital health wearables. Michael's deep understanding of regulatory frameworks across different regions, combined with his technical background, enables him to provide comprehensive analysis of technology adoption patterns and market dynamics.",
+    "expertise": [
+      "Medical Device Innovation",
+      "Asia Pacific Healthcare Markets",
+      "Regulatory & Compliance Analysis",
+      "Surgical Robotics & Automation",
+      "Digital Health Wearables",
+      "Market Entry Strategy"
+    ],
+    "credentials": [
+      "MBA, INSEAD Business School",
+      "Ph.D. in Biomedical Engineering, Massachusetts Institute of Technology",
+      "B.S. in Electrical Engineering, Stanford University",
+      "Certified Medical Device Regulatory Affairs Professional (RAC)"
+    ]
+  }
+]

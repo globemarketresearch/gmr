@@ -1,0 +1,541 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Healthcare Design System with Enhanced Colors & Visual Depth */
+:root {
+  /* Primary Healthcare Navy-Ocean-Cyan Palette */
+  --primary: #2563A3; /* Ocean-600 - Deep blue */
+  --primary-hover: #1B4B7F; /* Ocean-700 - Darker blue */
+  --primary-light: #3B7CB8; /* Ocean-500 - Lighter blue */
+  --primary-dark: #0F2D52; /* Navy-800 - Deep navy */
+  
+  /* Accent Colors */
+  --accent-navy: #020B1F; /* Navy-950 - Deepest navy */
+  --accent-ocean: #2563A3; /* Ocean-600 - Medium ocean */
+  --accent-bright: #00D4FF; /* Bright-500 - Bright cyan */
+  --accent-amber: #f59e0b; /* Amber-500 */
+  
+  /* Softer Neutrals with Warmth */
+  --secondary: #f0fdf4; /* Soft green-tinted background */
+  --border: #cbd5e1; /* Slate-300 - softer than pure gray */
+  --border-light: #e2e8f0; /* Slate-200 */
+  --card: #ffffff;
+  --card-foreground: #1e293b; /* Slate-800 - softer than black */
+  --muted: #f1f5f9; /* Slate-100 - warmer gray */
+  --muted-foreground: #536073; /* Darkened for WCAG AA contrast on tinted backgrounds */
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #0F2D52 0%, #2563A3 50%, #3B7CB8 100%);
+  --gradient-accent: linear-gradient(135deg, #2563A3 0%, #00D4FF 100%);
+  --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
+
+  /* Teal accent colors for report content theming */
+  --teal-bright: #22E1B0;       /* Bright teal-cyan for H2 */
+  --teal-primary: #29ADA4;      /* Muted professional teal for H3 */
+  --teal-steel: #307898;        /* Steel blue for H4 */
+  --teal-deep: #37448C;         /* Deep blue for H5/H6 */
+  --teal-subtle: #E0F5F3;       /* Very light teal for hover backgrounds */
+  --teal-border: #B0D9D5;       /* Soft teal for accents */
+}
+
+html {
+  /* overflow-x removed - was breaking position: sticky */
+}
+
+body {
+  font-family: var(--font-geist-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* overflow-x removed - was breaking position: sticky */
+}
+
+/* Language selector button (GoogleTranslate component) */
+.lang-btn {
+  color: #2563A3;
+  border: 1.5px solid #2563A3;
+  background: transparent;
+  transition: color 0.55s ease, border-color 0.55s ease;
+}
+.lang-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(37, 99, 163, 0.5);
+  animation: langPulse 2.4s ease-in-out infinite;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+@keyframes langPulse {
+  0%   { transform: scale(1);    opacity: 0.7; }
+  65%  { transform: scale(1.18); opacity: 0;   }
+  100% { transform: scale(1);    opacity: 0;   }
+}
+.lang-btn:hover .lang-ring {
+  animation-play-state: paused;
+  opacity: 0;
+}
+.lang-fill {
+  position: absolute;
+  inset: -1px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #2563A3 0%, #1d4ed8 100%);
+  opacity: 0;
+  transition: opacity 0.55s ease;
+  z-index: 1;
+}
+.lang-btn:hover .lang-fill {
+  opacity: 1;
+}
+.lang-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%; height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%);
+  transform: skewX(-18deg) translateX(-180%);
+  animation: langShine 2.4s ease-in-out infinite;
+  z-index: 4;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+@keyframes langShine {
+  0%   { transform: skewX(-18deg) translateX(-180%); opacity: 0; }
+  18%  { opacity: 1; }
+  55%  { transform: skewX(-18deg) translateX(320%);  opacity: 0; }
+  100% { transform: skewX(-18deg) translateX(320%);  opacity: 0; }
+}
+.lang-btn:hover .lang-shine {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation-play-state: paused;
+}
+.lang-btn:hover {
+  color: #fff;
+  border-color: rgba(29,78,216,0.6);
+  box-shadow: 0 4px 16px rgba(37,99,163,0.28);
+}
+.lang-chevron {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Suppress Google Translate default toolbar */
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame,
+.skiptranslate > iframe,
+.goog-te-gadget,
+.goog-logo-link,
+.goog-te-balloon-frame,
+#goog-gt-tt { display: none !important; }
+body { top: 0px !important; }
+html body { top: 0 !important; }
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Gradient Utilities */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  /* Enhanced Shadows with Color Tints */
+  .shadow-primary {
+    box-shadow: 0 4px 14px 0 rgba(37, 99, 163, 0.2);
+  }
+  .shadow-primary-lg {
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 163, 0.25), 0 8px 10px -6px rgba(37, 99, 163, 0.15);
+  }
+  .shadow-ocean {
+    box-shadow: 0 4px 14px 0 rgba(59, 124, 184, 0.2);
+  }
+  .shadow-soft {
+    box-shadow: 0 2px 8px 0 rgba(15, 23, 42, 0.08);
+  }
+
+  /* Auto-scroll animation for partners */
+  @keyframes scroll-horizontal {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll-horizontal {
+    animation: scroll-horizontal 18s linear infinite;
+    will-change: transform;
+  }
+}
+
+@layer base {
+  :root {
+    /* Modern Healthcare Blue-Teal System */
+    --background: 210 20% 98%; /* Slight blue tint */
+    --foreground: 215 25% 27%; /* Slate-700 - softer than black */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+    
+    /* Primary: Modern Ocean Blue */
+    --primary: 210 63% 51%; /* Ocean-600 */
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary: Soft Blue Tint */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 25% 27%;
+    
+    /* Muted: Warmer Gray */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 40%; /* Darkened for WCAG AA contrast */
+    
+    /* Accent: Bright Cyan */
+    --accent: 193 100% 50%; /* Bright-500 */
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Softer Borders with Blue Tint */
+    --border: 215 20% 82%; /* Slate-300 */
+    --input: 215 20% 82%;
+    --ring: 188 95% 35%; /* Match primary */
+    
+    /* Enhanced Chart Colors - Vibrant & Distinct */
+    --chart-1: 188 95% 42%; /* Cyan-500 */
+    --chart-2: 172 66% 50%; /* Teal-500 */
+    --chart-3: 160 84% 39%; /* Emerald-600 */
+    --chart-4: 262 83% 58%; /* Violet-500 */
+    --chart-5: 25 95% 53%; /* Orange-500 */
+    
+    --radius: 0.75rem; /* Slightly larger for modern feel */
+  }
+  
+  .dark {
+    --background: 222 47% 11%; /* Dark blue-gray */
+    --foreground: 210 40% 98%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* Primary: Lighter Cyan for dark mode */
+    --primary: 188 86% 53%; /* Cyan-400 */
+    --primary-foreground: 222 47% 11%;
+    
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%; /* Slate-400 */
+    
+    --accent: 172 66% 50%; /* Teal-500 */
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 188 86% 53%;
+    
+    /* Dark mode chart colors */
+    --chart-1: 188 86% 53%; /* Cyan-400 */
+    --chart-2: 172 66% 50%; /* Teal-500 */
+    --chart-3: 160 84% 39%; /* Emerald-600 */
+    --chart-4: 262 83% 58%; /* Violet-500 */
+    --chart-5: 25 95% 53%; /* Orange-500 */
+
+    /* Teal colors for dark mode - brighter for visibility */
+    --teal-bright: #33E1B8;
+    --teal-primary: #3BC5BC;
+    --teal-steel: #4A8FA8;
+    --teal-deep: #5B6FC0;
+    --teal-subtle: #1A3F3C;
+    --teal-border: #2A5F5C;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom Prose Styles for HTML Content */
+  .prose {
+    @apply text-[var(--foreground)];
+  }
+
+  .prose p {
+    @apply text-[var(--muted-foreground)] leading-relaxed;
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+
+  .prose h1 {
+    @apply text-[var(--foreground)] font-bold;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .prose h2 {
+    @apply text-[var(--foreground)] font-bold;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .prose h3 {
+    @apply text-[var(--foreground)] font-semibold;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .prose h4 {
+    @apply text-[var(--foreground)] font-semibold;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .prose h5 {
+    @apply text-[var(--foreground)] font-semibold;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .prose h6 {
+    @apply text-[var(--foreground)] font-semibold;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .prose strong,
+  .prose b {
+    @apply text-[var(--foreground)] font-semibold;
+  }
+
+  .prose em,
+  .prose i {
+    @apply italic;
+  }
+
+  .prose a {
+    @apply text-[var(--primary)] underline hover:text-[var(--primary-hover)] transition-colors;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-[var(--primary)] pl-4 italic text-[var(--muted-foreground)] my-6;
+  }
+
+  .prose code {
+    @apply bg-[var(--muted)] text-[var(--foreground)] px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+
+  .prose pre {
+    @apply bg-[var(--muted)] text-[var(--foreground)] p-4 rounded-lg overflow-x-auto font-mono text-sm;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+
+  /* GVR-style table styling */
+  .prose table {
+    @apply w-full;
+    border-spacing: 0;
+    border-radius: 6px;
+    background: white;
+  }
+
+  .prose thead {
+    background: transparent;
+  }
+
+  .prose th {
+    @apply text-[var(--foreground)] font-semibold text-left;
+    padding: 6px 15px;
+    border: 1px solid #b09ad5;
+    font-size: 0.875rem;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  /* Rounded corners for header cells */
+  .prose thead tr:first-child th:first-child {
+    border-top-left-radius: 6px;
+  }
+
+  .prose thead tr:first-child th:last-child {
+    border-top-right-radius: 6px;
+  }
+
+  .prose tbody tr {
+    border: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .prose tbody tr:hover {
+    background-color: rgba(176, 154, 213, 0.05);
+  }
+
+  .prose tbody tr:last-child {
+    border: none;
+  }
+
+  .prose td {
+    @apply text-[var(--foreground)];
+    padding: 6px 15px;
+    border: 1px solid #b09ad5;
+    font-size: 0.9375rem;
+  }
+
+  /* Rounded corners for body cells */
+  .prose tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+  }
+
+  .prose tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 6px;
+  }
+
+  /* Responsive: reduce padding on mobile */
+  @media (max-width: 640px) {
+    .prose th,
+    .prose td {
+      padding: 4px 10px;
+      font-size: 0.8125rem;
+    }
+  }
+
+  /* Responsive: horizontal scroll on small screens */
+  @media (max-width: 768px) {
+    .prose table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  .prose hr {
+    @apply border-[var(--border)] my-8;
+  }
+
+  .prose img {
+    @apply rounded-lg my-6 max-w-full h-auto;
+  }
+
+  /* Market Highlight section styling (matches Key Findings) */
+  /* Target any h2/h3 followed by a ul (like Market Highlight section) */
+  .prose ul {
+    @apply rounded-lg pb-1 pt-1 px-8 space-y-0 list-disc list-outside;
+  }
+
+  .styled-report-content > ul:first-of-type {
+    @apply bg-[#ede9fe];
+    li {
+      @apply border-b border-gray-300;
+      p {
+        @apply ml-0 mr-2;
+      }
+    }
+  }
+  
+  .prose ol {
+    @apply list-decimal list-outside ml-6 space-y-2;
+  }
+
+  .prose li {
+    @apply text-[var(--muted-foreground)] leading-relaxed;
+  }
+
+  .prose ul li {
+    @apply text-[var(--foreground)] pb-1 pt-1;
+  }
+
+  .prose ul li:last-child {
+    @apply border-b-0;
+  }
+
+  .prose img.tiptap-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .legal-content p {
+    @apply mb-6 leading-[1.8] text-[1.0625rem];
+    color: var(--foreground);
+  }
+
+  .legal-content h2 {
+    @apply mt-12 mb-6 text-3xl md:text-4xl font-bold leading-tight;
+    color: var(--foreground);
+  }
+
+  .legal-content h2:first-child {
+    @apply mt-8;
+  }
+
+  .legal-content h3 {
+    @apply mt-10 mb-5 text-2xl md:text-3xl font-semibold leading-snug;
+    color: var(--foreground);
+  }
+
+  .legal-content ul {
+    @apply my-6 pl-7 space-y-3;
+    list-style-type: disc;
+  }
+
+  .legal-content li {
+    @apply leading-[1.75] text-[1.0625rem] pl-2;
+    color: var(--foreground);
+  }
+
+  .legal-content li::marker {
+    color: var(--primary);
+  }
+
+  .legal-content strong {
+    @apply font-semibold;
+    color: var(--foreground);
+  }
+
+  .legal-content > p:first-child {
+    @apply text-lg;
+    color: var(--muted-foreground);
+  }
+
+  .legal-content > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .legal-content > h2 + * {
+    margin-top: 1.5rem;
+  }
+
+  .legal-content > h3 + * {
+    margin-top: 1.25rem;
+  }
+
+}

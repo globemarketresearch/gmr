@@ -1,0 +1,126 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import type { PressRelease } from '@/lib/api/press-releases.types';
+import PressReleaseListCard from './PressReleaseListCard';
+import Pagination from '@/components/reports/Pagination';
+import { getPressReleases, isApiError } from '@/lib/api';
+
+const ITEMS_PER_PAGE = 8;
+
+interface PressReleaseListingClientProps {
+  pressReleases: PressRelease[];
+  totalItems: number;
+  totalPages: number;
+}
+
+export default function PressReleaseListingClient({
+  pressReleases: initialPressReleases,
+  totalItems: initialTotalItems,
+  totalPages: initialTotalPages,
+}: PressReleaseListingClientProps) {
+  const storageKey = 'press_releases_page';
+  const [pressReleases, setPressReleases] = useState<PressRelease[]>(initialPressReleases);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(initialTotalPages);
+  const [totalItems, setTotalItems] = useState(initialTotalItems);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Restore page from sessionStorage and fetch on mount if not page 1
+  useEffect(() => {
+    const saved = sessionStorage.getItem(storageKey);
+    const savedPage = saved ? Math.max(1, parseInt(saved, 10) || 1) : 1;
+    if (savedPage !== 1) {
+      setCurrentPage(savedPage);
+      fetchPage(savedPage);
+    }
+  }, [storageKey]);
+
+  async function fetchPage(page: number) {
+    setIsLoading(true);
+    const response = await getPressReleases({
+      status: 'published',
+      page,
+      limit: ITEMS_PER_PAGE,
+      sort_by: 'publish_date_desc',
+    });
+    if (!isApiError(response)) {
+      setPressReleases(response.data);
+      if (response.meta) {
+        setTotalPages(response.meta.totalPages);
+        setTotalItems(response.meta.totalItems);
+      }
+    }
+    setIsLoading(false);
+  }
+
+  const handlePageChange = async (page: number) => {
+    setCurrentPage(page);
+    sessionStorage.setItem(storageKey, String(page));
+    await fetchPage(page);
+    document.getElementById('press-releases-list')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <>
+      {/* ── Hero Banner ───────────────────────────────────────────── */}
+      <div className="bg-gradient-to-r from-slate-50 via-blue-50/40 to-slate-50 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
+
+          {/* Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-slate-400 mb-5">
+            <Link href="/" className="hover:text-[#2563A3] transition-colors">Home</Link>
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+            <span className="text-slate-600 font-medium">Press Releases</span>
+          </nav>
+
+          <div className="flex items-start gap-4">
+            <div className="hidden sm:flex items-center justify-center w-14 h-14 rounded-2xl bg-white border border-slate-200 text-3xl shadow-sm shrink-0 mt-0.5">
+              📢
+            </div>
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2 leading-tight">
+                Press Releases
+              </h1>
+              <p className="text-sm sm:text-base text-slate-500 max-w-2xl mb-4">
+                Latest news and announcements from Healthcare Foresights. Stay informed about our research publications and industry insights.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Press Release List ───────────────────────────────────── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main id="press-releases-list">
+
+          {isLoading ? (
+            <div className="space-y-4 mt-4">
+              {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
+                <div key={i} className="h-32 bg-slate-100 animate-pulse rounded-xl" />
+              ))}
+            </div>
+          ) : pressReleases.length > 0 ? (
+            <>
+              <div>
+                {pressReleases.map((pr) => (
+                  <PressReleaseListCard key={pr.id} pressRelease={pr} />
+                ))}
+              </div>
+              <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+            </>
+          ) : (
+            <div className="text-center py-20 border border-dashed border-slate-200 rounded-xl mt-4">
+              <div className="text-5xl mb-4">📢</div>
+              <h3 className="text-lg font-semibold text-slate-700 mb-2">No press releases found</h3>
+              <p className="text-sm text-slate-400">Check back later for new announcements</p>
+            </div>
+          )}
+        </main>
+      </div>
+    </>
+  );
+}

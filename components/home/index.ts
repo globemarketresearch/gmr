@@ -1,0 +1,9 @@
+export { default as HeroSection } from './HeroSection';
+export { default as FeaturedReportsSection } from './FeaturedReportsSection';
+export { default as IndustryCategoriesSection } from './IndustryCategoriesSection';
+export { default as StatsSection } from './StatsSection';
+export { default as TrustedPartnersSection } from './TrustedPartnersSection';
+export { default as TestimonialsSection } from './TestimonialsSection';
+export { default as CTASection } from './CTASection';
+export { default as StatsSectionSkeleton } from './StatsSectionSkeleton';
+export { default as TestimonialsSectionSkeleton } from './TestimonialsSectionSkeleton';

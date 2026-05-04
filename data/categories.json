@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Biotechnology",
+    "slug": "biotechnology",
+    "description": "Biotechnology advances, gene therapy, and personalized medicine innovations"
+  },
+  {
+    "id": 2,
+    "name": "Clinical Diagnostics",
+    "slug": "clinical-diagnostics",
+    "description": "Diagnostic testing, laboratory diagnostics, and clinical analysis solutions"
+  },
+  {
+    "id": 3,
+    "name": "Healthcare Services",
+    "slug": "healthcare-services",
+    "description": "Healthcare delivery, workforce, and service provision trends"
+  },
+  {
+    "id": 4,
+    "name": "Laboratory Equipment",
+    "slug": "laboratory-equipment",
+    "description": "Laboratory instruments, equipment, and automation technologies"
+  },
+  {
+    "id": 5,
+    "name": "Healthcare IT",
+    "slug": "healthcare-it",
+    "description": "Digital health technologies, telemedicine, and healthcare information systems"
+  },
+  {
+    "id": 6,
+    "name": "Medical Devices",
+    "slug": "medical-devices",
+    "description": "Innovation and market dynamics in medical equipment and devices"
+  },
+  {
+    "id": 7,
+    "name": "Medical Imaging",
+    "slug": "medical-imaging",
+    "description": "Imaging technologies, radiology equipment, and diagnostic imaging solutions"
+  },
+  {
+    "id": 8,
+    "name": "Therapeutic Area",
+    "slug": "therapeutic-area",
+    "description": "Treatment approaches, clinical therapies, and patient care across therapeutic domains"
+  },
+  {
+    "id": 9,
+    "name": "Life Sciences",
+    "slug": "life-sciences",
+    "description": "Life sciences industry trends, research, policy, and regulatory developments"
+  },
+  {
+    "id": 10,
+    "name": "Dental",
+    "slug": "dental",
+    "description": "Dental care, oral health products, and dental technology innovations"
+  },
+  {
+    "id": 11,
+    "name": "Pharmaceuticals",
+    "slug": "pharmaceuticals",
+    "description": "Drug development, market analysis, and pharmaceutical industry trends"
+  },
+  {
+    "id": 12,
+    "name": "Animal Health",
+    "slug": "animal-health",
+    "description": "Veterinary medicine, animal pharmaceuticals, and companion animal care"
+  }
+]
