@@ -27,21 +27,21 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary:
-        'bg-gradient-to-r from-navy-800 via-ocean-600 to-ocean-500 text-white hover:from-navy-900 hover:via-ocean-700 hover:to-ocean-600 focus:ring-ocean-500 shadow-primary hover:shadow-primary-lg transform hover:scale-[1.02]',
+        'bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] focus:ring-[var(--accent)] shadow-primary hover:shadow-primary-lg transform hover:scale-[1.02]',
       secondary:
-        'bg-slate-50 text-slate-700 hover:bg-slate-100 focus:ring-slate-300 border border-slate-200 hover:border-slate-300 shadow-soft',
+        'bg-[var(--surface)] text-[var(--text-primary)] border border-[var(--border-color)] hover:bg-[var(--surface-raised)] focus:ring-[var(--accent)] shadow-soft',
       outline:
-        'bg-transparent border-2 border-slate-300 text-slate-700 hover:bg-slate-50 hover:border-ocean-600 hover:text-ocean-600 focus:ring-ocean-500 transition-colors',
+        'bg-transparent border-2 border-[var(--teal-border)] text-[var(--text-primary)] hover:border-[var(--accent)] hover:text-[var(--accent)] focus:ring-[var(--accent)] transition-colors',
       ghost:
-        'bg-transparent text-slate-700 hover:bg-slate-100 focus:ring-slate-300',
+        'bg-transparent text-[var(--text-primary)] hover:bg-[var(--surface)] focus:ring-[var(--accent)]',
       danger:
         'bg-red-500 text-white hover:bg-red-600 focus:ring-red-400 shadow-sm hover:shadow-md transform hover:scale-[1.02]',
     };
 
     const sizes = {
       sm: 'px-3 py-1.5 text-sm rounded-lg gap-1.5',
-      md: 'px-5 py-2.5 text-base rounded-xl gap-2',
-      lg: 'px-7 py-3.5 text-lg rounded-xl gap-2.5',
+      md: 'px-5 py-2.5 text-sm rounded-lg gap-2',
+      lg: 'px-7 py-3 text-base rounded-lg gap-2.5',
     };
 
     return (

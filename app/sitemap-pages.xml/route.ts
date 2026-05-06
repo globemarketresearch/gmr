@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 
-const BASE_URL = 'https://www.healthcareforesights.com';
+const BASE_URL = 'https://www.globemarketresearch.com';
 
 export async function GET() {
   const staticPages = [

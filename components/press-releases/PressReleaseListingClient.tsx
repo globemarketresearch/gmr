@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -86,7 +86,7 @@ export default function PressReleaseListingClient({
                 Press Releases
               </h1>
               <p className="text-sm sm:text-base text-slate-500 max-w-2xl mb-4">
-                Latest news and announcements from Healthcare Foresights. Stay informed about our research publications and industry insights.
+                Latest news and announcements from Globe Market Research. Stay informed about our research publications and industry insights.
               </p>
             </div>
           </div>

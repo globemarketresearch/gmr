@@ -1,4 +1,4 @@
-// Data mappers to convert API responses to UI format
+﻿// Data mappers to convert API responses to UI format
 
 import type { ApiReport, Report } from './reports.types';
 import type { ApiBlog, Blog } from './blogs.types';
@@ -385,7 +385,7 @@ export function mapApiBlogToBlog(apiBlog: ApiBlog): Blog {
   const category = apiBlog.category?.name || 'Healthcare Insights';
 
   // Use populated author from API or fallback
-  const author = apiBlog.author?.name || 'Healthcare Foresights';
+  const author = apiBlog.author?.name || 'Globe Market Research';
 
   // Format date
   const date = formatDate(apiBlog.publishDate || apiBlog.createdAt);

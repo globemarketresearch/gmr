@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, Container, Grid, Card, CardContent, Badge, Button } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "About Healthcare Foresights | Healthcare Consulting Experts",
-  description: "Healthcare Foresights is a specialized healthcare consulting firm offering comprehensive advisory services to healthcare providers, life sciences companies, payers, and health technology organizations.",
-  keywords: ["about healthcare foresights", "healthcare consulting firm", "healthcare advisory services", "healthcare transformation", "healthcare analytics"],
+  title: "About Globe Market Research | Healthcare Consulting Experts",
+  description: "Globe Market Research is a specialized healthcare consulting firm offering comprehensive advisory services to healthcare providers, life sciences companies, payers, and health technology organizations.",
+  keywords: ["about Globe Market Research", "healthcare consulting firm", "healthcare advisory services", "healthcare transformation", "healthcare analytics"],
   alternates: {
     canonical: '/about',
   },

@@ -100,7 +100,7 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
     type: 'NewsArticle',
     title: pressRelease.title,
     description: pressRelease.excerpt,
-    url: `https://www.healthcareforesights.com/press-release/${pressRelease.slug}`,
+    url: `https://www.globemarketresearch.com/press-release/${pressRelease.slug}`,
     datePublished: pressRelease.publishDate || pressRelease.createdAt || pressRelease.date,
     dateModified: pressRelease.updatedAt,
     author: pressRelease.authorDetails?.name || pressRelease.author,
@@ -108,9 +108,9 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.healthcareforesights.com' },
-    { name: 'Press Releases', url: 'https://www.healthcareforesights.com/press-releases' },
-    { name: pressRelease.title, url: `https://www.healthcareforesights.com/press-release/${pressRelease.slug}` },
+    { name: 'Home', url: 'https://www.globemarketresearch.com' },
+    { name: 'Press Releases', url: 'https://www.globemarketresearch.com/press-releases' },
+    { name: pressRelease.title, url: `https://www.globemarketresearch.com/press-release/${pressRelease.slug}` },
   ]);
 
   return (

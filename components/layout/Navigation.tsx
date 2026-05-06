@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -91,7 +91,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-slate-100 transition-colors"
+        className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-[var(--surface)] transition-colors"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         aria-expanded={isMobileMenuOpen}
@@ -99,7 +99,7 @@ export default function Navigation() {
         <div className="relative w-5 h-5">
           <span
             className={cn(
-              "absolute left-0 w-5 h-0.5 bg-slate-700 transition-all duration-300",
+              "absolute left-0 w-5 h-0.5 bg-[var(--text-primary)] transition-all duration-300",
               isMobileMenuOpen
                 ? "top-1/2 -translate-y-1/2 rotate-45"
                 : "top-1"
@@ -107,13 +107,13 @@ export default function Navigation() {
           />
           <span
             className={cn(
-              "absolute left-0 top-1/2 -translate-y-1/2 w-5 h-0.5 bg-slate-700 transition-all duration-300",
+              "absolute left-0 top-1/2 -translate-y-1/2 w-5 h-0.5 bg-[var(--text-primary)] transition-all duration-300",
               isMobileMenuOpen ? "opacity-0" : "opacity-100"
             )}
           />
           <span
             className={cn(
-              "absolute left-0 w-5 h-0.5 bg-slate-700 transition-all duration-300",
+              "absolute left-0 w-5 h-0.5 bg-[var(--text-primary)] transition-all duration-300",
               isMobileMenuOpen
                 ? "top-1/2 -translate-y-1/2 -rotate-45"
                 : "bottom-1"
@@ -134,8 +134,8 @@ export default function Navigation() {
       {/* Mobile Menu Drawer */}
       {isMobileMenuOpen && <div
         className={cn(
-          "fixed top-16 right-0 h-[calc(100vh-4rem)] w-72 bg-white z-50 md:hidden",
-          "border-l border-slate-200 shadow-xl",
+          "fixed top-16 right-0 h-[calc(100vh-4rem)] w-72 bg-[var(--bg)] z-50 md:hidden",
+          "border-l border-[var(--border-color)] shadow-xl",
           "overflow-y-auto",
         )}
       >
@@ -147,10 +147,10 @@ export default function Navigation() {
               onClick={() => setIsMobileMenuOpen(false)}
               className={cn(
                 "py-3 px-4 text-base font-medium rounded-lg transition-colors",
-                "hover:bg-slate-100",
+                "hover:bg-[var(--surface)]",
                 pathname === item.href || pathname.startsWith(item.href + "/") || (item.href === "/blogs" && pathname.startsWith("/blog/"))
-                  ? "text-[var(--primary)] bg-slate-50"
-                  : "text-slate-700"
+                  ? "text-[var(--accent)] bg-[var(--surface)]"
+                  : "text-[var(--text-primary)]"
               )}
             >
               {item.name}
@@ -162,10 +162,10 @@ export default function Navigation() {
             onClick={() => setIsMobileMenuOpen(false)}
             className={cn(
               "py-3 px-4 text-base font-medium rounded-lg transition-colors",
-              "hover:bg-slate-100",
+              "hover:bg-[var(--surface)]",
               pathname === "/about"
-                ? "text-[var(--primary)] bg-slate-50"
-                : "text-slate-700"
+                ? "text-[var(--accent)] bg-[var(--surface)]"
+                : "text-[var(--text-primary)]"
             )}
           >
             About Us
@@ -176,18 +176,18 @@ export default function Navigation() {
             onClick={() => setIsMobileMenuOpen(false)}
             className={cn(
               "py-3 px-4 text-base font-medium rounded-lg transition-colors",
-              "hover:bg-slate-100",
+              "hover:bg-[var(--surface)]",
               pathname === "/contact"
-                ? "text-[var(--primary)] bg-slate-50"
-                : "text-slate-700"
+                ? "text-[var(--accent)] bg-[var(--surface)]"
+                : "text-[var(--text-primary)]"
             )}
           >
             Contact
           </Link>
 
           {/* Consulting Section in Mobile */}
-          <div className="mt-4 pt-4 border-t border-slate-200">
-            <span className="px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+          <div className="mt-4 pt-4 border-t border-[var(--border-color)]">
+            <span className="px-4 text-xs font-semibold text-[var(--text-tertiary)] uppercase tracking-wider">
               Consulting &amp; Services
             </span>
             <div className="mt-2 flex flex-col">
@@ -195,10 +195,10 @@ export default function Navigation() {
                 href="/services"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
-                  "py-2 px-4 text-sm font-medium rounded-lg transition-colors hover:bg-slate-100",
+                  "py-2 px-4 text-sm font-medium rounded-lg transition-colors hover:bg-[var(--surface)]",
                   pathname === "/services"
-                    ? "text-[var(--primary)] bg-slate-50"
-                    : "text-slate-700"
+                    ? "text-[var(--accent)] bg-[var(--surface)]"
+                    : "text-[var(--text-primary)]"
                 )}
               >
                 All Services
@@ -208,7 +208,7 @@ export default function Navigation() {
                   key={service.id}
                   href={`/consulting/${service.slug}`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="py-2 px-4 text-sm text-slate-600 rounded-lg hover:bg-slate-100 transition-colors"
+                  className="py-2 px-4 text-sm text-[var(--text-secondary)] rounded-lg hover:bg-[var(--surface)] transition-colors"
                 >
                   {service.title}
                 </Link>
@@ -217,8 +217,8 @@ export default function Navigation() {
           </div>
 
           {/* Reports Section in Mobile */}
-          <div className="mt-4 pt-4 border-t border-slate-200">
-            <span className="px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+          <div className="mt-4 pt-4 border-t border-[var(--border-color)]">
+            <span className="px-4 text-xs font-semibold text-[var(--text-tertiary)] uppercase tracking-wider">
               Reports
             </span>
             <div className="mt-2 flex flex-col">
@@ -227,10 +227,10 @@ export default function Navigation() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
                   "py-3 px-4 text-base font-medium rounded-lg transition-colors",
-                  "hover:bg-slate-100",
+                  "hover:bg-[var(--surface)]",
                   pathname === "/industry"
-                    ? "text-[var(--primary)] bg-slate-50"
-                    : "text-slate-700"
+                    ? "text-[var(--accent)] bg-[var(--surface)]"
+                    : "text-[var(--text-primary)]"
                 )}
               >
                 All Reports
@@ -240,7 +240,7 @@ export default function Navigation() {
                   key={category.id}
                   href={`/industry/${category.slug}`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="py-2 px-4 text-sm text-slate-600 rounded-lg hover:bg-slate-100 transition-colors"
+                  className="py-2 px-4 text-sm text-[var(--text-secondary)] rounded-lg hover:bg-[var(--surface)] transition-colors"
                 >
                   {category.name}
                 </Link>
@@ -253,15 +253,15 @@ export default function Navigation() {
             <Link
               href="/request-sample"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block w-full py-3 px-4 text-center text-white font-medium bg-gradient-to-r from-navy-800 to-ocean-600 rounded-lg hover:from-navy-700 hover:to-ocean-500 transition-all shadow-md"
+              className="block w-full py-3 px-4 text-center text-white font-medium bg-[var(--accent)] rounded-lg hover:bg-[var(--accent-hover)] transition-all shadow-md"
             >
               Request Sample
             </Link>
           </div>
 
           {/* Social Media Links */}
-          <div className="mt-6 pt-6 px-4 border-t border-slate-200">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+          <div className="mt-6 pt-6 px-4 border-t border-[var(--border-color)]">
+            <span className="text-xs font-semibold text-[var(--text-tertiary)] uppercase tracking-wider">
               Follow Us
             </span>
             <div className="mt-3 flex gap-4">
@@ -269,16 +269,16 @@ export default function Navigation() {
                 href="https://www.facebook.com/people/Healthcare-Foresights/61588605652792/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-ocean-600 transition-colors"
+                className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </Link>
               <Link
-                href="https://www.instagram.com/healthcareforesights"
+                href="https://www.instagram.com/GlobeMarketResearch"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-ocean-600 transition-colors"
+                className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -287,7 +287,7 @@ export default function Navigation() {
                 href="https://www.linkedin.com/company/healthcare-foresights/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-ocean-600 transition-colors"
+                className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -296,7 +296,7 @@ export default function Navigation() {
                 href="https://x.com/Healthcare_F"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-ocean-600 transition-colors"
+                className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
                 aria-label="X (Twitter)"
               >
                 <Twitter className="w-5 h-5" />

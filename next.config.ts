@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+﻿import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.healthcareforesights.com',
+        hostname: 'cdn.globemarketresearch.com',
       },
     ],
   },
@@ -39,10 +39,10 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: 'host',
-            value: 'healthcareforesights.com',
+            value: 'globemarketresearch.com',
           },
         ],
-        destination: 'https://www.healthcareforesights.com/:path*',
+        destination: 'https://www.globemarketresearch.com/:path*',
         permanent: true,
       },
       {

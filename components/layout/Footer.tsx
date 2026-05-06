@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone, ChevronRight, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/contact";
@@ -14,11 +14,11 @@ export default function Footer() {
             <Link href="/" className="inline-block">
               <Image
                 src="/assets/images/logo.png"
-                alt="Healthcare Foresights"
+                alt="Globe Market Research"
                 width={180}
                 height={50}
                 sizes="180px"
-                className="h-16 w-auto hover:opacity-80 transition-opacity"
+                className="h-20 w-auto hover:opacity-80 transition-opacity"
               />
             </Link>
             <p className="text-sm text-slate-600 mb-4">
@@ -36,7 +36,7 @@ export default function Footer() {
                 <Facebook className="w-5 h-5" />
               </Link>
               <Link
-                href="https://www.instagram.com/healthcareforesights"
+                href="https://www.instagram.com/GlobeMarketResearch"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-600 hover:text-ocean-600 transition-colors"
@@ -191,7 +191,7 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-slate-200 pt-8 text-center">
           <p className="text-sm text-slate-500">
-            &copy; {currentYear} Healthcare Foresights. All rights reserved.
+            &copy; {currentYear} Globe Market Research. All rights reserved.
           </p>
         </div>
       </div>

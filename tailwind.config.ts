@@ -17,24 +17,25 @@ export default {
   				foreground: 'hsl(var(--primary-foreground))'
   			},
   			'primary-hover': 'var(--primary-hover)',
+  			/* Arctic palette — remapped from healthcare navy/ocean/bright */
   			'navy': {
-  				'950': '#020B1F',
-  				'900': '#0A1F3D',
-  				'800': '#0F2D52',
+  				'950': '#0c1f35',
+  				'900': '#0f2236',
+  				'800': '#1a3450',
   			},
   			'ocean': {
-  				'700': '#1B4B7F',
-  				'600': '#2563A3',
-  				'500': '#3B7CB8',
-  				'400': '#5A94C5',
-  				'300': '#7AACD2',
-  				'200': '#9AC4E0',
-  				'100': '#BADCED',
-  				'50': '#DBF0F9',
+  				'700': '#0369a1',
+  				'600': '#0284c7',
+  				'500': '#0ea5e9',
+  				'400': '#38bdf8',
+  				'300': '#7dd3fc',
+  				'200': '#bae6fd',
+  				'100': '#dde8f0',
+  				'50':  '#eef4f9',
   			},
   			'bright': {
-  				'500': '#00D4FF',
-  				'400': '#33DDFF',
+  				'500': '#38bdf8',
+  				'400': '#7dd3fc',
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',

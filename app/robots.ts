@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next';
+﻿import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/legal/', '/request-customization', '/request-sample', '/request-analyst-meeting', '/checkout/'],
       },
     ],
-    sitemap: 'https://www.healthcareforesights.com/sitemap.xml',
+    sitemap: 'https://www.globemarketresearch.com/sitemap.xml',
   };
 }

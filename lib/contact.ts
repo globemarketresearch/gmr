@@ -1,4 +1,4 @@
-export interface Office {
+﻿export interface Office {
   name: string;
   company: string;
   addressLine1: string;
@@ -27,7 +27,7 @@ export interface ContactInfo {
 }
 
 export const CONTACT_INFO: ContactInfo = {
-  email: 'support@healthcareforesights.com',
+  email: 'support@globemarketresearch.com',
   whatsapp: {
     number: '+18016399061',
     formatted: '+1 801-639-9061',
@@ -36,7 +36,7 @@ export const CONTACT_INFO: ContactInfo = {
   offices: {
     usa: {
       name: 'USA Corporate Office',
-      company: 'CMI Consulting LLC',
+      company: 'Globe Market Research',
       addressLine1: '1333, 701 Tillery Street Unit 12',
       addressLine2: '',
       city: 'Austin',
@@ -50,7 +50,7 @@ export const CONTACT_INFO: ContactInfo = {
     },
     india: {
       name: 'Asia-Pacific Centre',
-      company: 'CMI Market Research Pvt. Ltd.',
+      company: 'Globe Market Research',
       addressLine1: 'B-701, Basileo, MS Kate Chowk',
       addressLine2: 'Pimple Gurav',
       city: 'Pune',

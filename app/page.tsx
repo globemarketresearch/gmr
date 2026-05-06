@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+﻿import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import {
   HeroSection,
@@ -16,11 +16,11 @@ import {
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Healthcare Foresights | Healthcare Market Insights | Reports",
-  description: "Healthcare Foresights delivers trusted market research, insights, trends, forecasts, consulting and data-driven analysis across all healthcare sectors.",
-  keywords: ["healthcare foresights", "healthcare market research", "healthcare insights", "healthcare industry trends", "medical market analysis", "healthcare reports"],
+  title: "Globe Market Research | Healthcare Market Insights | Reports",
+  description: "Globe Market Research delivers trusted market research, insights, trends, forecasts, consulting and data-driven analysis across all healthcare sectors.",
+  keywords: ["Globe Market Research", "healthcare market research", "healthcare insights", "healthcare industry trends", "medical market analysis", "healthcare reports"],
   alternates: {
-    canonical: 'https://www.healthcareforesights.com',
+    canonical: 'https://www.globemarketresearch.com',
   },
 };
 

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { apiFetch } from '@/lib/api/config';
 
-const BASE_URL = 'https://www.healthcareforesights.com';
+const BASE_URL = 'https://www.globemarketresearch.com';
 const ITEMS_PER_SITEMAP = 1000;
 
 interface SitemapItem {

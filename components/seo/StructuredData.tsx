@@ -1,4 +1,4 @@
-import { FC } from 'react';
+﻿import { FC } from 'react';
 
 interface StructuredDataProps {
   data: Record<string, unknown>;
@@ -30,19 +30,19 @@ export const StructuredData: FC<StructuredDataProps> = ({ data }) => {
 export const generateOrganizationSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Healthcare Foresights',
-  url: 'https://www.healthcareforesights.com',
-  logo: 'https://www.healthcareforesights.com/assets/images/logo.png',
-  description: 'Healthcare Foresights delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.',
+  name: 'Globe Market Research',
+  url: 'https://www.globemarketresearch.com',
+  logo: 'https://www.globemarketresearch.com/assets/images/logo.png',
+  description: 'Globe Market Research delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.',
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Customer Service',
-    email: 'support@healthcareforesights.com',
+    email: 'support@globemarketresearch.com',
   },
   sameAs: [
     'https://x.com/Healthcare_F',
     'https://www.linkedin.com/company/healthcare-foresights/',
-    'https://www.instagram.com/healthcareforesights',
+    'https://www.instagram.com/GlobeMarketResearch',
     'https://www.facebook.com/people/Healthcare-Foresights/61588605652792/',
   ],
 });
@@ -53,12 +53,12 @@ export const generateOrganizationSchema = () => ({
 export const generateWebSiteSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Healthcare Foresights',
-  url: 'https://www.healthcareforesights.com',
-  description: 'Healthcare Foresights delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.',
+  name: 'Globe Market Research',
+  url: 'https://www.globemarketresearch.com',
+  description: 'Globe Market Research delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://www.healthcareforesights.com/search?q={search_term_string}',
+    target: 'https://www.globemarketresearch.com/search?q={search_term_string}',
     'query-input': 'required name=search_term_string',
   },
 });
@@ -96,14 +96,14 @@ export const generateArticleSchema = (params: {
       }
     : {
         '@type': 'Organization',
-        name: 'Healthcare Foresights',
+        name: 'Globe Market Research',
       },
   publisher: {
     '@type': 'Organization',
-    name: 'Healthcare Foresights',
+    name: 'Globe Market Research',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://www.healthcareforesights.com/assets/images/logo.png',
+      url: 'https://www.globemarketresearch.com/assets/images/logo.png',
     },
   },
   ...(params.image && {
@@ -173,10 +173,10 @@ export const generateProductSchema = (params: {
     '@type': 'Product',
     name: params.name,
     description: params.description,
-    image: params.image || 'https://www.healthcareforesights.com/assets/images/logo.png',
+    image: params.image || 'https://www.globemarketresearch.com/assets/images/logo.png',
     brand: {
       '@type': 'Brand',
-      name: 'Healthcare Foresights',
+      name: 'Globe Market Research',
     },
     category: params.category || 'Healthcare Market Research Report',
     ...(params.reportCode && { sku: params.reportCode }),
@@ -193,8 +193,8 @@ export const generateProductSchema = (params: {
       itemCondition: 'https://schema.org/NewCondition',
       seller: {
         '@type': 'Organization',
-        name: 'Healthcare Foresights',
-        url: 'https://www.healthcareforesights.com',
+        name: 'Globe Market Research',
+        url: 'https://www.globemarketresearch.com',
       },
       shippingDetails: {
         '@type': 'OfferShippingDetails',
@@ -259,15 +259,15 @@ export const generateDatasetSchema = (params: {
   url: params.url,
   publisher: {
     '@type': 'Organization',
-    name: 'Healthcare Foresights',
-    url: 'https://www.healthcareforesights.com',
+    name: 'Globe Market Research',
+    url: 'https://www.globemarketresearch.com',
   },
   creator: {
     '@type': 'Organization',
-    name: 'Healthcare Foresights',
+    name: 'Globe Market Research',
   },
   datePublished: params.datePublished,
-  license: 'https://www.healthcareforesights.com/legal/terms-of-use',
+  license: 'https://www.globemarketresearch.com/legal/terms-of-use',
   ...(params.keywords && params.keywords.length > 0 && {
     keywords: params.keywords.join(', '),
   }),
@@ -287,17 +287,17 @@ export const generateDatasetSchema = (params: {
 export const generateLocalBusinessSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'Healthcare Foresights',
-  url: 'https://www.healthcareforesights.com',
-  email: 'support@healthcareforesights.com',
+  name: 'Globe Market Research',
+  url: 'https://www.globemarketresearch.com',
+  email: 'support@globemarketresearch.com',
   telephone: '+17377342707',
-  image: 'https://www.healthcareforesights.com/assets/images/logo.png',
+  image: 'https://www.globemarketresearch.com/assets/images/logo.png',
   priceRange: '$$$$',
-  description: 'Healthcare Foresights delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.',
+  description: 'Globe Market Research delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.',
   sameAs: [
     'https://x.com/Healthcare_F',
     'https://www.linkedin.com/company/healthcare-foresights/',
-    'https://www.instagram.com/healthcareforesights',
+    'https://www.instagram.com/GlobeMarketResearch',
     'https://www.facebook.com/people/Healthcare-Foresights/61588605652792/',
   ],
   address: {

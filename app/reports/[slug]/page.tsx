@@ -22,7 +22,7 @@ function processHtmlImages(html: string): string {
   return html.replace(
     /<img([^>]*?)>/gi,
     (match, attrs: string) => {
-      const hasCdnSrc = /src="https:\/\/cdn\.healthcareforesights\.com\//i.test(attrs);
+      const hasCdnSrc = /src="https:\/\/cdn\.globemarketresearch\.com\//i.test(attrs);
       if (!hasCdnSrc) return match;
 
       let newAttrs = attrs;
@@ -364,11 +364,11 @@ export default async function ReportPage({
     (c) => c.name.toLowerCase() === report.category.toLowerCase()
   )?.slug ?? report.category.toLowerCase().replace(/\s+/g, '-');
 
-  const reportUrl = `https://www.healthcareforesights.com/reports/${report.slug}`;
+  const reportUrl = `https://www.globemarketresearch.com/reports/${report.slug}`;
   const reportKeywords = report.meta_keywords?.split(',').map(k => k.trim()).filter(Boolean);
 
   // Generate structured data schemas
-  const reportOgImage = `https://www.healthcareforesights.com/reports/${report.slug}/opengraph-image`;
+  const reportOgImage = `https://www.globemarketresearch.com/reports/${report.slug}/opengraph-image`;
 
   const articleSchema = generateArticleSchema({
     type: 'Report',
@@ -414,8 +414,8 @@ export default async function ReportPage({
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.healthcareforesights.com' },
-    { name: 'Reports', url: 'https://www.healthcareforesights.com/industry' },
+    { name: 'Home', url: 'https://www.globemarketresearch.com' },
+    { name: 'Reports', url: 'https://www.globemarketresearch.com/industry' },
     { name: report.title, url: reportUrl },
   ]);
 

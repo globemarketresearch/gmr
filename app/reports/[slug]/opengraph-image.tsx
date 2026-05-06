@@ -113,7 +113,7 @@ export default async function Image({
               textTransform: 'uppercase',
             }}
           >
-            Healthcare Foresights
+            Globe Market Research
           </div>
         </div>
 
@@ -198,7 +198,7 @@ export default async function Image({
             Market Research Report{reportCode ? ` · ${reportCode}` : ''}
           </div>
           <div style={{ color: 'rgba(38, 166, 154, 0.8)', fontSize: '15px', fontWeight: '600' }}>
-            healthcareforesights.com
+            globemarketresearch.com
           </div>
         </div>
       </div>

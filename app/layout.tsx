@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+﻿import type { Metadata } from "next";
+import { Geist, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -14,24 +14,31 @@ const geistSans = Geist({
   preload: true,
 });
 
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.healthcareforesights.com'),
+  metadataBase: new URL('https://www.globemarketresearch.com'),
   title: {
-    default: "Healthcare Foresights | Healthcare Market Insights & Research Reports",
+    default: "Globe Market Research | Healthcare Market Insights & Research Reports",
     template: "%s",
   },
-  description: "Healthcare Foresights delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.",
-  keywords: ["healthcare foresights", "healthcare market research", "healthcare insights", "healthcare industry trends", "medical market analysis", "healthcare reports"],
-  authors: [{ name: "Healthcare Foresights Team" }],
+  description: "Globe Market Research delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.",
+  keywords: ["Globe Market Research", "healthcare market research", "healthcare insights", "healthcare industry trends", "medical market analysis", "healthcare reports"],
+  authors: [{ name: "Globe Market Research Team" }],
   icons: {
     icon: "/assets/images/favicon.png",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Healthcare Foresights",
-    title: "Healthcare Foresights | Healthcare Market Insights & Research Reports",
-    description: "Healthcare Foresights delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.",
+    siteName: "Globe Market Research",
+    title: "Globe Market Research | Healthcare Market Insights & Research Reports",
+    description: "Globe Market Research delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.",
   },
   robots: {
     index: true,
@@ -44,8 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@HealthcareForesights',
-    creator: '@HealthcareForesights',
+    site: '@GlobeMarketResearch',
+    creator: '@GlobeMarketResearch',
   },
   alternates: {
     canonical: '/',
@@ -69,7 +76,7 @@ export default function RootLayout({
         <StructuredData data={generateWebSiteSchema()} />
         <StructuredData data={generateLocalBusinessSchema()} />
       </head>
-      <body className={`${geistSans.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${inter.variable} antialiased`}>
         <div id="google_translate_element" className="hidden" />
         <Header />
         <main className="min-h-screen">{children}</main>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -12,19 +12,19 @@ export default function Header() {
   const isNotReportPage = !pathname.includes("/reports/");
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-[var(--border-color)] bg-[var(--nav-bg)] backdrop-blur-md shadow-sm">
       <div className={`${isNotReportPage ? 'container mx-auto' : ''} flex h-16 items-center justify-between px-4 md:px-6 gap-2 md:gap-4 w-full`}>
-        <h2 className="sr-only">Healthcare Foresights</h2>
+        <h2 className="sr-only">Globe Market Research</h2>
         <Link href="/" className="flex items-center group flex-shrink-0">
           <Image
             src="/assets/images/logo.png"
-            alt="Healthcare Foresights"
+            alt="Globe Market Research"
             width={180}
             height={50}
             priority
             fetchPriority="high"
             sizes="180px"
-            className="h-10 w-auto md:h-10 transform group-hover:scale-105 transition-transform duration-200"
+            className="h-14 w-auto md:h-14 transform group-hover:scale-105 transition-transform duration-200"
           />
         </Link>
 
@@ -43,7 +43,7 @@ export default function Header() {
         <Navigation />
 
         {/* Language Selector */}
-        <div className="ml-2 pl-2 border-l border-slate-200">
+        <div className="ml-2 pl-2 border-l border-[var(--border-color)]">
           <GoogleTranslate />
         </div>
 

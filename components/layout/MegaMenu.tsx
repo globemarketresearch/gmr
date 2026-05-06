@@ -115,7 +115,7 @@ export default function MegaMenu({ categories, isActive }: MegaMenuProps) {
           "fixed left-0 right-0 z-50",
           // Mobile: full height with scroll, Desktop: auto height
           "lg:top-[64px]",
-          "bg-[var(--background)] border-t border-[var(--border)] shadow-lg bg-[var(--card)]",
+          "bg-[var(--bg)] border-t border-[var(--border-color)] shadow-xl",
           "transition-all duration-300 ease-out",
           // Mobile-specific scrolling styles
           isOpen
@@ -140,8 +140,8 @@ export default function MegaMenu({ categories, isActive }: MegaMenuProps) {
               onClick={() => setIsOpen(false)}
               className={cn(
                 "group block p-4 rounded-lg",
-                "border border-[var(--border)] bg-[var(--card)]",
-                "hover:border-[var(--primary)] hover:shadow-md",
+                "border border-[var(--border-color)] bg-[var(--surface-raised)]",
+                "hover:border-[var(--accent)] hover:shadow-md",
                 "transition-all duration-200",
                 "focus:outline-none focus:ring-2 focus:ring-[var(--primary)]",
                 // Ensure proper touch target size on mobile
@@ -150,10 +150,10 @@ export default function MegaMenu({ categories, isActive }: MegaMenuProps) {
               role="menuitem"
               tabIndex={isOpen ? 0 : -1}
             >
-              <h3 className="font-semibold text-base mb-2 text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors">
+              <h3 className="font-semibold text-base mb-2 text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
                 {category.name}
               </h3>
-              <p className="text-sm text-[var(--muted-foreground)] line-clamp-2">
+              <p className="text-sm text-[var(--text-secondary)] line-clamp-2">
                 {category.description}
               </p>
             </Link>

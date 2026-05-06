@@ -89,16 +89,16 @@ export default async function LegalDetailPage({ params }: LegalPageProps) {
     type: 'Article',
     title: page.title,
     description: page.excerpt,
-    url: `https://www.healthcareforesights.com/legal/${page.slug}`,
+    url: `https://www.globemarketresearch.com/legal/${page.slug}`,
     datePublished: page.lastUpdated,
     dateModified: page.lastUpdated,
     keywords: page.metadata?.keywords,
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.healthcareforesights.com' },
-    { name: 'Legal', url: 'https://www.healthcareforesights.com/legal' },
-    { name: page.title, url: `https://www.healthcareforesights.com/legal/${page.slug}` },
+    { name: 'Home', url: 'https://www.globemarketresearch.com' },
+    { name: 'Legal', url: 'https://www.globemarketresearch.com/legal' },
+    { name: page.title, url: `https://www.globemarketresearch.com/legal/${page.slug}` },
   ]);
 
   // Format date for display
@@ -149,10 +149,10 @@ export default async function LegalDetailPage({ params }: LegalPageProps) {
             <p className="text-lg">
               Contact us at{' '}
               <a
-                href="mailto:support@healthcareforesights.com"
+                href="mailto:support@globemarketresearch.com"
                 className="text-[var(--primary)] hover:underline font-medium"
               >
-                support@healthcareforesights.com
+                support@globemarketresearch.com
               </a>
             </p>
           </div>

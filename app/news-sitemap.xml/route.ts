@@ -1,9 +1,9 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import { getBlogs } from '@/lib/api/blogs';
 import { getPressReleases } from '@/lib/api/press-releases';
 
-const BASE_URL = 'https://www.healthcareforesights.com';
-const PUBLICATION_NAME = 'Healthcare Foresights';
+const BASE_URL = 'https://www.globemarketresearch.com';
+const PUBLICATION_NAME = 'Globe Market Research';
 const PUBLICATION_LANGUAGE = 'en';
 
 export async function GET() {
