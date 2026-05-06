@@ -219,9 +219,10 @@ export function mapApiReportToReport(apiReport: ApiReport): Report {
     : 'Market Research';
 
   // Format price
-  const price = formatPrice(apiReport.price, apiReport.currency);
+  const currency = apiReport.currency || 'USD';
+  const price = formatPrice(apiReport.price, currency);
   const discounted_price = apiReport.discounted_price
-    ? formatPrice(apiReport.discounted_price, apiReport.currency)
+    ? formatPrice(apiReport.discounted_price, currency)
     : undefined;
 
   // Parse key findings from JSON string
