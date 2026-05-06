@@ -5,10 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-        disallow: ['/legal/', '/request-customization', '/request-sample', '/request-analyst-meeting', '/checkout/'],
+        disallow: '/',
       },
     ],
-    sitemap: 'https://www.globemarketresearch.com/sitemap.xml',
   };
 }
