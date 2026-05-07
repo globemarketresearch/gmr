@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button, SearchBar } from '@/components/ui';
 
 const stats = [
@@ -143,42 +144,21 @@ export default function HeroSection() {
                     </span>
                   </div>
 
-                  {/* Mini chart */}
+                  {/* Dashboard image */}
                   <div className="relative mb-5">
                     <div className="flex items-end justify-between mb-2 px-0.5">
                       <span className="font-display text-2xl font-bold text-[var(--text-primary)]">$4.82T</span>
                       <span className="font-body text-xs text-emerald-600 font-semibold">↑ 12.4% YoY</span>
                     </div>
-                    <div className="h-[96px] w-full rounded-xl overflow-hidden bg-ocean-50">
-                      <svg className="w-full h-full" viewBox="0 0 420 96" preserveAspectRatio="none" aria-hidden>
-                        <defs>
-                          <linearGradient id="area-fill-light" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#0284c7" stopOpacity="0.18" />
-                            <stop offset="100%" stopColor="#0284c7" stopOpacity="0.02" />
-                          </linearGradient>
-                          <linearGradient id="line-stroke-light" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stopColor="#0284c7" />
-                            <stop offset="100%" stopColor="#38bdf8" />
-                          </linearGradient>
-                        </defs>
-                        {[24, 48, 72].map(y => (
-                          <line key={y} x1="0" y1={y} x2="420" y2={y} stroke="rgba(2,132,199,0.08)" strokeWidth="1" />
-                        ))}
-                        <path
-                          d="M0,84 C40,81 80,77 120,69 C155,62 170,68 200,57 C230,46 250,40 280,29 C308,18 340,21 370,11 C390,6 406,4 420,3 L420,96 L0,96 Z"
-                          fill="url(#area-fill-light)"
-                        />
-                        <path
-                          d="M0,84 C40,81 80,77 120,69 C155,62 170,68 200,57 C230,46 250,40 280,29 C308,18 340,21 370,11 C390,6 406,4 420,3"
-                          fill="none"
-                          stroke="url(#line-stroke-light)"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <circle cx="420" cy="3" r="4.5" fill="#38bdf8" />
-                        <circle cx="420" cy="3" r="9" fill="#38bdf8" opacity="0.2" />
-                      </svg>
+                    <div className="h-[108px] w-full rounded-xl overflow-hidden">
+                      <Image
+                        src="/assets/other/Data_analytics_dashboard_floating_in_202605080342.jpeg"
+                        alt="Data analytics dashboard"
+                        width={420}
+                        height={108}
+                        className="w-full h-full object-cover object-top"
+                        priority
+                      />
                     </div>
                   </div>
 
@@ -220,7 +200,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Stats bar ──────────────────────────────────────────── */}
-      <div className="relative z-10 border-t border-[var(--border-color)] bg-[var(--surface)]/60">
+      <div className="relative z-10 border-[var(--border-color)] bg-[var(--surface)]/60">
         <div className="max-w-[88rem] mx-auto px-6 lg:px-14 py-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-5 gap-x-6">
             {stats.map(({ value, label }, i) => (

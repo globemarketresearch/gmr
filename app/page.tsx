@@ -4,6 +4,7 @@ import {
   HeroSection,
   FeaturedReportsSection,
   IndustryCategoriesSection,
+  AnalystSection,
   StatsSection,
   TrustedPartnersSection,
   TestimonialsSection,
@@ -30,6 +31,7 @@ export default function HomePage() {
       <HeroSection />
       <FeaturedReportsSection />
       <IndustryCategoriesSection />
+      <AnalystSection />
 
       <Suspense fallback={<StatsSectionSkeleton />}>
         <StatsSection />

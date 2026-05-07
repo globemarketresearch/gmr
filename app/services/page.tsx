@@ -38,7 +38,7 @@ export default function ServicesPage() {
             <div className="w-full lg:w-[48%] flex-shrink-0">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80"
+                  src="/assets/other/Close-up_of_a_laptop_showing_202605080343.jpeg"
                   alt="Business analyst reviewing market research on analytics dashboard"
                   width={720}
                   height={480}

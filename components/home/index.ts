@@ -5,5 +5,6 @@ export { default as StatsSection } from './StatsSection';
 export { default as TrustedPartnersSection } from './TrustedPartnersSection';
 export { default as TestimonialsSection } from './TestimonialsSection';
 export { default as CTASection } from './CTASection';
+export { default as AnalystSection } from './AnalystSection';
 export { default as StatsSectionSkeleton } from './StatsSectionSkeleton';
 export { default as TestimonialsSectionSkeleton } from './TestimonialsSectionSkeleton';

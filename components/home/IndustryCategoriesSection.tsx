@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Section, Container } from '@/components/ui';
 import { truncate } from '@/lib/utils';
 import categories from '@/data/categories.json';
@@ -58,6 +59,16 @@ export default function IndustryCategoriesSection() {
               className="col-span-2 row-span-2 group relative rounded-2xl overflow-hidden bg-[var(--featured-bg)] p-8 flex flex-col justify-between shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${accentColors[0]} opacity-10 group-hover:opacity-20 transition-opacity duration-300`} />
+              {/* Decorative healthcare icon image */}
+              <div className="absolute -bottom-6 -right-6 w-48 h-48 opacity-20 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none">
+                <Image
+                  src="/assets/other/Minimalist_3D_healthcare_industry_icon,_202605080343.jpeg"
+                  alt=""
+                  fill
+                  className="object-cover rounded-full"
+                  aria-hidden
+                />
+              </div>
               <div className="absolute -top-8 -right-8 w-40 h-40 bg-gradient-to-br from-sky-400/20 to-transparent rounded-full blur-2xl" />
               <div className="relative z-10">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${accentColors[0]} flex items-center justify-center mb-4 shadow-lg`}>
