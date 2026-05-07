@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Section, Container, Grid, Card, CardContent, Badge, Button } from "@/components/ui";
 
@@ -14,16 +15,27 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Section padding="lg" background="muted">
+      <Section padding="lg" className="relative overflow-hidden">
+        {/* Background image with overlay */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=80"
+            alt=""
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0 bg-navy-900/75" />
+        </div>
         <Container size="lg">
           <div className="text-center space-y-4">
             <Badge variant="primary" size="md">
               About Us
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold">
+            <h1 className="text-4xl md:text-5xl font-bold text-white">
               Sustainable Healthcare Transformation Through an Integrated Approach
             </h1>
-            <p className="text-lg text-[var(--muted-foreground)] max-w-3xl mx-auto">
+            <p className="text-lg text-white/80 max-w-3xl mx-auto">
               We are a specialized healthcare consulting firm offering comprehensive advisory services to healthcare providers, life sciences companies, payers, and health technology organizations.
             </p>
           </div>
@@ -32,30 +44,49 @@ export default function AboutPage() {
 
       <Section padding="xl">
         <Container size="lg">
-          <div className="max-w-3xl mx-auto space-y-8 text-lg text-[var(--muted-foreground)]">
-            <div>
+          <div className="space-y-16">
+
+            {/* Our Mission */}
+            <div className="max-w-3xl mx-auto text-lg text-[var(--muted-foreground)]">
               <h2 className="text-3xl font-bold text-[var(--foreground)] mb-4">Our Mission</h2>
               <p className="leading-relaxed">
                 Our mission is to enable healthcare stakeholders to utilize data for their decision-making process, leading to improved system resilience and providing high-quality healthcare services to patients at a reasonable cost throughout many locations. We use innovative methods and maintain ethical standards to assist healthcare organizations facing challenges from new reimbursement methods, digital technology changes, and increased patient demands.
               </p>
             </div>
 
-            <div>
-              <h2 className="text-3xl font-bold text-[var(--foreground)] mb-4">Who We Are</h2>
-              <p className="leading-relaxed mb-4">
-                Our firm was founded on the belief that sustainable healthcare transformation requires an integrated approach that combines clinical expertise, regulatory intelligence, operational excellence, and advanced analytics. We assist healthcare providers throughout their operational process by helping them understand regulatory requirements, manage expenses, enhance patient care, and develop strategies for future growth in a market that demands better results.
-              </p>
-              <p className="leading-relaxed">
-                Our team consists of experts who possess multiple professional competencies in clinical practice, healthcare management, health economics, data science, and policy advisory. Our consulting method establishes a direct link between strategic planning and execution, delivering operational recommendations that staff members implement during transformation projects while assisting executives in managing organizational changes and developing new competencies.
-              </p>
+            {/* Who We Are — split layout with image */}
+            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+              <div className="flex-1 space-y-4 text-lg text-[var(--muted-foreground)]">
+                <h2 className="text-3xl font-bold text-[var(--foreground)]">Who We Are</h2>
+                <p className="leading-relaxed">
+                  Our firm was founded on the belief that sustainable healthcare transformation requires an integrated approach that combines clinical expertise, regulatory intelligence, operational excellence, and advanced analytics. We assist healthcare providers throughout their operational process by helping them understand regulatory requirements, manage expenses, enhance patient care, and develop strategies for future growth in a market that demands better results.
+                </p>
+                <p className="leading-relaxed">
+                  Our team consists of experts who possess multiple professional competencies in clinical practice, healthcare management, health economics, data science, and policy advisory. Our consulting method establishes a direct link between strategic planning and execution, delivering operational recommendations that staff members implement during transformation projects while assisting executives in managing organizational changes and developing new competencies.
+                </p>
+              </div>
+              <div className="w-full lg:w-[45%] flex-shrink-0">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+                    alt="Research consultants reviewing market analysis documents"
+                    width={600}
+                    height={420}
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+              </div>
             </div>
 
-            <div>
+            {/* Our Services */}
+            <div className="max-w-3xl mx-auto text-lg text-[var(--muted-foreground)]">
               <h2 className="text-3xl font-bold text-[var(--foreground)] mb-4">Our Services</h2>
               <p className="leading-relaxed">
                 Our portfolio includes a range of services that cover strategic planning, market assessment, operational efficiency improvement, revenue cycle management, digital health transformation, regulatory compliance advisory, and performance enhancement programs. We collaborate with hospitals, diagnostic centers, specialty clinics, pharmaceutical and medical device companies, insurers, and emerging health tech firms to create tailored solutions that meet their specific business objectives.
               </p>
             </div>
+
           </div>
         </Container>
       </Section>

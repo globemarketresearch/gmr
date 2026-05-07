@@ -87,23 +87,25 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <div className={`grid grid-cols-1 gap-8 ${hasFullContent ? 'lg:grid-cols-[240px_1fr_300px] 2xl:grid-cols-[280px_1fr_360px]' : 'lg:grid-cols-[1fr_300px] 2xl:grid-cols-[1fr_380px]'}`}>
       {/* Left Sidebar - TOC Navigation */}
-      <aside className="hidden lg:block lg:col-span-3 2xl:col-span-2">
-        <div className="sticky top-24">
-          {hasFullContent && activeTOC && activeTOC.length > 0 && (
-            <TableOfContents
-              items={activeTOC}
-              onShowFullTOC={() => setShowFullTOC(true)}
-              showFullTOC={showFullTOC}
-              onNavigateToSection={handleNavigateToSection}
-            />
-          )}
-        </div>
-      </aside>
+      {hasFullContent && (
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            {activeTOC && activeTOC.length > 0 && (
+              <TableOfContents
+                items={activeTOC}
+                onShowFullTOC={() => setShowFullTOC(true)}
+                showFullTOC={showFullTOC}
+                onNavigateToSection={handleNavigateToSection}
+              />
+            )}
+          </div>
+        </aside>
+      )}
 
       {/* Main Content Area */}
-      <main className={hasFullContent ? 'lg:col-span-6 2xl:col-span-8' : 'lg:col-span-9  2xl:col-span-8'}>
+      <main>
         {showFullTOC ? (
           <FullReportTOC
             chapters={chapters}
@@ -115,7 +117,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
       </main>
 
       {/* Right Sidebar - CTA Panel */}
-      <aside className={hasFullContent ? 'lg:col-span-3 2xl:col-span-2' : 'lg:col-span-2 2xl:col-span-2'}>
+      <aside className="hidden lg:block">
         <div className="sticky top-24 space-y-4">
           <CustomizeReportCard reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
           <CTAPanel discounted_price={discounted_price} price={price} reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />

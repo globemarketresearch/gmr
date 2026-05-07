@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Section, Container, Grid, Card, CardContent, CardHeader, CardTitle, CardDescription, Badge, Button } from "@/components/ui";
 
@@ -26,6 +27,45 @@ export default function ServicesPage() {
             <p className="text-lg text-[var(--muted-foreground)] max-w-3xl mx-auto">
               From syndicated reports to bespoke research solutions, we provide the insights you need to make confident strategic decisions.
             </p>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Visual feature section */}
+      <Section padding="lg">
+        <Container size="xl">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <div className="w-full lg:w-[48%] flex-shrink-0">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80"
+                  alt="Business analyst reviewing market research on analytics dashboard"
+                  width={720}
+                  height={480}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
+            </div>
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold">Research Designed for Decision-Makers</h2>
+              <p className="text-lg text-[var(--muted-foreground)] leading-relaxed">
+                Our services bridge the gap between raw data and strategic action. Whether you are entering a new market, benchmarking competitors, or forecasting growth, Globe Market Research delivers the clarity you need to act with confidence.
+              </p>
+              <div className="grid grid-cols-2 gap-6 pt-2">
+                {[
+                  { value: "2,500+", label: "Research Reports" },
+                  { value: "50+",   label: "Industry Verticals" },
+                  { value: "1,000+", label: "Global Clients" },
+                  { value: "10+",   label: "Years of Expertise" },
+                ].map(({ value, label }) => (
+                  <div key={label}>
+                    <div className="text-3xl font-bold text-[var(--primary)]">{value}</div>
+                    <div className="text-sm text-[var(--muted-foreground)] mt-1">{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </Container>
       </Section>

@@ -9,6 +9,29 @@ export default {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			display: ['var(--font-inter)', 'Inter', 'ui-sans-serif', 'sans-serif'],
+  			body: ['var(--font-krub)', 'Krub', 'ui-sans-serif', 'sans-serif'],
+  		},
+  		fontSize: {
+  			'display-2xl': ['4.5rem',   { lineHeight: '1.05', letterSpacing: '-0.035em', fontWeight: '700' }],
+  			'display-xl':  ['3.75rem',  { lineHeight: '1.1',  letterSpacing: '-0.03em',  fontWeight: '700' }],
+  			'display-lg':  ['3rem',     { lineHeight: '1.15', letterSpacing: '-0.025em', fontWeight: '700' }],
+  			'display-md':  ['2.25rem',  { lineHeight: '1.2',  letterSpacing: '-0.02em',  fontWeight: '700' }],
+  			'display-sm':  ['1.875rem', { lineHeight: '1.25', letterSpacing: '-0.015em', fontWeight: '600' }],
+  			'body-xl':     ['1.25rem',  { lineHeight: '1.7'  }],
+  			'body-lg':     ['1.125rem', { lineHeight: '1.7'  }],
+  			'body-md':     ['1.0625rem',{ lineHeight: '1.75' }],
+  			'body-sm':     ['0.9375rem',{ lineHeight: '1.65' }],
+  			'label':       ['0.8125rem',{ lineHeight: '1.5',  letterSpacing: '0.04em',  fontWeight: '600' }],
+  		},
+  		lineHeight: {
+  			'reading':       '1.625',
+  			'prose':         '1.75',
+  			'heading-tight': '1.1',
+  			'heading-snug':  '1.2',
+  			'heading-base':  '1.3',
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

@@ -430,13 +430,13 @@ export default async function ReportPage({
       {faqSchema && <StructuredData data={faqSchema} />}
 
       <div className="bg-[var(--background)]">
-        <div className="border-b border-[var(--border)] bg-[var(--card)]">
-          <div className="px-4 py-4 md:px-6">
+        <div className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--card)]">
+          <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <Breadcrumb items={breadcrumbItems} />
+          </div>
         </div>
-      </div>
 
-      <div className="px-4 py-8 md:px-6">
+      <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <ReportContentWrapper
           tableOfContents={sidebarTOC}
           fullReportTOC={report.fullReportTOC}

@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import { Geist, Inter } from "next/font/google";
+import { Inter, Krub } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -7,16 +7,18 @@ import { StructuredData, generateOrganizationSchema, generateWebSiteSchema, gene
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
   preload: true,
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const krub = Krub({
+  variable: "--font-krub",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
   display: "swap",
   preload: true,
 });
@@ -76,7 +78,7 @@ export default function RootLayout({
         <StructuredData data={generateWebSiteSchema()} />
         <StructuredData data={generateLocalBusinessSchema()} />
       </head>
-      <body className={`${geistSans.variable} ${inter.variable} antialiased`}>
+      <body className={`${inter.variable} ${krub.variable} antialiased`}>
         <div id="google_translate_element" className="hidden" />
         <Header />
         <main className="min-h-screen">{children}</main>

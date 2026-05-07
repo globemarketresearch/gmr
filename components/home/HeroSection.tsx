@@ -1,133 +1,246 @@
 import Link from 'next/link';
-import { Section, Container, Button, SearchBar, Badge } from '@/components/ui';
+import { Button, SearchBar } from '@/components/ui';
+
+const stats = [
+  { value: '2,500+', label: 'Research Reports' },
+  { value: '45+', label: 'Industries Covered' },
+  { value: '150+', label: 'Countries Analyzed' },
+  { value: '98%', label: 'Client Satisfaction' },
+];
+
+const industries = [
+  { name: 'Healthcare & Pharma', growth: '+14.2%', color: '#10b981' },
+  { name: 'Technology & AI', growth: '+22.8%', color: '#0284c7' },
+  { name: 'Energy & Utilities', growth: '+8.5%', color: '#f59e0b' },
+  { name: 'Financial Services', growth: '+11.3%', color: '#7c3aed' },
+];
+
+const avatars = [
+  { bg: '#0284c7', letter: 'A' },
+  { bg: '#7c3aed', letter: 'M' },
+  { bg: '#059669', letter: 'S' },
+  { bg: '#d97706', letter: 'R' },
+  { bg: '#dc2626', letter: 'K' },
+];
 
 export default function HeroSection() {
   return (
-    <Section padding="xl" className="relative bg-[var(--bg)]">
-      {/* Advanced gradient mesh background - Full section coverage */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+    <section className="relative overflow-hidden bg-[var(--bg)] flex flex-col">
 
-        {/* Gradient orbs with mesh effect - Optimized with will-change and reduced blur */}
-        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-gradient-to-br from-ocean-500/25 via-ocean-300/15 to-transparent rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-float motion-reduce:animate-none [will-change:transform]"></div>
-        <div className="absolute top-20 -right-40 w-[600px] h-[600px] bg-gradient-to-bl from-ocean-400/25 via-ocean-200/15 to-transparent rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-float motion-reduce:animate-none [will-change:transform]" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute -bottom-20 left-1/3 w-[400px] h-[400px] bg-gradient-to-tr from-navy-800/15 via-ocean-300/10 to-transparent rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-float motion-reduce:animate-none [will-change:transform]" style={{ animationDelay: '4s' }}></div>
+      {/* ── Background decorations ─────────────────────────────── */}
+      <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
+        {/* Dot grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(2,132,199,0.12)_1px,transparent_1px)] bg-[size:28px_28px] [mask-image:radial-gradient(ellipse_85%_70%_at_50%_0%,#000_60%,transparent_100%)]" />
+        {/* Gradient orbs */}
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-ocean-400/20 blur-[120px]" />
+        <div className="absolute top-1/4 -right-48 w-[500px] h-[500px] rounded-full bg-ocean-300/15 blur-[100px]" />
+        <div className="absolute -bottom-16 left-1/3 w-[400px] h-[400px] rounded-full bg-ocean-200/25 blur-[80px]" />
       </div>
 
-      <Container size="lg" className="relative">
-        <div className="flex flex-col items-center text-center space-y-8 relative z-10">
-          {/* Floating badge */}
-          <div className="animate-fadeIn motion-reduce:animate-none [animation-fill-mode:both] [animation-fill-mode:both] flex items-center gap-2">
-            <Badge variant="outline" className="backdrop-blur-sm bg-[var(--surface)]/80 border-[var(--border-color)] text-[var(--text-primary)] px-4 py-1.5 shadow-sm hover:shadow-md transition-shadow">
-              <span className="relative flex h-2 w-2 mr-2">
-                <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-ocean-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-ocean-600"></span>
+      {/* ── Hero body ──────────────────────────────────────────── */}
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="w-full max-w-[88rem] mx-auto px-6 lg:px-14 py-20 lg:py-28">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-14 xl:gap-24 items-center">
+
+            {/* Left: copy */}
+            <div className="flex flex-col items-start gap-7">
+
+              {/* Eyebrow badge */}
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ocean-50 border border-[var(--border-color)] text-[var(--text-secondary)] text-sm font-body font-medium shadow-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ocean-500 opacity-60 motion-reduce:animate-none" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-ocean-600" />
+                </span>
+                Trusted by 500+ Fortune 500 Companies
               </span>
-              Trusted by 500+ Healthcare Leaders
-            </Badge>
-          </div>
 
-          {/* Main headline with modern typography */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--text-primary)] animate-fadeIn motion-reduce:animate-none [animation-fill-mode:both] leading-[1.1]" style={{ animationDelay: '0.05s', letterSpacing: '-0.04em' }}>
-            Transform Healthcare
-            <br />
-            <span className="relative inline-block mt-2">
-              <span className="bg-gradient-to-r from-navy-900 via-ocean-600 to-ocean-400 bg-clip-text text-transparent">
-                Decisions with AI
-              </span>
-              {/* Underline decoration */}
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 500 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 10C150 2.5 350 2.5 498 10" stroke="url(#hero-gradient)" strokeWidth="3" strokeLinecap="round"/>
-                <defs>
-                  <linearGradient id="hero-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#0f2236" />
-                    <stop offset="50%" stopColor="#0284c7" />
-                    <stop offset="100%" stopColor="#38bdf8" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>
-          </h1>
-
-          <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-3xl animate-fadeIn motion-reduce:animate-none [animation-fill-mode:both] leading-relaxed font-light" style={{ animationDelay: '0.1s' }}>
-            Access comprehensive market research, expert analysis, and actionable intelligence
-            to drive strategic decisions in the rapidly evolving healthcare landscape.
-          </p>
-
-          {/* Floating stats cards - glassmorphic */}
-          <div className="hidden lg:flex absolute top-32 -left-12 animate-fadeIn motion-reduce:animate-none [animation-fill-mode:both]" style={{ animationDelay: '0.3s' }}>
-            <div className="backdrop-blur-md bg-[var(--surface-raised)] border border-[var(--border-color)] rounded-xl p-4 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 hover:-translate-y-1">
-              <div className="text-3xl font-bold text-[var(--text-primary)]" style={{ letterSpacing: '-0.04em' }}>2,500+</div>
-              <div className="text-sm text-[var(--text-secondary)]">Reports Published</div>
-            </div>
-          </div>
-
-          <div className="hidden lg:flex absolute top-48 -right-12 animate-fadeIn motion-reduce:animate-none [animation-fill-mode:both]" style={{ animationDelay: '0.4s' }}>
-            <div className="backdrop-blur-md bg-[var(--surface-raised)] border border-[var(--border-color)] rounded-xl p-4 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 hover:-translate-y-1">
-              <div className="text-3xl font-bold text-[var(--text-primary)]" style={{ letterSpacing: '-0.04em' }}>98%</div>
-              <div className="text-sm text-[var(--text-secondary)]">Client Satisfaction</div>
-            </div>
-          </div>
-
-          {/* Search Bar with glassmorphic style */}
-          <div className="w-full max-w-3xl flex justify-center animate-fadeIn motion-reduce:animate-none [animation-fill-mode:both] relative z-50" style={{ animationDelay: '0.15s' }}>
-            <div className="w-full px-4 sm:px-0 backdrop-blur-sm">
-              <SearchBar
-                variant="hero"
-                placeholder="Search reports, categories, regions..."
-                className="w-full shadow-2xl hover:shadow-primary transition-shadow duration-300 rounded-lg"
-              />
-            </div>
-          </div>
-
-          {/* CTA buttons with enhanced styling */}
-          <div className="flex flex-col sm:flex-row gap-4 animate-fadeIn motion-reduce:animate-none [animation-fill-mode:both] z-1" style={{ animationDelay: '0.2s' }}>
-            <Link href="/industry">
-              <Button
-                variant="primary"
-                size="lg"
-                className="group relative overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+              {/* Headline */}
+              <h1
+                className="font-display font-bold text-[var(--text-primary)] leading-[1.08]"
+                style={{ letterSpacing: '-0.03em' }}
               >
-                <span className="relative z-10">View Reports</span>
-                <div className="absolute inset-0 bg-[var(--accent-hover)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button
-                variant="outline"
-                size="lg"
-                className="backdrop-blur-sm bg-[var(--surface)]/60 hover:bg-[var(--surface)] border-[var(--teal-border)] hover:border-[var(--accent)] transition-all duration-300 shadow-md hover:shadow-lg"
-              >
-                Contact Us
-              </Button>
-            </Link>
-          </div>
+                <span className="block text-5xl md:text-6xl xl:text-[4.5rem]">Market Intelligence</span>
+                <span className="block text-5xl md:text-6xl xl:text-[4.5rem] mt-1 text-[#0284c7]">Worldwide.</span>
+              </h1>
 
-          {/* Trust indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-8 animate-fadeIn motion-reduce:animate-none [animation-fill-mode:both]" style={{ animationDelay: '0.25s' }}>
-            <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
-              <svg className="w-5 h-5 text-[var(--accent)]" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              HIPAA Compliant
+              {/* Subtext */}
+              <p className="font-body text-lg text-[var(--text-secondary)] max-w-xl leading-relaxed">
+                Access comprehensive market research, expert analyst forecasts, and real-time
+                industry data to power strategic decisions across 45+ global sectors.
+              </p>
+
+              {/* Search */}
+              <div className="w-full max-w-lg">
+                <SearchBar
+                  variant="hero"
+                  placeholder="Search reports, markets, industries…"
+                  className="w-full"
+                />
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-3">
+                <Link href="/industry">
+                  <Button
+                    size="lg"
+                    className="bg-[#ec652b] hover:bg-[#d4571f] border-0 text-white shadow-lg shadow-[#ec652b]/20 hover:shadow-[#ec652b]/35 hover:-translate-y-0.5 transition-all duration-200 font-display tracking-tight"
+                  >
+                    Browse Reports
+                    <svg className="w-4 h-4 ml-2 -mr-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-[var(--border-color)] text-[var(--text-primary)] hover:bg-[var(--surface)] hover:border-[var(--accent)] hover:-translate-y-0.5 transition-all duration-200 font-display tracking-tight"
+                  >
+                    Talk to an Analyst
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Social proof */}
+              <div className="flex items-center gap-3 pt-1">
+                <div className="flex -space-x-2">
+                  {avatars.map(({ bg, letter }) => (
+                    <div
+                      key={letter}
+                      className="w-8 h-8 rounded-full border-2 border-[var(--bg)] flex items-center justify-center text-white text-xs font-bold font-display flex-shrink-0"
+                      style={{ background: bg }}
+                    >
+                      {letter}
+                    </div>
+                  ))}
+                </div>
+                <p className="font-body text-sm text-[var(--text-secondary)]">
+                  <span className="text-[var(--text-primary)] font-semibold">2,000+</span> analysts rely on our insights
+                </p>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
-              <svg className="w-5 h-5 text-[var(--accent)]" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              ISO Certified
+
+            {/* Right: dashboard visual */}
+            <div className="relative hidden lg:flex items-center justify-center py-8">
+              {/* Soft shadow halo */}
+              <div className="absolute inset-4 bg-ocean-400/10 rounded-3xl blur-3xl" aria-hidden />
+
+              <div className="relative w-full max-w-[460px]">
+
+                {/* Main card */}
+                <div className="relative bg-white border border-[var(--border-color)] rounded-2xl p-6 shadow-[var(--shadow-xl)]">
+
+                  {/* Card header */}
+                  <div className="flex items-start justify-between mb-5">
+                    <div>
+                      <p className="font-body text-[11px] text-[var(--text-tertiary)] uppercase tracking-widest mb-1">Global Market Overview</p>
+                      <p className="font-display text-base font-semibold text-[var(--text-primary)] leading-tight">Q2 2025 Intelligence Report</p>
+                    </div>
+                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 text-[11px] font-medium font-body flex-shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse motion-reduce:animate-none" />
+                      Live
+                    </span>
+                  </div>
+
+                  {/* Mini chart */}
+                  <div className="relative mb-5">
+                    <div className="flex items-end justify-between mb-2 px-0.5">
+                      <span className="font-display text-2xl font-bold text-[var(--text-primary)]">$4.82T</span>
+                      <span className="font-body text-xs text-emerald-600 font-semibold">↑ 12.4% YoY</span>
+                    </div>
+                    <div className="h-[96px] w-full rounded-xl overflow-hidden bg-ocean-50">
+                      <svg className="w-full h-full" viewBox="0 0 420 96" preserveAspectRatio="none" aria-hidden>
+                        <defs>
+                          <linearGradient id="area-fill-light" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#0284c7" stopOpacity="0.18" />
+                            <stop offset="100%" stopColor="#0284c7" stopOpacity="0.02" />
+                          </linearGradient>
+                          <linearGradient id="line-stroke-light" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stopColor="#0284c7" />
+                            <stop offset="100%" stopColor="#38bdf8" />
+                          </linearGradient>
+                        </defs>
+                        {[24, 48, 72].map(y => (
+                          <line key={y} x1="0" y1={y} x2="420" y2={y} stroke="rgba(2,132,199,0.08)" strokeWidth="1" />
+                        ))}
+                        <path
+                          d="M0,84 C40,81 80,77 120,69 C155,62 170,68 200,57 C230,46 250,40 280,29 C308,18 340,21 370,11 C390,6 406,4 420,3 L420,96 L0,96 Z"
+                          fill="url(#area-fill-light)"
+                        />
+                        <path
+                          d="M0,84 C40,81 80,77 120,69 C155,62 170,68 200,57 C230,46 250,40 280,29 C308,18 340,21 370,11 C390,6 406,4 420,3"
+                          fill="none"
+                          stroke="url(#line-stroke-light)"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <circle cx="420" cy="3" r="4.5" fill="#38bdf8" />
+                        <circle cx="420" cy="3" r="9" fill="#38bdf8" opacity="0.2" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Industry rows */}
+                  <div className="space-y-1">
+                    {industries.map(({ name, growth, color }) => (
+                      <div
+                        key={name}
+                        className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-[var(--surface)] transition-colors duration-150"
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
+                          <span className="font-body text-[13px] text-[var(--text-secondary)]">{name}</span>
+                        </div>
+                        <span className="font-body text-[12px] font-semibold tabular-nums" style={{ color }}>{growth}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Floating card — top left */}
+                <div className="absolute -top-5 -left-10 bg-white border border-[var(--border-color)] rounded-xl px-3.5 py-3 shadow-[var(--shadow-card-hover)]">
+                  <p className="font-body text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-0.5">New This Week</p>
+                  <p className="font-display text-xl font-bold text-[var(--text-primary)]">38 Reports</p>
+                  <p className="font-body text-[11px] text-emerald-600 mt-0.5">↑ 6 more than last week</p>
+                </div>
+
+                {/* Floating card — bottom right */}
+                <div className="absolute -bottom-5 -right-10 bg-white border border-[var(--border-color)] rounded-xl px-3.5 py-3 shadow-[var(--shadow-card-hover)]">
+                  <p className="font-body text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-0.5">Forecast Accuracy</p>
+                  <p className="font-display text-xl font-bold text-[var(--text-primary)]">97.4%</p>
+                  <p className="font-body text-[11px] text-[var(--text-secondary)] mt-0.5">Analyst-verified</p>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
-              <svg className="w-5 h-5 text-[var(--accent)]" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              FDA Compliant Data
-            </div>
+
           </div>
         </div>
-      </Container>
-    </Section>
+      </div>
+
+      {/* ── Stats bar ──────────────────────────────────────────── */}
+      <div className="relative z-10 border-t border-[var(--border-color)] bg-[var(--surface)]/60">
+        <div className="max-w-[88rem] mx-auto px-6 lg:px-14 py-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-5 gap-x-6">
+            {stats.map(({ value, label }, i) => (
+              <div
+                key={label}
+                className={`flex flex-col gap-0.5 ${i < stats.length - 1 ? 'lg:border-r border-[var(--border-color)] lg:pr-6' : ''}`}
+              >
+                <span
+                  className="font-display text-3xl font-bold text-[var(--text-primary)]"
+                  style={{ letterSpacing: '-0.03em' }}
+                >
+                  {value}
+                </span>
+                <span className="font-body text-sm text-[var(--text-secondary)]">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+    </section>
   );
 }
