@@ -139,7 +139,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="John Doe"
                           />
                         </div>
@@ -155,7 +155,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="john@company.com"
                           />
                         </div>
@@ -173,7 +173,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.company}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="Your Company"
                           />
                         </div>
@@ -189,7 +189,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.jobTitle}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="VP of Strategy"
                           />
                         </div>
@@ -207,7 +207,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="+1 (555) 000-0000"
                           />
                         </div>
@@ -222,7 +222,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.companySize}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                           >
                             <option value="">Select size</option>
                             <option value="1-50">1-50 employees</option>
@@ -244,7 +244,7 @@ export default function RequestAnalystMeetingPage() {
                           required
                           value={formData.interests}
                           onChange={handleChange}
-                          className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                          className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                         >
                           <option value="">Select primary interest</option>
                           <option value="telemedicine">Telemedicine &amp; Digital Health</option>

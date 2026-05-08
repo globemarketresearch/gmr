@@ -163,7 +163,7 @@ export function CheckoutForm({ reportSlug, reportTitle }: CheckoutFormProps) {
               onChange={handleChange}
               required
               placeholder="John Smith"
-              className="w-full border border-[var(--border)] rounded-md px-3 py-2 text-sm bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+              className="w-full border border-gray-900 rounded-md px-3 py-2 text-sm bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
             />
           </div>
 
@@ -178,7 +178,7 @@ export function CheckoutForm({ reportSlug, reportTitle }: CheckoutFormProps) {
               onChange={handleChange}
               required
               placeholder="john@company.com"
-              className="w-full border border-[var(--border)] rounded-md px-3 py-2 text-sm bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+              className="w-full border border-gray-900 rounded-md px-3 py-2 text-sm bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
             />
             <p className="text-xs text-[var(--muted-foreground)] mt-1">Your report will be sent to this address.</p>
           </div>
@@ -193,7 +193,7 @@ export function CheckoutForm({ reportSlug, reportTitle }: CheckoutFormProps) {
               value={details.customer_company}
               onChange={handleChange}
               placeholder="Acme Corp"
-              className="w-full border border-[var(--border)] rounded-md px-3 py-2 text-sm bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+              className="w-full border border-gray-900 rounded-md px-3 py-2 text-sm bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
             />
           </div>
 
@@ -208,7 +208,7 @@ export function CheckoutForm({ reportSlug, reportTitle }: CheckoutFormProps) {
               onChange={handleChange}
               required
               placeholder="123 Main Street, Suite 4"
-              className="w-full border border-[var(--border)] rounded-md px-3 py-2 text-sm bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+              className="w-full border border-gray-900 rounded-md px-3 py-2 text-sm bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
             />
           </div>
 
@@ -233,7 +233,7 @@ export function CheckoutForm({ reportSlug, reportTitle }: CheckoutFormProps) {
                 value={details.customer_phone}
                 onChange={handleChange}
                 placeholder="+1 234 567 8900"
-                className="w-full border border-[var(--border)] rounded-md px-3 py-2 text-sm bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                className="w-full border border-gray-900 rounded-md px-3 py-2 text-sm bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
               />
             </div>
           </div>

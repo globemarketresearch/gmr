@@ -64,7 +64,7 @@ export const Captcha = forwardRef<CaptchaRef, CaptchaProps>(
           Enter Captcha *
         </label>
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 px-4 py-2 bg-[var(--muted)] border border-[var(--border)] rounded-lg">
+          <div className="flex items-center gap-2 px-4 py-2 bg-[var(--muted)] border border-gray-900 rounded-lg">
             <span className="text-lg font-semibold">
               {num1} + {num2} =
             </span>
@@ -80,7 +80,7 @@ export const Captcha = forwardRef<CaptchaRef, CaptchaProps>(
               "w-24 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 bg-[var(--background)]",
               isValid && userAnswer
                 ? "border-green-500 focus:ring-green-500"
-                : "border-[var(--border)] focus:ring-[var(--primary)]"
+                : "border-gray-900 focus:ring-[var(--primary)]"
             )}
             placeholder="?"
             aria-label="Captcha answer"

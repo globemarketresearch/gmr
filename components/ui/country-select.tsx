@@ -75,7 +75,7 @@ export function CountrySelect({
         type="button"
         onClick={() => !disabled && setIsOpen(!isOpen)}
         disabled={disabled}
-        className={`w-full px-4 py-2 text-left border border-gray-300 rounded-md bg-white
+        className={`w-full px-4 py-2 text-left border border-gray-900 rounded-md bg-white
           hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500
           focus:border-transparent transition-all duration-200 flex items-center justify-between
           ${disabled ? "bg-gray-100 cursor-not-allowed" : "cursor-pointer"}
@@ -107,7 +107,7 @@ export function CountrySelect({
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search countries..."
-              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md
+              className="w-full px-3 py-2 text-sm border border-gray-900 rounded-md
                 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>

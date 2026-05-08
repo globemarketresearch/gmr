@@ -176,7 +176,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                             required
                             value={formData.fullName}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="John Doe"
                           />
                         </div>
@@ -192,7 +192,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                             required
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="john@company.com"
                           />
                         </div>
@@ -210,7 +210,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                             required
                             value={formData.company}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="Your Company"
                           />
                         </div>
@@ -226,7 +226,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                             required
                             value={formData.jobTitle}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="VP of Strategy"
                           />
                         </div>
@@ -254,7 +254,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="123-456-7890"
                           />
                         </div>
@@ -271,7 +271,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                           required
                           value={formData.reportTitle}
                           onChange={handleChange}
-                          className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                          className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                           placeholder="E.g., Telemedicine Market Report 2025-2032"
                         />
                         <p className="text-xs text-[var(--muted-foreground)] mt-1">
