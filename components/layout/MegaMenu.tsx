@@ -8,7 +8,8 @@ interface Category {
   id: number;
   name: string;
   slug: string;
-  description: string;
+  description?: string;
+  image?: string;
 }
 
 interface MegaMenuProps {
@@ -144,9 +145,11 @@ export default function MegaMenu({ categories, isActive }: MegaMenuProps) {
                     <h3 className="text-[12.5px] font-semibold text-[#1a2b3c] group-hover:text-sky-700 transition-colors duration-150 leading-tight">
                       {category.name}
                     </h3>
-                    <p className="text-[11px] text-[#8a9aaa] mt-1 line-clamp-2 leading-snug">
-                      {category.description}
-                    </p>
+                    {category.description && (
+                      <p className="text-[11px] text-[#8a9aaa] mt-1 line-clamp-2 leading-snug">
+                        {category.description}
+                      </p>
+                    )}
                   </div>
                 </div>
               </Link>

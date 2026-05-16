@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import Link from 'next/link';
 import { getReports, getBlogs, getPressReleases, isApiError } from '@/lib/api';
 import { ReportsListingClient } from '@/components/reports';
 import IndustryHero from '@/components/reports/IndustryHero';
@@ -26,30 +25,14 @@ async function ReportsContent() {
     sort_by: 'publish_date_desc',
   });
 
-  if (isApiError(response)) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center space-y-4">
-          <h2 className="text-2xl font-bold text-gray-900">Unable to Load Reports</h2>
-          <p className="text-gray-600">{response.message}</p>
-          <Link
-            href="/industry"
-            className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Try Again
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  const totalItems = response.meta?.totalItems ?? response.data.length;
+  const reports = isApiError(response) ? [] : response.data;
+  const totalItems = isApiError(response) ? 0 : (response.meta?.totalItems ?? response.data.length);
 
   return (
     <ReportsListingClient
-      reports={response.data}
+      reports={reports}
       totalItems={totalItems}
-      totalPages={response.meta?.totalPages ?? 1}
+      totalPages={isApiError(response) ? 1 : (response.meta?.totalPages ?? 1)}
     />
   );
 }

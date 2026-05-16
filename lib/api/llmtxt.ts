@@ -42,7 +42,8 @@ interface Category {
   id: number;
   name: string;
   slug: string;
-  description: string;
+  description?: string;
+  image?: string;
 }
 
 export function generateLLMTxt(): string {
@@ -56,9 +57,9 @@ export function generateLLMTxt(): string {
   let content = '';
 
   // Site Overview
-  content += '# Healthcare Market Research\n\n';
+  content += '# Globe Market Research\n\n';
   content += '## Site Overview\n\n';
-  content += 'A comprehensive healthcare market research and consulting firm delivering business insights, market research reports, and strategic advisory services to organizations across the healthcare and life sciences ecosystem. We provide data-driven intelligence covering pharmaceuticals, biotechnology, medical devices, diagnostics, healthcare IT, and therapeutic areas.\n\n';
+  content += 'A comprehensive global market research and consulting firm delivering business insights, market research reports, and strategic advisory services to organizations across diverse industries including aerospace, automotive, chemicals, consumer goods, healthcare, technology, energy, and more.\n\n';
   content += `Total Research Reports: ${reports.length}\n`;
   content += `Statistics Articles: ${blogs.length}\n`;
   content += `Consulting Services: ${services.length}\n`;
@@ -69,7 +70,7 @@ export function generateLLMTxt(): string {
   categories.forEach(cat => {
     const reportCount = reports.filter(r => r.category === cat.name).length;
     content += `### ${cat.name}\n`;
-    content += `${cat.description}\n`;
+    if (cat.description) content += `${cat.description}\n`;
     content += `Reports: ${reportCount} | URL: ${baseUrl}/categories/${cat.slug}\n\n`;
   });
 

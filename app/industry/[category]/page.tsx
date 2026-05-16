@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${category.name} Market Research Reports`,
-    description: category.description,
+    description: (category as { description?: string }).description ?? `${category.name} market research reports and industry analysis.`,
     keywords: [
       `${category.name} market research`,
       `${category.name} reports`,

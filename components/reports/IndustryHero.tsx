@@ -4,7 +4,8 @@ interface Category {
   id: number;
   name: string;
   slug: string;
-  description: string;
+  description?: string;
+  image?: string;
 }
 
 interface IndustryHeroProps {
@@ -12,18 +13,19 @@ interface IndustryHeroProps {
 }
 
 const CATEGORY_ICONS: Record<string, string> = {
-  'Biotechnology': '🧬',
-  'Clinical Diagnostics': '🔬',
-  'Healthcare Services': '🏥',
-  'Laboratory Equipment': '⚗️',
-  'Healthcare IT': '💻',
-  'Medical Devices': '🩺',
-  'Medical Imaging': '🩻',
-  'Therapeutic Area': '💊',
-  'Life Sciences': '🧪',
-  'Dental': '🦷',
-  'Pharmaceuticals': '🏭',
-  'Animal Health': '🐾',
+  'Aerospace and Defence': '✈️',
+  'Automotive and Transportation': '🚗',
+  'Chemical and Material': '⚗️',
+  'Consumer Goods': '🛍️',
+  'Manufacturing and Construction': '🏗️',
+  'Semiconductor and Electronics': '💡',
+  'Healthcare and Pharmaceuticals': '🏥',
+  'Food and Beverages': '🍽️',
+  'Information and Technology': '💻',
+  'Agriculture': '🌾',
+  'Energy and Power': '⚡',
+  'Packaging': '📦',
+  'Smart Technologies': '🤖',
 };
 
 export default function IndustryHero({ activeCategory }: IndustryHeroProps) {
@@ -107,9 +109,8 @@ export default function IndustryHero({ activeCategory }: IndustryHeroProps) {
             </h1>
 
             <p className="text-sm sm:text-[15px] leading-relaxed max-w-2xl" style={{ color: 'rgba(255,255,255,0.6)' }}>
-              {activeCategory
-                ? activeCategory.description
-                : 'Browse comprehensive healthcare market research reports across all industry segments.'}
+              {activeCategory?.description
+                ?? 'Browse comprehensive market research reports across all industry segments.'}
             </p>
           </div>
         </div>

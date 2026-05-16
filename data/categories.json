@@ -1,74 +1,93 @@
 [
   {
     "id": 1,
-    "name": "Biotechnology",
-    "slug": "biotechnology",
-    "description": "Biotechnology advances, gene therapy, and personalized medicine innovations"
+    "name": "Aerospace and Defence",
+    "slug": "aerospace-and-defence",
+    "description": "Covers aerospace, aviation, military systems, defense technologies, satellites, unmanned systems, and related global market intelligence.",
+    "image": "https://cdn.healthcareforesights.com/Aerospace and Defence.png"
   },
   {
     "id": 2,
-    "name": "Clinical Diagnostics",
-    "slug": "clinical-diagnostics",
-    "description": "Diagnostic testing, laboratory diagnostics, and clinical analysis solutions"
+    "name": "Automotive and Transportation",
+    "slug": "automotive-and-transportation",
+    "description": "Includes automotive manufacturing, electric vehicles, mobility solutions, public transportation, logistics, and transportation infrastructure markets.",
+    "image": "https://cdn.healthcareforesights.com/Automotive and Transportation.png"
   },
   {
     "id": 3,
-    "name": "Healthcare Services",
-    "slug": "healthcare-services",
-    "description": "Healthcare delivery, workforce, and service provision trends"
+    "name": "Chemical and Material",
+    "slug": "chemical-and-material",
+    "description": "Focuses on chemicals, specialty materials, advanced materials, polymers, coatings, composites, and industrial material innovations.",
+    "image": "https://cdn.healthcareforesights.com/Chemical and Material.png"
   },
   {
     "id": 4,
-    "name": "Laboratory Equipment",
-    "slug": "laboratory-equipment",
-    "description": "Laboratory instruments, equipment, and automation technologies"
+    "name": "Consumer Goods",
+    "slug": "consumer-goods",
+    "description": "Encompasses consumer products, retail trends, household goods, personal care, lifestyle products, and evolving consumer market insights.",
+    "image": "https://cdn.healthcareforesights.com/Consumer Goods.png"
   },
   {
     "id": 5,
-    "name": "Healthcare IT",
-    "slug": "healthcare-it",
-    "description": "Digital health technologies, telemedicine, and healthcare information systems"
+    "name": "Manufacturing and Construction",
+    "slug": "manufacturing-and-construction",
+    "description": "Covers industrial manufacturing, construction technologies, machinery, automation, smart factories, and infrastructure development sectors.",
+    "image": "https://cdn.healthcareforesights.com/Manufacturing and Construction.png"
   },
   {
     "id": 6,
-    "name": "Medical Devices",
-    "slug": "medical-devices",
-    "description": "Innovation and market dynamics in medical equipment and devices"
+    "name": "Semiconductor and Electronics",
+    "slug": "semiconductor-and-electronics",
+    "description": "Includes semiconductor technologies, electronic components, embedded systems, microchips, consumer electronics, and hardware innovation markets.",
+    "image": "https://cdn.healthcareforesights.com/Semiconductor and Electronics.png"
   },
   {
     "id": 7,
-    "name": "Medical Imaging",
-    "slug": "medical-imaging",
-    "description": "Imaging technologies, radiology equipment, and diagnostic imaging solutions"
+    "name": "Healthcare and Pharmaceuticals",
+    "slug": "healthcare-and-pharmaceuticals",
+    "description": "Focuses on healthcare services, pharmaceuticals, biotechnology, medical devices, diagnostics, and emerging healthcare innovations.",
+    "image": "https://cdn.healthcareforesights.com/Healthcare and Pharmaceuticals.png"
   },
   {
     "id": 8,
-    "name": "Therapeutic Area",
-    "slug": "therapeutic-area",
-    "description": "Treatment approaches, clinical therapies, and patient care across therapeutic domains"
+    "name": "Food and Beverages",
+    "slug": "food-and-beverages",
+    "description": "Covers food processing, beverages, nutrition, packaged foods, food technologies, ingredients, and global consumer food trends.",
+    "image": "https://cdn.healthcareforesights.com/Food and Beverages.png"
   },
   {
     "id": 9,
-    "name": "Life Sciences",
-    "slug": "life-sciences",
-    "description": "Life sciences industry trends, research, policy, and regulatory developments"
+    "name": "Information and Technology",
+    "slug": "information-and-technology",
+    "description": "Encompasses information technology, software, cloud computing, cybersecurity, artificial intelligence, data analytics, and digital transformation.",
+    "image": "https://cdn.healthcareforesights.com/Information and Technology.png"
   },
   {
     "id": 10,
-    "name": "Dental",
-    "slug": "dental",
-    "description": "Dental care, oral health products, and dental technology innovations"
+    "name": "Agriculture",
+    "slug": "agriculture",
+    "description": "Includes agriculture technologies, farming equipment, crop protection, agri-business, precision farming, and sustainable agriculture solutions.",
+    "image": "https://cdn.healthcareforesights.com/Agriculture.png"
   },
   {
     "id": 11,
-    "name": "Pharmaceuticals",
-    "slug": "pharmaceuticals",
-    "description": "Drug development, market analysis, and pharmaceutical industry trends"
+    "name": "Energy and Power",
+    "slug": "energy-and-power",
+    "description": "Focuses on renewable energy, conventional power generation, energy storage, utilities, oil and gas, and smart energy infrastructure.",
+    "image": "https://cdn.healthcareforesights.com/Energy and Power.png"
   },
   {
     "id": 12,
-    "name": "Animal Health",
-    "slug": "animal-health",
-    "description": "Veterinary medicine, animal pharmaceuticals, and companion animal care"
+    "name": "Packaging",
+    "slug": "packaging",
+    "description": "Covers packaging materials, sustainable packaging, labeling, containers, industrial packaging solutions, and packaging technology innovations.",
+    "image": "https://cdn.healthcareforesights.com/Packaging.png"
+  },
+  {
+    "id": 13,
+    "name": "Smart Technologies",
+    "slug": "smart-technologies",
+    "description": "Includes IoT, smart devices, automation systems, connected technologies, smart cities, digital ecosystems, and intelligent technology solutions.",
+    "image": "https://cdn.healthcareforesights.com/Smart Technologies.png"
   }
 ]
