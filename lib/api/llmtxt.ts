@@ -60,7 +60,7 @@ export function generateLLMTxt(): string {
   content += '## Site Overview\n\n';
   content += 'A comprehensive healthcare market research and consulting firm delivering business insights, market research reports, and strategic advisory services to organizations across the healthcare and life sciences ecosystem. We provide data-driven intelligence covering pharmaceuticals, biotechnology, medical devices, diagnostics, healthcare IT, and therapeutic areas.\n\n';
   content += `Total Research Reports: ${reports.length}\n`;
-  content += `Blog Articles: ${blogs.length}\n`;
+  content += `Statistics Articles: ${blogs.length}\n`;
   content += `Consulting Services: ${services.length}\n`;
   content += `Content Categories: ${categories.length}\n\n`;
 
@@ -108,15 +108,15 @@ export function generateLLMTxt(): string {
     content += `URL: ${baseUrl}/reports/${report.slug}\n\n`;
   });
 
-  // Blog Posts
-  content += '## Blog & Insights\n\n';
+  // Statistics Posts
+  content += '## Statistics & Insights\n\n';
   content += 'Expert analysis, industry insights, and thought leadership covering emerging trends in healthcare and life sciences.\n\n';
 
   blogs.forEach(blog => {
     content += `### ${blog.title}\n`;
     content += `${blog.excerpt}\n`;
     content += `Author: ${blog.author} | Category: ${blog.category} | Published: ${blog.date} | ${blog.readTime}\n`;
-    content += `URL: ${baseUrl}/blog/${blog.slug}\n\n`;
+    content += `URL: ${baseUrl}/statistic/${blog.slug}\n\n`;
   });
 
   // Consulting Services
@@ -147,7 +147,7 @@ export function generateLLMTxt(): string {
   content += '### Main Pages\n\n';
   content += `- Home: ${baseUrl}/\n`;
   content += `- Research Reports: ${baseUrl}/reports\n`;
-  content += `- Blog & Insights: ${baseUrl}/blog\n`;
+  content += `- Statistics & Insights: ${baseUrl}/statistics\n`;
   content += `- Consulting Services: ${baseUrl}/consulting\n`;
   content += `- About Us: ${baseUrl}/about\n`;
   content += `- Contact: ${baseUrl}/contact\n\n`;

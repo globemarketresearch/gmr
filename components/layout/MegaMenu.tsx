@@ -53,7 +53,7 @@ export default function MegaMenu({ categories, isActive }: MegaMenuProps) {
         aria-label="Browse reports by category"
         className={cn(
           "relative text-[13px] font-medium tracking-wide transition-colors duration-150 whitespace-nowrap py-1",
-          "flex items-center gap-1 cursor-pointer",
+          "flex items-center gap-1 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40 focus-visible:ring-offset-1 focus-visible:ring-offset-transparent rounded",
           isActive ? "text-white" : "text-white/55 hover:text-white/90"
         )}
       >
@@ -131,7 +131,7 @@ export default function MegaMenu({ categories, isActive }: MegaMenuProps) {
                 onClick={() => setIsOpen(false)}
                 role="menuitem"
                 tabIndex={isOpen ? 0 : -1}
-                className="group block p-3.5 rounded-xl border border-transparent hover:border-sky-100 hover:bg-sky-50/70 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-sky-400/30"
+                className="group block p-3.5 rounded-xl border border-transparent hover:border-sky-100 hover:bg-sky-50/70 transition-all duration-150 outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40"
                 style={{ animationDelay: `${i * 20}ms` }}
               >
                 <div className="flex items-start gap-2.5">

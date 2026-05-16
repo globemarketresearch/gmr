@@ -32,7 +32,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
   };
 
   return (
-    <Card className="border border-[var(--border)] h-full">
+    <Card className="border border-slate-200 h-full">
       <CardContent className="space-y-4 p-6">
         {/* Header with profile image + name/role */}
         <div className="flex items-start gap-4">

@@ -16,7 +16,7 @@ export async function GET() {
     const blogEntries =
       blogsRes.success && blogsRes.data
         ? blogsRes.data.map((blog) => ({
-            url: `${BASE_URL}/blog/${blog.slug}`,
+            url: `${BASE_URL}/statistic/${blog.slug}`,
             title: blog.title,
             publishDate: blog.publishDate || blog.updatedAt || blog.date,
           }))

@@ -9,7 +9,7 @@ module.exports = {
       url: [
         'http://localhost:3000/',
         'http://localhost:3000/industry',
-        'http://localhost:3000/blog',
+        'http://localhost:3000/statistics',
         'http://localhost:3000/about',
         'http://localhost:3000/services',
         'http://localhost:3000/contact',

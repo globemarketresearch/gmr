@@ -59,7 +59,7 @@ export async function GET() {
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/blog`,
+      url: `${BASE_URL}/statistics`,
       lastModified: new Date().toISOString(),
       changeFrequency: 'daily',
       priority: 0.8,

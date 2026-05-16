@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import {
@@ -88,7 +88,7 @@ export default function RequestAnalystMeetingPage() {
       <Section className="pt-8">
         <Container size="lg">
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Left Column – Form (2/3 width) */}
+            {/* Left Column â€“ Form (2/3 width) */}
             <div className="lg:col-span-2">
               <Card>
                 <CardHeader>
@@ -139,7 +139,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="John Doe"
                           />
                         </div>
@@ -155,7 +155,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="john@company.com"
                           />
                         </div>
@@ -173,7 +173,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.company}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="Your Company"
                           />
                         </div>
@@ -189,7 +189,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.jobTitle}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="VP of Strategy"
                           />
                         </div>
@@ -207,7 +207,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="+1 (555) 000-0000"
                           />
                         </div>
@@ -222,7 +222,7 @@ export default function RequestAnalystMeetingPage() {
                             required
                             value={formData.companySize}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                           >
                             <option value="">Select size</option>
                             <option value="1-50">1-50 employees</option>
@@ -244,7 +244,7 @@ export default function RequestAnalystMeetingPage() {
                           required
                           value={formData.interests}
                           onChange={handleChange}
-                          className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                         >
                           <option value="">Select primary interest</option>
                           <option value="telemedicine">Telemedicine &amp; Digital Health</option>
@@ -290,10 +290,10 @@ export default function RequestAnalystMeetingPage() {
                           What to Expect:
                         </h4>
                         <ul className="text-sm text-blue-800 space-y-1">
-                          <li>• Live walkthrough of our research platform and reports</li>
-                          <li>• Discussion of your specific research needs</li>
-                          <li>• Overview of subscription options and pricing</li>
-                          <li>• Q&amp;A session with our product experts</li>
+                          <li>â€¢ Live walkthrough of our research platform and reports</li>
+                          <li>â€¢ Discussion of your specific research needs</li>
+                          <li>â€¢ Overview of subscription options and pricing</li>
+                          <li>â€¢ Q&amp;A session with our product experts</li>
                         </ul>
                       </div>
 
@@ -337,12 +337,12 @@ export default function RequestAnalystMeetingPage() {
                   >
                     {CONTACT_INFO.offices.india.phoneFormatted}
                   </a>{" "}
-                  (India) - 24×7 Support
+                  (India) - 24Ã—7 Support
                 </p>
               </div>
             </div>
 
-            {/* Right Column – Quick Contact & Trusted Partners (1/3 width) */}
+            {/* Right Column â€“ Quick Contact & Trusted Partners (1/3 width) */}
             <div className="space-y-6">
               <QuickContactSection />
               <TrustedPartnersSidebar />
@@ -427,3 +427,4 @@ export default function RequestAnalystMeetingPage() {
     </>
   );
 }
+

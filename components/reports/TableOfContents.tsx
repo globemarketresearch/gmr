@@ -105,34 +105,28 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
         {onShowFullTOC && (
           <button
             onClick={onShowFullTOC}
-            className="mb-5 w-full group relative flex-shrink-0 overflow-hidden rounded-lg active:scale-[0.985] transition-all duration-200"
-            style={{ boxShadow: '0 4px 14px 0 rgba(37,99,163,0.28)' }}
+            className="mb-5 w-full group relative flex-shrink-0 overflow-hidden rounded-xl active:scale-[0.985] transition-all duration-200"
+            style={{ boxShadow: '0 4px 16px 0 rgba(2,132,199,0.30)' }}
           >
-            {/* Ocean-navy gradient base — matches site's --gradient-primary */}
-            <div className="relative flex items-center gap-3 px-4 py-3.5 bg-gradient-to-br from-[#0F2D52] via-[#2563A3] to-[#3B7CB8] rounded-lg">
-              {/* Bright-cyan inner highlight edge at top */}
-              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#00D4FF]/50 to-transparent" />
-              {/* Shine sweep on hover */}
+            <div className="relative flex items-center gap-3 px-4 py-3.5 bg-gradient-to-br from-[#0f2236] via-[#0284c7] to-[#0ea5e9] rounded-xl">
+              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
               <div
                 className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/[0.09] to-transparent pointer-events-none"
                 style={{ transition: 'transform 0.7s ease' }}
               />
-              {/* Icon — cyan accent */}
               <svg
-                className="w-4 h-4 text-[#00D4FF] flex-shrink-0"
+                className="w-4 h-4 text-sky-200 flex-shrink-0"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 11h16M4 16h10" />
               </svg>
-              {/* Label */}
               <span className="text-white text-[12px] font-semibold uppercase tracking-[0.1em] leading-none">
                 Table of Contents
               </span>
-              {/* Chevron — lights up cyan on hover */}
               <svg
-                className="w-3.5 h-3.5 text-white/40 ml-auto flex-shrink-0 group-hover:text-[#00D4FF] group-hover:translate-x-0.5 transition-all duration-200"
+                className="w-3.5 h-3.5 text-white/40 ml-auto flex-shrink-0 group-hover:text-sky-200 group-hover:translate-x-0.5 transition-all duration-200"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -142,35 +136,60 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
             </div>
           </button>
         )}
-        <h3 className="text-sm font-semibold text-[var(--foreground)] mb-4 uppercase tracking-wide flex-shrink-0">
-          Report Details
-        </h3>
+
+        {/* Header */}
+        <div className="flex items-center gap-2 mb-4 flex-shrink-0">
+          <div className="w-1 h-4 rounded-full bg-[var(--primary)]" />
+          <h3 className="text-[11px] font-bold text-[var(--primary)] uppercase tracking-[0.12em]">
+            Report Details
+          </h3>
+        </div>
+
         <div ref={scrollContainerRef} className="flex-1 overflow-y-auto pb-4">
-          <ul className="space-y-3">
-            {items.map((item) => (
-              <li
-                key={item.id}
-                ref={activeId === item.id ? activeItemRef : null}
-                className={cn(
-                  'transition-all duration-200'
-                )}
-              >
-                <a
-                  href={`#${item.id}`}
-                  onClick={(e) => handleClick(e, item.id)}
-                  className={cn(
-                    'block py-3 px-4 border-l-4 transition-all duration-200 rounded-md',
-                    'bg-white hover:bg-gray-50',
-                    'shadow-sm hover:shadow-md',
-                    activeId === item.id
-                      ? 'border-[#8b5cf6] text-[var(--foreground)] font-medium bg-[#f3e9ff]'
-                      : 'border-[#e9d5ff] text-[var(--foreground)] hover:border-[#c084fc]'
-                  )}
+          <ul className="space-y-1.5">
+            {items.map((item, index) => {
+              const isActive = activeId === item.id;
+              return (
+                <li
+                  key={item.id}
+                  ref={isActive ? activeItemRef : null}
+                  className="transition-all duration-200"
                 >
-                  {item.title}
-                </a>
-              </li>
-            ))}
+                  <a
+                    href={`#${item.id}`}
+                    onClick={(e) => handleClick(e, item.id)}
+                    className={cn(
+                      'group flex items-center gap-3 py-2.5 px-3.5 rounded-lg transition-all duration-200',
+                      isActive
+                        ? 'bg-[var(--primary)] text-white shadow-md shadow-[rgba(2,132,199,0.25)]'
+                        : 'bg-white hover:bg-[var(--accent-muted)] text-[var(--foreground)] border border-gray-100 hover:border-[var(--primary)] shadow-sm'
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        'flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold transition-colors duration-200',
+                        isActive
+                          ? 'bg-white/20 text-white'
+                          : 'bg-gray-100 text-gray-400 group-hover:bg-[var(--primary)] group-hover:text-white'
+                      )}
+                    >
+                      {index + 1}
+                    </span>
+                    <span className={cn(
+                      'text-sm leading-snug transition-colors duration-200',
+                      isActive ? 'font-semibold' : 'font-medium'
+                    )}>
+                      {item.title}
+                    </span>
+                    {isActive && (
+                      <svg className="w-3.5 h-3.5 ml-auto flex-shrink-0 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                      </svg>
+                    )}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

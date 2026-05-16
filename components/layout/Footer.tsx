@@ -10,7 +10,7 @@ export default function Footer() {
 
   const quickLinks = [
     { href: "/industry", label: "Research Reports" },
-    { href: "/blogs", label: "Blog" },
+    { href: "/statistics", label: "Statistics" },
     { href: "/press-releases", label: "Press Releases" },
     { href: "/about", label: "About Us" },
     { href: "/contact", label: "Contact" },

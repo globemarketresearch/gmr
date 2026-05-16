@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui";
 
-export default function BlogLoading() {
+export default function StatisticsLoading() {
   return (
     <>
       {/* ── Hero Banner Skeleton ───────────────────────────────────── */}
@@ -25,7 +25,7 @@ export default function BlogLoading() {
         </div>
       </div>
 
-      {/* ── Blog List ─────────────────────────────────────────────── */}
+      {/* ── Statistics List ─────────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <main>
           {/* Meta row */}

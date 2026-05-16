@@ -1,27 +1,27 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import type { PressRelease } from '@/lib/api/press-releases.types';
-import PressReleaseListCard from './PressReleaseListCard';
+import type { Blog } from '@/lib/api/blogs.types';
+import StatisticsListCard from './StatisticsListCard';
 import Pagination from '@/components/reports/Pagination';
-import { getPressReleases, isApiError } from '@/lib/api';
+import { getBlogs, isApiError } from '@/lib/api';
 
 const ITEMS_PER_PAGE = 8;
 
-interface PressReleaseListingClientProps {
-  pressReleases: PressRelease[];
+interface StatisticsListingClientProps {
+  blogs: Blog[];
   totalItems: number;
   totalPages: number;
 }
 
-export default function PressReleaseListingClient({
-  pressReleases: initialPressReleases,
+export default function StatisticsListingClient({
+  blogs: initialBlogs,
   totalItems: initialTotalItems,
   totalPages: initialTotalPages,
-}: PressReleaseListingClientProps) {
-  const storageKey = 'press_releases_page';
-  const [pressReleases, setPressReleases] = useState<PressRelease[]>(initialPressReleases);
+}: StatisticsListingClientProps) {
+  const storageKey = 'statistics_page';
+  const [blogs, setBlogs] = useState<Blog[]>(initialBlogs);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(initialTotalPages);
   const [totalItems, setTotalItems] = useState(initialTotalItems);
@@ -39,14 +39,9 @@ export default function PressReleaseListingClient({
 
   async function fetchPage(page: number) {
     setIsLoading(true);
-    const response = await getPressReleases({
-      status: 'published',
-      page,
-      limit: ITEMS_PER_PAGE,
-      sort_by: 'publish_date_desc',
-    });
+    const response = await getBlogs({ status: 'published', page, limit: ITEMS_PER_PAGE, sort_by: 'publish_date_desc' });
     if (!isApiError(response)) {
-      setPressReleases(response.data);
+      setBlogs(response.data);
       if (response.meta) {
         setTotalPages(response.meta.totalPages);
         setTotalItems(response.meta.totalItems);
@@ -59,7 +54,7 @@ export default function PressReleaseListingClient({
     setCurrentPage(page);
     sessionStorage.setItem(storageKey, String(page));
     await fetchPage(page);
-    document.getElementById('press-releases-list')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('statistics-list')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -89,7 +84,7 @@ export default function PressReleaseListingClient({
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-            <span style={{ color: 'rgba(255,255,255,0.7)' }}>Press Releases</span>
+            <span style={{ color: 'rgba(255,255,255,0.7)' }}>Statistics</span>
           </nav>
 
           <div className="flex items-start gap-5">
@@ -101,7 +96,7 @@ export default function PressReleaseListingClient({
                 border: '1px solid rgba(2,132,199,0.3)',
               }}
             >
-              📢
+              📊
             </div>
             <div>
               <span
@@ -109,22 +104,22 @@ export default function PressReleaseListingClient({
                 style={{ background: 'rgba(2,132,199,0.2)', color: '#7dd3fc', border: '1px solid rgba(2,132,199,0.3)' }}
               >
                 <svg className="w-2.5 h-2.5" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="3"/></svg>
-                News & Announcements
+                Data & Analysis
               </span>
               <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-3" style={{ color: '#fff', letterSpacing: '-0.03em' }}>
-                Press Releases
+                Statistics & Insights
               </h1>
               <p className="text-sm sm:text-[15px] leading-relaxed max-w-2xl" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                Latest news and announcements from Globe Market Research. Stay informed about our research publications and industry insights.
+                Expert perspectives on healthcare market trends, emerging technologies, and industry transformations.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ── Press Release List ───────────────────────────────────── */}
+      {/* ── Statistics List ─────────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <main id="press-releases-list">
+        <main id="statistics-list">
 
           {isLoading ? (
             <div className="space-y-4 mt-4">
@@ -132,20 +127,20 @@ export default function PressReleaseListingClient({
                 <div key={i} className="h-32 bg-[var(--surface)] animate-pulse rounded-xl" />
               ))}
             </div>
-          ) : pressReleases.length > 0 ? (
+          ) : blogs.length > 0 ? (
             <>
               <div>
-                {pressReleases.map((pr) => (
-                  <PressReleaseListCard key={pr.id} pressRelease={pr} />
+                {blogs.map((blog) => (
+                  <StatisticsListCard key={blog.id} blog={blog} />
                 ))}
               </div>
               <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             </>
           ) : (
             <div className="text-center py-20 border border-dashed border-[var(--border-color)] rounded-xl mt-4">
-              <div className="text-5xl mb-4">📢</div>
-              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">No press releases found</h3>
-              <p className="text-sm text-[var(--text-tertiary)]">Check back later for new announcements</p>
+              <div className="text-5xl mb-4">📊</div>
+              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">No articles found</h3>
+              <p className="text-sm text-[var(--text-tertiary)]">Check back later for new content</p>
             </div>
           )}
         </main>

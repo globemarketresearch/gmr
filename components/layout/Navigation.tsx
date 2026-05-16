@@ -13,7 +13,7 @@ import { ConsultingService } from "@/lib/api/consulting.types";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Blog", href: "/blogs" },
+  { name: "Statistics", href: "/statistics" },
   { name: "Press Releases", href: "/press-releases" },
 ];
 
@@ -21,7 +21,7 @@ function NavLink({ href, label, pathname }: { href: string; label: string; pathn
   const isActive =
     pathname === href ||
     pathname.startsWith(href + "/") ||
-    (href === "/blogs" && pathname.startsWith("/blog/"));
+    (href === "/statistics" && pathname.startsWith("/statistic/"));
 
   return (
     <Link
@@ -76,7 +76,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg hover:bg-white/8 transition-colors"
+        className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg hover:bg-white/8 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         aria-expanded={isMobileMenuOpen}
@@ -125,7 +125,7 @@ export default function Navigation() {
           <span className="text-white/40 text-xs font-semibold tracking-[0.12em] uppercase">Navigation</span>
           <button
             onClick={() => setIsMobileMenuOpen(false)}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-white/30 hover:text-white/70 hover:bg-white/5 transition-colors"
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-white/30 hover:text-white/70 hover:bg-white/5 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40"
             aria-label="Close menu"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

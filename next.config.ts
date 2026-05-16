@@ -26,8 +26,8 @@ const nextConfig: NextConfig = {
           destination: '/api/sitemap-reports/:page',
         },
         {
-          source: '/sitemap-blogs-:page.xml',
-          destination: '/api/sitemap-blogs/:page',
+          source: '/sitemap-statistics-:page.xml',
+          destination: '/api/sitemap-statistics/:page',
         },
         {
           source: '/sitemap-press-releases-:page.xml',
@@ -50,8 +50,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/blogs/:category',
-        destination: '/blogs',
+        source: '/statistics/:category',
+        destination: '/statistics',
         permanent: true,
       },
       {

@@ -64,7 +64,7 @@ export default function ConsultingMenu({ services, isActive }: ConsultingMenuPro
         aria-label="Browse consulting services"
         className={cn(
           "relative text-[13px] font-medium tracking-wide transition-colors duration-150 whitespace-nowrap py-1",
-          "flex items-center gap-1 cursor-pointer",
+          "flex items-center gap-1 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/40 focus-visible:ring-offset-1 focus-visible:ring-offset-transparent rounded",
           isActive ? "text-white" : "text-white/55 hover:text-white/90"
         )}
       >
@@ -158,7 +158,7 @@ export default function ConsultingMenu({ services, isActive }: ConsultingMenuPro
                       onClick={() => setIsOpen(false)}
                       role="menuitem"
                       tabIndex={isOpen ? 0 : -1}
-                      className="group flex items-start gap-3 p-3 rounded-xl border border-transparent hover:border-emerald-100 hover:bg-emerald-50/50 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-400/30"
+                      className="group flex items-start gap-3 p-3 rounded-xl border border-transparent hover:border-emerald-100 hover:bg-emerald-50/50 transition-all duration-150 outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/40"
                     >
                       <div className="mt-0.5 w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 bg-slate-100 group-hover:bg-emerald-100 transition-colors duration-150 text-slate-400 group-hover:text-emerald-500">
                         {categoryIcons.default}

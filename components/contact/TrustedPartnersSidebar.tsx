@@ -18,7 +18,7 @@ const partners: Partner[] = [
 
 export default function TrustedPartnersSidebar() {
   return (
-    <div className="bg-white rounded-lg p-4 border border-[var(--border)]">
+    <div className="bg-white rounded-lg p-4">
       <h2 className="text-xl font-bold text-[var(--foreground)] mb-3">
         Trusted Partner
       </h2>

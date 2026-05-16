@@ -30,42 +30,83 @@ export default function IndustryHero({ activeCategory }: IndustryHeroProps) {
   const categoryIcon = activeCategory ? (CATEGORY_ICONS[activeCategory.name] || '📊') : null;
 
   return (
-    <div className="bg-gradient-to-r from-slate-50 via-blue-50/40 to-slate-50 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
+    <div
+      className="relative overflow-hidden border-b border-[var(--border-color)]"
+      style={{ background: 'var(--featured-bg)' }}
+    >
+      {/* Dot-grid atmospheric background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: `radial-gradient(circle, rgba(2,132,199,0.18) 1px, transparent 1px)`,
+          backgroundSize: '28px 28px',
+          maskImage: 'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+        }}
+      />
+      {/* Accent glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-10"
+        style={{ background: 'radial-gradient(circle, #0284c7, transparent 70%)' }}
+      />
 
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
         {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-slate-400 mb-5">
-          <Link href="/" className="hover:text-[#2563A3] transition-colors">Home</Link>
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs mb-6" style={{ color: 'rgba(255,255,255,0.45)' }}>
+          <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
-          <Link href="/industry" className="hover:text-[#2563A3] transition-colors">Reports</Link>
+          <Link href="/industry" className="hover:text-white transition-colors">Reports</Link>
           {activeCategory && (
             <>
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
-              <span className="text-slate-600 font-medium">{activeCategory.name}</span>
+              <span style={{ color: 'rgba(255,255,255,0.7)' }}>{activeCategory.name}</span>
             </>
           )}
         </nav>
 
-        <div className="flex items-start gap-4">
-          {activeCategory && categoryIcon && (
+        <div className="flex items-start gap-5">
+          {categoryIcon && (
             <div
-              className="hidden sm:flex items-center justify-center w-14 h-14 rounded-2xl bg-white border border-slate-200 text-3xl shadow-sm shrink-0 mt-0.5"
               aria-hidden="true"
+              className="hidden sm:flex items-center justify-center w-16 h-16 rounded-2xl text-3xl shrink-0 mt-0.5"
+              style={{
+                background: 'rgba(2,132,199,0.15)',
+                border: '1px solid rgba(2,132,199,0.3)',
+                backdropFilter: 'blur(8px)',
+              }}
             >
               {categoryIcon}
             </div>
           )}
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2 leading-tight">
+
+          <div className="flex-1 min-w-0">
+            {/* Label chip */}
+            <span
+              className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mb-3"
+              style={{
+                background: 'rgba(2,132,199,0.2)',
+                color: '#7dd3fc',
+                border: '1px solid rgba(2,132,199,0.3)',
+              }}
+            >
+              <svg className="w-2.5 h-2.5" viewBox="0 0 10 10" fill="currentColor">
+                <circle cx="5" cy="5" r="3"/>
+              </svg>
+              Market Intelligence
+            </span>
+
+            <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-3" style={{ color: '#fff', letterSpacing: '-0.03em' }}>
               {activeCategory
                 ? `${activeCategory.name} Market Research Reports`
                 : 'Healthcare Research Reports'}
             </h1>
-            <p className="text-sm sm:text-base text-slate-500 max-w-2xl mb-4">
+
+            <p className="text-sm sm:text-[15px] leading-relaxed max-w-2xl" style={{ color: 'rgba(255,255,255,0.6)' }}>
               {activeCategory
                 ? activeCategory.description
                 : 'Browse comprehensive healthcare market research reports across all industry segments.'}

@@ -19,41 +19,70 @@ export default function ReportCard({ report }: ReportCardProps) {
   }
   if (!formattedDate) formattedDate = report.year || '';
 
-  return (
-    <Link href={`/reports/${report.slug}`} className="group block">
-      <article className="relative py-6 pl-5 -ml-5
-        before:absolute before:left-0 before:top-4 before:bottom-4 before:w-[3px]
-        before:rounded-full before:bg-transparent before:transition-all before:duration-300
-        group-hover:before:bg-[var(--accent)]
-        transition-colors duration-200">
+  const priceNum = report.price ? parseInt(report.price.replace(/[^0-9]/g, '')) : 0;
+  const hasPrice = priceNum > 0;
 
-        {/* Category + Date */}
-        <div className="flex items-center gap-2.5 mb-2">
-          <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--accent)]">
-            {report.category}
-          </span>
+  return (
+    <Link href={`/reports/${report.slug}`} className="group block mb-3">
+      <article
+        className="relative rounded-xl px-5 py-5 transition-all duration-200 border"
+        style={{
+          background: 'var(--surface-raised)',
+          borderColor: 'var(--border-color)',
+          boxShadow: 'var(--shadow-card)',
+        }}
+        onMouseEnter={(e) => {
+          const el = e.currentTarget;
+          el.style.borderColor = 'var(--accent)';
+          el.style.boxShadow = 'var(--shadow-card-hover)';
+          el.style.transform = 'translateY(-1px)';
+        }}
+        onMouseLeave={(e) => {
+          const el = e.currentTarget;
+          el.style.borderColor = 'var(--border-color)';
+          el.style.boxShadow = 'var(--shadow-card)';
+          el.style.transform = 'translateY(0)';
+        }}
+      >
+        {/* Top row: category chip + date + region */}
+        <div className="flex items-center justify-between gap-3 mb-3">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span
+              className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full"
+              style={{ background: 'var(--accent-muted)', color: 'var(--accent)' }}
+            >
+              {report.category}
+            </span>
+            {report.reportType && (
+              <span
+                className="text-[10px] font-medium uppercase tracking-wide px-2 py-0.5 rounded-full"
+                style={{ background: 'var(--surface)', color: 'var(--text-tertiary)', border: '1px solid var(--border-color)' }}
+              >
+                {report.reportType}
+              </span>
+            )}
+          </div>
           {formattedDate && (
-            <>
-              <span className="text-[var(--text-tertiary)] text-xs">·</span>
-              <time className="text-xs text-[var(--text-tertiary)]">{formattedDate}</time>
-            </>
+            <time className="text-xs shrink-0" style={{ color: 'var(--text-tertiary)' }}>{formattedDate}</time>
           )}
         </div>
 
         {/* Title */}
-        <h3 className="text-[17px] font-bold text-[var(--text-primary)] leading-snug mb-2
-          group-hover:text-[var(--accent)] transition-colors duration-200">
+        <h3
+          className="text-[16px] font-bold leading-snug mb-2 transition-colors duration-200 group-hover:text-[var(--accent)]"
+          style={{ color: 'var(--text-primary)' }}
+        >
           {report.title}
         </h3>
 
         {/* Excerpt */}
-        <p className="text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-2 mb-3">
+        <p className="text-sm leading-relaxed line-clamp-2 mb-4" style={{ color: 'var(--text-secondary)' }}>
           {report.summary}
         </p>
 
         {/* Footer row */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3 text-xs text-[var(--text-tertiary)]">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3 text-xs" style={{ color: 'var(--text-tertiary)' }}>
             <span className="flex items-center gap-1">
               <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -61,24 +90,30 @@ export default function ReportCard({ report }: ReportCardProps) {
               </svg>
               {report.region}
             </span>
-            <span className="text-[var(--text-tertiary)]">|</span>
-            <span>{report.reportType}</span>
             {report.pages > 0 && (
               <>
-                <span className="text-[var(--text-tertiary)]">|</span>
+                <span style={{ color: 'var(--border-color)' }}>·</span>
                 <span>{report.pages} pages</span>
               </>
             )}
           </div>
 
-          <span className="text-xs font-semibold text-[var(--accent)] flex items-center gap-1
-            opacity-0 group-hover:opacity-100 translate-x-1 group-hover:translate-x-0
-            transition-all duration-200">
-            Read Report
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </span>
+          <div className="flex items-center gap-3 shrink-0">
+            {hasPrice && (
+              <span className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>
+                {report.price}
+              </span>
+            )}
+            <span
+              className="text-xs font-semibold flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-1 group-hover:translate-x-0"
+              style={{ color: 'var(--accent)' }}
+            >
+              View Report
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
         </div>
       </article>
     </Link>

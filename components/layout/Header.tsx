@@ -33,7 +33,7 @@ export default function Header() {
   return (
     <div ref={stickyRef} className="sticky top-0 z-50 w-full">
       {/* Announcement bar */}
-      {announcementVisible && (
+      {/* {announcementVisible && (
         <div className="relative bg-[#071524] text-white text-xs py-2 px-4 text-center flex items-center justify-center gap-3 border-b border-white/5">
           <span className="inline-flex items-center gap-1.5 bg-sky-500/10 text-sky-300 border border-sky-500/20 px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wide uppercase">
             <span className="w-1 h-1 rounded-full bg-sky-400 animate-pulse" />
@@ -58,14 +58,12 @@ export default function Header() {
             </svg>
           </button>
         </div>
-      )}
+      )} */}
 
       <header
         className="w-full relative transition-all duration-300"
         style={{
-          background: scrolled
-            ? "rgba(7, 18, 36, 0.97)"
-            : "linear-gradient(180deg, #081828 0%, #0a1e30 100%)",
+          background: "rgba(8, 24, 40, 0.97)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
           boxShadow: scrolled
@@ -91,18 +89,11 @@ export default function Header() {
 
           {/* Search — desktop */}
           <div className="hidden lg:flex flex-1 max-w-sm xl:max-w-md mx-6">
-            <div className="relative w-full">
-              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                <svg className="w-3.5 h-3.5 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-              <SearchBar
-                variant="header"
-                placeholder="Search reports, industries…"
-                className="w-full [&_input]:pl-9 [&_input]:bg-white/[0.06] [&_input]:border-white/10 [&_input]:text-white/80 [&_input]:placeholder:text-white/25 [&_input]:rounded-lg [&_input]:text-sm [&_input]:h-9 [&_input:focus]:border-sky-500/40 [&_input:focus]:bg-white/[0.08] [&_input:focus]:ring-0"
-              />
-            </div>
+            <SearchBar
+              variant="header"
+              placeholder="Search reports, industries…"
+              className="w-full [&_input]:bg-white/[0.06] [&_input]:border-white/10 [&_input]:text-white/80 [&_input]:placeholder:text-white/25 [&_input]:rounded-lg [&_input]:text-sm [&_input]:h-9 [&_input:focus]:border-sky-500/40 [&_input:focus]:bg-white/[0.08] [&_input:focus]:ring-0 [&_svg:not(.clear-icon)]:text-white/30"
+            />
           </div>
 
           {/* Right side: Nav + actions */}

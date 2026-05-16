@@ -1,25 +1,25 @@
 import { Suspense } from "react";
-import BlogListingClient from "@/components/blog/BlogListingClient";
+import StatisticsListingClient from "@/components/statistics/StatisticsListingClient";
 import { getBlogs, isApiError } from "@/lib/api";
-import BlogLoading from "@/app/blog/loading";
+import StatisticsLoading from "@/app/statistic/loading";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Healthcare Insights Blog | Trends, News & Analysis",
-  description: "Read expert blogs on healthcare trends, innovations, policy updates, market developments, and industry insights.",
-  keywords: ["healthcare blog", "healthcare insights", "healthcare trends", "medical industry news", "healthcare analysis"],
+  title: "Healthcare Statistics | Trends, News & Analysis",
+  description: "Read expert statistics on healthcare trends, innovations, policy updates, market developments, and industry insights.",
+  keywords: ["healthcare statistics", "healthcare insights", "healthcare trends", "medical industry news", "healthcare analysis"],
   alternates: {
-    canonical: '/blogs',
+    canonical: '/statistics',
   },
 };
 
 export const revalidate = 300;
 
-async function BlogsContent() {
+async function StatisticsContent() {
   const response = await getBlogs({ status: 'published', page: 1, limit: 8, sort_by: 'publish_date_desc' });
 
   if (isApiError(response)) {
-    console.error('Failed to fetch blogs:', response.message);
+    console.error('Failed to fetch statistics:', response.message);
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center space-y-4">
@@ -34,7 +34,7 @@ async function BlogsContent() {
   const totalPages = response.meta?.totalPages ?? 1;
 
   return (
-    <BlogListingClient
+    <StatisticsListingClient
       blogs={response.data}
       totalItems={totalItems}
       totalPages={totalPages}
@@ -42,10 +42,10 @@ async function BlogsContent() {
   );
 }
 
-export default function BlogsPage() {
+export default function StatisticsPage() {
   return (
-    <Suspense fallback={<BlogLoading />}>
-      <BlogsContent />
+    <Suspense fallback={<StatisticsLoading />}>
+      <StatisticsContent />
     </Suspense>
   );
 }

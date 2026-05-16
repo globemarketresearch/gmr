@@ -1,29 +1,29 @@
 import Link from 'next/link';
-import type { PressRelease } from '@/lib/api/press-releases.types';
+import type { Blog } from '@/lib/api/blogs.types';
 
-interface PressReleaseListCardProps {
-  pressRelease: PressRelease;
+interface StatisticsListCardProps {
+  blog: Blog;
 }
 
-export default function PressReleaseListCard({ pressRelease }: PressReleaseListCardProps) {
+export default function StatisticsListCard({ blog }: StatisticsListCardProps) {
   let formattedDate = '';
   try {
-    if (pressRelease.date) {
-      const d = new Date(pressRelease.date);
+    if (blog.date) {
+      const d = new Date(blog.date);
       if (!isNaN(d.getTime())) {
         formattedDate = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
       }
     }
   } catch {
-    formattedDate = pressRelease.date || '';
+    formattedDate = blog.date || '';
   }
 
-  const initials = pressRelease.author
-    ? pressRelease.author.split(' ').map((n: string) => n[0]).join('').slice(0, 2).toUpperCase()
+  const initials = blog.author
+    ? blog.author.split(' ').map((n: string) => n[0]).join('').slice(0, 2).toUpperCase()
     : 'GM';
 
   return (
-    <Link href={`/press-release/${pressRelease.slug}`} className="group block mb-3">
+    <Link href={`/statistic/${blog.slug}`} className="group block mb-3">
       <article
         className="relative rounded-xl px-5 py-5 transition-all duration-200 border"
         style={{
@@ -50,7 +50,7 @@ export default function PressReleaseListCard({ pressRelease }: PressReleaseListC
             className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full"
             style={{ background: 'var(--accent-muted)', color: 'var(--accent)' }}
           >
-            {pressRelease.category || 'Press Release'}
+            {blog.category || 'Statistics'}
           </span>
           {formattedDate && (
             <time className="text-xs shrink-0" style={{ color: 'var(--text-tertiary)' }}>{formattedDate}</time>
@@ -62,12 +62,12 @@ export default function PressReleaseListCard({ pressRelease }: PressReleaseListC
           className="text-[16px] font-bold leading-snug mb-2 transition-colors duration-200 group-hover:text-[var(--accent)]"
           style={{ color: 'var(--text-primary)' }}
         >
-          {pressRelease.title}
+          {blog.title}
         </h3>
 
         {/* Excerpt */}
         <p className="text-sm leading-relaxed line-clamp-2 mb-4" style={{ color: 'var(--text-secondary)' }}>
-          {pressRelease.excerpt}
+          {blog.excerpt}
         </p>
 
         {/* Footer: author + meta + CTA */}
@@ -80,12 +80,12 @@ export default function PressReleaseListCard({ pressRelease }: PressReleaseListC
               {initials}
             </div>
             <span className="text-xs font-medium" style={{ color: 'var(--text-secondary)' }}>
-              {pressRelease.author}
+              {blog.author}
             </span>
-            {pressRelease.readTime && (
+            {blog.readTime && (
               <>
                 <span style={{ color: 'var(--border-color)' }} className="text-xs">·</span>
-                <span className="text-xs" style={{ color: 'var(--text-tertiary)' }}>{pressRelease.readTime}</span>
+                <span className="text-xs" style={{ color: 'var(--text-tertiary)' }}>{blog.readTime}</span>
               </>
             )}
           </div>
@@ -94,7 +94,7 @@ export default function PressReleaseListCard({ pressRelease }: PressReleaseListC
             className="text-xs font-semibold flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-1 group-hover:translate-x-0 shrink-0"
             style={{ color: 'var(--accent)' }}
           >
-            Read More
+            Read Article
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

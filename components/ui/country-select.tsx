@@ -75,11 +75,11 @@ export function CountrySelect({
         type="button"
         onClick={() => !disabled && setIsOpen(!isOpen)}
         disabled={disabled}
-        className={`w-full px-4 py-2 text-left border border-gray-900 rounded-md bg-white
-          hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500
+        className={`w-full px-4 py-2 text-left border border-[var(--border-color)] rounded-md bg-white
+          hover:border-[var(--primary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]
           focus:border-transparent transition-all duration-200 flex items-center justify-between
           ${disabled ? "bg-gray-100 cursor-not-allowed" : "cursor-pointer"}
-          ${isOpen ? "ring-2 ring-purple-500 border-transparent" : ""}`}
+          ${isOpen ? "ring-2 ring-[var(--primary)] border-transparent" : ""}`}
       >
         <div className="flex items-center gap-2">
           <span className="text-xl pb-1">{selectedCountry.flag}</span>
@@ -107,8 +107,8 @@ export function CountrySelect({
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search countries..."
-              className="w-full px-3 py-2 text-sm border border-gray-900 rounded-md
-                focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-3 py-2 text-sm border border-[var(--border-color)] rounded-md
+                focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent"
             />
           </div>
 
@@ -120,11 +120,11 @@ export function CountrySelect({
                   key={country.code}
                   type="button"
                   onClick={() => handleSelect(country)}
-                  className={`w-full px-4 py-2 text-left hover:bg-purple-50 flex items-center
+                  className={`w-full px-4 py-2 text-left hover:bg-sky-50 flex items-center
                     gap-2 transition-colors duration-150
                     ${
                       selectedCountry.code === country.code
-                        ? "bg-purple-100 text-purple-700"
+                        ? "bg-sky-100 text-sky-700"
                         : "text-gray-900"
                     }`}
                 >

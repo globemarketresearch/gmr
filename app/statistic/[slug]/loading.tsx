@@ -1,6 +1,6 @@
 import { Section, Container, Skeleton } from "@/components/ui";
 
-export default function BlogDetailLoading() {
+export default function StatisticDetailLoading() {
   return (
     <>
       <Section className="bg-[var(--muted)]">

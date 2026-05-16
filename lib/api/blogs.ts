@@ -1,4 +1,4 @@
-// Blog API client functions
+// Blogs API client functions
 
 import { apiFetch, buildQueryString, type ApiResponse, type PaginationMeta } from './config';
 import type {

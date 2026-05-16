@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef } from "react";
 import Link from "next/link";
@@ -117,7 +117,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
               </p>
             )}
             <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto">
-              Tell us what you need — additional regions, segments, company profiles, or data points. We will build a version of this report specifically for your business.
+              Tell us what you need â€” additional regions, segments, company profiles, or data points. We will build a version of this report specifically for your business.
             </p>
           </div>
         </Container>
@@ -176,7 +176,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                             required
                             value={formData.fullName}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="John Doe"
                           />
                         </div>
@@ -192,7 +192,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                             required
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="john@company.com"
                           />
                         </div>
@@ -210,7 +210,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                             required
                             value={formData.company}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="Your Company"
                           />
                         </div>
@@ -226,7 +226,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                             required
                             value={formData.jobTitle}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="VP of Strategy"
                           />
                         </div>
@@ -254,7 +254,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                             placeholder="123-456-7890"
                           />
                         </div>
@@ -271,7 +271,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                           required
                           value={formData.reportTitle}
                           onChange={handleChange}
-                          className="w-full px-4 py-2 border border-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
                           placeholder="E.g., Telemedicine Market Report 2025-2032"
                         />
                         <p className="text-xs text-[var(--muted-foreground)] mt-1">
@@ -291,7 +291,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                           value={formData.additionalInfo}
                           onChange={handleChange}
                           className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] resize-none bg-[var(--background)]"
-                          placeholder="Describe what you need — e.g., additional geographies (Latin America, Southeast Asia), specific market segments, competitor deep-dives, proprietary data integration, or any other tailored data points..."
+                          placeholder="Describe what you need â€” e.g., additional geographies (Latin America, Southeast Asia), specific market segments, competitor deep-dives, proprietary data integration, or any other tailored data points..."
                         />
                         <p className="text-xs text-[var(--muted-foreground)] mt-1">
                           The more detail you provide, the more accurate our proposal will be
@@ -337,7 +337,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                   <a href={`tel:${CONTACT_INFO.offices.india.phone}`} className="text-[var(--primary)] hover:underline font-medium">
                     {CONTACT_INFO.offices.india.phoneFormatted}
                   </a>
-                  {" "}(India) - 24×7 Support
+                  {" "}(India) - 24Ã—7 Support
                 </p>
               </div>
             </div>
@@ -397,3 +397,4 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
     </>
   );
 }
+

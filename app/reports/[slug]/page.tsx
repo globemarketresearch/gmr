@@ -236,96 +236,96 @@ export default async function ReportPage({
     {
       label: `Revenue, ${baseYearLabel}`,
       value: report.marketSize2024 || '—',
-      bg: 'bg-gradient-to-br from-[#E0F2F1] to-[#B2DFDB]',
-      labelColor: 'text-[#00897B]',
-      valueColor: 'text-[#00695C]',
+      bg: 'bg-gradient-to-br from-[#dde8f0] to-[#eef4f9]',
+      labelColor: 'text-[#4a7090]',
+      valueColor: 'text-[#0f2236]',
       icon: (
         <svg
           aria-hidden
-          className="w-10 h-10 text-[#26A69A]"
+          className="w-10 h-10"
           viewBox="0 0 64 64"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M16 44c0-6.627 5.373-12 12-12s12 5.373 12 12"
-            stroke="#26A69A"
+            stroke="#0284c7"
             strokeWidth="3"
             strokeLinecap="round"
           />
-          <path d="M12 48h40" stroke="#26A69A" strokeWidth="3" strokeLinecap="round" />
+          <path d="M12 48h40" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
           <path
             d="M28 28V18c0-3.314 2.686-6 6-6s6 2.686 6 6v2"
-            stroke="#26A69A"
+            stroke="#0284c7"
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <path d="M24 36v-6" stroke="#26A69A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M38 32v-4" stroke="#26A69A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="34" cy="20" r="2" fill="#26A69A" />
+          <path d="M24 36v-6" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M38 32v-4" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="34" cy="20" r="2" fill="#0284c7" />
         </svg>
       ),
     },
     {
       label: `Forecast, ${forecastEndYear}`,
       value: report.marketSize2032 || '—',
-      bg: 'bg-gradient-to-br from-[#E0F2F1] to-[#B2DFDB]',
-      labelColor: 'text-[#00897B]',
-      valueColor: 'text-[#00695C]',
+      bg: 'bg-gradient-to-br from-[#dde8f0] to-[#eef4f9]',
+      labelColor: 'text-[#4a7090]',
+      valueColor: 'text-[#0f2236]',
       icon: (
         <svg
           aria-hidden
-          className="w-10 h-10 text-[#26A69A]"
+          className="w-10 h-10"
           viewBox="0 0 64 64"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M10 46l10-18 10 12 12-22 12 28"
-            stroke="#26A69A"
+            stroke="#0284c7"
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <path d="M10 52h44" stroke="#26A69A" strokeWidth="3" strokeLinecap="round" />
-          <circle cx="20" cy="28" r="2" fill="#26A69A" />
-          <circle cx="30" cy="40" r="2" fill="#26A69A" />
-          <circle cx="42" cy="20" r="2" fill="#26A69A" />
-          <circle cx="54" cy="48" r="2" fill="#26A69A" />
+          <path d="M10 52h44" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="20" cy="28" r="2" fill="#0284c7" />
+          <circle cx="30" cy="40" r="2" fill="#0284c7" />
+          <circle cx="42" cy="20" r="2" fill="#0284c7" />
+          <circle cx="54" cy="48" r="2" fill="#0284c7" />
         </svg>
       ),
     },
     {
       label: `CAGR, ${forecastRangeLabel}`,
       value: report.cagr || '—',
-      bg: 'bg-gradient-to-br from-[#E0F2F1] to-[#B2DFDB]',
-      labelColor: 'text-[#00897B]',
-      valueColor: 'text-[#00695C]',
+      bg: 'bg-gradient-to-br from-[#dde8f0] to-[#eef4f9]',
+      labelColor: 'text-[#4a7090]',
+      valueColor: 'text-[#0f2236]',
       icon: (
         <svg
           aria-hidden
-          className="w-10 h-10 text-[#26A69A]"
+          className="w-10 h-10"
           viewBox="0 0 64 64"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M14 40h6v-8h-6v8zm12 0h6V20h-6v20zm12 0h6V28h-6v12zm12 0h6V16h-6v24z"
-            fill="#26A69A"
+            fill="#0284c7"
             opacity="0.3"
           />
-          <path d="M12 44h40" stroke="#26A69A" strokeWidth="3" strokeLinecap="round" />
+          <path d="M12 44h40" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
           <path
             d="M12 34c6-4 10-6 16-6s10 2 16 6 10 6 16 6"
-            stroke="#26A69A"
+            stroke="#0284c7"
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M40 18l4-4 4 4"
-            stroke="#26A69A"
+            stroke="#0284c7"
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -336,21 +336,21 @@ export default async function ReportPage({
     {
       label: 'Report Coverage',
       value: report.region,
-      bg: 'bg-gradient-to-br from-[#E0F2F1] to-[#B2DFDB]',
-      labelColor: 'text-[#00897B]',
-      valueColor: 'text-[#00695C]',
+      bg: 'bg-gradient-to-br from-[#dde8f0] to-[#eef4f9]',
+      labelColor: 'text-[#4a7090]',
+      valueColor: 'text-[#0f2236]',
       icon: (
         <svg
           aria-hidden
-          className="w-10 h-10 text-[#26A69A]"
+          className="w-10 h-10"
           viewBox="0 0 64 64"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <circle cx="32" cy="28" r="14" stroke="#26A69A" strokeWidth="3" />
-          <path d="M32 14v4m0 28v4m14-14h4M14 32h4" stroke="#26A69A" strokeWidth="3" strokeLinecap="round" />
-          <path d="M24 44l-6 6" stroke="#26A69A" strokeWidth="3" strokeLinecap="round" />
-          <path d="M40 44l6 6" stroke="#26A69A" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="32" cy="28" r="14" stroke="#0284c7" strokeWidth="3" />
+          <path d="M32 14v4m0 28v4m14-14h4M14 32h4" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
+          <path d="M24 44l-6 6" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
+          <path d="M40 44l6 6" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
         </svg>
       ),
     },
@@ -430,8 +430,103 @@ export default async function ReportPage({
       {faqSchema && <StructuredData data={faqSchema} />}
 
       <div className="bg-[var(--background)]">
-        <div className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--card)]">
-          <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        {/* ── Report Hero ──────────────────────────────────────────── */}
+        <div
+          className="relative overflow-hidden border-b border-[var(--border-color)]"
+          style={{ background: 'var(--featured-bg)' }}
+        >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(circle, rgba(2,132,199,0.14) 1px, transparent 1px)`,
+              backgroundSize: '28px 28px',
+              maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
+            }}
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-32 -right-32 w-[40rem] h-[40rem] rounded-full opacity-10"
+            style={{ background: 'radial-gradient(circle, #0284c7, transparent 70%)' }}
+          />
+          <div className="relative max-w-[1400px] 2xl:max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+            {/* Breadcrumb */}
+            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs mb-6" style={{ color: 'rgba(255,255,255,0.4)' }}>
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+              <Link href="/industry" className="hover:text-white transition-colors">Reports</Link>
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+              <Link href={`/industry/${categorySlug}`} className="hover:text-white transition-colors">{report.category}</Link>
+            </nav>
+
+            {/* Badges */}
+            <div className="flex flex-wrap items-center gap-2 mb-5">
+              <Link href={`/industry/${categorySlug}`}>
+                <span
+                  className="inline-flex text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full cursor-pointer"
+                  style={{ background: 'rgba(2,132,199,0.2)', color: '#7dd3fc', border: '1px solid rgba(2,132,199,0.35)' }}
+                >
+                  {report.category}
+                </span>
+              </Link>
+              <span
+                className="inline-flex text-[10px] font-medium uppercase tracking-wide px-2.5 py-1 rounded-full"
+                style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.12)' }}
+              >
+                {report.region}
+              </span>
+              {report.reportType && (
+                <span
+                  className="inline-flex text-[10px] font-medium uppercase tracking-wide px-2.5 py-1 rounded-full"
+                  style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.12)' }}
+                >
+                  {report.reportType}
+                </span>
+              )}
+            </div>
+
+            {/* Title */}
+            <h1
+              className="mb-4 font-bold leading-tight"
+              style={{ color: '#fff', fontSize: 'clamp(1.5rem, 3.5vw, 2.1rem)', letterSpacing: '-0.03em', maxWidth: '900px' }}
+            >
+              {report.title}
+            </h1>
+
+            {/* Description */}
+            <p
+              className="mb-8 leading-relaxed"
+              style={{ color: 'rgba(255,255,255,0.62)', fontSize: '1.0rem', maxWidth: '760px' }}
+            >
+              {report.description}
+            </p>
+
+            {/* Report metadata strip */}
+            <div
+              className="flex flex-wrap items-center gap-6 pt-5 text-sm"
+              style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
+            >
+              {[
+                { label: 'Report Code', value: report.reportCode || `HF${report.id}` },
+                { label: 'Published', value: report.date },
+                { label: 'Pages', value: report.pages ? `${report.pages}+` : '—' },
+                { label: 'Format', value: 'PDF, Excel' },
+              ].map((item) => (
+                <div key={item.label}>
+                  <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>{item.label}</p>
+                  <p className="font-semibold text-sm" style={{ color: 'rgba(255,255,255,0.85)' }}>{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="sticky z-40 border-b border-border bg-card" style={{ top: "var(--sticky-header-height, 0px)" }}>
+          <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <Breadcrumb items={breadcrumbItems} />
           </div>
         </div>
@@ -448,44 +543,6 @@ export default async function ReportPage({
           reportId={report.id}
         >
           <article>
-              <header className="mb-8 pb-8 border-b border-[var(--border)]">
-                <div className="flex items-center gap-3 mb-4">
-                  <Link href={`/industry/${categorySlug}`}>
-                    <Badge variant="default" className="cursor-pointer hover:opacity-80 transition-opacity">{report.category}</Badge>
-                  </Link>
-                  <Badge variant="outline">{report.region}</Badge>
-                </div>
-
-                <h1 className="text-4xl font-bold text-[var(--foreground)] mb-4">
-                  {report.title}
-                </h1>
-
-                <p className="text-xl text-[var(--muted-foreground)] mb-6">
-                  {report.description}
-                </p>
-
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                  <div>
-                    <p className="text-[var(--muted-foreground)] mb-1">Report Code</p>
-                    <p className="font-semibold text-[var(--foreground)]">
-                      {report.reportCode || `HF${report.id}`}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-[var(--muted-foreground)] mb-1">Published</p>
-                    <p className="font-semibold text-[var(--foreground)]">{report.date}</p>
-                  </div>
-                  <div>
-                    <p className="text-[var(--muted-foreground)] mb-1">Pages</p>
-                    <p className="font-semibold text-[var(--foreground)]">{report.pages}+</p>
-                  </div>
-                  <div>
-                    <p className="text-[var(--muted-foreground)] mb-1">Format</p>
-                    <p className="font-semibold text-[var(--foreground)]">PDF, Excel</p>
-                  </div>
-                </div>
-              </header>
-
               <section className="mb-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {metricCards.map((card) => (
@@ -515,13 +572,13 @@ export default async function ReportPage({
 
                     {report.keyFindings && report.keyFindings.length > 0 && (
                       <div className="mt-8">
-                        <h3 className="text-3xl font-bold text-[#000000] mb-6">
+                        <h3 className="text-3xl font-bold text-[var(--text-primary)] mb-6">
                           Key Findings
                         </h3>
-                        <div className="bg-[#ede9fe] rounded-lg py-4 px-6">
+                        <div className="bg-[var(--surface)] rounded-lg py-4 px-6 border border-[var(--border-color)]">
                           <ul className="list-disc list-outside ml-5 space-y-0">
                             {report.keyFindings.map((finding, index) => (
-                              <li key={index} className="text-[#333333] py-4 border-b border-gray-300 last:border-b-0">
+                              <li key={index} className="text-[var(--text-primary)] py-4 border-b border-[var(--border-color)] last:border-b-0">
                                 {finding}
                               </li>
                             ))}
@@ -537,7 +594,7 @@ export default async function ReportPage({
                     <h2 id="competitive" className="text-2xl font-bold text-[var(--teal-deep)] mb-6 scroll-mt-24">
                       Competitive Landscape
                     </h2>
-                    <p className="text-[#333333] mb-8 leading-relaxed">
+                    <p className="text-[var(--text-secondary)] mb-8 leading-relaxed">
                       The market is characterized by intense competition among established players
                       and emerging companies. Strategic partnerships, mergers and acquisitions, and
                       product innovation are key strategies employed by market participants.
@@ -556,12 +613,14 @@ export default async function ReportPage({
                                   <h4 className="font-medium text-[var(--foreground)] text-sm">
                                     {player.name}
                                   </h4>
-                                  <div className="flex items-center gap-2">
-                                    <span className="text-xs text-[var(--muted-foreground)]">Market Share</span>
-                                    <span className="text-sm font-bold text-[var(--primary)]">
-                                      {player.marketShare}
-                                    </span>
-                                  </div>
+                                  {player.marketShare && !['XX', 'xx'].includes(player.marketShare) && (
+                                    <div className="flex items-center gap-2">
+                                      <span className="text-xs text-[var(--muted-foreground)]">Market Share</span>
+                                      <span className="text-sm font-bold text-[var(--primary)]">
+                                        {player.marketShare}
+                                      </span>
+                                    </div>
+                                  )}
                                 </div>
                               </CardContent>
                             </Card>

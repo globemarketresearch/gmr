@@ -138,7 +138,7 @@ export default function ReportsListingClient({
             {isLoading ? (
               <div className="space-y-4 mt-4">
                 {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
-                  <div key={i} className="h-32 bg-slate-100 animate-pulse rounded-xl" />
+                  <div key={i} className="h-32 bg-[var(--surface)] animate-pulse rounded-xl" />
                 ))}
               </div>
             ) : displayedReports.length > 0 ? (
@@ -155,16 +155,16 @@ export default function ReportsListingClient({
                 />
               </>
             ) : (
-              <div className="text-center py-20 border border-dashed border-slate-200 rounded-xl mt-4">
+              <div className="text-center py-20 border border-dashed border-[var(--border-color)] rounded-xl mt-4">
                 <div className="text-5xl mb-4">📋</div>
-                <h3 className="text-lg font-semibold text-slate-700 mb-2">No reports found</h3>
-                <p className="text-sm text-slate-400 mb-6">
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">No reports found</h3>
+                <p className="text-sm text-[var(--text-tertiary)] mb-6">
                   Try adjusting your filters
                 </p>
                 {filters.regions.length > 0 && (
                   <button
                     onClick={() => handleFilterChange({ ...filters, regions: [] })}
-                    className="text-sm font-medium text-[#2563A3] hover:underline"
+                    className="text-sm font-medium text-[var(--accent)] hover:underline"
                   >
                     Clear region filters
                   </button>

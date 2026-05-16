@@ -56,7 +56,7 @@ export default function IndustryCategoriesSection() {
             {/* Featured tile — spans 2×2 */}
             <Link
               href={`/industry/${featured.slug}`}
-              className="col-span-2 row-span-2 group relative rounded-2xl overflow-hidden bg-[var(--featured-bg)] p-8 flex flex-col justify-between shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300"
+              className="col-span-2 row-span-2 group relative rounded-2xl overflow-hidden bg-[var(--featured-bg)] p-8 flex flex-col justify-between shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 h-full"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${accentColors[0]} opacity-10 group-hover:opacity-20 transition-opacity duration-300`} />
               {/* Decorative healthcare icon image */}
@@ -99,7 +99,7 @@ export default function IndustryCategoriesSection() {
                 <Link
                   key={category.id}
                   href={`/industry/${category.slug}`}
-                  className="group relative rounded-2xl overflow-hidden bg-[var(--surface-raised)] border border-[var(--border-color)] p-5 flex flex-col justify-between shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all duration-200"
+                  className="group relative rounded-2xl overflow-hidden bg-[var(--surface-raised)] border border-[var(--border-color)] p-5 flex flex-col shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all duration-200 h-full"
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                   <div className="relative z-10 space-y-2">
@@ -115,7 +115,7 @@ export default function IndustryCategoriesSection() {
                       {truncate(category.description, 65)}
                     </p>
                   </div>
-                  <div className="relative z-10 mt-2">
+                  <div className="absolute top-4 right-5 z-10">
                     <span className="inline-flex items-center gap-1 text-xs font-medium text-[var(--accent)] opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 font-body">
                       View
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

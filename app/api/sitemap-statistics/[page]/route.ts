@@ -27,7 +27,7 @@ export async function GET(
     );
 
     if (!res.success || !res.data) {
-      console.error('Error fetching blogs for sitemap');
+      console.error('Error fetching statistics for sitemap');
       return new NextResponse('Error generating sitemap', { status: 500 });
     }
 
@@ -41,7 +41,7 @@ ${res.data
   .map((item) => {
     const lastmod = new Date(item.publish_date || item.updated_at).toISOString();
     return `  <url>
-    <loc>${BASE_URL}/blog/${item.slug}</loc>
+    <loc>${BASE_URL}/statistic/${item.slug}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -57,7 +57,7 @@ ${res.data
       },
     });
   } catch (error) {
-    console.error('Error generating blogs sitemap:', error);
+    console.error('Error generating statistics sitemap:', error);
     return new NextResponse('Error generating sitemap', { status: 500 });
   }
 }

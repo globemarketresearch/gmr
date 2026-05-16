@@ -167,7 +167,7 @@ export default function SearchBar({
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className={cn(isHeroVariant ? 'h-5 w-5' : 'h-4 w-4')}
+              className={cn('clear-icon', isHeroVariant ? 'h-5 w-5' : 'h-4 w-4')}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
