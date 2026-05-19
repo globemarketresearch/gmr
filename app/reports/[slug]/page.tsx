@@ -7,6 +7,7 @@ import { Breadcrumb, Badge, Card, CardContent } from "@/components/ui";
 // import { Download } from "lucide-react";
 import { ReportContentWrapper } from "@/components/reports/ReportContentWrapper";
 import { StyledReportContent } from "@/components/reports/StyledReportContent";
+import { MarketGrowthChart } from "@/components/reports/charts/MarketGrowthChart";
 import MeetTheTeam from "@/components/reports/MeetTheTeam";
 import FAQ from "@/components/reports/FAQ";
 import { parseHTMLAndGenerateTOC, addStaticSectionsToTOC } from "@/lib/html-toc-utils";
@@ -558,6 +559,17 @@ export default async function ReportPage({
                   ))}
                 </div>
               </section>
+
+              {report.marketSize2024 && report.marketSize2032 && report.cagr && (
+                <section className="mb-10">
+                  <MarketGrowthChart
+                    marketSize2024={report.marketSize2024}
+                    marketSize2032={report.marketSize2032}
+                    cagr={report.cagr}
+                    forecastPeriod={report.forecastPeriod}
+                  />
+                </section>
+              )}
 
               {hasFullContent ? (
                 <>
