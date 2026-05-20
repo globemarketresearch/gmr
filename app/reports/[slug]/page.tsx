@@ -551,8 +551,8 @@ export default async function ReportPage({
                       <CardContent className="flex items-center gap-3" style={{padding: '8px'}}>
                         {card.icon}
                         <div>
-                          <p className={`text-sm font-semibold ${card.labelColor}`}>{card.label}</p>
-                          <p className={`text-lg font-bold ${card.valueColor}`}>{card.value}</p>
+                          <p className={`text-sm lg:text-[10px] font-semibold ${card.labelColor}`}>{card.label}</p>
+                          <p className={`text-lg lg:text-xs font-bold ${card.valueColor}`}>{card.value}</p>
                         </div>
                       </CardContent>
                     </Card>

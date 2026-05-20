@@ -55,7 +55,7 @@ export default function MegaMenu({ categories, isActive }: MegaMenuProps) {
         className={cn(
           "relative text-[13px] font-medium tracking-wide transition-colors duration-150 whitespace-nowrap py-1",
           "flex items-center gap-1 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40 focus-visible:ring-offset-1 focus-visible:ring-offset-transparent rounded",
-          isActive ? "text-white" : "text-white/55 hover:text-white/90"
+          isActive ? "text-[#111d40]" : "text-[#3a5a80] hover:text-[#111d40]"
         )}
       >
         Reports

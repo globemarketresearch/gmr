@@ -32,8 +32,8 @@ export const generateOrganizationSchema = () => ({
   '@type': 'Organization',
   name: 'Globe Market Research',
   url: 'https://www.globemarketresearch.com',
-  logo: 'https://www.globemarketresearch.com/assets/images/logo.png',
-  description: 'Globe Market Research delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.',
+  logo: 'https://www.globemarketresearch.com/assets/images/logo.jpg',
+  description: 'Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.',
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Customer Service',
@@ -55,7 +55,7 @@ export const generateWebSiteSchema = () => ({
   '@type': 'WebSite',
   name: 'Globe Market Research',
   url: 'https://www.globemarketresearch.com',
-  description: 'Globe Market Research delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.',
+  description: 'Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.',
   potentialAction: {
     '@type': 'SearchAction',
     target: 'https://www.globemarketresearch.com/search?q={search_term_string}',
@@ -103,7 +103,7 @@ export const generateArticleSchema = (params: {
     name: 'Globe Market Research',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://www.globemarketresearch.com/assets/images/logo.png',
+      url: 'https://www.globemarketresearch.com/assets/images/logo.jpg',
     },
   },
   ...(params.image && {
@@ -173,12 +173,12 @@ export const generateProductSchema = (params: {
     '@type': 'Product',
     name: params.name,
     description: params.description,
-    image: params.image || 'https://www.globemarketresearch.com/assets/images/logo.png',
+    image: params.image || 'https://www.globemarketresearch.com/assets/images/logo.jpg',
     brand: {
       '@type': 'Brand',
       name: 'Globe Market Research',
     },
-    category: params.category || 'Healthcare Market Research Report',
+    category: params.category || 'Global Market Research Report',
     ...(params.reportCode && { sku: params.reportCode }),
     ...(params.keywords && params.keywords.length > 0 && {
       keywords: params.keywords.join(', '),
@@ -291,9 +291,9 @@ export const generateLocalBusinessSchema = () => ({
   url: 'https://www.globemarketresearch.com',
   email: 'support@globemarketresearch.com',
   telephone: '+17377342707',
-  image: 'https://www.globemarketresearch.com/assets/images/logo.png',
+  image: 'https://www.globemarketresearch.com/assets/images/logo.jpg',
   priceRange: '$$$$',
-  description: 'Globe Market Research delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.',
+  description: 'Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.',
   sameAs: [
     'https://x.com/Healthcare_F',
     'https://www.linkedin.com/company/healthcare-foresights/',

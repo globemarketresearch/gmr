@@ -1,6 +1,6 @@
 ﻿import reportsData from '@/data/reports.json';
 import blogsData from '@/data/blogs.json';
-import consultingData from '@/data/consulting-services.json';
+import consultingData from '@/data/services.json';
 import categoriesData from '@/data/categories.json';
 
 interface Report {

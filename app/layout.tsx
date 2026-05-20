@@ -26,11 +26,11 @@ const krub = Krub({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.globemarketresearch.com'),
   title: {
-    default: "Globe Market Research | Healthcare Market Insights & Research Reports",
+    default: "Globe Market Research | Global Market Intelligence & Research Reports",
     template: "%s",
   },
-  description: "Globe Market Research delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.",
-  keywords: ["Globe Market Research", "healthcare market research", "healthcare insights", "healthcare industry trends", "medical market analysis", "healthcare reports"],
+  description: "Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.",
+  keywords: ["Globe Market Research", "global market research", "market intelligence", "industry research reports", "market analysis", "business insights"],
   authors: [{ name: "Globe Market Research Team" }],
   icons: {
     icon: "/assets/images/favicon.png",
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Globe Market Research",
-    title: "Globe Market Research | Healthcare Market Insights & Research Reports",
-    description: "Globe Market Research delivers trusted healthcare market research, industry insights, trends, forecasts, and data-driven analysis across global healthcare sectors.",
+    title: "Globe Market Research | Global Market Intelligence & Research Reports",
+    description: "Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.",
   },
   robots: {
     index: true,

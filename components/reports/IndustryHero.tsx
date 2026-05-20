@@ -105,7 +105,7 @@ export default function IndustryHero({ activeCategory }: IndustryHeroProps) {
             <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-3" style={{ color: '#fff', letterSpacing: '-0.03em' }}>
               {activeCategory
                 ? `${activeCategory.name} Market Research Reports`
-                : 'Healthcare Research Reports'}
+                : 'Global Market Research Reports'}
             </h1>
 
             <p className="text-sm sm:text-[15px] leading-relaxed max-w-2xl" style={{ color: 'rgba(255,255,255,0.6)' }}>

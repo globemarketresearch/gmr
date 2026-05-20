@@ -5,11 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import categories from "@/data/categories.json";
-import consultingServicesData from "@/data/consulting-services.json";
+import servicesData from "@/data/services.json";
 import MegaMenu from "./MegaMenu";
-import ConsultingMenu from "./ConsultingMenu";
+import ServicesMenu from "./ServicesMenu";
 import { cn } from "@/lib/utils";
-import { ConsultingService } from "@/lib/api/consulting.types";
+import { Service } from "@/lib/api/services.types";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -28,12 +28,12 @@ function NavLink({ href, label, pathname }: { href: string; label: string; pathn
       href={href}
       className={cn(
         "relative text-[13px] font-medium tracking-wide transition-colors duration-150 whitespace-nowrap py-1",
-        isActive ? "text-white" : "text-white/55 hover:text-white/90"
+        isActive ? "text-[#111d40]" : "text-[#3a5a80] hover:text-[#111d40]"
       )}
     >
       {label}
       {isActive && (
-        <span className="absolute -bottom-[18px] left-0 right-0 h-[2px] bg-sky-400 rounded-full" />
+        <span className="absolute -bottom-[18px] left-0 right-0 h-[2px] bg-cyan-400 rounded-full" />
       )}
     </Link>
   );
@@ -42,7 +42,7 @@ function NavLink({ href, label, pathname }: { href: string; label: string; pathn
 export default function Navigation() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const consultingServices = consultingServicesData as ConsultingService[];
+  const services = servicesData as Service[];
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -65,9 +65,11 @@ export default function Navigation() {
           categories={categories}
           isActive={pathname.startsWith("/industry") || pathname.startsWith("/reports")}
         />
-        <ConsultingMenu
-          services={consultingServices}
-          isActive={pathname.startsWith("/consulting")}
+
+        {/* New Services dropdown (7 core service lines) */}
+        <ServicesMenu
+          services={services}
+          isActive={pathname.startsWith("/services")}
         />
 
         <NavLink href="/about" label="About Us" pathname={pathname} />
@@ -76,22 +78,22 @@ export default function Navigation() {
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg hover:bg-white/8 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40"
+        className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg hover:bg-gray-100 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/40"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         aria-expanded={isMobileMenuOpen}
       >
         <div className="relative w-[18px] h-[14px]">
           <span className={cn(
-            "absolute left-0 w-[18px] h-[1.5px] bg-white/70 transition-all duration-250",
+            "absolute left-0 w-[18px] h-[1.5px] bg-gray-600 transition-all duration-250",
             isMobileMenuOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
           )} />
           <span className={cn(
-            "absolute left-0 top-1/2 -translate-y-1/2 w-[18px] h-[1.5px] bg-white/70 transition-all duration-250",
+            "absolute left-0 top-1/2 -translate-y-1/2 w-[18px] h-[1.5px] bg-gray-600 transition-all duration-250",
             isMobileMenuOpen ? "opacity-0 scale-x-0" : "opacity-100"
           )} />
           <span className={cn(
-            "absolute left-0 w-[18px] h-[1.5px] bg-white/70 transition-all duration-250",
+            "absolute left-0 w-[18px] h-[1.5px] bg-gray-600 transition-all duration-250",
             isMobileMenuOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0"
           )} />
         </div>
@@ -125,7 +127,7 @@ export default function Navigation() {
           <span className="text-white/40 text-xs font-semibold tracking-[0.12em] uppercase">Navigation</span>
           <button
             onClick={() => setIsMobileMenuOpen(false)}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-white/30 hover:text-white/70 hover:bg-white/5 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40"
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-white/30 hover:text-white/70 hover:bg-white/5 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/40"
             aria-label="Close menu"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,21 +148,21 @@ export default function Navigation() {
                   className={cn(
                     "flex items-center gap-3 py-2.5 px-3 text-sm font-medium rounded-lg transition-all duration-150",
                     isActive
-                      ? "text-sky-300 bg-sky-500/10"
+                      ? "text-cyan-300 bg-cyan-500/10"
                       : "text-white/60 hover:text-white/90 hover:bg-white/5"
                   )}
                 >
-                  {isActive && <span className="w-1 h-1 rounded-full bg-sky-400 flex-shrink-0" />}
+                  {isActive && <span className="w-1 h-1 rounded-full bg-cyan-400 flex-shrink-0" />}
                   {item.name}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Consulting Section */}
+          {/* Services Section (new 7 core services) */}
           <div className="mx-3 mt-2 pt-4 border-t border-white/5">
             <span className="block px-3 mb-2 text-[10px] font-bold text-white/20 tracking-[0.12em] uppercase">
-              Consulting &amp; Services
+              Services
             </span>
             <Link
               href="/services"
@@ -173,10 +175,10 @@ export default function Navigation() {
               </svg>
             </Link>
             <div className="flex flex-col gap-0.5 mt-0.5">
-              {consultingServices.map((service) => (
+              {services.map((service) => (
                 <Link
                   key={service.id}
-                  href={`/consulting/${service.slug}`}
+                  href={`/services/${service.slug}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="py-2 px-3 text-[13px] text-white/40 hover:text-white/70 rounded-lg hover:bg-white/5 transition-colors"
                 >
@@ -194,7 +196,7 @@ export default function Navigation() {
             <Link
               href="/industry"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-between py-2 px-3 text-sm font-semibold text-sky-300 hover:text-sky-200 hover:bg-sky-500/5 rounded-lg transition-colors"
+              className="flex items-center justify-between py-2 px-3 text-sm font-semibold text-cyan-300 hover:text-cyan-200 hover:bg-cyan-500/5 rounded-lg transition-colors"
             >
               All Reports
               <svg className="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -222,8 +224,8 @@ export default function Navigation() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full py-3 text-center text-white text-sm font-semibold rounded-xl transition-all duration-200"
               style={{
-                background: "linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%)",
-                boxShadow: "0 4px 16px rgba(2,132,199,0.35)",
+                background: "linear-gradient(135deg, #1DAEBF 0%, #2CC8D8 100%)",
+                boxShadow: "0 4px 16px rgba(44,200,216,0.35)",
               }}
             >
               Request Sample Report
@@ -245,7 +247,7 @@ export default function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="text-white/20 hover:text-sky-400 transition-colors duration-150"
+                  className="text-white/20 hover:text-cyan-400 transition-colors duration-150"
                 >
                   <Icon className="w-4 h-4" />
                 </Link>

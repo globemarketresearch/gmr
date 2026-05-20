@@ -31,7 +31,6 @@ async function getSitemapTotalPages(type: 'reports' | 'statistics' | 'press-rele
  * - /sitemap-reports-1.xml, /sitemap-reports-2.xml, ... - Published research reports (1000 per file)
  * - /sitemap-statistics-1.xml, /sitemap-statistics-2.xml, ... - Published statistics posts (1000 per file)
  * - /sitemap-press-releases-1.xml, /sitemap-press-releases-2.xml, ... - Published press releases (1000 per file)
- * - /sitemap-consulting.xml - Consulting services pages
  * - /news-sitemap.xml - Google News sitemap (all blogs + press releases)
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -46,12 +45,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [
     {
       url: `${BASE_URL}/sitemap-pages.xml`,
-      lastModified: now,
-      changeFrequency: 'weekly' as const,
-      priority: 1.0,
-    },
-    {
-      url: `${BASE_URL}/sitemap-consulting.xml`,
       lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: 1.0,

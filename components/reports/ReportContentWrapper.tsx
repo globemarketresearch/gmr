@@ -91,7 +91,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
       {/* Left Sidebar - TOC Navigation */}
       {hasFullContent && (
         <aside className="hidden lg:block">
-          <div className="sticky top-24 max-h-[calc(100vh-6rem)] flex flex-col overflow-hidden">
+          <div className="sticky top-32 max-h-[calc(100vh-10rem)] flex flex-col overflow-hidden">
             {activeTOC && activeTOC.length > 0 && (
               <TableOfContents
                 items={activeTOC}
@@ -118,7 +118,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
 
       {/* Right Sidebar - CTA Panel */}
       <aside className="hidden lg:block">
-        <div className="sticky top-24 max-h-[calc(100vh-6rem)] overflow-y-auto space-y-4 pr-0.5">
+        <div className="sticky top-32 max-h-[calc(100vh-10rem)] overflow-y-auto space-y-4 pr-0.5">
           <CustomizeReportCard reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
           <CTAPanel discounted_price={discounted_price} price={price} reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
         </div>

@@ -44,7 +44,7 @@ export default function CTASection() {
               </div>
 
               <h2 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.03em' }}>
-                Ready to Transform Your Healthcare Strategy?
+                Ready to Power Your Business Decisions?
               </h2>
 
               <p className="font-body text-lg text-white/70 max-w-xl leading-relaxed">

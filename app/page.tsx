@@ -17,9 +17,9 @@ import {
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Globe Market Research | Healthcare Market Insights | Reports",
-  description: "Globe Market Research delivers trusted market research, insights, trends, forecasts, consulting and data-driven analysis across all healthcare sectors.",
-  keywords: ["Globe Market Research", "healthcare market research", "healthcare insights", "healthcare industry trends", "medical market analysis", "healthcare reports"],
+  title: "Globe Market Research | Global Market Intelligence & Research Reports",
+  description: "Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.",
+  keywords: ["Globe Market Research", "global market research", "market intelligence", "industry research reports", "market analysis", "business insights"],
   alternates: {
     canonical: 'https://www.globemarketresearch.com',
   },

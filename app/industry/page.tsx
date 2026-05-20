@@ -6,9 +6,9 @@ import IndustryHero from '@/components/reports/IndustryHero';
 import IndustryContentPreview from '@/components/industry/IndustryContentPreview';
 
 export const metadata: Metadata = {
-  title: "Healthcare Market Research Reports & Industry Analysis",
-  description: "Browse in-depth healthcare market research reports covering industry trends, competitive analysis, forecasts, and strategic insights.",
-  keywords: ["healthcare reports", "healthcare market research", "medical industry reports", "healthcare forecast", "healthcare industry analysis"],
+  title: "Global Market Research Reports & Industry Analysis",
+  description: "Browse in-depth market research reports covering industry trends, competitive analysis, forecasts, and strategic insights across 45+ global sectors.",
+  keywords: ["market research reports", "global market research", "industry reports", "market forecast", "industry analysis"],
   alternates: {
     canonical: '/industry',
   },

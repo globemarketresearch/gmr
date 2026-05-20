@@ -1,0 +1,240 @@
+[
+  {
+    "id": 1,
+    "title": "Syndicated Reports",
+    "slug": "syndicated-reports",
+    "category": "Market Intelligence",
+    "tagline": "Access Ready-To-Use Market Intelligence",
+    "description": "Comprehensive, off-the-shelf research reports covering market size, growth forecasts, competitive landscapes, and strategic insights across 50+ industries.",
+    "overview": "Globe Market Research's Syndicated Reports deliver ready-to-use, in-depth market intelligence that empowers business leaders to make confident decisions without the lead time of custom research. Our reports are produced by domain experts and cover everything from market sizing and segmentation to competitive dynamics and strategic forecasts across global and regional geographies.",
+    "keyHighlights": [
+      "Each report covers comprehensive market sizing with historical data, current estimates, and 10-year forecasts broken down by product type, end-user, geography, and other key dimensions.",
+      "Our syndicated reports include detailed competitive landscape sections profiling leading players, their market share, key strategies, and recent developments — giving you an instant view of the market structure.",
+      "Reports are published on a rolling basis and updated regularly to reflect new data, regulatory changes, M&A activity, and emerging market trends.",
+      "Every report includes an executive summary, methodology disclosure, and analyst commentary, making findings immediately usable by C-suite, strategy, and product teams alike."
+    ],
+    "servicesInclude": [
+      "Global and regional market size & forecast (10-year horizon)",
+      "Segment-wise breakdown (product, application, end-user, geography)",
+      "Competitive landscape and player profiling",
+      "Market share analysis and ranking",
+      "Trend analysis and technology assessment",
+      "Regulatory and policy environment review",
+      "Pricing and reimbursement landscape",
+      "Opportunity identification and growth driver analysis",
+      "Risk factors and market restraint assessment",
+      "Excel data pack and customizable tables"
+    ],
+    "benefits": [
+      { "title": "Instant Access", "desc": "Download and deploy insights on the same day — no waiting for custom turnaround." },
+      { "title": "Cost Effective", "desc": "Fraction of the cost of custom research for enterprise-grade intelligence." },
+      { "title": "Analyst Support", "desc": "Free 20-minute analyst Q&A with every report purchase." },
+      { "title": "Regular Updates", "desc": "Reports refreshed as markets evolve, ensuring you always work with current data." }
+    ],
+    "icon": "chart-bar"
+  },
+  {
+    "id": 2,
+    "title": "Custom Market Research",
+    "slug": "custom-market-research",
+    "category": "Custom Research",
+    "tagline": "Tailored Insights Designed For Your Business Needs",
+    "description": "Bespoke research programs designed around your specific strategic questions — combining primary interviews, secondary intelligence, and advanced analytics.",
+    "overview": "When off-the-shelf data is not enough, Globe Market Research's Custom Market Research service steps in to deliver research built specifically around your unique business challenge. Our methodology integrates primary stakeholder interviews, proprietary databases, secondary analysis, and advanced modeling to produce insights that directly address your strategic questions — whether you are entering a new market, launching a product, or assessing an investment.",
+    "keyHighlights": [
+      "Our custom programs begin with a deep-dive scoping session to crystallize your research objectives, define the target universe, and agree on deliverable formats — ensuring every hour of research is aligned to your decisions.",
+      "We combine primary qualitative research (executive interviews, focus groups, expert panels) with quantitative surveys and rigorous secondary analysis to triangulate findings from multiple data sources.",
+      "Custom deliverables are structured to your team's workflow — from board-ready PowerPoint presentations and interactive dashboards to raw data files and detailed white papers.",
+      "Dedicated project managers and senior analysts remain your single point of contact throughout, ensuring quality, timeliness, and complete alignment with your evolving requirements."
+    ],
+    "servicesInclude": [
+      "Research design and scoping workshops",
+      "Primary qualitative research (IDIs, focus groups, expert panels)",
+      "Quantitative surveys (online, telephone, CATI)",
+      "Secondary data collection and synthesis",
+      "Market sizing and bottom-up forecasting",
+      "Competitive benchmarking and positioning",
+      "Customer segmentation and needs analysis",
+      "Pricing research and conjoint analysis",
+      "Go-to-market validation and opportunity sizing",
+      "Custom dashboard and data visualization"
+    ],
+    "benefits": [
+      { "title": "Purpose-Built", "desc": "Every aspect of the research is designed around your specific question." },
+      { "title": "Multi-Method", "desc": "Triangulated insights from primary, secondary, and quantitative sources." },
+      { "title": "Senior-Led", "desc": "Domain-expert analysts lead your project from scoping to delivery." },
+      { "title": "Flexible Output", "desc": "Deliverables in any format your team needs — PPT, Excel, dashboard, or report." }
+    ],
+    "icon": "adjustments"
+  },
+  {
+    "id": 3,
+    "title": "Go to Market Strategy",
+    "slug": "go-to-market-strategy",
+    "category": "Strategy",
+    "tagline": "Build Effective Market Entry & Expansion Strategies",
+    "description": "Data-driven GTM blueprints that define your target segments, positioning, channel architecture, and launch roadmap for successful market entry or expansion.",
+    "overview": "Entering a new market or expanding into new geographies and segments requires a precise, evidence-based strategy. Globe Market Research's Go to Market Strategy service equips organizations with a comprehensive GTM blueprint — grounded in real market data and competitive intelligence — so that launches are executed with confidence and capital efficiency. We help you define who you are targeting, how you will reach them, what you will say, and how you will win.",
+    "keyHighlights": [
+      "We begin with a rigorous opportunity assessment that combines market sizing, segment attractiveness analysis, and barrier-to-entry mapping to identify where your entry creates the most value and faces the least friction.",
+      "Our team develops detailed buyer persona profiles and customer journey maps based on primary interviews with target customers, ensuring your positioning and messaging resonate with real decision-makers.",
+      "Channel strategy analysis covers direct, distribution, digital, and partnership models — with a quantified view of reach, cost, and conversion potential for each route-to-market option.",
+      "The final deliverable includes a phased launch roadmap with KPIs, risk mitigation plans, and competitive response scenarios — giving leadership a structured, actionable plan from day one."
+    ],
+    "servicesInclude": [
+      "Market opportunity assessment and TAM/SAM/SOM sizing",
+      "Competitive landscape and white-space identification",
+      "Target segment prioritization and buyer persona development",
+      "Customer journey mapping and pain-point analysis",
+      "Positioning framework and value proposition design",
+      "Pricing strategy and model development",
+      "Channel and distribution architecture",
+      "Partnership and ecosystem strategy",
+      "Sales enablement content strategy",
+      "Launch roadmap with milestones and KPIs"
+    ],
+    "benefits": [
+      { "title": "Market Clarity", "desc": "Precise definition of your addressable market and highest-value segments." },
+      { "title": "Differentiated Positioning", "desc": "Messaging that resonates with real buyers, backed by primary research." },
+      { "title": "Risk Mitigation", "desc": "Competitive response scenarios built into every launch plan." },
+      { "title": "Faster Launch", "desc": "Structured roadmap reduces time-to-market and avoids costly pivots." }
+    ],
+    "icon": "rocket"
+  },
+  {
+    "id": 4,
+    "title": "Business Strategy Consulting",
+    "slug": "business-strategy-consulting",
+    "category": "Consulting",
+    "tagline": "Data-Driven Advisory to Guide Strategic Growth",
+    "description": "Senior-led strategic advisory that combines rigorous market intelligence with functional expertise to help organizations grow, transform, and compete more effectively.",
+    "overview": "Globe Market Research's Business Strategy Consulting practice partners with senior leadership teams to solve complex strategic challenges — from portfolio strategy and growth planning to operational transformation and investment prioritization. Our approach blends the analytical rigor of a research firm with the strategic perspective of a top-tier advisory practice, ensuring recommendations are both evidence-based and practically actionable.",
+    "keyHighlights": [
+      "Our strategy engagements begin with a structured diagnostic phase — combining leadership interviews, financial analysis, market data, and competitive benchmarking to develop a comprehensive picture of your current position and strategic options.",
+      "We apply proven frameworks including Porter's Five Forces, Blue Ocean Strategy, BCG matrix, and scenario planning — augmented with our proprietary market data — to evaluate strategic alternatives with quantified trade-offs.",
+      "Implementation planning is integral to every strategy engagement, with 90-day action plans, responsible owners, resource requirements, and success metrics defined before the final presentation.",
+      "Our sector experts bring deep domain knowledge across healthcare, technology, industrials, consumer goods, and financial services — ensuring advice is grounded in how your industry actually operates."
+    ],
+    "servicesInclude": [
+      "Corporate and business unit strategy development",
+      "Growth strategy and organic expansion planning",
+      "Portfolio optimization and capital allocation advisory",
+      "Market entry and adjacency expansion",
+      "Operational and organizational transformation",
+      "Digital transformation strategy",
+      "Partnership, alliance, and ecosystem strategy",
+      "Scenario planning and strategic risk assessment",
+      "Board-level strategic reviews and presentations",
+      "Post-merger integration strategy support"
+    ],
+    "benefits": [
+      { "title": "Evidence-Based", "desc": "Every strategic recommendation is grounded in data, not assumptions." },
+      { "title": "Sector-Deep", "desc": "Domain experts with industry-specific knowledge lead every engagement." },
+      { "title": "Actionable Plans", "desc": "Implementation roadmaps — not just frameworks — delivered with every strategy." },
+      { "title": "C-Suite Ready", "desc": "Board-ready deliverables designed to drive executive alignment and decision-making." }
+    ],
+    "icon": "briefcase"
+  },
+  {
+    "id": 5,
+    "title": "White Space Analysis",
+    "slug": "white-space-analysis",
+    "category": "Analytics",
+    "tagline": "Identify Untapped Opportunities Before Your Competitors",
+    "description": "Systematic identification of underserved market segments, unmet customer needs, and product/service gaps that represent your next growth opportunity.",
+    "overview": "Globe Market Research's White Space Analysis service reveals the hidden opportunities that exist between the lines of your current market — the underserved segments, unaddressed needs, and capability gaps that competitors have yet to fill. By combining advanced data analytics, stakeholder research, and competitive mapping, we help you build a prioritized pipeline of growth opportunities grounded in real market evidence.",
+    "keyHighlights": [
+      "Our analysis maps the full landscape of demand, supply, and competitive activity to identify structural gaps — segments with strong demand but weak or absent supply — that represent the most defensible growth opportunities.",
+      "We conduct systematic needs analysis through primary research with customers, channel partners, and lost prospects to uncover unmet needs that are not visible in secondary data alone.",
+      "Each white space opportunity is scored and prioritized across multiple dimensions including market size, competitive intensity, strategic fit, and ease of entry — so leadership can make evidence-based portfolio decisions.",
+      "Deliverables include both an opportunity matrix and a detailed narrative for the top-priority white spaces, including addressability, required capabilities, competitive context, and recommended entry approach."
+    ],
+    "servicesInclude": [
+      "Market demand and supply gap mapping",
+      "Customer needs and unmet demand analysis",
+      "Segment attractiveness scoring and prioritization",
+      "Competitive white-space identification",
+      "Product and service gap analysis",
+      "Geographic expansion opportunity mapping",
+      "Technology and innovation gap assessment",
+      "Capability gap analysis (build-buy-partner)",
+      "Revenue opportunity sizing per white space",
+      "Strategic roadmap for opportunity pursuit"
+    ],
+    "benefits": [
+      { "title": "First-Mover Edge", "desc": "Identify and enter high-value gaps before competitors move." },
+      { "title": "Data-Grounded", "desc": "Opportunities sized and scored against real market data, not intuition." },
+      { "title": "Strategic Fit", "desc": "Gaps filtered for alignment with your existing capabilities and strategy." },
+      { "title": "Prioritized Pipeline", "desc": "Ranked opportunity list ready for resource allocation and planning." }
+    ],
+    "icon": "search-circle"
+  },
+  {
+    "id": 6,
+    "title": "Competitive Analysis",
+    "slug": "competitive-analysis",
+    "category": "Intelligence",
+    "tagline": "Identify Gaps Between You and Your Competitors",
+    "description": "Deep-dive competitor intelligence that reveals market positioning, strategic intent, product roadmaps, and capability gaps to sharpen your competitive edge.",
+    "overview": "Globe Market Research's Competitive Analysis service delivers the depth of intelligence you need to outmaneuver rivals, win deals, and sharpen your market positioning. We go beyond surface-level company profiles to uncover the strategic intent, capabilities, pricing, and vulnerabilities of your key competitors — giving leadership the facts needed to take offensive and defensive action with confidence.",
+    "keyHighlights": [
+      "Our competitive profiles combine multi-source intelligence — including regulatory filings, patent data, clinical or product pipelines, pricing intelligence, job postings, and expert interviews — to build a 360-degree view of each competitor's current position and strategic direction.",
+      "We conduct systematic win/loss analysis through interviews with recent buyers and lost prospects to identify exactly where your competitors are winning and why — surfacing the real decision criteria that sales data alone cannot reveal.",
+      "Our benchmarking models quantify competitive gaps across product features, pricing, service levels, geographic reach, and organizational capabilities — giving you a structured view of where you lead and where you are exposed.",
+      "Continuous intelligence subscription options allow clients to receive automated alerts, monthly briefings, and quarterly deep dives on their competitive set — ensuring strategy teams always have current, actionable intelligence."
+    ],
+    "servicesInclude": [
+      "Competitor identification and universe definition",
+      "360° competitor profiling (strategy, products, financials, culture)",
+      "Win/loss research and deal intelligence",
+      "Product and service benchmarking",
+      "Pricing and commercial model analysis",
+      "Go-to-market and channel strategy assessment",
+      "Patent landscape and IP monitoring",
+      "Clinical/product pipeline tracking",
+      "SWOT and strategic positioning analysis",
+      "Continuous competitive monitoring and alerts"
+    ],
+    "benefits": [
+      { "title": "360° View", "desc": "Multi-source intelligence that captures strategy, products, pricing, and culture." },
+      { "title": "Real Decision Intel", "desc": "Win/loss research reveals the factors that actually drive buyer decisions." },
+      { "title": "Quantified Gaps", "desc": "Benchmark scores that show exactly where you lead and where you are exposed." },
+      { "title": "Always Current", "desc": "Subscription options keep your intelligence fresh and actionable year-round." }
+    ],
+    "icon": "eye"
+  },
+  {
+    "id": 7,
+    "title": "Consulting Services",
+    "slug": "consulting-services-advisory",
+    "category": "Advisory",
+    "tagline": "Expert-Led Research & Advisory at Every Stage",
+    "description": "End-to-end advisory services powered by domain expertise — from foundational research partnerships to high-stakes strategic engagements for complex business challenges.",
+    "overview": "Globe Market Research's Consulting Services arm offers a full suite of expert-led advisory engagements tailored to the complexity of your challenge. Whether you need an ongoing research partnership, a specialized therapeutic area deep-dive, or a high-stakes strategic engagement ahead of a board decision or product launch, our consulting team brings together domain expertise, research rigor, and strategic clarity to deliver outcomes that matter.",
+    "keyHighlights": [
+      "Our consulting model is deliberately flexible — clients can engage us as an extended research team on retainer, commission discrete project-based engagements, or access specialized expertise through our expert network for specific advisory needs.",
+      "We maintain dedicated practice areas in market intelligence, competitive strategy, regulatory affairs, R&D analytics, and commercial excellence — enabling us to field genuinely specialized expertise rather than generalist consultants.",
+      "Every consulting engagement is supported by Globe Market Research's proprietary data infrastructure, giving our advisors access to market size databases, competitive intelligence feeds, and primary research archives that accelerate time-to-insight.",
+      "Our quality assurance process requires every deliverable to pass a senior partner review, ensuring the strategic quality, accuracy, and clarity of insights before they reach the client."
+    ],
+    "servicesInclude": [
+      "Ongoing research partnerships (retainer model)",
+      "Project-based strategic engagements",
+      "Expert network access and advisory calls",
+      "Market intelligence and competitive briefings",
+      "Regulatory and compliance advisory",
+      "R&D and pipeline strategy advisory",
+      "Commercial excellence and sales force advisory",
+      "Healthcare economics and outcomes research",
+      "Stakeholder mapping and engagement strategy",
+      "Executive workshops and strategic planning facilitation"
+    ],
+    "benefits": [
+      { "title": "Flexible Engagement", "desc": "Retainer, project, or advisory call — the model adapts to your needs." },
+      { "title": "Deep Specialization", "desc": "Practice-area experts, not generalists, lead every engagement." },
+      { "title": "Proprietary Data", "desc": "Advisors backed by GMR's market databases and research archives." },
+      { "title": "Partner-Reviewed", "desc": "Senior review on every deliverable guarantees strategic quality." }
+    ],
+    "icon": "users"
+  }
+]

@@ -63,28 +63,30 @@ export default function Header() {
       <header
         className="w-full relative transition-all duration-300"
         style={{
-          background: "rgba(8, 24, 40, 0.97)",
+          background: "rgba(255, 255, 255, 0.97)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
           boxShadow: scrolled
-            ? "0 1px 0 rgba(255,255,255,0.04), 0 8px 32px rgba(0,0,0,0.4)"
-            : "0 1px 0 rgba(255,255,255,0.04)",
+            ? "0 1px 0 rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.08)"
+            : "0 1px 0 rgba(0,0,0,0.06)",
         }}
       >
         <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto flex h-[68px] items-center justify-between px-4 sm:px-6 lg:px-8 gap-3 w-full">
           {/* Logo */}
           <h2 className="sr-only">Globe Market Research</h2>
           <Link href="/" className="flex items-center flex-shrink-0 group">
-            <Image
-              src="/assets/images/logo.png"
-              alt="Globe Market Research"
-              width={180}
-              height={50}
-              priority
-              fetchPriority="high"
-              sizes="180px"
-              className="h-12 w-auto md:h-[52px] transition-opacity duration-200 group-hover:opacity-90 brightness-0 invert"
-            />
+            <div className="transition-opacity duration-200 group-hover:opacity-90">
+              <Image
+                src="/assets/images/logo.jpg"
+                alt="Globe Market Research"
+                width={180}
+                height={50}
+                priority
+                fetchPriority="high"
+                sizes="180px"
+                className="h-10 w-auto md:h-[46px]"
+              />
+            </div>
           </Link>
 
           {/* Search — desktop */}
@@ -92,7 +94,7 @@ export default function Header() {
             <SearchBar
               variant="header"
               placeholder="Search reports, industries…"
-              className="w-full [&_input]:bg-white/[0.06] [&_input]:border-white/10 [&_input]:text-white/80 [&_input]:placeholder:text-white/25 [&_input]:rounded-lg [&_input]:text-sm [&_input]:h-9 [&_input:focus]:border-sky-500/40 [&_input:focus]:bg-white/[0.08] [&_input:focus]:ring-0 [&_svg:not(.clear-icon)]:text-white/30"
+              className="w-full [&_input]:bg-gray-100 [&_input]:border-gray-200 [&_input]:text-gray-700 [&_input]:placeholder:text-gray-400 [&_input]:rounded-lg [&_input]:text-sm [&_input]:h-9 [&_input:focus]:border-sky-400/60 [&_input:focus]:bg-white [&_input:focus]:ring-0 [&_svg:not(.clear-icon)]:text-gray-400"
             />
           </div>
 
@@ -101,23 +103,23 @@ export default function Header() {
             <Navigation />
 
             {/* Divider */}
-            <div className="hidden md:block h-5 w-px bg-white/10 mx-1" />
+            <div className="hidden md:block h-5 w-px bg-gray-200 mx-1" />
 
             {/* Request Sample CTA */}
             <Link
               href="/request-sample"
               className="hidden md:inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide px-4 py-2 rounded-lg text-white transition-all duration-200"
               style={{
-                background: "linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%)",
-                boxShadow: "0 0 0 1px rgba(14,165,233,0.3), 0 2px 8px rgba(2,132,199,0.3)",
+                background: "linear-gradient(135deg, #1DAEBF 0%, #2CC8D8 100%)",
+                boxShadow: "0 0 0 1px rgba(44,200,216,0.3), 0 2px 8px rgba(44,200,216,0.3)",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.boxShadow =
-                  "0 0 0 1px rgba(14,165,233,0.5), 0 4px 16px rgba(2,132,199,0.4)";
+                  "0 0 0 1px rgba(44,200,216,0.5), 0 4px 16px rgba(44,200,216,0.4)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.boxShadow =
-                  "0 0 0 1px rgba(14,165,233,0.3), 0 2px 8px rgba(2,132,199,0.3)";
+                  "0 0 0 1px rgba(44,200,216,0.3), 0 2px 8px rgba(44,200,216,0.3)";
               }}
             >
               Request Sample
