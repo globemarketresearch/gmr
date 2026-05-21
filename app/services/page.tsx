@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllServices } from "@/lib/api/services";
 import { Service } from "@/lib/api/services.types";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 export const metadata: Metadata = {
   title: "Research & Consulting Services | Globe Market Research",
@@ -230,7 +231,7 @@ export default function ServicesPage() {
               { value: "10+",    label: "Years of Expertise" },
             ].map(({ value, label }) => (
               <div key={label}>
-                <div className="text-3xl font-extrabold text-white">{value}</div>
+                <AnimatedCounter value={value} className="text-3xl font-extrabold text-white" />
                 <div className="text-[13px] text-white/40 mt-1">{label}</div>
               </div>
             ))}
