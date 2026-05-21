@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 interface AnimatedCounterProps {
   value: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 function parseValue(raw: string): { num: number; prefix: string; suffix: string } {
@@ -18,16 +19,18 @@ function parseValue(raw: string): { num: number; prefix: string; suffix: string 
 }
 
 function formatNumber(n: number, originalHadComma: boolean): string {
-  if (originalHadComma && n >= 1000) {
-    return n.toLocaleString("en-US");
-  }
+  if (originalHadComma && n >= 1000) return n.toLocaleString("en-US");
   return String(n);
 }
 
-export function AnimatedCounter({ value, className }: AnimatedCounterProps) {
+export function AnimatedCounter({ value, className, style }: AnimatedCounterProps) {
   const { num, prefix, suffix } = parseValue(value);
   const hasComma = value.includes(",");
-  const [display, setDisplay] = useState(0);
+
+  // For large numbers, start from 60% so the count-up feels deliberate, not frantic
+  const startFrom = num >= 100 ? Math.floor(num * 0.6) : 0;
+
+  const [display, setDisplay] = useState(startFrom);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
 
@@ -39,15 +42,15 @@ export function AnimatedCounter({ value, className }: AnimatedCounterProps) {
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
-          const duration = 1400;
+          const duration = 1200;
           const startTime = performance.now();
 
           const tick = (now: number) => {
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // ease-out cubic
+            // ease-out cubic — fast start, smooth landing
             const eased = 1 - Math.pow(1 - progress, 3);
-            setDisplay(Math.round(eased * num));
+            setDisplay(Math.round(startFrom + eased * (num - startFrom)));
             if (progress < 1) requestAnimationFrame(tick);
           };
 
@@ -59,10 +62,10 @@ export function AnimatedCounter({ value, className }: AnimatedCounterProps) {
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [num]);
+  }, [num, startFrom]);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={className} style={style}>
       {prefix}{formatNumber(display, hasComma)}{suffix}
     </span>
   );

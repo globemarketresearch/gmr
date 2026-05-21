@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button, SearchBar } from '@/components/ui';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 const stats = [
   { value: '2,500+', label: 'Research Reports' },
@@ -208,12 +209,11 @@ export default function HeroSection() {
                 key={label}
                 className={`flex flex-col gap-0.5 ${i < stats.length - 1 ? 'lg:border-r border-[var(--border-color)] lg:pr-6' : ''}`}
               >
-                <span
+                <AnimatedCounter
+                  value={value}
                   className="font-display text-3xl font-bold text-[var(--text-primary)]"
                   style={{ letterSpacing: '-0.03em' }}
-                >
-                  {value}
-                </span>
+                />
                 <span className="font-body text-sm text-[var(--text-secondary)]">{label}</span>
               </div>
             ))}

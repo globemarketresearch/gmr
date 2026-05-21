@@ -1,4 +1,5 @@
 import { Section, Container } from '@/components/ui';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 interface Stat {
   value: string;
@@ -63,9 +64,11 @@ export default function StatsSection() {
                   </svg>
                 </div>
 
-                <div className="font-display text-4xl font-bold text-[var(--text-primary)] mb-1" style={{ letterSpacing: '-0.04em' }}>
-                  {stat.value}
-                </div>
+                <AnimatedCounter
+                  value={stat.value}
+                  className="font-display text-4xl font-bold text-[var(--text-primary)] mb-1 block"
+                  style={{ letterSpacing: '-0.04em' }}
+                />
                 <div className="font-body text-sm font-semibold text-[var(--text-primary)] mb-0.5">
                   {stat.label}
                 </div>

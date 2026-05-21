@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Section, Container, Grid, Card, CardContent, Button } from "@/components/ui";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 export const metadata: Metadata = {
   title: "About Globe Market Research | Global Market Intelligence & Consulting",
@@ -137,7 +138,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
             {stats.map((s) => (
               <div key={s.label} className="py-8 px-6 text-center">
-                <div className="text-3xl font-bold text-[var(--primary)]">{s.value}</div>
+                <AnimatedCounter value={s.value} className="text-3xl font-bold text-[var(--primary)]" />
                 <div className="text-sm text-[var(--muted-foreground)] mt-1">{s.label}</div>
               </div>
             ))}
