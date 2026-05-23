@@ -43,6 +43,7 @@ const getInitialDetails = (): CustomerDetails => {
 
 export function CheckoutForm({ reportSlug, reportTitle }: CheckoutFormProps) {
   const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- needed when payment step is re-enabled
   const [step, setStep] = useState<Step>('details');
   const [details, setDetails] = useState<CustomerDetails>(getInitialDetails);
   const [countryCode, setCountryCode] = useState<string>(getDefaultCountry().code);
