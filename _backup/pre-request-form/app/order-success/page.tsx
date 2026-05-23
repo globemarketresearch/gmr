@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Request Received — GlobeMarketResearch',
-  description: 'Your purchase request has been received. Our team will reach out within 1 business day.',
+  title: 'Order Confirmed — GlobeMarketResearch',
+  description: 'Your order has been confirmed. Your report will be delivered within 2–3 business days.',
   robots: { index: false, follow: false },
 };
 
@@ -33,19 +33,19 @@ export default function OrderSuccessPage() {
 
         <div>
           <h1 className="text-3xl font-bold text-[var(--foreground)] mb-3">
-            Request Received!
+            Payment Confirmed!
           </h1>
           <p className="text-[var(--muted-foreground)]">
-            Thank you for your interest. We&apos;ve received your purchase request and will be in touch shortly.
+            Thank you for your purchase. A confirmation email has been sent to you.
           </p>
         </div>
 
         <div className="bg-[var(--card)] border border-[var(--border)] rounded-lg p-6 text-left space-y-3">
           <h2 className="font-semibold text-[var(--foreground)]">What happens next?</h2>
           <ol className="space-y-2 text-sm text-[var(--muted-foreground)] list-decimal list-inside">
-            <li>Our team will review your request and prepare an invoice.</li>
-            <li>You&apos;ll receive an email within <strong className="text-[var(--foreground)]">1 business day</strong> with payment instructions.</li>
-            <li>Once payment is confirmed, your report will be delivered within <strong className="text-[var(--foreground)]">2–3 business days</strong>.</li>
+            <li>Our team will process your order and prepare your report.</li>
+            <li>Your report will be emailed to you within <strong className="text-[var(--foreground)]">2–3 business days</strong>.</li>
+            <li>If you have any questions, reply to the confirmation email or contact our support team.</li>
           </ol>
         </div>
 
