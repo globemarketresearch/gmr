@@ -97,9 +97,9 @@ export default function ServicesMenu({ services, isActive }: ServicesMenuProps) 
         aria-expanded={isOpen}
         aria-label="Browse services"
         className={cn(
-          "relative text-[13px] font-medium tracking-wide transition-colors duration-150 whitespace-nowrap py-1",
+          "relative text-[13px] font-bold tracking-wide transition-colors duration-150 whitespace-nowrap py-1",
           "flex items-center gap-1 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-blue-400/40 focus-visible:ring-offset-1 focus-visible:ring-offset-transparent rounded",
-          isActive ? "text-[#111d40]" : "text-[#3a5a80] hover:text-[#111d40]"
+          isActive ? "text-black" : "text-black/80 hover:text-black"
         )}
       >
         Services

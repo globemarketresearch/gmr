@@ -27,8 +27,8 @@ function NavLink({ href, label, pathname }: { href: string; label: string; pathn
     <Link
       href={href}
       className={cn(
-        "relative text-[13px] font-medium tracking-wide transition-colors duration-150 whitespace-nowrap py-1",
-        isActive ? "text-[#111d40]" : "text-[#3a5a80] hover:text-[#111d40]"
+        "relative text-[13px] font-bold tracking-wide transition-colors duration-150 whitespace-nowrap py-1",
+        isActive ? "text-black" : "text-black/80 hover:text-black"
       )}
     >
       {label}

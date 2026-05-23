@@ -71,7 +71,7 @@ export default function Header() {
             : "0 1px 0 rgba(0,0,0,0.06)",
         }}
       >
-        <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto flex h-[68px] items-center justify-between px-4 sm:px-6 lg:px-8 gap-3 w-full">
+        <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto flex h-[88px] items-center justify-between px-4 sm:px-6 lg:px-8 gap-3 w-full">
           {/* Logo */}
           <h2 className="sr-only">Globe Market Research</h2>
           <Link href="/" className="flex items-center flex-shrink-0 group">
@@ -79,12 +79,12 @@ export default function Header() {
               <Image
                 src="/assets/images/logo.jpg"
                 alt="Globe Market Research"
-                width={180}
-                height={50}
+                width={240}
+                height={70}
                 priority
                 fetchPriority="high"
-                sizes="180px"
-                className="h-10 w-auto md:h-[46px]"
+                sizes="240px"
+                className="h-16 w-auto md:h-[72px]"
               />
             </div>
           </Link>

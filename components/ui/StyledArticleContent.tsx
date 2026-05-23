@@ -67,6 +67,12 @@ export const StyledArticleContent: React.FC<StyledArticleContentProps> = ({
         .styled-article-content p {
           color: #333333;
           line-height: 1.75;
+          margin-top: 0;
+          margin-bottom: 1.25rem;
+        }
+
+        .styled-article-content p:last-child {
+          margin-bottom: 0;
         }
 
         .styled-article-content ul,
