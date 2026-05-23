@@ -3,6 +3,11 @@ export interface ServiceBenefit {
   desc: string;
 }
 
+export interface ServiceStat {
+  value: string;
+  label: string;
+}
+
 export type ServiceIconName =
   | "chart-bar"
   | "adjustments"
@@ -20,6 +25,8 @@ export interface Service {
   tagline: string;
   description: string;
   overview: string;
+  stats?: ServiceStat[];
+  methodology?: string[];
   keyHighlights: string[];
   servicesInclude: string[];
   benefits: ServiceBenefit[];

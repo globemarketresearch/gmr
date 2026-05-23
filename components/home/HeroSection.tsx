@@ -1,14 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button, SearchBar } from '@/components/ui';
-import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
-
-const stats = [
-  { value: '2,500+', label: 'Research Reports' },
-  { value: '45+', label: 'Industries Covered' },
-  { value: '150+', label: 'Countries Analyzed' },
-  { value: '98%', label: 'Client Satisfaction' },
-];
 
 const industries = [
   { name: 'Healthcare & Pharma', growth: '+14.2%', color: '#10b981' },
@@ -196,27 +188,6 @@ export default function HeroSection() {
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
-
-      {/* ── Stats bar ──────────────────────────────────────────── */}
-      <div className="relative z-10 border-[var(--border-color)] bg-[var(--surface)]/60">
-        <div className="max-w-[88rem] mx-auto px-6 lg:px-14 py-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-5 gap-x-6">
-            {stats.map(({ value, label }, i) => (
-              <div
-                key={label}
-                className={`flex flex-col gap-0.5 ${i < stats.length - 1 ? 'lg:border-r border-[var(--border-color)] lg:pr-6' : ''}`}
-              >
-                <AnimatedCounter
-                  value={value}
-                  className="font-display text-3xl font-bold text-[var(--text-primary)]"
-                  style={{ letterSpacing: '-0.03em' }}
-                />
-                <span className="font-body text-sm text-[var(--text-secondary)]">{label}</span>
-              </div>
-            ))}
           </div>
         </div>
       </div>

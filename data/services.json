@@ -4,14 +4,29 @@
     "title": "Syndicated Reports",
     "slug": "syndicated-reports",
     "category": "Market Intelligence",
-    "tagline": "Access Ready-To-Use Market Intelligence",
-    "description": "Comprehensive, off-the-shelf research reports covering market size, growth forecasts, competitive landscapes, and strategic insights across 50+ industries.",
-    "overview": "Globe Market Research's Syndicated Reports deliver ready-to-use, in-depth market intelligence that empowers business leaders to make confident decisions without the lead time of custom research. Our reports are produced by domain experts and cover everything from market sizing and segmentation to competitive dynamics and strategic forecasts across global and regional geographies.",
+    "tagline": "Ready insights for faster market decisions",
+    "description": "At GMR, syndicated market research reports are designed to help businesses understand markets with clarity, speed, and confidence. These reports provide structured insights into market size, growth rate, demand outlook, key trends, competitive landscape, regional performance, and future opportunities.",
+    "overview": "GMR reports help clients study market direction, compare business opportunities, track competitors, and support long-term growth decisions. Our syndicated reports are built in a simple and practical format. They include market overview, segmentation analysis, regional insights, company profiles, recent developments, growth drivers, restraints, challenges, and forecast data. GMR helps businesses move from market information to clear business direction — supporting decisions related to market entry, investment planning, product launch, regional expansion, and competitive strategy.",
+    "stats": [
+      { "value": "50+", "label": "Research Projects Completed" },
+      { "value": "45+", "label": "Countries Analyzed" },
+      { "value": "90%", "label": "Client Retention Rate" },
+      { "value": "20+", "label": "Business Sectors Studied" }
+    ],
+    "methodology": [
+      "Industry mapping and scope review",
+      "Demand pattern assessment",
+      "Market sizing and forecasting",
+      "Regional opportunity analysis",
+      "Multi-source data validation",
+      "Competitive landscape study"
+    ],
     "keyHighlights": [
-      "Each report covers comprehensive market sizing with historical data, current estimates, and 10-year forecasts broken down by product type, end-user, geography, and other key dimensions.",
-      "Our syndicated reports include detailed competitive landscape sections profiling leading players, their market share, key strategies, and recent developments — giving you an instant view of the market structure.",
-      "Reports are published on a rolling basis and updated regularly to reflect new data, regulatory changes, M&A activity, and emerging market trends.",
-      "Every report includes an executive summary, methodology disclosure, and analyst commentary, making findings immediately usable by C-suite, strategy, and product teams alike."
+      "GMR reports are prepared in a clean and easy-to-read format. Clients can quickly understand market size, growth trends, key segments, regional outlook, and competitive position.",
+      "Each report is supported by structured research and careful data review. The insights are developed to help clients make informed and practical business decisions.",
+      "GMR provides syndicated reports across major industries, including healthcare, technology, chemicals, automotive, energy, packaging, agriculture, food and beverages, consumer goods, semiconductors, and manufacturing.",
+      "GMR reports explain market behavior, demand shifts, growth factors, restraints, risks, and future opportunities in simple business language — not just numbers.",
+      "Syndicated reports help clients save time by offering ready-to-use market intelligence so businesses can evaluate opportunities, compare markets, and plan strategies faster."
     ],
     "servicesInclude": [
       "Global and regional market size & forecast (10-year horizon)",
@@ -26,10 +41,10 @@
       "Excel data pack and customizable tables"
     ],
     "benefits": [
-      { "title": "Instant Access", "desc": "Download and deploy insights on the same day — no waiting for custom turnaround." },
-      { "title": "Cost Effective", "desc": "Fraction of the cost of custom research for enterprise-grade intelligence." },
-      { "title": "Analyst Support", "desc": "Free 20-minute analyst Q&A with every report purchase." },
-      { "title": "Regular Updates", "desc": "Reports refreshed as markets evolve, ensuring you always work with current data." }
+      { "title": "Clear & Structured", "desc": "Reports prepared in a clean, easy-to-read format — market size, trends, segments, and competitive position at a glance." },
+      { "title": "Data-Backed Insights", "desc": "Supported by structured research and careful data review, developed for informed and practical business decisions." },
+      { "title": "Wide Industry Coverage", "desc": "Reports across healthcare, technology, chemicals, automotive, energy, packaging, agriculture, and more." },
+      { "title": "Faster Decisions", "desc": "Ready-to-use intelligence lets businesses evaluate opportunities, compare markets, and plan strategies without delay." }
     ],
     "icon": "chart-bar"
   },
@@ -39,13 +54,22 @@
     "slug": "custom-market-research",
     "category": "Custom Research",
     "tagline": "Tailored Insights Designed For Your Business Needs",
-    "description": "Bespoke research programs designed around your specific strategic questions — combining primary interviews, secondary intelligence, and advanced analytics.",
-    "overview": "When off-the-shelf data is not enough, Globe Market Research's Custom Market Research service steps in to deliver research built specifically around your unique business challenge. Our methodology integrates primary stakeholder interviews, proprietary databases, secondary analysis, and advanced modeling to produce insights that directly address your strategic questions — whether you are entering a new market, launching a product, or assessing an investment.",
+    "description": "At GMR, custom market research is designed for businesses that need specific answers for their market, product, customer group, or region. Every company has different goals, and ready-made research may not always cover the exact information required for decision-making. Custom research helps close this gap by providing focused insights based on the client's business needs.",
+    "overview": "Our custom research service helps companies understand market demand, customer behavior, pricing trends, competitive position, regional opportunities, and future growth potential. The research can be built around a specific industry, product category, application, end-user, geography, or business challenge. This helps clients make informed decisions with clear and practical market intelligence. GMR provides custom market research that is focused, practical, and aligned with real business needs — designed to answer specific questions, not provide general information.",
+    "methodology": [
+      "Business objective and research scope definition",
+      "Primary and secondary data collection",
+      "Customer and stakeholder interviews",
+      "Demand estimation and market modeling",
+      "Competitor and pricing intelligence",
+      "Insight validation and recommendation building"
+    ],
     "keyHighlights": [
-      "Our custom programs begin with a deep-dive scoping session to crystallize your research objectives, define the target universe, and agree on deliverable formats — ensuring every hour of research is aligned to your decisions.",
-      "We combine primary qualitative research (executive interviews, focus groups, expert panels) with quantitative surveys and rigorous secondary analysis to triangulate findings from multiple data sources.",
-      "Custom deliverables are structured to your team's workflow — from board-ready PowerPoint presentations and interactive dashboards to raw data files and detailed white papers.",
-      "Dedicated project managers and senior analysts remain your single point of contact throughout, ensuring quality, timeliness, and complete alignment with your evolving requirements."
+      "GMR starts by understanding the client's business goals, research needs, target market, and decision-making purpose — ensuring the final study is focused, useful, and aligned with business priorities.",
+      "After understanding the requirement, GMR defines the research scope, market segments, geography, target audience, and data sources, then selects a suitable methodology based on the type of information needed.",
+      "GMR collects data from reliable secondary sources, industry publications, company information, public databases, and trade sources. Primary research is used where deeper market validation is required.",
+      "Findings are checked through cross-verification, source comparison, and market logic validation — converting verified data into clear insights about market direction, business risks, and opportunity areas.",
+      "The final report includes key findings, market analysis, segment insights, regional outlook, competitor review, and strategic recommendations ready for business planning and investment decisions."
     ],
     "servicesInclude": [
       "Research design and scoping workshops",
@@ -60,10 +84,10 @@
       "Custom dashboard and data visualization"
     ],
     "benefits": [
-      { "title": "Purpose-Built", "desc": "Every aspect of the research is designed around your specific question." },
-      { "title": "Multi-Method", "desc": "Triangulated insights from primary, secondary, and quantitative sources." },
-      { "title": "Senior-Led", "desc": "Domain-expert analysts lead your project from scoping to delivery." },
-      { "title": "Flexible Output", "desc": "Deliverables in any format your team needs — PPT, Excel, dashboard, or report." }
+      { "title": "New Market Opportunities", "desc": "GMR helps find new growth areas, high-potential segments, and under-served markets for better expansion planning." },
+      { "title": "Customer Demand Clarity", "desc": "Studies customer needs, buying behavior, product preferences, and demand patterns to improve product planning and targeting." },
+      { "title": "Stronger Competitive Position", "desc": "Analyzes competitor strategies, product portfolios, pricing models, and market presence to build stronger market strategy." },
+      { "title": "Better Business Decisions", "desc": "Provides clear market intelligence that supports planning, investment, product development, and market entry with lower risk." }
     ],
     "icon": "adjustments"
   },
@@ -72,14 +96,29 @@
     "title": "Go to Market Strategy",
     "slug": "go-to-market-strategy",
     "category": "Strategy",
-    "tagline": "Build Effective Market Entry & Expansion Strategies",
-    "description": "Data-driven GTM blueprints that define your target segments, positioning, channel architecture, and launch roadmap for successful market entry or expansion.",
-    "overview": "Entering a new market or expanding into new geographies and segments requires a precise, evidence-based strategy. Globe Market Research's Go to Market Strategy service equips organizations with a comprehensive GTM blueprint — grounded in real market data and competitive intelligence — so that launches are executed with confidence and capital efficiency. We help you define who you are targeting, how you will reach them, what you will say, and how you will win.",
+    "tagline": "Plan Your Market Entry with Clear Research and Practical Execution",
+    "description": "At GMR, Go-To-Market strategy services are designed to help businesses launch products, enter new markets, expand into new regions, and reach the right customers with confidence. A strong GTM strategy helps companies understand market demand, customer needs, competitive pressure, pricing conditions, sales channels, and growth opportunities before making major business decisions.",
+    "overview": "GMR supports businesses with structured market research, competitor tracking, customer analysis, channel mapping, and execution planning. The goal is to reduce market risk and help clients build a clear path from market opportunity to business growth. A Go-To-Market strategy defines the target customers, market position, pricing approach, sales channels, marketing message, and launch plan — helping businesses avoid weak market entry decisions and build stronger positions from day one.",
+    "stats": [
+      { "value": "12–18%", "label": "Faster Product Launch Readiness" },
+      { "value": "15–24%", "label": "Improved Market Entry Success" },
+      { "value": "18–29%", "label": "Better Sales & Marketing Alignment" },
+      { "value": "14–22%", "label": "Higher Revenue Opportunity Mapping" }
+    ],
+    "methodology": [
+      "Target market selection and opportunity screening",
+      "Customer segment identification",
+      "Value proposition and positioning analysis",
+      "Pricing and channel strategy review",
+      "Sales and distribution readiness assessment",
+      "Launch roadmap and execution planning"
+    ],
     "keyHighlights": [
-      "We begin with a rigorous opportunity assessment that combines market sizing, segment attractiveness analysis, and barrier-to-entry mapping to identify where your entry creates the most value and faces the least friction.",
-      "Our team develops detailed buyer persona profiles and customer journey maps based on primary interviews with target customers, ensuring your positioning and messaging resonate with real decision-makers.",
-      "Channel strategy analysis covers direct, distribution, digital, and partnership models — with a quantified view of reach, cost, and conversion potential for each route-to-market option.",
-      "The final deliverable includes a phased launch roadmap with KPIs, risk mitigation plans, and competitive response scenarios — giving leadership a structured, actionable plan from day one."
+      "GMR starts by studying the target market size, growth rate, demand outlook, customer needs, and industry trends — identifying key growth areas, adoption trends, and possible risks before entry.",
+      "GMR identifies the most relevant customer groups based on industry, geography, company size, buying behavior, application, or end-use requirement to improve product positioning and sales planning.",
+      "GMR studies major competitors, their product offerings, pricing models, market presence, sales channels, and recent developments — showing how the product or service can be positioned to gain customer attention.",
+      "GMR evaluates the best sales and distribution channels and builds a pricing strategy based on customer value, competitor pricing, cost structure, and market acceptance.",
+      "GMR prepares a clear GTM roadmap with key steps, timelines, target segments, channel priorities, and action areas — supporting product launch, regional entry, sales outreach, and performance tracking."
     ],
     "servicesInclude": [
       "Market opportunity assessment and TAM/SAM/SOM sizing",
@@ -94,10 +133,10 @@
       "Launch roadmap with milestones and KPIs"
     ],
     "benefits": [
-      { "title": "Market Clarity", "desc": "Precise definition of your addressable market and highest-value segments." },
-      { "title": "Differentiated Positioning", "desc": "Messaging that resonates with real buyers, backed by primary research." },
-      { "title": "Risk Mitigation", "desc": "Competitive response scenarios built into every launch plan." },
-      { "title": "Faster Launch", "desc": "Structured roadmap reduces time-to-market and avoids costly pivots." }
+      { "title": "Research-Led Strategy", "desc": "GMR builds GTM strategies based on market research, not assumptions — every recommendation supported by data and industry analysis." },
+      { "title": "Clear Market Direction", "desc": "Helps clients understand where the opportunity exists, which customer groups matter most, and how the market can be approached." },
+      { "title": "Practical Execution Focus", "desc": "Designed for business use — clear steps for market entry, product launch, sales planning, and growth execution." },
+      { "title": "Competitive Understanding", "desc": "Studies competitor activity, pricing behavior, market share movement, and channel strategies to build a stronger market position." }
     ],
     "icon": "rocket"
   },
@@ -107,11 +146,19 @@
     "slug": "business-strategy-consulting",
     "category": "Consulting",
     "tagline": "Data-Driven Advisory to Guide Strategic Growth",
-    "description": "Senior-led strategic advisory that combines rigorous market intelligence with functional expertise to help organizations grow, transform, and compete more effectively.",
-    "overview": "Globe Market Research's Business Strategy Consulting practice partners with senior leadership teams to solve complex strategic challenges — from portfolio strategy and growth planning to operational transformation and investment prioritization. Our approach blends the analytical rigor of a research firm with the strategic perspective of a top-tier advisory practice, ensuring recommendations are both evidence-based and practically actionable.",
+    "description": "At GMR, business strategy consulting is designed to help companies make informed decisions, improve market position, and plan long-term growth with confidence. Businesses today operate in changing markets where customer needs, competition, technology, regulations, and investment priorities can shift quickly. A clear strategy helps companies understand where they stand, where they can grow, and how they should move forward.",
+    "overview": "GMR supports businesses with research-led advisory, market intelligence, competitive analysis, growth planning, and strategic recommendations. Our consulting services help clients reduce uncertainty, identify new opportunities, improve business performance, and build stronger plans for future growth. Our advisory approach is based on market data, competitive intelligence, industry understanding, and structured analysis — connecting market research with business action so companies can move forward with confidence.",
+    "methodology": [
+      "Business situation assessment",
+      "Market and competitor intelligence review",
+      "Growth opportunity identification",
+      "Strategic option development",
+      "Risk and gap analysis",
+      "Action plan and priority mapping"
+    ],
     "keyHighlights": [
       "Our strategy engagements begin with a structured diagnostic phase — combining leadership interviews, financial analysis, market data, and competitive benchmarking to develop a comprehensive picture of your current position and strategic options.",
-      "We apply proven frameworks including Porter's Five Forces, Blue Ocean Strategy, BCG matrix, and scenario planning — augmented with our proprietary market data — to evaluate strategic alternatives with quantified trade-offs.",
+      "We apply proven frameworks augmented with our proprietary market data to evaluate strategic alternatives with quantified trade-offs — from Porter's Five Forces to scenario planning.",
       "Implementation planning is integral to every strategy engagement, with 90-day action plans, responsible owners, resource requirements, and success metrics defined before the final presentation.",
       "Our sector experts bring deep domain knowledge across healthcare, technology, industrials, consumer goods, and financial services — ensuring advice is grounded in how your industry actually operates."
     ],
@@ -141,13 +188,21 @@
     "slug": "white-space-analysis",
     "category": "Analytics",
     "tagline": "Identify Untapped Opportunities Before Your Competitors",
-    "description": "Systematic identification of underserved market segments, unmet customer needs, and product/service gaps that represent your next growth opportunity.",
-    "overview": "Globe Market Research's White Space Analysis service reveals the hidden opportunities that exist between the lines of your current market — the underserved segments, unaddressed needs, and capability gaps that competitors have yet to fill. By combining advanced data analytics, stakeholder research, and competitive mapping, we help you build a prioritized pipeline of growth opportunities grounded in real market evidence.",
+    "description": "At GMR, white space analysis is designed to help businesses find growth opportunities that are not fully served by existing competitors. It helps companies understand where customer needs are unmet, where market gaps exist, and where new products, services, regions, or customer segments can create value.",
+    "overview": "White space analysis supports better decision-making for market expansion, product development, innovation planning, customer targeting, and competitive strategy. By studying the market from different angles, GMR helps clients identify areas where demand exists but current solutions are limited, weak, costly, or poorly positioned. Our analysis is built on structured market research, competitor mapping, customer demand review, and opportunity assessment — providing clear insights that help businesses move into high-potential areas with better confidence.",
+    "methodology": [
+      "Market and segment mapping across key applications and customer groups",
+      "Customer need and demand assessment",
+      "Competitive gap analysis and positioning review",
+      "Opportunity prioritization by size, demand, and entry difficulty",
+      "Strategic recommendation and action roadmap development"
+    ],
     "keyHighlights": [
-      "Our analysis maps the full landscape of demand, supply, and competitive activity to identify structural gaps — segments with strong demand but weak or absent supply — that represent the most defensible growth opportunities.",
-      "We conduct systematic needs analysis through primary research with customers, channel partners, and lost prospects to uncover unmet needs that are not visible in secondary data alone.",
-      "Each white space opportunity is scored and prioritized across multiple dimensions including market size, competitive intensity, strategic fit, and ease of entry — so leadership can make evidence-based portfolio decisions.",
-      "Deliverables include both an opportunity matrix and a detailed narrative for the top-priority white spaces, including addressability, required capabilities, competitive context, and recommended entry approach."
+      "GMR starts by mapping the target market across key segments, applications, customer groups, regions, and product categories — identifying areas that are mature, highly competitive, growing, or under-served.",
+      "GMR studies customer needs, buying behavior, pain points, product expectations, and service gaps to identify where customers are not fully satisfied with existing market solutions.",
+      "GMR reviews competitor presence, product portfolios, pricing models, regional coverage, and distribution channels to find areas where competitors are weak or absent.",
+      "Each opportunity is scored and prioritized across market size, demand potential, competition level, entry difficulty, customer fit, and growth outlook — so leadership can make evidence-based portfolio decisions.",
+      "GMR provides clear recommendations on where the business can expand, which segments should be targeted, and how the opportunity can be approached — including product strategy, regional focus, and channel planning."
     ],
     "servicesInclude": [
       "Market demand and supply gap mapping",
@@ -175,13 +230,21 @@
     "slug": "competitive-analysis",
     "category": "Intelligence",
     "tagline": "Identify Gaps Between You and Your Competitors",
-    "description": "Deep-dive competitor intelligence that reveals market positioning, strategic intent, product roadmaps, and capability gaps to sharpen your competitive edge.",
-    "overview": "Globe Market Research's Competitive Analysis service delivers the depth of intelligence you need to outmaneuver rivals, win deals, and sharpen your market positioning. We go beyond surface-level company profiles to uncover the strategic intent, capabilities, pricing, and vulnerabilities of your key competitors — giving leadership the facts needed to take offensive and defensive action with confidence.",
+    "description": "At GMR, competitive analysis is designed to help businesses understand their market position, track competitor movement, and identify clear gaps in products, pricing, service, reach, and strategy. In a changing market, knowing who your competitors are is not enough — businesses need to understand how competitors operate, where they are gaining share, why customers choose them, and which areas create risk or opportunity.",
+    "overview": "GMR provides structured competitive intelligence that supports business planning, product strategy, pricing decisions, sales improvement, market entry, and long-term growth. Our analysis helps clients move beyond surface-level competitor tracking and build a clear view of where they lead, where they lag, and where action is needed. Our approach combines data review, market tracking, buyer insights, competitor profiling, and structured benchmarking — clear and useful for strategy teams, sales teams, investors, product teams, and leadership groups.",
+    "methodology": [
+      "Competitor identification and ranking",
+      "Product and service portfolio analysis",
+      "Pricing and positioning review",
+      "Sales channel and distribution mapping",
+      "Company strategy and growth move tracking",
+      "Strength, weakness, opportunity, and threat assessment"
+    ],
     "keyHighlights": [
-      "Our competitive profiles combine multi-source intelligence — including regulatory filings, patent data, clinical or product pipelines, pricing intelligence, job postings, and expert interviews — to build a 360-degree view of each competitor's current position and strategic direction.",
-      "We conduct systematic win/loss analysis through interviews with recent buyers and lost prospects to identify exactly where your competitors are winning and why — surfacing the real decision criteria that sales data alone cannot reveal.",
-      "Our benchmarking models quantify competitive gaps across product features, pricing, service levels, geographic reach, and organizational capabilities — giving you a structured view of where you lead and where you are exposed.",
-      "Continuous intelligence subscription options allow clients to receive automated alerts, monthly briefings, and quarterly deep dives on their competitive set — ensuring strategy teams always have current, actionable intelligence."
+      "Our competitive profiles combine multi-source intelligence — including regulatory filings, patent data, product pipelines, pricing intelligence, job postings, and expert interviews — to build a complete view of each competitor's current position and strategic direction.",
+      "GMR conducts systematic win/loss analysis through interviews with recent buyers and lost prospects to identify exactly where competitors are winning and why — including the real decision factors that sales data alone may not reveal.",
+      "Our benchmarking models measure competitive gaps across product features, pricing, service levels, geographic reach, distribution strength, and organizational capabilities — giving clients a structured view of where they lead and where they are exposed.",
+      "Continuous intelligence subscription options allow clients to receive automated alerts, monthly briefings, and quarterly deep dives on their competitive set — keeping strategy teams updated with current, actionable intelligence."
     ],
     "servicesInclude": [
       "Competitor identification and universe definition",
@@ -209,12 +272,20 @@
     "slug": "consulting-services-advisory",
     "category": "Advisory",
     "tagline": "Expert-Led Research & Advisory at Every Stage",
-    "description": "End-to-end advisory services powered by domain expertise — from foundational research partnerships to high-stakes strategic engagements for complex business challenges.",
-    "overview": "Globe Market Research's Consulting Services arm offers a full suite of expert-led advisory engagements tailored to the complexity of your challenge. Whether you need an ongoing research partnership, a specialized therapeutic area deep-dive, or a high-stakes strategic engagement ahead of a board decision or product launch, our consulting team brings together domain expertise, research rigor, and strategic clarity to deliver outcomes that matter.",
+    "description": "At GMR, consulting services are designed to help businesses make informed decisions at every stage of growth. Our consulting support combines market research, industry analysis, competitive intelligence, and strategic advisory to help clients understand opportunities, risks, and market direction.",
+    "overview": "GMR works with companies, investors, strategy teams, product teams, and leadership groups that need clear answers for business planning. Our consulting services support market entry, expansion planning, competitive positioning, regulatory understanding, commercial strategy, and long-term growth decisions. Our approach is designed to support both short-term decisions and long-term strategy — connecting research with action so businesses can move forward with better clarity and lower risk.",
+    "methodology": [
+      "Client objective and decision need assessment",
+      "Research framework development",
+      "Market intelligence and data collection",
+      "Expert input and stakeholder mapping",
+      "Strategic analysis and recommendation building",
+      "Ongoing support through reports, briefings, and advisory calls"
+    ],
     "keyHighlights": [
-      "Our consulting model is deliberately flexible — clients can engage us as an extended research team on retainer, commission discrete project-based engagements, or access specialized expertise through our expert network for specific advisory needs.",
-      "We maintain dedicated practice areas in market intelligence, competitive strategy, regulatory affairs, R&D analytics, and commercial excellence — enabling us to field genuinely specialized expertise rather than generalist consultants.",
-      "Every consulting engagement is supported by Globe Market Research's proprietary data infrastructure, giving our advisors access to market size databases, competitive intelligence feeds, and primary research archives that accelerate time-to-insight.",
+      "Our consulting model is deliberately flexible — clients can engage us on retainer for continuous market updates, commission discrete project-based engagements, or access specialized expertise through our expert network.",
+      "We maintain dedicated practice areas in market intelligence, competitive strategy, regulatory affairs, R&D analytics, and commercial excellence — enabling genuinely specialized expertise rather than generalist consultants.",
+      "Every consulting engagement is supported by GMR's proprietary data infrastructure, giving our advisors access to market size databases, competitive intelligence feeds, and primary research archives that accelerate time-to-insight.",
       "Our quality assurance process requires every deliverable to pass a senior partner review, ensuring the strategic quality, accuracy, and clarity of insights before they reach the client."
     ],
     "servicesInclude": [
@@ -230,10 +301,10 @@
       "Executive workshops and strategic planning facilitation"
     ],
     "benefits": [
-      { "title": "Flexible Engagement", "desc": "Retainer, project, or advisory call — the model adapts to your needs." },
-      { "title": "Deep Specialization", "desc": "Practice-area experts, not generalists, lead every engagement." },
-      { "title": "Proprietary Data", "desc": "Advisors backed by GMR's market databases and research archives." },
-      { "title": "Partner-Reviewed", "desc": "Senior review on every deliverable guarantees strategic quality." }
+      { "title": "Research-Led Consulting", "desc": "Consulting work supported by structured market research, verified data sources, and analyst interpretation — grounded in facts." },
+      { "title": "Industry-Specific Expertise", "desc": "GMR covers healthcare, chemicals, automotive, energy, technology, food and beverages, packaging, consumer goods, and manufacturing." },
+      { "title": "Custom Advisory Support", "desc": "Every consulting engagement is designed around the client's specific objective, with scope and methodology aligned to the business question." },
+      { "title": "Global View, Local Understanding", "desc": "Consulting approach considers both global industry movement and local market conditions for clearer regional opportunity evaluation." }
     ],
     "icon": "users"
   }

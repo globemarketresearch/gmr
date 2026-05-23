@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllServices, getServiceBySlug } from "@/lib/api/services";
-import { Service } from "@/lib/api/services.types";
+import { Service, ServiceStat } from "@/lib/api/services.types";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -204,6 +204,39 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
       </section>
 
+      {/* ── Stats strip (only when service has stats) ── */}
+      {service.stats && service.stats.length > 0 && (
+        <section className="bg-white border-b border-[#e8edf2]">
+          <div className="max-w-[1400px] mx-auto px-6 py-10">
+            <div
+              className={`grid gap-8 ${
+                service.stats.length === 4
+                  ? "grid-cols-2 md:grid-cols-4"
+                  : service.stats.length === 3
+                  ? "grid-cols-3"
+                  : "grid-cols-2"
+              }`}
+            >
+              {service.stats.map((stat: ServiceStat) => (
+                <div
+                  key={stat.label}
+                  className="flex flex-col items-center text-center px-4 py-5 rounded-2xl"
+                  style={{ background: `${accent}08`, border: `1px solid ${accent}20` }}
+                >
+                  <span
+                    className="text-3xl md:text-4xl font-extrabold tracking-tight mb-1"
+                    style={{ color: accent }}
+                  >
+                    {stat.value}
+                  </span>
+                  <span className="text-[12px] font-medium text-[#5a6a7a]">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── Body ── */}
       <section className="py-16 bg-[#f8fafc]">
         <div className="max-w-[1400px] mx-auto px-6">
@@ -218,6 +251,33 @@ export default async function ServiceDetailPage({ params }: Props) {
                 </div>
                 <p className="text-[15px] text-[#4a5a6a] leading-relaxed">{service.overview}</p>
               </div>
+
+              {/* Our Approach / Methodology */}
+              {service.methodology && service.methodology.length > 0 && (
+                <div className="bg-white rounded-2xl border border-[#e8edf2] shadow-sm p-8 mb-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-1 h-6 rounded-full" style={{ background: accent }} />
+                    <h2 className="text-xl font-bold text-[#0f2236]">Our Approach</h2>
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {service.methodology.map((step, i) => (
+                      <div
+                        key={i}
+                        className="flex items-start gap-3 p-4 rounded-xl"
+                        style={{ background: `${accent}06`, border: `1px solid ${accent}15` }}
+                      >
+                        <div
+                          className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold text-white mt-0.5"
+                          style={{ background: accent }}
+                        >
+                          {i + 1}
+                        </div>
+                        <span className="text-[13px] text-[#4a5a6a] leading-relaxed">{step}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Key Highlights */}
               <div className="bg-white rounded-2xl border border-[#e8edf2] shadow-sm p-8 mb-8">

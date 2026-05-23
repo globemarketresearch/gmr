@@ -95,10 +95,10 @@ const industries = [
 ];
 
 const stats = [
-  { value: "5,000+", label: "Reports Published" },
-  { value: "50+", label: "Industries Covered" },
-  { value: "80+", label: "Countries Served" },
-  { value: "10+", label: "Years of Expertise" },
+  { value: "2,500+", label: "Reports Published" },
+  { value: "150+", label: "Market Consulting" },
+  { value: "500+", label: "Satisfied Customers" },
+  { value: "45+", label: "Industries Covered" },
 ];
 
 export default function AboutPage() {

@@ -560,23 +560,22 @@ export default async function ReportPage({
                 </div>
               </section>
 
-              {report.marketSize2024 && report.marketSize2032 && report.cagr && (
-                <section className="mb-10">
-                  <MarketGrowthChart
-                    marketSize2024={report.marketSize2024}
-                    marketSize2032={report.marketSize2032}
-                    cagr={report.cagr}
-                    forecastPeriod={report.forecastPeriod}
-                  />
-                </section>
-              )}
-
               {hasFullContent ? (
                 <>
                   <section className="mb-12">
                     <h2 id="overview" className="text-2xl font-bold text-[var(--teal-deep)] mb-6 scroll-mt-24">
                       Market Overview
                     </h2>
+                    {report.marketSize2024 && report.marketSize2032 && report.cagr && (
+                      <div className="mb-8">
+                        <MarketGrowthChart
+                          marketSize2024={report.marketSize2024}
+                          marketSize2032={report.marketSize2032}
+                          cagr={report.cagr}
+                          forecastPeriod={report.forecastPeriod}
+                        />
+                      </div>
+                    )}
                     <StyledReportContent
                       htmlContent={marketDetailsWithIds}
                       reportSlug={report.slug}

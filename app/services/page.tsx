@@ -225,10 +225,10 @@ export default function ServicesPage() {
           {/* Stats strip */}
           <div className="mt-16 pt-10 border-t border-white/8 grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "2,500+", label: "Research Reports" },
-              { value: "50+",    label: "Industry Verticals" },
-              { value: "1,000+", label: "Global Clients" },
-              { value: "10+",    label: "Years of Expertise" },
+              { value: "2,500+", label: "Reports Published" },
+              { value: "150+",   label: "Market Consulting" },
+              { value: "500+",   label: "Satisfied Customers" },
+              { value: "45+",    label: "Industries Covered" },
             ].map(({ value, label }) => (
               <div key={label}>
                 <AnimatedCounter value={value} className="text-3xl font-extrabold text-white" />
