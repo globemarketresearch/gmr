@@ -33,6 +33,7 @@ export async function getPressReleases(
     ...(filters?.categoryId && { categoryId: filters.categoryId }),
     ...(filters?.authorId && { authorId: filters.authorId }),
     ...(filters?.search && { search: filters.search }),
+    ...(filters?.sort_by && { sort_by: filters.sort_by }),
   };
 
   const queryString = buildQueryString(params);

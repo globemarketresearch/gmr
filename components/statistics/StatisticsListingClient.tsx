@@ -117,6 +117,30 @@ export default function StatisticsListingClient({
         </div>
       </div>
 
+      {/* ── Subheader & Value Proposition ───────────────────────────────── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-2">
+        <div className="max-w-3xl">
+          <h2
+            className="text-2xl sm:text-3xl font-bold mb-4 leading-snug"
+            style={{ color: 'var(--text-primary)', letterSpacing: '-0.02em' }}
+          >
+            Explore 1,000+ Insights for Smarter Decisions
+          </h2>
+          <p className="text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+            Gain access to verified data from 100+ industries across more than 45+ countries.
+            Each statistic is reviewed and organized into clear insights, supported by expert
+            analysis and interactive charts, so decision-makers can identify trends, assess
+            opportunities, and act with greater clarity.
+          </p>
+        </div>
+
+        {/* Divider */}
+        <div
+          className="mt-8 mb-2 h-px w-full"
+          style={{ background: 'var(--border-color)' }}
+        />
+      </div>
+
       {/* ── Statistics List ─────────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <main id="statistics-list">

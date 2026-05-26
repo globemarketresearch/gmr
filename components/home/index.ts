@@ -1,5 +1,7 @@
 export { default as HeroSection } from './HeroSection';
 export { default as FeaturedReportsSection } from './FeaturedReportsSection';
+export { default as FeaturedStatisticsSection } from './FeaturedStatisticsSection';
+export { default as FeaturedPressReleasesSection } from './FeaturedPressReleasesSection';
 export { default as IndustryCategoriesSection } from './IndustryCategoriesSection';
 export { default as StatsSection } from './StatsSection';
 export { default as TrustedPartnersSection } from './TrustedPartnersSection';
