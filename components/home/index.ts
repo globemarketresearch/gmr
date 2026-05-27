@@ -1,4 +1,5 @@
 export { default as HeroSection } from './HeroSection';
+export { default as ParticleCanvas } from './ParticleCanvas';
 export { default as FeaturedReportsSection } from './FeaturedReportsSection';
 export { default as FeaturedStatisticsSection } from './FeaturedStatisticsSection';
 export { default as FeaturedPressReleasesSection } from './FeaturedPressReleasesSection';
@@ -8,5 +9,6 @@ export { default as TrustedPartnersSection } from './TrustedPartnersSection';
 export { default as TestimonialsSection } from './TestimonialsSection';
 export { default as CTASection } from './CTASection';
 export { default as AnalystSection } from './AnalystSection';
+export { default as NewsletterSection } from './NewsletterSection';
 export { default as StatsSectionSkeleton } from './StatsSectionSkeleton';
 export { default as TestimonialsSectionSkeleton } from './TestimonialsSectionSkeleton';

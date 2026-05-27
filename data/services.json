@@ -46,6 +46,7 @@
       { "title": "Wide Industry Coverage", "desc": "Reports across healthcare, technology, chemicals, automotive, energy, packaging, agriculture, and more." },
       { "title": "Faster Decisions", "desc": "Ready-to-use intelligence lets businesses evaluate opportunities, compare markets, and plan strategies without delay." }
     ],
+    "whyChooseSummary": "GMR helps businesses move from market information to clear business direction. Our syndicated reports are developed to support decisions related to market entry, investment planning, product launch, regional expansion, and competitive strategy. Each report explains market movement, demand patterns, key risks, and growth opportunities in a clear and useful manner. With GMR, businesses can reduce uncertainty and plan with better confidence — whether the goal is to enter a new market, study competitors, identify high-growth segments, or understand regional demand.",
     "icon": "chart-bar"
   },
   {
@@ -89,6 +90,7 @@
       { "title": "Stronger Competitive Position", "desc": "Analyzes competitor strategies, product portfolios, pricing models, and market presence to build stronger market strategy." },
       { "title": "Better Business Decisions", "desc": "Provides clear market intelligence that supports planning, investment, product development, and market entry with lower risk." }
     ],
+    "whyChooseSummary": "GMR provides custom market research that is focused, practical, and aligned with real business needs. Our research is designed to answer specific questions, not provide general information. Each project is developed with a clear scope, structured methodology, reliable data review, and business-focused analysis. Whether a business wants to enter a new market, launch a product, study competitors, understand customers, or explore growth opportunities, GMR provides tailored insights that support confident and informed decisions.",
     "icon": "adjustments"
   },
   {
@@ -99,10 +101,12 @@
     "tagline": "Plan Your Market Entry with Clear Research and Practical Execution",
     "description": "At GMR, Go-To-Market strategy services are designed to help businesses launch products, enter new markets, expand into new regions, and reach the right customers with confidence. A strong GTM strategy helps companies understand market demand, customer needs, competitive pressure, pricing conditions, sales channels, and growth opportunities before making major business decisions.",
     "overview": "GMR supports businesses with structured market research, competitor tracking, customer analysis, channel mapping, and execution planning. The goal is to reduce market risk and help clients build a clear path from market opportunity to business growth. A Go-To-Market strategy defines the target customers, market position, pricing approach, sales channels, marketing message, and launch plan — helping businesses avoid weak market entry decisions and build stronger positions from day one.",
+    "whatIs": "A Go-To-Market strategy is a business plan that explains how a company will introduce its product, service, or solution to the right market. It defines the target customers, market position, pricing approach, sales channels, marketing message, and launch plan. A well-prepared GTM strategy helps businesses avoid weak market entry decisions — giving a clear view of who the customers are, what they need, how competitors are positioned, and which channels can generate better results. For new products, GTM strategy helps in planning the launch. For existing businesses, it supports regional expansion, customer acquisition, product repositioning, and revenue growth.",
     "stats": [
       { "value": "12–18%", "label": "Faster Product Launch Readiness" },
       { "value": "15–24%", "label": "Improved Market Entry Success" },
       { "value": "18–29%", "label": "Better Sales & Marketing Alignment" },
+      { "value": "10–16%", "label": "Stronger Customer Targeting Accuracy" },
       { "value": "14–22%", "label": "Higher Revenue Opportunity Mapping" }
     ],
     "methodology": [
@@ -138,6 +142,7 @@
       { "title": "Practical Execution Focus", "desc": "Designed for business use — clear steps for market entry, product launch, sales planning, and growth execution." },
       { "title": "Competitive Understanding", "desc": "Studies competitor activity, pricing behavior, market share movement, and channel strategies to build a stronger market position." }
     ],
+    "whyChooseSummary": "GMR builds GTM strategies based on market research, not assumptions — every recommendation supported by data, industry analysis, and market understanding. GMR helps clients understand where the opportunity exists, which customer groups matter most, and how the market can be approached with clarity. Whether a business is launching a new product, entering a regional market, repositioning an offering, or building a new sales channel, GMR provides the research-backed GTM strategy needed to move forward with confidence. GMR provides GTM strategy support across healthcare, chemicals, technology, automotive, energy, food and beverages, packaging, agriculture, consumer goods, and manufacturing sectors.",
     "icon": "rocket"
   },
   {
@@ -174,12 +179,55 @@
       "Board-level strategic reviews and presentations",
       "Post-merger integration strategy support"
     ],
+    "capabilityDetails": [
+      {
+        "title": "Corporate and Business Unit Strategy Development",
+        "desc": "GMR helps companies define business direction at both corporate and business unit levels. This includes growth priorities, competitive positioning, market focus, and long-term strategic planning."
+      },
+      {
+        "title": "Growth Strategy and Organic Expansion Planning",
+        "desc": "We support companies in identifying organic growth opportunities within existing and new markets. This includes product expansion, customer segment targeting, regional growth, and demand-based planning."
+      },
+      {
+        "title": "Portfolio Optimization and Capital Allocation Advisory",
+        "desc": "GMR helps businesses review their product, service, or investment portfolio to identify stronger growth areas. This supports better resource planning and more effective capital allocation."
+      },
+      {
+        "title": "Market Entry and Adjacency Expansion",
+        "desc": "We help companies evaluate new markets, customer segments, and related business areas. This includes market sizing, demand analysis, competitor review, entry barriers, and opportunity assessment."
+      },
+      {
+        "title": "Operational and Organizational Transformation",
+        "desc": "GMR supports businesses in improving operating models, internal structure, and process efficiency. The goal is to align operations with market needs and business growth plans."
+      },
+      {
+        "title": "Digital Transformation Strategy",
+        "desc": "We help companies understand how digital tools, automation, data analytics, and technology adoption can improve business performance. This includes digital roadmap planning and technology-led growth strategy."
+      },
+      {
+        "title": "Partnership, Alliance, and Ecosystem Strategy",
+        "desc": "GMR supports clients in identifying possible partners, alliance opportunities, distribution networks, and ecosystem relationships. This helps businesses expand reach, improve capabilities, and enter markets more effectively."
+      },
+      {
+        "title": "Scenario Planning and Strategic Risk Assessment",
+        "desc": "GMR helps leadership teams model alternative futures, assess strategic risks, and build resilient plans that hold up under different market conditions and competitive scenarios."
+      },
+      {
+        "title": "Board-Level Strategic Reviews and Presentations",
+        "desc": "We prepare board-ready deliverables and executive presentations that drive alignment on strategic direction, investment priorities, and growth initiatives."
+      },
+      {
+        "title": "Post-Merger Integration Strategy Support",
+        "desc": "GMR supports companies navigating mergers and acquisitions with integration planning, culture alignment, market positioning, and value realization roadmaps."
+      }
+    ],
     "benefits": [
       { "title": "Evidence-Based", "desc": "Every strategic recommendation is grounded in data, not assumptions." },
       { "title": "Sector-Deep", "desc": "Domain experts with industry-specific knowledge lead every engagement." },
       { "title": "Actionable Plans", "desc": "Implementation roadmaps — not just frameworks — delivered with every strategy." },
       { "title": "C-Suite Ready", "desc": "Board-ready deliverables designed to drive executive alignment and decision-making." }
     ],
+    "whyChooseSummary": "GMR provides business strategy consulting that is practical, research-led, and aligned with real business needs. Our advisory approach is based on market data, competitive intelligence, industry understanding, and structured analysis. Clients choose GMR because our consulting support connects market research with business action — helping companies understand market direction, identify growth opportunities, review competitive position, and build clear strategies for expansion. Whether a business is entering a new market, improving operations, planning investment, exploring partnerships, or preparing for long-term growth, GMR provides the strategic guidance needed to move forward with confidence.",
     "icon": "briefcase"
   },
   {
@@ -190,6 +238,7 @@
     "tagline": "Identify Untapped Opportunities Before Your Competitors",
     "description": "At GMR, white space analysis is designed to help businesses find growth opportunities that are not fully served by existing competitors. It helps companies understand where customer needs are unmet, where market gaps exist, and where new products, services, regions, or customer segments can create value.",
     "overview": "White space analysis supports better decision-making for market expansion, product development, innovation planning, customer targeting, and competitive strategy. By studying the market from different angles, GMR helps clients identify areas where demand exists but current solutions are limited, weak, costly, or poorly positioned. Our analysis is built on structured market research, competitor mapping, customer demand review, and opportunity assessment — providing clear insights that help businesses move into high-potential areas with better confidence.",
+    "whatIs": "White space analysis is a strategic research method used to find untapped or under-served opportunities in a market. It helps businesses identify gaps between customer needs and existing market offerings. These gaps may be found in product features, pricing, geography, customer segments, service quality, distribution channels, or technology adoption. For businesses, white space analysis is useful when planning a new product launch, entering a new region, expanding into adjacent markets, or improving competitive positioning. It allows companies to see where competitors are less active and where customer demand may support future growth.",
     "methodology": [
       "Market and segment mapping across key applications and customer groups",
       "Customer need and demand assessment",
@@ -222,6 +271,7 @@
       { "title": "Strategic Fit", "desc": "Gaps filtered for alignment with your existing capabilities and strategy." },
       { "title": "Prioritized Pipeline", "desc": "Ranked opportunity list ready for resource allocation and planning." }
     ],
+    "whyChooseSummary": "GMR provides white space analysis that is clear, practical, and focused on business growth. Our research helps clients understand not only where market gaps exist but also which opportunities are worth pursuing. Each study is supported by market mapping, demand analysis, competitor review, and structured opportunity assessment. Clients choose GMR because our approach connects market research with business strategy — helping companies identify underserved segments, new regional opportunities, product gaps, customer needs, and adjacent market possibilities. Whether a business is planning expansion, product development, investment, or competitive repositioning, GMR provides the insights needed to identify untapped opportunities before competitors move first.",
     "icon": "search-circle"
   },
   {
@@ -264,6 +314,7 @@
       { "title": "Quantified Gaps", "desc": "Benchmark scores that show exactly where you lead and where you are exposed." },
       { "title": "Always Current", "desc": "Subscription options keep your intelligence fresh and actionable year-round." }
     ],
+    "whyChooseSummary": "GMR provides competitive analysis that is research-led, practical, and focused on business decisions. Our work helps clients understand not only what competitors are doing, but also why they are doing it and how it may affect future market movement. Clients choose GMR because our approach combines data review, market tracking, buyer insights, competitor profiling, and structured benchmarking. With GMR, businesses can identify competitive risks early, strengthen their market position, improve pricing and product strategy, and find areas where they can move faster than competitors.",
     "icon": "eye"
   },
   {
@@ -300,12 +351,58 @@
       "Stakeholder mapping and engagement strategy",
       "Executive workshops and strategic planning facilitation"
     ],
+    "capabilityDetails": [
+      {
+        "title": "Ongoing Research Partnerships",
+        "desc": "GMR provides long-term research support through a retainer model. This helps clients receive continuous market updates, competitor tracking, and strategic insights throughout the year."
+      },
+      {
+        "title": "Project-Based Strategic Engagements",
+        "desc": "GMR supports specific consulting projects based on defined business needs. These engagements may include market entry studies, product strategy, pricing analysis, customer research, or competitive assessment."
+      },
+      {
+        "title": "Expert Network Access and Advisory Calls",
+        "desc": "GMR helps clients connect with industry experts for deeper market understanding. Advisory calls can support validation, market feedback, technical insight, and strategic decision-making."
+      },
+      {
+        "title": "Market Intelligence and Competitive Briefings",
+        "desc": "GMR provides regular market intelligence and competitor briefings to help leadership teams stay updated. These briefings cover market trends, company movements, pricing shifts, product launches, and regional developments."
+      },
+      {
+        "title": "Regulatory and Compliance Advisory",
+        "desc": "GMR helps clients understand regulatory conditions, compliance requirements, and policy changes that may affect market entry or business operations. This support is useful in highly regulated sectors such as healthcare, chemicals, energy, and food."
+      },
+      {
+        "title": "R&D and Pipeline Strategy Advisory",
+        "desc": "GMR supports companies in reviewing product pipelines, research priorities, innovation areas, and future development opportunities. This helps clients align R&D decisions with market demand and commercial potential."
+      },
+      {
+        "title": "Commercial Excellence and Sales Force Advisory",
+        "desc": "GMR helps businesses improve sales planning, customer targeting, channel strategy, and commercial performance. The advisory focuses on building stronger market reach and better sales execution."
+      },
+      {
+        "title": "Healthcare Economics and Outcomes Research",
+        "desc": "GMR provides healthcare-focused research support related to value assessment, treatment outcomes, cost analysis, access planning, and payer perspectives. This helps healthcare clients understand market access and evidence-based decision needs."
+      },
+      {
+        "title": "Stakeholder Mapping and Engagement Strategy",
+        "desc": "GMR identifies key stakeholders such as buyers, suppliers, distributors, regulators, healthcare professionals, investors, and decision-makers. This helps clients plan better communication, engagement, and partnership strategies."
+      },
+      {
+        "title": "Executive Workshops and Strategic Planning Facilitation",
+        "desc": "GMR supports leadership teams through structured workshops and planning sessions. These sessions help align internal teams, review market findings, define priorities, and build actionable growth plans."
+      }
+    ],
     "benefits": [
       { "title": "Research-Led Consulting", "desc": "Consulting work supported by structured market research, verified data sources, and analyst interpretation — grounded in facts." },
       { "title": "Industry-Specific Expertise", "desc": "GMR covers healthcare, chemicals, automotive, energy, technology, food and beverages, packaging, consumer goods, and manufacturing." },
       { "title": "Custom Advisory Support", "desc": "Every consulting engagement is designed around the client's specific objective, with scope and methodology aligned to the business question." },
-      { "title": "Global View, Local Understanding", "desc": "Consulting approach considers both global industry movement and local market conditions for clearer regional opportunity evaluation." }
+      { "title": "Global View, Local Understanding", "desc": "Consulting approach considers both global industry movement and local market conditions for clearer regional opportunity evaluation." },
+      { "title": "Competitive & Market Intelligence", "desc": "GMR helps businesses track competitors, customer demand, regional opportunities, and market gaps — enabling decision-makers to identify where they can grow and strengthen their market position." },
+      { "title": "Decision Support at Every Stage", "desc": "GMR supports businesses from early market assessment to expansion planning and long-term strategy development — useful for startups, established companies, investors, and leadership teams." },
+      { "title": "Practical Strategic Direction", "desc": "Consulting engagements are focused on clear, usable recommendations — supporting market entry, growth planning, pricing strategy, competitive positioning, and investment decisions." }
     ],
+    "whyChooseSummary": "GMR provides consulting services that are flexible, research-led, and designed around client needs. Our advisory approach connects market research with business strategy, helping companies at different stages of growth. GMR also helps clients identify risks before they affect business performance — including regulatory changes, competitive pressure, shifting customer needs, and market entry barriers. Whether a company is entering a new market, reviewing its portfolio, launching a product, or improving sales performance, GMR provides advisory support that connects research with action for stronger business direction.",
     "icon": "users"
   }
 ]

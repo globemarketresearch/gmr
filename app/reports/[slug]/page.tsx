@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getReports, getReportBySlug, isApiError } from "@/lib/api";
-import { Breadcrumb, Badge, Card, CardContent } from "@/components/ui";
+import { Breadcrumb, Card, CardContent } from "@/components/ui";
 // import { Download } from "lucide-react";
 import { ReportContentWrapper } from "@/components/reports/ReportContentWrapper";
+import { ReportShareButtons } from "@/components/reports/ReportShareButtons";
 import { StyledReportContent } from "@/components/reports/StyledReportContent";
 import { MarketGrowthChart } from "@/components/reports/charts/MarketGrowthChart";
 import MeetTheTeam from "@/components/reports/MeetTheTeam";
@@ -13,6 +14,7 @@ import FAQ from "@/components/reports/FAQ";
 import { parseHTMLAndGenerateTOC, addStaticSectionsToTOC } from "@/lib/html-toc-utils";
 import type { SidebarTOCItem } from "@/lib/toc-utils";
 import { StructuredData, generateArticleSchema, generateBreadcrumbSchema, generateFAQSchema, generateProductSchema, generateDatasetSchema } from "@/components/seo/StructuredData";
+import RelatedReportsSection from "@/components/reports/RelatedReportsSection";
 import categories from "@/data/categories.json";
 
 /**
@@ -508,20 +510,28 @@ export default async function ReportPage({
 
             {/* Report metadata strip */}
             <div
-              className="flex flex-wrap items-center gap-6 pt-5 text-sm"
+              className="flex flex-wrap items-center justify-between gap-4 pt-5 text-sm"
               style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
             >
-              {[
-                { label: 'Report Code', value: report.reportCode || `HF${report.id}` },
-                { label: 'Published', value: report.date },
-                { label: 'Pages', value: report.pages ? `${report.pages}+` : '—' },
-                { label: 'Format', value: 'PDF, Excel' },
-              ].map((item) => (
-                <div key={item.label}>
-                  <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>{item.label}</p>
-                  <p className="font-semibold text-sm" style={{ color: 'rgba(255,255,255,0.85)' }}>{item.value}</p>
-                </div>
-              ))}
+              <div className="flex flex-wrap items-center gap-6">
+                {[
+                  { label: 'Report Code', value: report.reportCode || `HF${report.id}` },
+                  { label: 'Published', value: report.date },
+                  { label: 'Pages', value: report.pages ? `${report.pages}+` : '—' },
+                  { label: 'Format', value: 'PDF, Excel' },
+                ].map((item) => (
+                  <div key={item.label}>
+                    <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>{item.label}</p>
+                    <p className="font-semibold text-sm" style={{ color: 'rgba(255,255,255,0.85)' }}>{item.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Social Share Buttons */}
+              <ReportShareButtons
+                title={report.title}
+                url={`https://www.globemarketresearch.com/reports/${report.slug}`}
+              />
             </div>
           </div>
         </div>
@@ -547,7 +557,10 @@ export default async function ReportPage({
               <section className="mb-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {metricCards.map((card) => (
-                    <Card key={card.label} className={`${card.bg} border-none`}>
+                    <Card
+                      key={card.label}
+                      className={`${card.bg} border border-transparent hover:border-[#0284c7]/30 hover:from-[#bdd8ed] hover:to-[#d6ecf8] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-default`}
+                    >
                       <CardContent className="flex items-center gap-3" style={{padding: '8px'}}>
                         {card.icon}
                         <div>
@@ -702,6 +715,13 @@ export default async function ReportPage({
                   </p>
                 </section>
               )}
+
+              {/* Related Reports */}
+              <RelatedReportsSection
+                categorySlug={categorySlug}
+                categoryName={report.category}
+                currentReportSlug={report.slug}
+              />
             </article>
         </ReportContentWrapper>
       </div>

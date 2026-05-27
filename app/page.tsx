@@ -6,7 +6,6 @@ import {
   FeaturedStatisticsSection,
   FeaturedPressReleasesSection,
   IndustryCategoriesSection,
-  AnalystSection,
   StatsSection,
   TrustedPartnersSection,
   TestimonialsSection,
@@ -35,7 +34,6 @@ export default function HomePage() {
       <FeaturedStatisticsSection />
       <FeaturedPressReleasesSection />
       <IndustryCategoriesSection />
-      <AnalystSection />
 
       <Suspense fallback={<StatsSectionSkeleton />}>
         <StatsSection />
@@ -47,6 +45,7 @@ export default function HomePage() {
         <TestimonialsSection />
       </Suspense>
 
+      {/* <NewsletterSection /> */}
       <CTASection />
     </>
   );

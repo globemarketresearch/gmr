@@ -5,6 +5,7 @@ import { TableOfContents } from './TableOfContents';
 import { FullReportTOC } from './FullReportTOC';
 import { CTAPanel } from './CTAPanel';
 import { CustomizeReportCard } from './CustomizeReportCard';
+import { BriefWithAI } from './BriefWithAI';
 import { groupTableOfContents, SidebarTOCItem, TOCItem } from '@/lib/toc-utils';
 import { useGeneratedTOC } from '@/hooks/useGeneratedTOC';
 
@@ -119,6 +120,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
       {/* Right Sidebar - CTA Panel */}
       <aside className="hidden lg:block">
         <div className="sticky top-32 max-h-[calc(100vh-10rem)] overflow-y-auto space-y-4 pr-0.5">
+          <BriefWithAI reportTitle={reportTitle} />
           <CustomizeReportCard reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
           <CTAPanel discounted_price={discounted_price} price={price} reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
         </div>

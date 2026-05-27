@@ -2,14 +2,18 @@ import type {
   ContactFormData,
   RequestSampleFormData,
   ScheduleDemoFormData,
+  NewsletterFormData,
+  PublishNewsFormData,
   FormSubmissionRequest,
   FormSubmissionResponse,
   FormMetadata,
 } from './forms.types';
 import type { ApiResponse } from './config';
 
-// Base API configuration
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+// Form submissions always go to the Next.js API route (never the external backend).
+// This avoids 404s when NEXT_PUBLIC_API_BASE_URL points to a separate service
+// that doesn't implement the forms endpoint.
+const FORMS_API_URL = '/api/v1/forms/submissions';
 
 /**
  * Get browser metadata for form submissions
@@ -26,8 +30,8 @@ function getFormMetadata(): FormMetadata {
 /**
  * Generic function to submit form data to the API
  */
-async function submitForm<T extends ContactFormData | RequestSampleFormData | ScheduleDemoFormData>(
-  category: 'contact' | 'request-sample' | 'request-customization' | 'schedule-demo',
+async function submitForm<T extends ContactFormData | RequestSampleFormData | ScheduleDemoFormData | NewsletterFormData | PublishNewsFormData>(
+  category: 'contact' | 'request-sample' | 'request-customization' | 'schedule-demo' | 'newsletter' | 'publish-news',
   data: T
 ): Promise<ApiResponse<FormSubmissionResponse>> {
   try {
@@ -37,7 +41,7 @@ async function submitForm<T extends ContactFormData | RequestSampleFormData | Sc
       metadata: getFormMetadata(),
     };
 
-    const response = await fetch(`${API_BASE_URL}/api/v1/forms/submissions`, {
+    const response = await fetch(FORMS_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -101,6 +105,24 @@ export async function submitScheduleDemoForm(
   data: ScheduleDemoFormData
 ): Promise<ApiResponse<FormSubmissionResponse>> {
   return submitForm('schedule-demo', data);
+}
+
+/**
+ * Submit newsletter subscription
+ */
+export async function submitNewsletterForm(
+  data: NewsletterFormData
+): Promise<ApiResponse<FormSubmissionResponse>> {
+  return submitForm('newsletter', data);
+}
+
+/**
+ * Submit publish news / PR form
+ */
+export async function submitPublishNewsForm(
+  data: PublishNewsFormData
+): Promise<ApiResponse<FormSubmissionResponse>> {
+  return submitForm('publish-news', data);
 }
 
 /**

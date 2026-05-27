@@ -517,7 +517,8 @@ html body { top: 0 !important; }
   }
 
   .prose img {
-    @apply rounded-lg my-6 max-w-full h-auto;
+    /* @apply rounded-lg my-6 max-w-full h-auto; */
+    @apply my-6 max-w-full h-auto;
   }
 
   /* Market Highlight section styling (matches Key Findings) */

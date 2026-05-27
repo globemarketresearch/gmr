@@ -1,7 +1,59 @@
-# Sitemaps
-Sitemap: https://www.healthcareforesights.com/sitemap.xml
-Sitemap: https://www.healthcareforesights.com/sitemap-pages.xml
-Sitemap: https://www.healthcareforesights.com/sitemap-consulting.xml
-Sitemap: https://www.healthcareforesights.com/sitemap-reports-1.xml
-Sitemap: https://www.healthcareforesights.com/sitemap-statistics-1.xml
-Sitemap: https://www.healthcareforesights.com/sitemap-press-releases-1.xml
+# robots.txt — Globe Market Research
+# https://www.globemarketresearch.com
+#
+# LLM-readable site index (llms.txt spec — https://llmstxt.org):
+#   Summary : https://www.globemarketresearch.com/llms.txt
+#   Full    : https://www.globemarketresearch.com/llms-full.txt
+
+# ── Standard web crawlers ───────────────────────────────────────────────────────
+User-agent: *
+Allow: /
+Disallow: /legal/
+Disallow: /request-customization
+Disallow: /request-sample
+Disallow: /request-analyst-meeting
+Disallow: /checkout/
+
+# ── AI / LLM crawlers — full access to public research content ──────────────────
+User-agent: GPTBot
+Allow: /
+Disallow: /checkout/
+Disallow: /legal/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /checkout/
+Disallow: /legal/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /checkout/
+Disallow: /legal/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /checkout/
+Disallow: /legal/
+
+User-agent: CCBot
+Allow: /
+Disallow: /checkout/
+Disallow: /legal/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /checkout/
+Disallow: /legal/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /checkout/
+Disallow: /legal/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /checkout/
+Disallow: /legal/
+
+# ── Sitemaps ────────────────────────────────────────────────────────────────────
+Sitemap: https://www.globemarketresearch.com/sitemap.xml

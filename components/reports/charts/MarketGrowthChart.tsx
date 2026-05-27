@@ -110,13 +110,13 @@ export const MarketGrowthChart: React.FC<MarketGrowthChartProps> = ({
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tick={{ fontSize: 12, fill: '#64748b' }}
+              tick={{ fontSize: 12, fill: '#64748b', fontFamily: 'var(--font-geist-sans, inherit)' }}
             />
             <YAxis
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tick={{ fontSize: 11, fill: '#64748b' }}
+              tick={{ fontSize: 11, fill: '#64748b', fontFamily: 'var(--font-geist-sans, inherit)' }}
               tickFormatter={(v) => `${v} ${unit}`}
               width={60}
             />

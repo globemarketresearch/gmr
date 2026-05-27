@@ -21,7 +21,7 @@ export async function getLegalPages(
       success: true,
       data: paginatedPages
     };
-  } catch (error) {
+  } catch {
     return {
       success: false,
       error: 'load_error',
@@ -46,7 +46,7 @@ export async function getLegalPageBySlug(slug: string): Promise<ApiResponse<Lega
       success: true,
       data: page
     };
-  } catch (error) {
+  } catch {
     return {
       success: false,
       error: 'load_error',

@@ -24,7 +24,7 @@ export default function PressReleaseListingClient({
   const [pressReleases, setPressReleases] = useState<PressRelease[]>(initialPressReleases);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(initialTotalPages);
-  const [totalItems, setTotalItems] = useState(initialTotalItems);
+  const [, setTotalItems] = useState(initialTotalItems);
   const [isLoading, setIsLoading] = useState(false);
 
   // Restore page from sessionStorage and fetch on mount if not page 1

@@ -1,6 +1,6 @@
 // Form submission types based on the API design
 
-export type FormCategory = 'contact' | 'request-sample' | 'request-customization' | 'schedule-demo';
+export type FormCategory = 'contact' | 'request-sample' | 'request-customization' | 'schedule-demo' | 'newsletter' | 'publish-news';
 
 export type FormStatus = 'pending' | 'processed' | 'archived';
 
@@ -70,6 +70,31 @@ export interface ScheduleDemoFormData {
   userTimezone?: string;         // IANA timezone name (client's TZ)
   preferredTimeLocal?: string;   // formatted in client's TZ, e.g. "7:30 PM IST"
   additionalInfo?: string;
+}
+
+// Newsletter Subscription Form Data
+export interface NewsletterFormData {
+  email: string;
+  name?: string;
+  interests?: string[]; // e.g. ['AI & Technology', 'Healthcare', 'Energy']
+}
+
+// Publish News / PR Form Data
+export interface PublishNewsFormData {
+  fullName: string;
+  email: string;
+  company: string;
+  jobTitle?: string;
+  phone?: string;
+  country: string;
+  countryCode: string;
+  dialCode: string;
+  pressReleaseTitle: string;
+  contentType: 'article' | 'press-release' | 'opinion-piece';
+  industry: string;
+  content: string;
+  additionalNotes?: string;
+  selectedPlan: string;
 }
 
 // Error response (for form-specific error handling)

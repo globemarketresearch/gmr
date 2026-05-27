@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllServices, getServiceBySlug } from "@/lib/api/services";
-import { Service, ServiceStat } from "@/lib/api/services.types";
+import { Service, ServiceStat, ServiceCapability } from "@/lib/api/services.types";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -210,7 +210,9 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div className="max-w-[1400px] mx-auto px-6 py-10">
             <div
               className={`grid gap-8 ${
-                service.stats.length === 4
+                service.stats.length === 5
+                  ? "grid-cols-2 md:grid-cols-5"
+                  : service.stats.length === 4
                   ? "grid-cols-2 md:grid-cols-4"
                   : service.stats.length === 3
                   ? "grid-cols-3"
@@ -251,6 +253,22 @@ export default async function ServiceDetailPage({ params }: Props) {
                 </div>
                 <p className="text-[15px] text-[#4a5a6a] leading-relaxed">{service.overview}</p>
               </div>
+
+              {/* What Is X? (GTM, White Space) */}
+              {service.whatIs && (
+                <div
+                  className="rounded-2xl border p-8 mb-8"
+                  style={{ background: `${accent}06`, borderColor: `${accent}20` }}
+                >
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-1 h-6 rounded-full" style={{ background: accent }} />
+                    <h2 className="text-xl font-bold text-[#0f2236]">
+                      What is {service.title}?
+                    </h2>
+                  </div>
+                  <p className="text-[15px] text-[#4a5a6a] leading-relaxed">{service.whatIs}</p>
+                </div>
+              )}
 
               {/* Our Approach / Methodology */}
               {service.methodology && service.methodology.length > 0 && (
@@ -300,29 +318,93 @@ export default async function ServiceDetailPage({ params }: Props) {
                 </div>
               </div>
 
-              {/* What's Included */}
-              <div className="bg-white rounded-2xl border border-[#e8edf2] shadow-sm p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-1 h-6 rounded-full" style={{ background: accent }} />
-                  <h2 className="text-xl font-bold text-[#0f2236]">What&apos;s Included</h2>
-                </div>
-                <ul className="grid md:grid-cols-2 gap-3">
-                  {service.servicesInclude.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <svg
-                        className="w-5 h-5 flex-shrink-0 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        style={{ color: accent }}
+              {/* Capability Details (rich cards) — shown when available, else plain list */}
+              {service.capabilityDetails && service.capabilityDetails.length > 0 ? (
+                <div className="bg-white rounded-2xl border border-[#e8edf2] shadow-sm p-8 mb-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-1 h-6 rounded-full" style={{ background: accent }} />
+                    <h2 className="text-xl font-bold text-[#0f2236]">What We Offer</h2>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {service.capabilityDetails.map((cap: ServiceCapability, i: number) => (
+                      <div
+                        key={i}
+                        className="flex gap-3 p-4 rounded-xl"
+                        style={{ background: `${accent}06`, border: `1px solid ${accent}15` }}
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        <div
+                          className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold text-white mt-0.5"
+                          style={{ background: accent }}
+                        >
+                          {i + 1}
+                        </div>
+                        <div>
+                          <div className="text-[13px] font-semibold text-[#1a2b3c] mb-1">{cap.title}</div>
+                          <p className="text-[12px] text-[#5a6a7a] leading-relaxed">{cap.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-white rounded-2xl border border-[#e8edf2] shadow-sm p-8 mb-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-1 h-6 rounded-full" style={{ background: accent }} />
+                    <h2 className="text-xl font-bold text-[#0f2236]">What&apos;s Included</h2>
+                  </div>
+                  <ul className="grid md:grid-cols-2 gap-3">
+                    {service.servicesInclude.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <svg
+                          className="w-5 h-5 flex-shrink-0 mt-0.5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          style={{ color: accent }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-[14px] text-[#4a5a6a]">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Why Choose GMR — closing summary paragraph */}
+              {service.whyChooseSummary && (
+                <div
+                  className="rounded-2xl border p-8"
+                  style={{
+                    background: "linear-gradient(135deg, #071828 0%, #0b2340 100%)",
+                    borderColor: `${accent}30`,
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-1 h-6 rounded-full" style={{ background: accent }} />
+                    <h2 className="text-xl font-bold text-white">Why Choose GMR</h2>
+                  </div>
+                  <p className="text-[15px] text-white/65 leading-relaxed">{service.whyChooseSummary}</p>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[13px] font-semibold text-white transition-all duration-200 hover:opacity-90"
+                      style={{ background: `linear-gradient(135deg, ${accent}, ${accent}cc)` }}
+                    >
+                      Get Started
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
-                      <span className="text-[14px] text-[#4a5a6a]">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                    </Link>
+                    <Link
+                      href="/request-analyst-meeting"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[13px] font-semibold text-white/60 border border-white/15 hover:bg-white/8 hover:text-white transition-all duration-200"
+                    >
+                      Schedule a Meeting
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Sidebar */}

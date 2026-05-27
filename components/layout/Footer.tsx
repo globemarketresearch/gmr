@@ -2,78 +2,123 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/contact";
+import FooterNewsletter from "./FooterNewsletter";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About Us" },
+    { href: "/contact", label: "Contact Us" },
     { href: "/industry", label: "Research Reports" },
     { href: "/statistics", label: "Statistics" },
     { href: "/press-releases", label: "Press Releases" },
-    { href: "/about", label: "About Us" },
-    { href: "/contact", label: "Contact" },
+    { href: "/industry", label: "All Industries" },
+    { href: "/submit-news", label: "Submit News" },
   ];
 
   const legalLinks = [
-    { href: "/legal/privacy-policy", label: "Privacy Policy" },
     { href: "/legal/refund-policy", label: "Refund Policy" },
-    { href: "/legal/cancellation-policy", label: "Cancellation Policy" },
+    { href: "/legal/privacy-policy", label: "Privacy Policy" },
+    { href: "/legal/cancellation-policy", label: "Terms & Conditions" },
+    { href: "/contact", label: "How to Order" },
+    { href: "/contact", label: "Frequently Asked Questions" },
+    { href: "/legal/refund-policy", label: "Payment Method" },
   ];
 
   const socials = [
-    { href: "https://www.facebook.com/people/Healthcare-Foresights/61588605652792/", Icon: Facebook, label: "Facebook" },
-    { href: "https://www.instagram.com/GlobeMarketResearch", Icon: Instagram, label: "Instagram" },
     { href: "https://www.linkedin.com/company/healthcare-foresights/", Icon: Linkedin, label: "LinkedIn" },
     { href: "https://x.com/Healthcare_F", Icon: Twitter, label: "X (Twitter)" },
+    { href: "https://www.facebook.com/people/Healthcare-Foresights/61588605652792/", Icon: Facebook, label: "Facebook" },
+    { href: "https://www.instagram.com/GlobeMarketResearch", Icon: Instagram, label: "Instagram" },
   ];
 
   return (
-    <footer className="relative bg-[#111827] text-white overflow-hidden border-t border-white/5">
-      {/* Gradient top accent line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent opacity-40" />
+    <footer className="relative bg-[#1c2333] text-white overflow-hidden">
+      {/* Subtle top accent */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
 
-      {/* Subtle dot-grid texture */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.12]"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
+      <div className="relative container mx-auto px-6 pt-14 pb-8 lg:px-10">
 
-      {/* Ambient glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="relative container mx-auto px-4 pt-16 pb-10 md:px-6">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-
-          {/* Brand column */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6 group">
-              <div className="inline-block transition-opacity duration-200 group-hover:opacity-80">
-                <Image
-                  src="/assets/images/logo.jpg"
-                  alt="Globe Market Research"
-                  width={160}
-                  height={44}
-                  sizes="160px"
-                  className="h-32 w-auto rounded-lg"
-                />
+        {/* ── Newsletter band ──────────────────────────────────────── */}
+        <div
+          className="mb-12 rounded-xl px-6 py-7 sm:px-8"
+          style={{
+            background: "linear-gradient(105deg, rgba(44,200,216,0.10) 0%, rgba(44,200,216,0.04) 50%, rgba(25,195,213,0.08) 100%)",
+            border: "1px solid rgba(44,200,216,0.18)",
+          }}
+        >
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            {/* Left copy */}
+            <div className="space-y-1 max-w-xs">
+              <div className="flex items-center gap-2 mb-2">
+                <span
+                  className="relative flex h-1.5 w-1.5"
+                >
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-60" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-sky-400" />
+                </span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-400">
+                  Weekly Intelligence Feed
+                </span>
               </div>
+              <p className="text-sm font-semibold text-white/90 leading-snug">
+                Subscribe to our Newsletter
+              </p>
+              <p className="text-xs text-white/45 leading-relaxed">
+                Market trends, research briefs, and sector insights — every week.
+              </p>
+            </div>
+            {/* Right: compact form */}
+            <div className="sm:w-72 lg:w-80">
+              <FooterNewsletter />
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+
+          {/* ── Column 1: Brand ── */}
+          <div className="flex flex-col items-center text-center">
+            <Link href="/" className="inline-block mb-5 group">
+              <Image
+                src="/assets/images/logo.jpg"
+                alt="Globe Market Research"
+                width={160}
+                height={44}
+                sizes="160px"
+                className="h-20 w-auto rounded-lg opacity-90 group-hover:opacity-100 transition-opacity duration-200"
+              />
             </Link>
-            <p className="text-sm text-white/50 mb-7 leading-relaxed max-w-[210px]">
-              Comprehensive market insights and analysis for global industries.
+
+            {/* Payment method badges */}
+            {/* <div className="flex flex-wrap justify-center gap-1.5 mb-5">
+              {paymentMethods.map((brand) => (
+                <span
+                  key={brand}
+                  className="px-2 py-0.5 bg-white/10 border border-white/20 rounded text-[9px] font-bold text-white/65 tracking-wide"
+                >
+                  {brand}
+                </span>
+              ))}
+            </div> */}
+
+            <p className="text-sm text-white/50 leading-relaxed max-w-[200px] mb-6">
+              Delivering actionable insights that drive strategic decisions across global markets.
             </p>
-            <div className="flex gap-2">
+
+            {/* Social icons */}
+            <div className="flex gap-2 justify-center">
               {socials.map(({ href, Icon, label }) => (
                 <Link
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:border-sky-400/60 hover:bg-sky-400/10 transition-all duration-200"
+                  className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/35 hover:text-white hover:border-sky-400/60 hover:bg-sky-400/10 transition-all duration-200"
                   aria-label={label}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -82,33 +127,17 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links + Legal */}
-          <div>
-            <h3 className="mb-5 text-[10px] font-bold uppercase tracking-[0.18em] text-sky-400">
-              Navigation
+          {/* ── Column 2: Quick Links ── */}
+          <div className="flex flex-col items-start text-left">
+            <h3 className="mb-5 text-sm font-semibold text-white tracking-wide">
+              Quick Links
             </h3>
-            <ul className="space-y-2.5 text-sm mb-6">
+            <ul className="space-y-3 text-sm">
               {quickLinks.map(({ href, label }) => (
-                <li key={href}>
+                <li key={label}>
                   <Link
                     href={href}
-                    className="text-white/50 hover:text-white transition-colors duration-150 flex items-center gap-2 group"
-                  >
-                    <span className="w-1 h-1 rounded-full bg-sky-400 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <h3 className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-white/25">
-              Legal
-            </h3>
-            <ul className="space-y-2 text-sm">
-              {legalLinks.map(({ href, label }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-white/30 hover:text-white/60 transition-colors duration-150 text-xs"
+                    className="text-white/50 hover:text-white transition-colors duration-150"
                   >
                     {label}
                   </Link>
@@ -117,61 +146,79 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="mb-5 text-[10px] font-bold uppercase tracking-[0.18em] text-sky-400">
-              Contact Us
+          {/* ── Column 3: Legal ── */}
+          <div className="flex flex-col items-start text-left">
+            <h3 className="mb-5 text-sm font-semibold text-white tracking-wide">
+              Legal
             </h3>
-            <div className="space-y-4 text-sm">
+            <ul className="space-y-3 text-sm">
+              {legalLinks.map(({ href, label }) => (
+                <li key={label}>
+                  <Link
+                    href={href}
+                    className="text-white/50 hover:text-white transition-colors duration-150"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ── Column 4: Get In Touch ── */}
+          <div className="flex flex-col items-start text-left">
+            <h3 className="mb-5 text-sm font-semibold text-white tracking-wide">
+              Get In Touch
+            </h3>
+            <div className="space-y-4 text-sm w-full">
+              {/* Email */}
               <a
                 href={`mailto:${CONTACT_INFO.email}`}
-                className="flex items-start gap-3 text-white/50 hover:text-white transition-colors duration-150 group"
+                className="flex items-start gap-2.5 text-white/50 hover:text-white transition-colors duration-150"
               >
                 <Mail className="w-4 h-4 mt-0.5 shrink-0 text-sky-400" />
-                <span className="break-all leading-snug">{CONTACT_INFO.email}</span>
+                <span className="break-all leading-snug">
+                  {CONTACT_INFO.email}
+                </span>
               </a>
-              <div className="flex items-center gap-3 text-white/50">
+
+              {/* Phone – USA */}
+              <a
+                href={`tel:${CONTACT_INFO.offices.usa.phone}`}
+                className="flex items-center gap-2.5 text-white/50 hover:text-white transition-colors duration-150"
+              >
                 <Phone className="w-4 h-4 shrink-0 text-sky-400" />
-                <div className="flex flex-col gap-0.5">
-                  <span>USA: {CONTACT_INFO.offices.usa.phoneFormatted}</span>
-                  <span>India: {CONTACT_INFO.offices.india.phoneFormatted}</span>
-                </div>
+                <span>{CONTACT_INFO.offices.usa.phoneFormatted}</span>
+              </a>
+
+              {/* Phone – India */}
+              <a
+                href={`tel:${CONTACT_INFO.offices.india.phone}`}
+                className="flex items-center gap-2.5 text-white/50 hover:text-white transition-colors duration-150"
+              >
+                <Phone className="w-4 h-4 shrink-0 text-sky-400" />
+                <span>{CONTACT_INFO.offices.india.phoneFormatted}</span>
+              </a>
+
+              {/* Address */}
+              <div className="flex items-start gap-2.5 text-white/50">
+                <MapPin className="w-4 h-4 shrink-0 text-sky-400 mt-0.5" />
+                <address className="not-italic leading-relaxed">
+                  {CONTACT_INFO.offices.usa.addressLine1},<br />
+                  {CONTACT_INFO.offices.usa.city}, {CONTACT_INFO.offices.usa.state}{" "}
+                  {CONTACT_INFO.offices.usa.postalCode}<br />
+                  {CONTACT_INFO.offices.usa.country}
+                </address>
               </div>
             </div>
-
-            {/* CTA */}
-            <Link
-              href="/request-sample"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-sky-400 border border-sky-400/30 rounded-lg px-4 py-2.5 hover:bg-sky-400/10 hover:border-sky-400/60 transition-all duration-200"
-            >
-              Request a Sample
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-14 pt-6 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/30">
+        {/* ── Bottom bar – fully centered ── */}
+        <div className="mt-12 pt-5 border-t border-white/10 text-center">
+          <p className="text-xs text-white/35">
             &copy; {currentYear} Globe Market Research. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-              <span className="text-xs text-white/30 tracking-wide">Live intelligence platform</span>
-            </div>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:border-sky-400/40 hover:bg-sky-400/10 transition-all duration-200"
-              aria-label="Back to top"
-            >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
     </footer>

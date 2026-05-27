@@ -112,7 +112,6 @@ function buildCalendarCells(year: number, month: number): CalendarCell[] {
 
   for (let d = 1; d <= daysInMonth; d++) {
     const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
-    const weekday = (firstWeekday + d - 1) % 7;
     const isWeekend = false; // weekends allowed per user preference
     const isPastOrToday = dateStr <= todayStr;
     cells.push({

@@ -15,6 +15,7 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "Statistics", href: "/statistics" },
   { name: "Press Releases", href: "/press-releases" },
+  { name: "Submit News", href: "/submit-news" },
 ];
 
 function NavLink({ href, label, pathname }: { href: string; label: string; pathname: string }) {
@@ -27,8 +28,10 @@ function NavLink({ href, label, pathname }: { href: string; label: string; pathn
     <Link
       href={href}
       className={cn(
-        "relative text-[13px] font-bold tracking-wide transition-colors duration-150 whitespace-nowrap py-1",
-        isActive ? "text-black" : "text-black/80 hover:text-black"
+        "relative text-[13px] tracking-wide transition-all duration-150 whitespace-nowrap py-1",
+        isActive
+          ? "font-extrabold text-black"
+          : "font-medium text-black/55 hover:text-black hover:font-semibold"
       )}
     >
       {label}

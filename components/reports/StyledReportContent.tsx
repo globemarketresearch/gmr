@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 interface StyledReportContentProps {
   htmlContent: string;
@@ -9,7 +9,6 @@ interface StyledReportContentProps {
 
 export const StyledReportContent: React.FC<StyledReportContentProps> = ({
   htmlContent,
-  reportSlug,
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
 

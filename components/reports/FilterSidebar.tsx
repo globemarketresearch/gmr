@@ -19,13 +19,8 @@ interface FilterSidebarProps {
 }
 
 export default function FilterSidebar({
-  filters,
-  onFilterChange,
-  totalCount,
-  categoryCounts = {},
   activeCategorySlug,
 }: FilterSidebarProps) {
-  const totalAllReports = Object.values(categoryCounts).reduce((a, b) => a + b, 0);
 
   return (
     <div className="space-y-5">
@@ -49,7 +44,6 @@ export default function FilterSidebar({
           </Link>
           {categories.map((category) => {
             const isActive = category.slug === activeCategorySlug;
-            const count = categoryCounts[category.name] || 0;
             return (
               <Link
                 key={category.id}

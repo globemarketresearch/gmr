@@ -49,13 +49,15 @@ export async function getReports(
   // Handle different response structures
   let apiReports: ApiReport[];
 
-  // Check if data is directly the array or nested
-  if (Array.isArray(response.data)) {
+  if (response.data === null || response.data === undefined) {
+    // Backend sends null when query returns 0 results (Go nil slice → JSON null)
+    apiReports = [];
+  } else if (Array.isArray(response.data)) {
     // API returned array directly
     apiReports = response.data;
-  } else if (response.data && typeof response.data === 'object' && 'data' in response.data) {
+  } else if (typeof response.data === 'object' && 'data' in response.data) {
     // API returned { data: [...], meta: {...} }
-    apiReports = (response.data as { data: ApiReport[] }).data;
+    apiReports = (response.data as { data: ApiReport[] }).data ?? [];
   } else {
     console.error('Unexpected response structure:', response.data);
     return {
@@ -176,10 +178,13 @@ export async function searchReports(
   // Handle different response structures
   let apiReports: ApiReport[];
 
-  if (Array.isArray(response.data)) {
+  if (response.data === null || response.data === undefined) {
+    // Backend sends null when query returns 0 results (Go nil slice → JSON null)
+    apiReports = [];
+  } else if (Array.isArray(response.data)) {
     apiReports = response.data;
-  } else if (response.data && typeof response.data === 'object' && 'data' in response.data) {
-    apiReports = (response.data as { data: ApiReport[] }).data;
+  } else if (typeof response.data === 'object' && 'data' in response.data) {
+    apiReports = (response.data as { data: ApiReport[] }).data ?? [];
   } else {
     console.error('Unexpected search response structure:', response.data);
     return {

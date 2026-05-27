@@ -1,12 +1,12 @@
-import { generateLLMTxt } from '@/lib/api/llmtxt';
+import { generateLLMFullTxt } from '@/lib/api/llmtxt';
 import { NextResponse } from 'next/server';
 
-// Revalidate every hour; serves stale while regenerating
+// Revalidate every hour; the full dump is large so we cache aggressively
 export const revalidate = 3600;
 
 export async function GET() {
   try {
-    const content = await generateLLMTxt();
+    const content = await generateLLMFullTxt();
 
     return new NextResponse(content, {
       status: 200,
@@ -16,7 +16,7 @@ export async function GET() {
       },
     });
   } catch (error) {
-    console.error('Error generating llms.txt:', error);
-    return new NextResponse('Error generating llms.txt', { status: 500 });
+    console.error('Error generating llms-full.txt:', error);
+    return new NextResponse('Error generating llms-full.txt', { status: 500 });
   }
 }

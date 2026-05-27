@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Card, CardContent, Badge } from '@/components/ui';
 import type { ApiAuthor } from '@/lib/api';
 
@@ -25,10 +26,13 @@ export default function AuthorProfile({ author, totalReports }: AuthorProfilePro
             {/* Avatar */}
             <div className="flex-shrink-0">
               {author.imageUrl ? (
-                <img
+                <Image
                   src={author.imageUrl}
                   alt={author.name}
+                  width={128}
+                  height={128}
                   className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-[var(--primary)] shadow-lg"
+                  unoptimized
                 />
               ) : (
                 <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-[var(--primary)] text-white flex items-center justify-center text-3xl md:text-4xl font-semibold shadow-lg">

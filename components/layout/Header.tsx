@@ -5,10 +5,8 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import Navigation from "./Navigation";
 import GoogleTranslate from "./GoogleTranslate";
-import { SearchBar } from "@/components/ui";
 
 export default function Header() {
-  const [announcementVisible, setAnnouncementVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const stickyRef = useRef<HTMLDivElement>(null);
 
@@ -79,24 +77,15 @@ export default function Header() {
               <Image
                 src="/assets/images/logo.jpg"
                 alt="Globe Market Research"
-                width={240}
-                height={70}
+                width={300}
+                height={88}
                 priority
                 fetchPriority="high"
-                sizes="240px"
-                className="h-16 w-auto md:h-[72px]"
+                sizes="300px"
+                className="h-20 w-auto md:h-[88px]"
               />
             </div>
           </Link>
-
-          {/* Search — desktop */}
-          <div className="hidden lg:flex flex-1 max-w-sm xl:max-w-md mx-6">
-            <SearchBar
-              variant="header"
-              placeholder="Search reports, industries…"
-              className="w-full [&_input]:bg-gray-100 [&_input]:border-gray-200 [&_input]:text-gray-700 [&_input]:placeholder:text-gray-400 [&_input]:rounded-lg [&_input]:text-sm [&_input]:h-9 [&_input:focus]:border-sky-400/60 [&_input:focus]:bg-white [&_input:focus]:ring-0 [&_svg:not(.clear-icon)]:text-gray-400"
-            />
-          </div>
 
           {/* Right side: Nav + actions */}
           <div className="flex items-center gap-2">
