@@ -247,12 +247,12 @@ function ModalForm({ selectedPlan, onClose }: ModalFormProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4"
       style={{ background: "rgba(11,21,51,0.72)", backdropFilter: "blur(6px)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto rounded-2xl shadow-2xl"
+        className="modal-scrollbar relative w-full max-w-2xl max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-2xl shadow-2xl"
         style={{
           background: "var(--surface-raised, #f4f8fd)",
           border: "1px solid var(--border-color)",
@@ -260,7 +260,7 @@ function ModalForm({ selectedPlan, onClose }: ModalFormProps) {
       >
         {/* Header — GMR navy-to-cyan gradient */}
         <div
-          className="sticky top-0 z-10 flex items-center justify-between px-6 py-4"
+          className="sticky top-0 z-10 flex items-center justify-between px-5 py-3 sm:px-6"
           style={{
             background: "linear-gradient(135deg, #162050 0%, #1a6fa8 50%, #2CC8D8 100%)",
             borderRadius: "16px 16px 0 0",
@@ -284,7 +284,7 @@ function ModalForm({ selectedPlan, onClose }: ModalFormProps) {
         </div>
 
         {/* Body */}
-        <div className="px-6 py-6">
+        <div className="px-5 py-5 sm:px-6">
           {submitted ? (
             <div className="py-12 text-center">
               <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: "rgba(44,200,216,0.12)" }}>
@@ -299,7 +299,7 @@ function ModalForm({ selectedPlan, onClose }: ModalFormProps) {
               <Button variant="outline" onClick={onClose}>Close</Button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-4">
               {error && (
                 <div className="bg-red-50 border border-red-200 rounded-lg p-3 flex items-center gap-2">
                   <svg className="w-4 h-4 text-red-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -377,7 +377,7 @@ function ModalForm({ selectedPlan, onClose }: ModalFormProps) {
                 <textarea
                   name="content"
                   required
-                  rows={6}
+                  rows={4}
                   value={formData.content}
                   onChange={handleChange}
                   className={`${inputCls} resize-none`}
@@ -392,7 +392,7 @@ function ModalForm({ selectedPlan, onClose }: ModalFormProps) {
                 <label className="block text-sm font-medium mb-1.5 text-[var(--text-primary)]">Additional Notes</label>
                 <textarea
                   name="additionalNotes"
-                  rows={3}
+                  rows={2}
                   value={formData.additionalNotes}
                   onChange={handleChange}
                   className={`${inputCls} resize-none`}

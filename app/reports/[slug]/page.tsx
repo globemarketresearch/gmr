@@ -17,11 +17,14 @@ import { StructuredData, generateArticleSchema, generateBreadcrumbSchema, genera
 import RelatedReportsSection from "@/components/reports/RelatedReportsSection";
 import categories from "@/data/categories.json";
 
+const CHART_DISCLAIMER =
+  "The graph shows projected market growth until 2035 based on CAGR analysis. Actual outcomes may vary depending on changing demand, competition, and economic factors.";
+
 /**
  * Processes raw HTML content server-side to add performance attributes to CDN images.
  * Images load directly from the CDN to avoid server-side fetch issues in production.
  */
-function processHtmlImages(html: string): string {
+function processHtmlImages(html: string, reportSlug: string): string {
   return html.replace(
     /<img([^>]*?)>/gi,
     (match, attrs: string) => {
@@ -32,7 +35,7 @@ function processHtmlImages(html: string): string {
       if (!newAttrs.includes('loading=')) newAttrs += ` loading="lazy"`;
       if (!newAttrs.includes('decoding=')) newAttrs += ` decoding="async"`;
 
-      return `<img${newAttrs}>`;
+      return `<img${newAttrs}><span class="report-chart-disclaimer"><span class="report-chart-disclaimer__icon" tabindex="0" aria-label="${CHART_DISCLAIMER}">i<span class="report-chart-disclaimer__tooltip" role="tooltip">${CHART_DISCLAIMER}</span></span><span class="report-chart-disclaimer__cta">To learn more about this report - <a href="/request-sample?report=${reportSlug}" target="_blank" rel="noopener noreferrer">Request a sample report PDF</a></span></span>`;
     }
   );
 }
@@ -204,7 +207,7 @@ export default async function ReportPage({
 
   if (hasFullContent && report.marketDetails) {
     const { toc, htmlWithIds } = parseHTMLAndGenerateTOC(report.marketDetails);
-    marketDetailsWithIds = processHtmlImages(htmlWithIds);
+    marketDetailsWithIds = processHtmlImages(htmlWithIds, report.slug);
 
     // Add static sections from the page to TOC
     const staticSections: SidebarTOCItem[] = [];
