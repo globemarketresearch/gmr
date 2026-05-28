@@ -134,7 +134,7 @@ export default function MegaMenu({ categories, isActive }: MegaMenuProps) {
                 onClick={() => setIsOpen(false)}
                 role="menuitem"
                 tabIndex={isOpen ? 0 : -1}
-                className="group block p-3.5 rounded-xl border border-transparent hover:border-sky-100 hover:bg-sky-50/70 transition-all duration-150 outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40"
+                className="group block p-3.5 rounded-lg border border-transparent hover:border-sky-100 hover:bg-sky-50/70 transition-all duration-150 outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40"
                 style={{ animationDelay: `${i * 20}ms` }}
               >
                 <div className="flex items-start gap-2.5">

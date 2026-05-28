@@ -84,6 +84,16 @@ body {
   overflow-x: clip;
 }
 
+html {
+  overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+  body > .sticky [class*="w-[300px]"][class*="translate-x-full"] {
+    display: none !important;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-inter), 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
@@ -241,8 +251,8 @@ html body { top: 0 !important; }
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: #b2cce8;
-    --input: #b2cce8;
+    --border: 211 55% 80%;
+    --input: 211 55% 80%;
     --ring: 185 68% 51%;
 
     --chart-1: 185 68% 51%;      /* Cyan #2CC8D8 */
@@ -280,8 +290,8 @@ html body { top: 0 !important; }
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: hsl(226, 40%, 18%);
-    --input: hsl(226, 40%, 18%);
+    --border: 226 40% 18%;
+    --input: 226 40% 18%;
     --ring: 185 68% 60%;
 
     /* Dark mode chart colors */

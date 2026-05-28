@@ -104,7 +104,7 @@ export default function HeroSection() {
           <div className="w-full max-w-2xl flex flex-col items-center gap-4">
             <SearchBar
               variant="hero"
-              placeholder="Search reports, markets, industries…"
+              placeholder="Search reports or markets..."
               className="w-full"
             />
 

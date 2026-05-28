@@ -11,6 +11,8 @@ import { getDefaultCountry, type Country } from "@/lib/data/countries";
 export default function ContactPage() {
   const defaultCountry = getDefaultCountry();
   const captchaRef = useRef<CaptchaRef>(null);
+  const inputClassName =
+    "w-full px-4 py-2 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)] bg-[var(--background)] transition-colors";
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -148,7 +150,7 @@ export default function ContactPage() {
                           required
                           value={formData.fullName}
                           onChange={handleChange}
-                          className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                          className={inputClassName}
                           placeholder="John Doe"
                         />
                       </div>
@@ -164,7 +166,7 @@ export default function ContactPage() {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                          className={inputClassName}
                           placeholder="john@company.com"
                         />
                       </div>
@@ -192,7 +194,7 @@ export default function ContactPage() {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                          className={inputClassName}
                           placeholder="+1 (555) 000-0000"
                         />
                       </div>
@@ -209,7 +211,7 @@ export default function ContactPage() {
                         required
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                        className={inputClassName}
                         placeholder="Your Company"
                       />
                     </div>
@@ -225,7 +227,7 @@ export default function ContactPage() {
                         required
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] bg-[var(--background)]"
+                        className={inputClassName}
                       >
                         <option value="">Select a subject</option>
                         <option value="general">General Inquiry</option>
@@ -248,7 +250,7 @@ export default function ContactPage() {
                         rows={6}
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] resize-none bg-[var(--background)]"
+                        className={`${inputClassName} resize-none`}
                         placeholder="Tell us how we can help..."
                       />
                     </div>

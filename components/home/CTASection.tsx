@@ -6,7 +6,7 @@ export default function CTASection() {
   return (
     <Section padding="sm">
       <Container size="lg">
-        <div className="relative rounded-2xl overflow-hidden">
+        <div className="relative rounded-lg overflow-hidden">
           {/* Gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#0f2236] via-[#0c3a5e] to-[#0284c7]" />
 
@@ -29,13 +29,6 @@ export default function CTASection() {
           </div> */}
 
           {/* Ambient glows */}
-          <div className="absolute top-0 left-1/4 w-72 h-72 bg-sky-400/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
-
-          {/* Corner accent circles */}
-          <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full border border-white/10 pointer-events-none" />
-          <div className="absolute -bottom-12 -right-12 w-48 h-48 rounded-full border border-white/[0.06] pointer-events-none" />
-
           <div className="relative z-10 px-8 py-12 md:px-16 md:py-16 lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-12">
             <div className="space-y-6 max-w-2xl">
               <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-body tracking-wide backdrop-blur-sm">
@@ -54,13 +47,13 @@ export default function CTASection() {
               <div className="flex flex-col sm:flex-row items-start gap-4 pt-2">
                 <Link
                   href="/contact"
-                  className="font-body inline-flex items-center gap-2 bg-white text-[var(--featured-bg)] hover:bg-white/90 font-semibold text-sm px-7 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                  className="font-body inline-flex items-center gap-2 bg-white text-[var(--featured-bg)] hover:bg-white/90 font-semibold text-sm px-7 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
                   Contact Sales
                 </Link>
                 <Link
                   href="/industry"
-                  className="font-body inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white hover:bg-white/20 hover:border-white/40 font-semibold text-sm px-7 py-3 rounded-xl backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
+                  className="font-body inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white hover:bg-white/20 hover:border-white/40 font-semibold text-sm px-7 py-3 rounded-lg backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
                 >
                   View Reports
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,7 +64,7 @@ export default function CTASection() {
             </div>
 
             {/* Globe image panel */}
-            <div className="hidden lg:block flex-shrink-0 w-[380px] h-[300px] relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+            <div className="hidden lg:block flex-shrink-0 w-[380px] h-[300px] relative rounded-lg overflow-hidden border border-white/10 shadow-2xl">
               <Image
                 src="/assets/other/Abstract_digital_globe_with_flowing_202605080343.jpeg"
                 alt="Global market research coverage"

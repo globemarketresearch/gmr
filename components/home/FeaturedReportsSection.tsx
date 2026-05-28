@@ -52,7 +52,7 @@ function ReportCard({ report, index }: { report: Report; index: number }) {
   return (
     <Link
       href={`/reports/${report.slug}`}
-      className="group bg-[var(--surface-raised)] border border-[var(--border-color)] rounded-2xl p-6 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all duration-200 flex flex-col"
+      className="group bg-[var(--surface-raised)] border border-[var(--border-color)] rounded-lg p-6 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all duration-200 flex flex-col"
     >
       {/* Header row */}
       <div className="flex items-center justify-between mb-3">
@@ -74,7 +74,7 @@ function ReportCard({ report, index }: { report: Report; index: number }) {
 
       {/* Market metrics box */}
       {hasMetrics && (
-        <div className="bg-[var(--surface)] rounded-xl px-4 py-3 flex items-center justify-between mb-4">
+        <div className="bg-[var(--surface)] rounded-lg px-4 py-3 flex items-center justify-between mb-4">
           <div>
             <p className="text-[1.35rem] font-bold text-[var(--text-primary)] leading-none">{marketSize}</p>
             {forecastYear && (

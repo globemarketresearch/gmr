@@ -69,11 +69,11 @@ export default function Header() {
             : "0 1px 0 rgba(0,0,0,0.06)",
         }}
       >
-        <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto flex h-[88px] items-center justify-between px-4 sm:px-6 lg:px-8 gap-3 w-full">
+        <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto flex h-16 md:h-[72px] items-center justify-between px-4 sm:px-6 lg:px-8 gap-2 md:gap-3 w-full">
           {/* Logo */}
           <h2 className="sr-only">Globe Market Research</h2>
-          <Link href="/" className="flex items-center flex-shrink-0 group">
-            <div className="transition-opacity duration-200 group-hover:opacity-90">
+          <Link href="/" className="flex min-w-0 items-center flex-shrink group">
+            <div className="min-w-0 transition-opacity duration-200 group-hover:opacity-90">
               <Image
                 src="/assets/images/logo.jpg"
                 alt="Globe Market Research"
@@ -81,14 +81,14 @@ export default function Header() {
                 height={88}
                 priority
                 fetchPriority="high"
-                sizes="300px"
-                className="h-20 w-auto md:h-[88px]"
+                sizes="(max-width: 767px) 180px, 300px"
+                className="h-12 w-auto max-w-[180px] object-contain md:h-16 md:max-w-[220px]"
               />
             </div>
           </Link>
 
           {/* Right side: Nav + actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex flex-shrink-0 items-center gap-1.5 md:gap-2">
             <Navigation />
 
             {/* Divider */}
@@ -97,7 +97,7 @@ export default function Header() {
             {/* Request Sample CTA */}
             <Link
               href="/request-sample"
-              className="hidden md:inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide px-4 py-2 rounded-lg text-white transition-all duration-200"
+              className="hidden md:inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide px-4 py-2 rounded-lg text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 focus-visible:ring-offset-2"
               style={{
                 background: "linear-gradient(135deg, #1DAEBF 0%, #2CC8D8 100%)",
                 boxShadow: "0 0 0 1px rgba(44,200,216,0.3), 0 2px 8px rgba(44,200,216,0.3)",

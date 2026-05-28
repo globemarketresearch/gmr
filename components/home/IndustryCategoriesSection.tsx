@@ -57,7 +57,7 @@ export default function IndustryCategoriesSection() {
             {/* Featured tile — spans 2×2 */}
             <Link
               href={`/industry/${featured.slug}`}
-              className="col-span-2 row-span-2 group relative rounded-2xl overflow-hidden bg-[var(--featured-bg)] p-8 flex flex-col justify-between shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 h-full"
+              className="col-span-2 row-span-2 group relative rounded-lg overflow-hidden bg-[var(--featured-bg)] p-8 flex flex-col justify-between shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 h-full"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${accentColors[0]} opacity-10 group-hover:opacity-20 transition-opacity duration-300`} />
               {/* Decorative healthcare icon image */}
@@ -72,7 +72,7 @@ export default function IndustryCategoriesSection() {
               </div>
               <div className="absolute -top-8 -right-8 w-40 h-40 bg-gradient-to-br from-sky-400/20 to-transparent rounded-full blur-2xl" />
               <div className="relative z-10">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${accentColors[0]} flex items-center justify-center mb-4 shadow-lg`}>
+                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${accentColors[0]} flex items-center justify-center mb-4 shadow-lg`}>
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d={categoryIcons[featured.slug] ?? categoryIcons['biotechnology']} />
                   </svg>
@@ -100,11 +100,11 @@ export default function IndustryCategoriesSection() {
                 <Link
                   key={category.id}
                   href={`/industry/${category.slug}`}
-                  className="group relative rounded-2xl overflow-hidden bg-[var(--surface-raised)] border border-[var(--border-color)] p-5 flex flex-col shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all duration-200 h-full"
+                  className="group relative rounded-lg overflow-hidden bg-[var(--surface-raised)] border border-[var(--border-color)] p-5 flex flex-col shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all duration-200 h-full"
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                   <div className="relative z-10 space-y-2">
-                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-sm`}>
+                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${gradient} flex items-center justify-center shadow-sm`}>
                       <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d={icon ?? categoryIcons['biotechnology']} />
                       </svg>

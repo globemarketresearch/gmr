@@ -76,10 +76,10 @@ export function CountrySelect({
         onClick={() => !disabled && setIsOpen(!isOpen)}
         disabled={disabled}
         className={`w-full px-4 py-2 text-left border border-[var(--border-color)] rounded-md bg-white
-          hover:border-[var(--primary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]
-          focus:border-transparent transition-all duration-200 flex items-center justify-between
+          hover:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]
+          focus:border-[var(--accent)] transition-all duration-200 flex items-center justify-between
           ${disabled ? "bg-gray-100 cursor-not-allowed" : "cursor-pointer"}
-          ${isOpen ? "ring-2 ring-[var(--primary)] border-transparent" : ""}`}
+          ${isOpen ? "ring-2 ring-[var(--accent)] border-[var(--accent)]" : ""}`}
       >
         <div className="flex items-center gap-2">
           <span className="text-xl pb-1">{selectedCountry.flag}</span>
@@ -108,7 +108,7 @@ export function CountrySelect({
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search countries..."
               className="w-full px-3 py-2 text-sm border border-[var(--border-color)] rounded-md
-                focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent"
+                focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)]"
             />
           </div>
 

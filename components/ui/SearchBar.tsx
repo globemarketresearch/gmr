@@ -99,7 +99,7 @@ export default function SearchBar({
 
   const isHeroVariant = variant === 'hero';
   const inputSizeClasses = isHeroVariant
-    ? 'h-14 md:h-16 text-base md:text-lg'
+    ? 'h-14 md:h-16 text-sm sm:text-base md:text-lg'
     : 'h-10 text-sm';
 
   const containerClasses = isHeroVariant
@@ -140,7 +140,7 @@ export default function SearchBar({
           onFocus={() => query && setIsOpen(true)}
           placeholder={placeholder}
           className={cn(
-            'w-full rounded-xl border border-slate-300 bg-white shadow-sm transition-all duration-200',
+            'w-full rounded-lg border border-slate-300 bg-white shadow-sm transition-all duration-200',
             'focus:outline-none focus:ring-2 focus:ring-ocean-500 focus:border-ocean-500 focus:shadow-md',
             'placeholder:text-slate-400 hover:border-slate-400',
             isHeroVariant
@@ -185,7 +185,7 @@ export default function SearchBar({
 
       {/* Search Results Dropdown */}
       {isOpen && query && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-200 rounded-xl shadow-lg overflow-hidden z-50 max-h-96 overflow-y-auto">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden z-50 max-h-96 overflow-y-auto">
           {isLoading ? (
             <div className="p-8 text-center">
               <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-ocean-600 border-r-transparent mb-3"></div>

@@ -81,7 +81,7 @@ export const Captcha = forwardRef<CaptchaRef, CaptchaProps>(
               "w-24 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 bg-[var(--background)]",
               isValid && userAnswer
                 ? "border-green-500 focus:ring-green-500"
-                : "border-[var(--border-color)] focus:ring-[var(--primary)]"
+                : "border-[var(--border-color)] focus:ring-[var(--accent)] focus:border-[var(--accent)]"
             )}
             placeholder="?"
             aria-label="Captcha answer"
