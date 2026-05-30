@@ -5,6 +5,7 @@ import Link from 'next/link';
 import type { PressRelease } from '@/lib/api/press-releases.types';
 import PressReleaseListCard from './PressReleaseListCard';
 import Pagination from '@/components/reports/Pagination';
+import FilterSidebar from '@/components/reports/FilterSidebar';
 import { getPressReleases, isApiError } from '@/lib/api';
 
 const ITEMS_PER_PAGE = 8;
@@ -124,31 +125,41 @@ export default function PressReleaseListingClient({
 
       {/* ── Press Release List ───────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <main id="press-releases-list">
-
-          {isLoading ? (
-            <div className="space-y-4 mt-4">
-              {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
-                <div key={i} className="h-32 bg-[var(--surface)] animate-pulse rounded-xl" />
-              ))}
-            </div>
-          ) : pressReleases.length > 0 ? (
-            <>
-              <div>
-                {pressReleases.map((pr) => (
-                  <PressReleaseListCard key={pr.id} pressRelease={pr} />
+        <div className="grid lg:grid-cols-[1fr_288px] gap-10">
+          <main id="press-releases-list">
+            {isLoading ? (
+              <div className="space-y-4 mt-4">
+                {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
+                  <div key={i} className="h-32 bg-[var(--surface)] animate-pulse rounded-xl" />
                 ))}
               </div>
-              <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-            </>
-          ) : (
-            <div className="text-center py-20 border border-dashed border-[var(--border-color)] rounded-xl mt-4">
-              <div className="text-5xl mb-4">📢</div>
-              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">No press releases found</h3>
-              <p className="text-sm text-[var(--text-tertiary)]">Check back later for new announcements</p>
+            ) : pressReleases.length > 0 ? (
+              <>
+                <div>
+                  {pressReleases.map((pr) => (
+                    <PressReleaseListCard key={pr.id} pressRelease={pr} />
+                  ))}
+                </div>
+                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+              </>
+            ) : (
+              <div className="text-center py-20 border border-dashed border-[var(--border-color)] rounded-xl mt-4">
+                <div className="text-5xl mb-4">📢</div>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">No press releases found</h3>
+                <p className="text-sm text-[var(--text-tertiary)]">Check back later for new announcements</p>
+              </div>
+            )}
+          </main>
+          <aside className="hidden lg:block">
+            <div className="sticky top-24">
+              <FilterSidebar
+                filters={{ industries: [], regions: [], reportTypes: [], priceRanges: [] }}
+                onFilterChange={() => {}}
+                totalCount={0}
+              />
             </div>
-          )}
-        </main>
+          </aside>
+        </div>
       </div>
     </>
   );

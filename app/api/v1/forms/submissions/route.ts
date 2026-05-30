@@ -1,77 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { randomUUID } from 'crypto';
 
-/**
- * POST /api/v1/forms/submissions
- * Accepts newsletter, contact, request-sample, request-customization, schedule-demo submissions.
- */
+const BACKEND_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? 'http://127.0.0.1:8080';
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { category, data, metadata } = body;
 
-    /* ── Basic validation ── */
-    if (!category || !data || typeof data !== 'object') {
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'validation_error',
-          message: 'Missing required fields: category and data.',
-        },
-        { status: 400 },
-      );
-    }
-
-    const validCategories = [
-      'contact',
-      'request-sample',
-      'request-customization',
-      'schedule-demo',
-      'newsletter',
-      'publish-news',
-    ];
-
-    if (!validCategories.includes(category)) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'invalid_category',
-          message: `Invalid category. Must be one of: ${validCategories.join(', ')}.`,
-        },
-        { status: 400 },
-      );
-    }
-
-    const submissionId = randomUUID();
-    const createdAt = new Date().toISOString();
-
-    const submission = {
-      submissionId,
-      category,
-      data,
-      metadata: {
-        ...metadata,
-        submittedAt: metadata?.submittedAt ?? createdAt,
-        ipAddress:
-          request.headers.get('x-forwarded-for') ??
-          request.headers.get('x-real-ip') ??
-          'unknown',
+    const backendRes = await fetch(`${BACKEND_URL}/api/v1/forms/submissions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Forwarded-For': request.headers.get('x-forwarded-for') ?? '',
+        'X-Real-IP': request.headers.get('x-real-ip') ?? '',
+        'User-Agent': request.headers.get('user-agent') ?? '',
+        'Referer': request.headers.get('referer') ?? '',
+        'Origin': request.headers.get('origin') ?? '',
       },
-      createdAt,
-    };
-
-    /* ── Log for dev / server-side record ── */
-    console.log('[forms/submissions]', JSON.stringify(submission, null, 2));
-
-    return NextResponse.json({
-      success: true,
-      submissionId,
-      category,
-      message: getConfirmationMessage(category),
-      createdAt,
+      body: JSON.stringify(body),
     });
+
+    const data = await backendRes.json();
+    return NextResponse.json(data, { status: backendRes.status });
   } catch (error) {
-    console.error('[forms/submissions] error:', error);
+    console.error('[forms/submissions] proxy error:', error);
     return NextResponse.json(
       {
         success: false,
@@ -80,23 +31,5 @@ export async function POST(request: NextRequest) {
       },
       { status: 500 },
     );
-  }
-}
-
-function getConfirmationMessage(category: string): string {
-  switch (category) {
-    case 'newsletter':
-      return 'Successfully subscribed. Your first brief lands this week.';
-    case 'contact':
-      return 'Message received. We\'ll respond within 24–48 hours.';
-    case 'request-sample':
-    case 'request-customization':
-      return 'Sample request received. Expect a response within 1 business day.';
-    case 'schedule-demo':
-      return 'Demo request received. Our team will confirm your slot shortly.';
-    case 'publish-news':
-      return 'Submission received. Our editorial team will review your content and be in touch within 2 business days.';
-    default:
-      return 'Submission received. Thank you.';
   }
 }

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import type { Blog } from '@/lib/api/blogs.types';
 import StatisticsListCard from './StatisticsListCard';
 import Pagination from '@/components/reports/Pagination';
+import FilterSidebar from '@/components/reports/FilterSidebar';
 import { getBlogs, isApiError } from '@/lib/api';
 
 const ITEMS_PER_PAGE = 8;
@@ -117,41 +118,43 @@ export default function StatisticsListingClient({
         </div>
       </div>
 
-      {/* ── Divider ─────────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
-        <div
-          className="h-px w-full"
-          style={{ background: 'var(--border-color)' }}
-        />
-      </div>
-
       {/* ── Statistics List ─────────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <main id="statistics-list">
-
-          {isLoading ? (
-            <div className="space-y-4 mt-4">
-              {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
-                <div key={i} className="h-32 bg-[var(--surface)] animate-pulse rounded-xl" />
-              ))}
-            </div>
-          ) : blogs.length > 0 ? (
-            <>
-              <div>
-                {blogs.map((blog) => (
-                  <StatisticsListCard key={blog.id} blog={blog} />
+        <div className="grid lg:grid-cols-[1fr_288px] gap-10">
+          <main id="statistics-list">
+            {isLoading ? (
+              <div className="space-y-4 mt-4">
+                {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
+                  <div key={i} className="h-32 bg-[var(--surface)] animate-pulse rounded-xl" />
                 ))}
               </div>
-              <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-            </>
-          ) : (
-            <div className="text-center py-20 border border-dashed border-[var(--border-color)] rounded-xl mt-4">
-              <div className="text-5xl mb-4">📊</div>
-              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">No articles found</h3>
-              <p className="text-sm text-[var(--text-tertiary)]">Check back later for new content</p>
+            ) : blogs.length > 0 ? (
+              <>
+                <div>
+                  {blogs.map((blog) => (
+                    <StatisticsListCard key={blog.id} blog={blog} />
+                  ))}
+                </div>
+                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+              </>
+            ) : (
+              <div className="text-center py-20 border border-dashed border-[var(--border-color)] rounded-xl mt-4">
+                <div className="text-5xl mb-4">📊</div>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">No articles found</h3>
+                <p className="text-sm text-[var(--text-tertiary)]">Check back later for new content</p>
+              </div>
+            )}
+          </main>
+          <aside className="hidden lg:block">
+            <div className="sticky top-24">
+              <FilterSidebar
+                filters={{ industries: [], regions: [], reportTypes: [], priceRanges: [] }}
+                onFilterChange={() => {}}
+                totalCount={0}
+              />
             </div>
-          )}
-        </main>
+          </aside>
+        </div>
       </div>
     </>
   );

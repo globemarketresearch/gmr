@@ -136,7 +136,7 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
           className="pointer-events-none absolute -top-32 -right-32 w-[32rem] h-[32rem] rounded-full opacity-10"
           style={{ background: 'radial-gradient(circle, #0284c7, transparent 70%)' }}
         />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs mb-7" style={{ color: 'rgba(255,255,255,0.4)' }}>
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
