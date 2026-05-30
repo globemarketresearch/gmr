@@ -120,7 +120,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
       {/* Right Sidebar - CTA Panel */}
       <aside className="hidden lg:block">
         <div className="sticky top-32 max-h-[calc(100vh-10rem)] overflow-y-auto space-y-4 pr-0.5">
-          <BriefWithAI reportTitle={reportTitle} />
+          <BriefWithAI reportTitle={reportTitle} reportSlug={reportSlug} />
           <CustomizeReportCard reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
           <CTAPanel discounted_price={discounted_price} price={price} reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
         </div>

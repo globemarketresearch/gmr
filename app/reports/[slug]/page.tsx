@@ -35,7 +35,7 @@ function processHtmlImages(html: string, reportSlug: string): string {
       if (!newAttrs.includes('loading=')) newAttrs += ` loading="lazy"`;
       if (!newAttrs.includes('decoding=')) newAttrs += ` decoding="async"`;
 
-      return `<img${newAttrs}><span class="report-chart-disclaimer"><span class="report-chart-disclaimer__icon" tabindex="0" aria-label="${CHART_DISCLAIMER}">i<span class="report-chart-disclaimer__tooltip" role="tooltip">${CHART_DISCLAIMER}</span></span><span class="report-chart-disclaimer__cta">To learn more about this report - <a href="/request-sample?report=${reportSlug}" target="_blank" rel="noopener noreferrer">Request a sample report PDF</a></span></span>`;
+      return `<img${newAttrs}><span class="report-chart-disclaimer"><span class="report-chart-disclaimer__icon" tabindex="0" aria-label="${CHART_DISCLAIMER}">i<span class="report-chart-disclaimer__tooltip" role="tooltip">${CHART_DISCLAIMER}</span></span><span class="report-chart-disclaimer__cta">To gain greater insights - <a href="/request-sample?report=${reportSlug}" target="_blank" rel="noopener noreferrer">request a sample report PDF</a></span></span>`;
     }
   );
 }
@@ -120,6 +120,7 @@ interface Report {
   slug: string;
   title: string;
   description: string;
+  summary?: string;
   category: string;
   date: string;
   price: string;
@@ -503,13 +504,15 @@ export default async function ReportPage({
               {report.title}
             </h1>
 
-            {/* Description */}
-            <p
-              className="mb-8 leading-relaxed"
-              style={{ color: 'rgba(255,255,255,0.62)', fontSize: '1.0rem', maxWidth: '760px' }}
-            >
-              {report.description}
-            </p>
+            {/* Summary / Description */}
+            {(report.summary || report.description) && (
+              <p
+                className="mb-8 leading-relaxed"
+                style={{ color: 'rgba(255,255,255,0.62)', fontSize: '1.0rem' }}
+              >
+                {report.summary || report.description}
+              </p>
+            )}
 
             {/* Report metadata strip */}
             <div

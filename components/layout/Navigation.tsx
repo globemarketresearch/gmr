@@ -16,7 +16,6 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "Statistics", href: "/statistics" },
   { name: "Press Releases", href: "/press-releases" },
-  { name: "Submit News", href: "/submit-news" },
 ];
 
 function NavLink({ href, label, pathname }: { href: string; label: string; pathname: string }) {

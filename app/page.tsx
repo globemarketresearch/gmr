@@ -31,9 +31,9 @@ export default function HomePage() {
     <>
       <HeroSection />
       <FeaturedReportsSection />
+      <IndustryCategoriesSection />
       <FeaturedStatisticsSection />
       <FeaturedPressReleasesSection />
-      <IndustryCategoriesSection />
 
       <Suspense fallback={<StatsSectionSkeleton />}>
         <StatsSection />

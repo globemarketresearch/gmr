@@ -280,15 +280,8 @@ export default function AboutPage() {
           {/* G · M · R cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* G — Global Reach */}
-            <div className="group rounded-2xl border border-gray-100 bg-white hover:border-[#2E5E1A]/30 hover:shadow-lg transition-all duration-300 p-10 flex flex-col items-center gap-5">
-              <div className="w-24 h-24 rounded-2xl bg-[#f0f7ea] flex items-center justify-center shadow-inner">
-                <span
-                  className="text-6xl font-black leading-none select-none"
-                  style={{ color: "#2E5E1A", fontFamily: "Georgia, 'Times New Roman', serif" }}
-                >
-                  G
-                </span>
-              </div>
+            <div className="group rounded-2xl border border-gray-100 bg-white hover:border-[#1E3A6E]/30 hover:shadow-lg transition-all duration-300 p-10 flex flex-col items-center gap-5">
+              <Image src="/assets/other/gmr_g.png" alt="G" width={96} height={96} className="object-contain" />
               <div className="text-center space-y-1">
                 <p className="text-[0.7rem] font-bold tracking-[0.15em] uppercase text-gray-500">
                   Global Reach
@@ -304,15 +297,8 @@ export default function AboutPage() {
             </div>
 
             {/* M — Market Intelligence */}
-            <div className="group rounded-2xl border border-gray-100 bg-white hover:border-[#C17800]/30 hover:shadow-lg transition-all duration-300 p-10 flex flex-col items-center gap-5">
-              <div className="w-24 h-24 rounded-2xl bg-[#fef9ec] flex items-center justify-center shadow-inner">
-                <span
-                  className="text-6xl font-black leading-none select-none"
-                  style={{ color: "#C17800", fontFamily: "Georgia, 'Times New Roman', serif" }}
-                >
-                  M
-                </span>
-              </div>
+            <div className="group rounded-2xl border border-gray-100 bg-white hover:border-[#00C2F0]/30 hover:shadow-lg transition-all duration-300 p-10 flex flex-col items-center gap-5">
+              <Image src="/assets/other/gmr_m.png" alt="M" width={96} height={96} className="object-contain" />
               <div className="text-center space-y-1">
                 <p className="text-[0.7rem] font-bold tracking-[0.15em] uppercase text-gray-500">
                   Market Intelligence
@@ -328,15 +314,8 @@ export default function AboutPage() {
             </div>
 
             {/* R — Research Precision */}
-            <div className="group rounded-2xl border border-gray-100 bg-white hover:border-[#2B6CB0]/30 hover:shadow-lg transition-all duration-300 p-10 flex flex-col items-center gap-5">
-              <div className="w-24 h-24 rounded-2xl bg-[#ebf4ff] flex items-center justify-center shadow-inner">
-                <span
-                  className="text-6xl font-black leading-none select-none"
-                  style={{ color: "#2B6CB0", fontFamily: "Georgia, 'Times New Roman', serif" }}
-                >
-                  R
-                </span>
-              </div>
+            <div className="group rounded-2xl border border-gray-100 bg-white hover:border-[#1E3A6E]/30 hover:shadow-lg transition-all duration-300 p-10 flex flex-col items-center gap-5">
+              <Image src="/assets/other/gmr_r.png" alt="R" width={96} height={96} className="object-contain" />
               <div className="text-center space-y-1">
                 <p className="text-[0.7rem] font-bold tracking-[0.15em] uppercase text-gray-500">
                   Research Precision
