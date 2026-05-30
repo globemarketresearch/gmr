@@ -21,8 +21,8 @@ export default function Footer() {
   ];
 
   const legalLinks = [
-    { href: "/legal/refund-policy", label: "Refund Policy" },
     { href: "/legal/privacy-policy", label: "Privacy Policy" },
+    { href: "/legal/refund-policy", label: "Return & Refund Policy" },
     { href: "/legal/cancellation-policy", label: "Terms & Conditions" },
     { href: "/contact", label: "How to Order" },
     { href: "/contact", label: "Frequently Asked Questions" },

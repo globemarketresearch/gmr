@@ -4,6 +4,8 @@ export interface ApiLegalPage {
   title: string;
   excerpt: string;
   content: string;
+  image?: string;
+  imageAlt?: string;
   lastUpdated: string;
   category: string;
   metadata?: {
