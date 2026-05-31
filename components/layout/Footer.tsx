@@ -24,7 +24,7 @@ export default function Footer() {
     { href: "/legal/privacy-policy", label: "Privacy Policy" },
     { href: "/legal/refund-policy", label: "Return & Refund Policy" },
     { href: "/legal/cancellation-policy", label: "Terms & Conditions" },
-    { href: "/contact", label: "How to Order" },
+    { href: "/how-to-order", label: "How to Order" },
     { href: "/contact", label: "Frequently Asked Questions" },
     { href: "/legal/refund-policy", label: "Payment Method" },
   ];
