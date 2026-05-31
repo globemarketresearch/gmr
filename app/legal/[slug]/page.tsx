@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import { Section, Container, Badge } from "@/components/ui";
 import { getLegalPages, getLegalPageBySlug, isApiError } from "@/lib/api";
 import type { Metadata } from "next";
 import { StructuredData, generateArticleSchema, generateBreadcrumbSchema } from "@/components/seo/StructuredData";
+import LegalHighlights from "@/components/legal/LegalHighlights";
 
 interface LegalPageProps {
   params: Promise<{
@@ -134,20 +134,9 @@ export default async function LegalDetailPage({ params }: LegalPageProps) {
         </Container>
       </Section>
 
-      <Section>
+      <Section className="pt-0">
         <Container size="sm">
-          {page.image && (
-            <div className="mb-10 flex justify-center">
-              <Image
-                src={page.image}
-                alt={page.imageAlt || page.title}
-                width={700}
-                height={180}
-                className="rounded-xl object-contain w-full max-w-2xl"
-                priority
-              />
-            </div>
-          )}
+          <LegalHighlights slug={page.slug} category={page.category} />
 
           <article className="prose prose-lg max-w-none">
             <div
