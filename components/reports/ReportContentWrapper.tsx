@@ -93,10 +93,10 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
       {hasFullContent && (
         <aside className="hidden lg:block">
           <div
-            className="sticky flex flex-col overflow-hidden"
+            className="sticky flex flex-col overflow-hidden transition-[top] duration-300"
             style={{
-              top: 'calc(var(--sticky-header-height, 68px) + 3rem)',
-              maxHeight: 'calc(100vh - var(--sticky-header-height, 68px) - 3.5rem)',
+              top: 'calc(var(--sticky-bar-height, 0px) + 1.5rem)',
+              maxHeight: 'calc(100vh - var(--sticky-bar-height, 0px) - 2rem)',
             }}
           >
             {activeTOC && activeTOC.length > 0 && (
@@ -126,10 +126,10 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
       {/* Right Sidebar - CTA Panel */}
       <aside className="hidden lg:block">
         <div
-          className="sticky overflow-y-auto space-y-4 pr-0.5"
+          className="sticky overflow-y-auto space-y-4 pr-0.5 transition-[top] duration-300"
           style={{
-            top: 'calc(var(--sticky-header-height, 68px) + 3rem)',
-            maxHeight: 'calc(100vh - var(--sticky-header-height, 68px) - 3.5rem)',
+            top: 'calc(var(--sticky-bar-height, 0px) + 1.5rem)',
+            maxHeight: 'calc(100vh - var(--sticky-bar-height, 0px) - 2rem)',
           }}
         >
           <BriefWithAI reportTitle={reportTitle} reportSlug={reportSlug} />

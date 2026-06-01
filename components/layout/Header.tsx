@@ -29,7 +29,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div ref={stickyRef} className="sticky top-0 z-50 w-full">
+    <div ref={stickyRef} className="relative w-full z-50">
       {/* Announcement bar */}
       {/* {announcementVisible && (
         <div className="relative bg-[#071524] text-white text-xs py-2 px-4 text-center flex items-center justify-center gap-3 border-b border-white/5">

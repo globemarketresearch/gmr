@@ -15,6 +15,7 @@ import { parseHTMLAndGenerateTOC, addStaticSectionsToTOC } from "@/lib/html-toc-
 import type { SidebarTOCItem } from "@/lib/toc-utils";
 import { StructuredData, generateArticleSchema, generateBreadcrumbSchema, generateFAQSchema, generateProductSchema, generateDatasetSchema } from "@/components/seo/StructuredData";
 import RelatedReportsSection from "@/components/reports/RelatedReportsSection";
+import { ReportStickyBar } from "@/components/reports/ReportStickyBar";
 import categories from "@/data/categories.json";
 
 const CHART_DISCLAIMER =
@@ -129,6 +130,7 @@ interface Report {
   year: string;
   reportType: string;
   pages: number;
+  formats?: string[];
   reportCode?: string;
   baseYear?: string;
   forecastPeriod?: string;
@@ -542,7 +544,17 @@ export default async function ReportPage({
           </div>
         </div>
 
-        <div className="sticky z-40 border-b border-border bg-card" style={{ top: "var(--sticky-header-height, 0px)" }}>
+        {/* Sticky "Request Sample + Buy Now" bar — appears on scroll */}
+        <ReportStickyBar
+          reportTitle={report.title}
+          reportSlug={report.slug}
+          reportId={report.id}
+          publishedDate={report.date}
+          pages={report.pages}
+          formats={report.formats}
+        />
+
+        <div className="border-b border-border bg-card">
           <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <Breadcrumb items={breadcrumbItems} />
           </div>

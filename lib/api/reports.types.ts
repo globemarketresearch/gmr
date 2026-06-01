@@ -106,6 +106,7 @@ export interface Report {
   year: string;
   reportType: string;
   pages: number;
+  formats?: string[];
   categoryImageUrl?: string;
 
   // Extended fields for detail page
