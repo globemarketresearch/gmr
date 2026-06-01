@@ -17,7 +17,7 @@ export const BriefWithAI: React.FC<BriefWithAIProps> = ({ reportSlug }) => {
   const perplexityUrl = `https://www.perplexity.ai/search?q=${encodeURIComponent(query)}`;
 
   return (
-    <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3.5 shadow-sm">
+    <div className="rounded-xl border border-gray-300 bg-[var(--card)] px-4 py-3.5 shadow-sm">
       <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--muted-foreground)] mb-3">
         Brief With:
       </p>
@@ -28,7 +28,7 @@ export const BriefWithAI: React.FC<BriefWithAIProps> = ({ reportSlug }) => {
           href={chatGPTUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2.5 rounded-lg border border-[var(--border)] px-3 py-2 text-sm font-medium text-[var(--foreground)] transition-all duration-150 hover:border-[#10a37f]/50 hover:bg-[#f0fdf8] hover:shadow-sm active:scale-[0.98] group"
+          className="flex items-center gap-2.5 rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-[var(--foreground)] transition-all duration-150 hover:border-[#10a37f]/50 hover:bg-[#f0fdf8] hover:shadow-sm active:scale-[0.98] group"
         >
           {/* ChatGPT / OpenAI logo */}
           <span className="flex-shrink-0 w-[22px] h-[22px] flex items-center justify-center rounded-full bg-[#10a37f]">
@@ -63,7 +63,7 @@ export const BriefWithAI: React.FC<BriefWithAIProps> = ({ reportSlug }) => {
           href={perplexityUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2.5 rounded-lg border border-[var(--border)] px-3 py-2 text-sm font-medium text-[var(--foreground)] transition-all duration-150 hover:border-[#6b5ce7]/50 hover:bg-[#f5f3ff] hover:shadow-sm active:scale-[0.98] group"
+          className="flex items-center gap-2.5 rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-[var(--foreground)] transition-all duration-150 hover:border-[#6b5ce7]/50 hover:bg-[#f5f3ff] hover:shadow-sm active:scale-[0.98] group"
         >
           {/* Perplexity logo */}
           <span className="flex-shrink-0 w-[22px] h-[22px] flex items-center justify-center rounded-full bg-[#1a1a2e]">

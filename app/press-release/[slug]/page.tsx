@@ -5,6 +5,7 @@ import { getPressReleases, getPressReleaseBySlug, getReportBySlug, isApiError } 
 import type { Metadata } from "next";
 import { StructuredData, generateArticleSchema, generateBreadcrumbSchema } from "@/components/seo/StructuredData";
 import { TrustedPartnersSidebar } from "@/components/contact";
+import { ShareButtons } from "@/components/shared/ShareButtons";
 
 export const revalidate = 300;
 
@@ -213,6 +214,12 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
                 <span>{pressRelease.location}</span>
               </>
             )}
+            <div className="ml-auto">
+              <ShareButtons
+                title={pressRelease.title}
+                url={`https://www.globemarketresearch.com/press-release/${pressRelease.slug}`}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -257,7 +264,7 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
                     <>
                       <Link href={`/request-sample?reportId=${relatedReportId}`}>
                         <Button
-                          className="w-full bg-[#E3F2FD] text-[#1565C0] hover:bg-[#BBDEFB] hover:text-[#0D47A1] border-[#90CAF9] hover:border-[#64B5F6]"
+                          className="w-full bg-[#E3F2FD] text-[#1565C0] hover:bg-[#BBDEFB]  border-[#90CAF9] hover:border-[#64B5F6]"
                           variant="outline"
                           size="lg"
                         >

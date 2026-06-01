@@ -87,10 +87,11 @@ export const MarketGrowthChart: React.FC<MarketGrowthChartProps> = ({
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle className="text-[var(--teal-deep)]">Market Size &amp; Forecast</CardTitle>
+        {/* <CardTitle className="text-[var(--teal-deep)]">Market Size &amp; Forecast</CardTitle>
         <CardDescription>
           Projected market growth {startYear}–{endYear} at a CAGR of {cagr}
-        </CardDescription>
+        </CardDescription> */}
+        <CardTitle className="text-[var(--teal-deep)]">Projected market expansion: {cagr} CAGR </CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="h-[320px] w-full">

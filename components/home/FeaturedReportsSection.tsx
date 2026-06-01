@@ -118,7 +118,7 @@ function ReportCard({ report, index }: { report: Report; index: number }) {
 export default async function FeaturedReportsSection() {
   const response = await getReports({
     status: 'published',
-    limit: 3,
+    limit: 6,
   });
 
   if (isApiError(response) || response.data.length === 0) {

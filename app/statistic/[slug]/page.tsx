@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { StructuredData, generateArticleSchema, generateBreadcrumbSchema } from "@/components/seo/StructuredData";
 import StatisticsSidebarForm from "@/components/statistics/StatisticsSidebarForm";
 import { QuickContactSection } from "@/components/contact";
+import { ShareButtons } from "@/components/shared/ShareButtons";
 
 interface StatisticPageProps {
   params: Promise<{
@@ -203,6 +204,12 @@ export default async function StatisticDetailPage({ params }: StatisticPageProps
                 <span>{blog.location}</span>
               </>
             )}
+            <div className="ml-auto">
+              <ShareButtons
+                title={blog.title}
+                url={`https://www.globemarketresearch.com/statistic/${blog.slug}`}
+              />
+            </div>
           </div>
         </div>
       </div>

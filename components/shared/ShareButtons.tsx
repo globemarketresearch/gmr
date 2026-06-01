@@ -2,18 +2,18 @@
 
 import { useState, useCallback } from "react";
 
-interface ReportShareButtonsProps {
+interface ShareButtonsProps {
   title: string;
   url: string;
 }
 
-export function ReportShareButtons({ title, url }: ReportShareButtonsProps) {
+export function ShareButtons({ title, url }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
 
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
 
-  const shareLinks = [
+  const socialLinks = [
     {
       name: "Facebook",
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
@@ -59,23 +59,13 @@ export function ReportShareButtons({ title, url }: ReportShareButtonsProps) {
         </svg>
       ),
     },
-    {
-      name: "Email",
-      href: `mailto:?subject=${encodedTitle}&body=Check%20out%20this%20market%20research%20report%3A%20${encodedUrl}`,
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
-          <rect width="20" height="16" x="2" y="4" rx="2" />
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-        </svg>
-      ),
-    },
   ];
 
   const aiLinks = [
     {
       name: "ChatGPT",
+      href: `https://chatgpt.com/?q=Brief+me+on+this+article%3A+${encodedTitle}+${encodedUrl}`,
       label: "GPT",
-      href: `https://chatgpt.com/?q=Brief+me+on+this+report%3A+${encodedTitle}+${encodedUrl}`,
       icon: (
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
           <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.843-3.387L15.115 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.403-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08-4.778 2.758a.795.795 0 0 0-.392.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z" />
@@ -84,8 +74,8 @@ export function ReportShareButtons({ title, url }: ReportShareButtonsProps) {
     },
     {
       name: "Perplexity",
-      label: "PPX",
       href: `https://www.perplexity.ai/search?q=${encodedTitle}`,
+      label: "PPX",
       icon: (
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
           <path d="M22.3977 10.5717H19.3028V5.28516L14.3895 10.5717H13.125V8.72363L17.3977 4.06543H13.125V0H10.875V4.06543H6.60229L10.875 8.72363V10.5717H9.61051L4.69727 5.28516V10.5717H1.60229L0 12L1.60229 13.4283H4.69727V18.7148L9.61051 13.4283H10.875V15.2764L6.60229 19.9346H10.875V24H13.125V19.9346H17.3977L13.125 15.2764V13.4283H14.3895L19.3028 18.7148V13.4283H22.3977L24 12L22.3977 10.5717ZM10.875 10.5717V6.85059L7.83887 10.5717H10.875ZM10.875 13.4283H7.83887L10.875 17.1494V13.4283ZM13.125 13.4283V17.1494L16.1611 13.4283H13.125ZM13.125 10.5717H16.1611L13.125 6.85059V10.5717Z" />
@@ -100,7 +90,6 @@ export function ReportShareButtons({ title, url }: ReportShareButtonsProps) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Fallback for older browsers
       const textArea = document.createElement("textarea");
       textArea.value = url;
       textArea.style.position = "fixed";
@@ -115,29 +104,27 @@ export function ReportShareButtons({ title, url }: ReportShareButtonsProps) {
     }
   }, [url]);
 
-  const btnBase = {
-    background: "rgba(255,255,255,0.08)",
-    border: "1px solid rgba(255,255,255,0.12)",
-    color: "rgba(255,255,255,0.55)",
-  };
-  const btnHover = {
-    background: "rgba(255,255,255,0.18)",
-    borderColor: "rgba(255,255,255,0.3)",
-    color: "#fff",
+  const btnStyle = {
+    base: {
+      background: "rgba(255,255,255,0.08)",
+      border: "1px solid rgba(255,255,255,0.12)",
+      color: "rgba(255,255,255,0.55)",
+    },
+    hover: {
+      background: "rgba(255,255,255,0.18)",
+      border: "1px solid rgba(255,255,255,0.3)",
+      color: "#fff",
+    },
   };
 
   return (
     <div className="flex flex-wrap items-center gap-3">
       {/* Social share */}
       <div className="flex items-center gap-1.5">
-        <span
-          className="text-[10px] uppercase tracking-widest mr-1"
-          style={{ color: "rgba(255,255,255,0.35)" }}
-        >
+        <span className="text-[10px] uppercase tracking-widest mr-1" style={{ color: "rgba(255,255,255,0.35)" }}>
           Share
         </span>
-
-        {shareLinks.map((link) => (
+        {socialLinks.map((link) => (
           <a
             key={link.name}
             href={link.href}
@@ -145,84 +132,45 @@ export function ReportShareButtons({ title, url }: ReportShareButtonsProps) {
             rel="noopener noreferrer"
             title={`Share on ${link.name}`}
             aria-label={`Share on ${link.name}`}
-            className="group flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200"
-            style={btnBase}
-            onMouseEnter={(e) => Object.assign((e.currentTarget as HTMLElement).style, btnHover)}
-            onMouseLeave={(e) => Object.assign((e.currentTarget as HTMLElement).style, btnBase)}
+            className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200"
+            style={btnStyle.base}
+            onMouseEnter={(e) => Object.assign((e.currentTarget as HTMLElement).style, btnStyle.hover)}
+            onMouseLeave={(e) => Object.assign((e.currentTarget as HTMLElement).style, btnStyle.base)}
           >
             {link.icon}
           </a>
         ))}
-
-      {/* Copy Link button */}
-      <button
-        onClick={handleCopyLink}
-        title={copied ? "Copied!" : "Copy link"}
-        aria-label={copied ? "Link copied!" : "Copy link to clipboard"}
-        className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200"
-        style={{
-          background: copied ? "rgba(2,132,199,0.25)" : "rgba(255,255,255,0.08)",
-          border: copied
-            ? "1px solid rgba(2,132,199,0.5)"
-            : "1px solid rgba(255,255,255,0.12)",
-          color: copied ? "#7dd3fc" : "rgba(255,255,255,0.55)",
-        }}
-        onMouseEnter={(e) => {
-          if (!copied) {
-            (e.currentTarget as HTMLButtonElement).style.background =
-              "rgba(255,255,255,0.18)";
-            (e.currentTarget as HTMLButtonElement).style.color = "#fff";
-            (e.currentTarget as HTMLButtonElement).style.borderColor =
-              "rgba(255,255,255,0.3)";
+        <button
+          onClick={handleCopyLink}
+          title={copied ? "Copied!" : "Copy link"}
+          aria-label={copied ? "Link copied!" : "Copy link to clipboard"}
+          className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200"
+          style={
+            copied
+              ? { background: "rgba(2,132,199,0.25)", border: "1px solid rgba(2,132,199,0.5)", color: "#7dd3fc" }
+              : btnStyle.base
           }
-        }}
-        onMouseLeave={(e) => {
-          if (!copied) {
-            (e.currentTarget as HTMLButtonElement).style.background =
-              "rgba(255,255,255,0.08)";
-            (e.currentTarget as HTMLButtonElement).style.color =
-              "rgba(255,255,255,0.55)";
-            (e.currentTarget as HTMLButtonElement).style.borderColor =
-              "rgba(255,255,255,0.12)";
-          }
-        }}
-      >
-        {copied ? (
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-4 h-4"
-            aria-hidden="true"
-          >
-            <path d="M20 6 9 17l-5-5" />
-          </svg>
-        ) : (
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-4 h-4"
-            aria-hidden="true"
-          >
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-          </svg>
-        )}
-      </button>
+          onMouseEnter={(e) => { if (!copied) Object.assign((e.currentTarget as HTMLElement).style, btnStyle.hover); }}
+          onMouseLeave={(e) => { if (!copied) Object.assign((e.currentTarget as HTMLElement).style, btnStyle.base); }}
+        >
+          {copied ? (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+          )}
+        </button>
       </div>
 
-      {/* Divider */}
-      {/* <span className="hidden sm:block w-px h-5 bg-white/15" aria-hidden="true" /> */}
+      {/* AI Brief divider */}
+      <span className="hidden sm:block w-px h-5 bg-white/15" aria-hidden="true" />
 
       {/* AI Brief */}
-      {/* <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-1.5">
         <span className="text-[10px] uppercase tracking-widest mr-1" style={{ color: "rgba(255,255,255,0.35)" }}>
           Brief With
         </span>
@@ -235,15 +183,15 @@ export function ReportShareButtons({ title, url }: ReportShareButtonsProps) {
             title={`Brief with ${link.name}`}
             aria-label={`Brief with ${link.name}`}
             className="flex items-center gap-1 px-2.5 h-8 rounded-full text-[10px] font-semibold transition-all duration-200"
-            style={btnBase}
-            onMouseEnter={(e) => Object.assign((e.currentTarget as HTMLElement).style, btnHover)}
-            onMouseLeave={(e) => Object.assign((e.currentTarget as HTMLElement).style, btnBase)}
+            style={btnStyle.base}
+            onMouseEnter={(e) => Object.assign((e.currentTarget as HTMLElement).style, btnStyle.hover)}
+            onMouseLeave={(e) => Object.assign((e.currentTarget as HTMLElement).style, btnStyle.base)}
           >
             {link.icon}
             <span>{link.label}</span>
           </a>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 }

@@ -25,10 +25,11 @@ export const CustomizeReportCard = React.forwardRef<HTMLDivElement, CustomizeRep
           <Link href={reportId ? `/request-sample?reportId=${reportId}` : `/request-sample${reportTitle ? `?report=${encodeURIComponent(reportTitle)}${reportSlug ? `&slug=${encodeURIComponent(reportSlug)}` : ''}` : ''}`}>
             <Button
               variant="outline"
-              className="w-full mt-4 bg-[#1565C0] text-white hover:bg-[#0D47A1] border-[#1565C0] hover:border-[#0D47A1] focus:ring-[#1565C0]"
+              className="w-full mt-4 relative overflow-hidden bg-[#1565C0] text-white hover:text-white hover:bg-[#0D47A1] border-[#1565C0] hover:border-[#0D47A1] focus:ring-[#1565C0] btn-glow-blue"
               size="lg"
             >
               Request Sample
+              <span className="btn-shine" aria-hidden="true" />
             </Button>
           </Link>
         </CardContent>

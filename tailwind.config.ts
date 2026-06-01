@@ -11,7 +11,7 @@ export default {
   	extend: {
   		fontFamily: {
   			display: ['var(--font-inter)', 'Inter', 'ui-sans-serif', 'sans-serif'],
-  			body: ['var(--font-krub)', 'Krub', 'ui-sans-serif', 'sans-serif'],
+  			body: ['var(--font-roboto)', 'Roboto', 'ui-sans-serif', 'sans-serif'],
   		},
   		fontSize: {
   			'display-2xl': ['4.5rem',   { lineHeight: '1.05', letterSpacing: '-0.035em', fontWeight: '700' }],

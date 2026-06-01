@@ -47,7 +47,7 @@
   --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
 
   /* ── Typography — Meridian scale ── */
-  --font-primary: var(--font-krub), 'Krub', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-primary: var(--font-roboto), 'Roboto', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-heading: var(--font-inter), 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --heading-weight: 700;
@@ -78,7 +78,7 @@
 }
 
 body {
-  font-family: var(--font-krub), 'Krub', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: var(--font-roboto), 'Roboto', ui-sans-serif, system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
@@ -165,6 +165,44 @@ h1, h2, h3, h4, h5, h6 {
 }
 .lang-chevron {
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Shine sweep effect for CTA buttons */
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.38) 50%, transparent 100%);
+  transform: skewX(-18deg) translateX(-180%);
+  animation: btnShine 2.6s ease-in-out infinite;
+  pointer-events: none;
+  will-change: transform, opacity;
+  border-radius: inherit;
+}
+@keyframes btnShine {
+  0%   { transform: skewX(-18deg) translateX(-180%); opacity: 0; }
+  15%  { opacity: 1; }
+  55%  { transform: skewX(-18deg) translateX(340%);  opacity: 0; }
+  100% { transform: skewX(-18deg) translateX(340%);  opacity: 0; }
+}
+
+/* Header-style ring + glow hover effect for report page CTA buttons */
+.btn-glow-blue {
+  box-shadow: 0 0 0 1px rgba(21, 101, 192, 0.3), 0 2px 8px rgba(21, 101, 192, 0.3) !important;
+  transition: box-shadow 0.2s ease !important;
+}
+.btn-glow-blue:hover {
+  box-shadow: 0 0 0 1px rgba(21, 101, 192, 0.5), 0 4px 16px rgba(21, 101, 192, 0.4) !important;
+}
+
+.btn-glow-teal {
+  box-shadow: 0 0 0 1px rgba(44, 200, 216, 0.3), 0 2px 8px rgba(44, 200, 216, 0.3) !important;
+  transition: box-shadow 0.2s ease !important;
+}
+.btn-glow-teal:hover {
+  box-shadow: 0 0 0 1px rgba(44, 200, 216, 0.5), 0 4px 16px rgba(44, 200, 216, 0.4) !important;
 }
 
 /* Suppress Google Translate default toolbar */
@@ -668,8 +706,9 @@ html body { top: 0 !important; }
 .styled-article-content h1,
 .styled-report-content h2,
 .styled-article-content h2 {
-  color: #22E1B0;
-  color: var(--teal-bright, #22E1B0);
+  color: #3F37C9;
+  /* color: var(--teal-bright, #3F37C9); */
+  /* color: var(--teal-bright, #3F37C9); */
   font-weight: 700;
   margin-top: 2.5rem;
 }

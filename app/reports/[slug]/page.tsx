@@ -570,8 +570,8 @@ export default async function ReportPage({
                       <CardContent className="flex items-center gap-3" style={{padding: '8px'}}>
                         {card.icon}
                         <div>
-                          <p className={`text-sm lg:text-[10px] font-semibold ${card.labelColor}`}>{card.label}</p>
-                          <p className={`text-lg lg:text-xs font-bold ${card.valueColor}`}>{card.value}</p>
+                          <p className={`text-sm lg:text-[10px] 2xl:text-xs font-semibold ${card.labelColor}`}>{card.label}</p>
+                          <p className={`text-lg lg:text-xs 2xl:text-base font-bold ${card.valueColor}`}>{card.value}</p>
                         </div>
                       </CardContent>
                     </Card>
@@ -583,7 +583,7 @@ export default async function ReportPage({
                 <>
                   <section className="mb-12">
                     <h2 id="overview" className="text-2xl font-bold text-[var(--teal-deep)] mb-6 scroll-mt-24">
-                      Market Overview
+                      Market Size and Forecast
                     </h2>
                     {report.marketSize2024 && report.marketSize2032 && report.cagr && (
                       <div className="mb-8">
@@ -713,7 +713,7 @@ export default async function ReportPage({
                     <li>Technology trends and innovations</li>
                   </ul>
 
-                  <h2>Market Overview</h2>
+                  <h2>Market Size and Forecast</h2>
                   <p>
                     The healthcare market continues to evolve with new technologies, changing
                     regulations, and shifting patient demographics. This section provides detailed

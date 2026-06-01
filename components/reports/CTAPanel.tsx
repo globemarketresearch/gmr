@@ -36,15 +36,16 @@ export const CTAPanel = React.forwardRef<HTMLDivElement, CTAPanelProps>(
 
           <div className="space-y-3">
             <Link href={reportId ? `/checkout/${reportId}` : reportSlug ? `/checkout/${reportSlug}` : '/contact'}>
-              <Button className="w-full" size="lg">
+              <Button className="w-full relative overflow-hidden btn-glow-teal" size="lg">
                 Buy Now
+                <span className="btn-shine" aria-hidden="true" />
               </Button>
             </Link>
             <Link href={reportId ? `/request-customization?reportId=${reportId}` : `/request-customization${reportTitle ? `?report=${encodeURIComponent(reportTitle)}${reportSlug ? `&slug=${encodeURIComponent(reportSlug)}` : ''}` : ''}`}>
 
               <Button
                 variant="outline"
-                className="w-full mt-4 bg-[#E3F2FD] text-[#1565C0] hover:bg-[#BBDEFB] hover:text-[#0D47A1] border-[#90CAF9] hover:border-[#64B5F6] focus:ring-[#2196F3]"
+                className="w-full mt-4 bg-[#E3F2FD] hover:text-[#1565C0] text-[#1565C0] hover:bg-[#BBDEFB]  border-[#90CAF9] hover:border-[#64B5F6] focus:ring-[#2196F3]"
                 size="lg"
               >
                 Customize This Report

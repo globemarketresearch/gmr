@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import { Inter, Krub } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -15,10 +15,10 @@ const inter = Inter({
   preload: true,
 });
 
-const krub = Krub({
-  variable: "--font-krub",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "700"],
   display: "swap",
   preload: true,
 });
@@ -78,7 +78,7 @@ export default function RootLayout({
         <StructuredData data={generateWebSiteSchema()} />
         <StructuredData data={generateLocalBusinessSchema()} />
       </head>
-      <body className={`${inter.variable} ${krub.variable} antialiased`}>
+      <body className={`${inter.variable} ${roboto.variable} antialiased`}>
         <div id="google_translate_element" className="hidden" />
         <Header />
         <main className="min-h-screen">{children}</main>

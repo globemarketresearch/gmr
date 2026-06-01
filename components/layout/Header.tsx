@@ -61,15 +61,13 @@ export default function Header() {
       <header
         className="w-full relative transition-all duration-300"
         style={{
-          background: "rgba(255, 255, 255, 0.97)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
+          background: "#fdfdfd",
           boxShadow: scrolled
             ? "0 1px 0 rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.08)"
             : "0 1px 0 rgba(0,0,0,0.06)",
         }}
       >
-        <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto flex h-16 md:h-[72px] items-center justify-between px-4 sm:px-6 lg:px-8 gap-2 md:gap-3 w-full">
+        <div className="max-w-7xl mx-auto flex h-[74px] md:h-[96px] items-center justify-between px-4 sm:px-6 lg:px-8 gap-2 md:gap-3 w-full">
           {/* Logo */}
           <h2 className="sr-only">Globe Market Research</h2>
           <Link href="/" className="flex min-w-0 items-center flex-shrink group">
@@ -77,12 +75,12 @@ export default function Header() {
               <Image
                 src="/assets/images/logo.jpg"
                 alt="Globe Market Research"
-                width={300}
-                height={88}
+                width={360}
+                height={106}
                 priority
                 fetchPriority="high"
-                sizes="(max-width: 767px) 180px, 300px"
-                className="h-12 w-auto max-w-[180px] object-contain md:h-16 md:max-w-[220px]"
+                sizes="(max-width: 767px) 216px, 360px"
+                className="h-[58px] w-auto max-w-[216px] object-contain md:h-[77px] md:max-w-[264px]"
               />
             </div>
           </Link>

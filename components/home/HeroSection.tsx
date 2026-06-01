@@ -4,7 +4,7 @@ import { Button, SearchBar } from '@/components/ui';
 import ParticleCanvas from './ParticleCanvas';
 
 const TRENDING_CATEGORIES = [
-  { label: 'AI',               href: '/search?q=artificial+intelligence' },
+  { label: 'AI',               href: '/search?q=ai' },
   { label: 'IoT',              href: '/search?q=iot' },
   { label: 'Semiconductor',    href: '/search?q=semiconductor' },
   { label: 'Healthcare',       href: '/search?q=healthcare' },
@@ -109,8 +109,8 @@ export default function HeroSection() {
             />
 
             {/* Trending category chips */}
-            <div className="flex flex-wrap justify-center gap-2">
-              <span className="self-center text-xs font-body mr-1 shrink-0" style={{ color: 'rgba(180,205,240,0.55)' }}>
+            <div className="flex flex-wrap justify-center gap-2.5">
+              <span className="self-center text-sm font-body mr-1 shrink-0" style={{ color: 'rgba(180,205,240,0.55)' }}>
                 Trending:
               </span>
               {TRENDING_CATEGORIES.map((cat) => (
@@ -118,8 +118,8 @@ export default function HeroSection() {
                   key={cat.label}
                   href={cat.href}
                   className="
-                    inline-flex items-center px-3 py-1 rounded-full
-                    text-xs font-body font-medium
+                    inline-flex items-center px-4 py-1.5 rounded-full
+                    text-sm font-body font-medium
                     border border-white/15 bg-white/8
                     text-white/65
                     hover:border-[#2CC8D8]/60 hover:text-[#2CC8D8] hover:bg-[#2CC8D8]/10
