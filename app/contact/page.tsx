@@ -332,18 +332,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{CONTACT_INFO.offices.usa.name}</h3>
-                <a
-                  href={`tel:${CONTACT_INFO.offices.usa.phone}`}
-                  className="text-[var(--primary)] font-medium hover:underline block mb-2"
-                >
-                  {CONTACT_INFO.offices.usa.phoneFormatted}
-                </a>
-                <p className="text-xs text-[var(--muted-foreground)] mb-1">{CONTACT_INFO.offices.usa.company}</p>
-                <p className="text-xs text-[var(--muted-foreground)]">
-                  {CONTACT_INFO.offices.usa.addressLine1}<br />
-                  {CONTACT_INFO.offices.usa.city}, {CONTACT_INFO.offices.usa.state} {CONTACT_INFO.offices.usa.postalCode}<br />
-                  {CONTACT_INFO.offices.usa.country}
-                </p>
+                <p className="text-xs text-[var(--muted-foreground)]">{CONTACT_INFO.offices.usa.availability}</p>
               </CardContent>
             </Card>
 
@@ -358,19 +347,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{CONTACT_INFO.offices.india.name}</h3>
-                <a
-                  href={`tel:${CONTACT_INFO.offices.india.phone}`}
-                  className="text-[var(--primary)] font-medium hover:underline block mb-2"
-                >
-                  {CONTACT_INFO.offices.india.phoneFormatted}
-                </a>
-                <p className="text-xs text-[var(--muted-foreground)] mb-1">{CONTACT_INFO.offices.india.company}</p>
-                <p className="text-xs text-[var(--muted-foreground)]">
-                  {CONTACT_INFO.offices.india.addressLine1}<br />
-                  {CONTACT_INFO.offices.india.addressLine2}, {CONTACT_INFO.offices.india.city}<br />
-                  {CONTACT_INFO.offices.india.state} – {CONTACT_INFO.offices.india.postalCode}<br />
-                  {CONTACT_INFO.offices.india.country}
-                </p>
+                <p className="text-xs text-[var(--muted-foreground)]">{CONTACT_INFO.offices.india.availability}</p>
               </CardContent>
             </Card>
           </div>

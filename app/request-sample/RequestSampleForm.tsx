@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import { Section, Container, Card, CardHeader, CardTitle, CardDescription, CardContent, Button, Badge, Captcha, type CaptchaRef } from "@/components/ui";
 import { CountrySelect } from "@/components/ui/country-select";
-import { CONTACT_INFO } from "@/lib/contact";
 import { QuickContactSection, TrustedPartnersSidebar } from "@/components/contact";
 import { submitRequestSampleForm, isFormError } from "@/lib/api";
 import { getDefaultCountry, type Country } from "@/lib/data/countries";
@@ -329,15 +328,6 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
                 <a href="/contact" className="text-[var(--primary)] hover:underline font-medium">
                   Contact us
                 </a>
-                {" "}or call{" "}
-                <a href={`tel:${CONTACT_INFO.offices.usa.phone}`} className="text-[var(--primary)] hover:underline font-medium">
-                  {CONTACT_INFO.offices.usa.phoneFormatted}
-                </a>
-                {" "}(USA) /{" "}
-                <a href={`tel:${CONTACT_INFO.offices.india.phone}`} className="text-[var(--primary)] hover:underline font-medium">
-                  {CONTACT_INFO.offices.india.phoneFormatted}
-                </a>
-                {" "}(India) - 24Ã—7 Support
               </p>
             </div>
           </div>

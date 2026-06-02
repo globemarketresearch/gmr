@@ -16,6 +16,7 @@ import type { SidebarTOCItem } from "@/lib/toc-utils";
 import { StructuredData, generateArticleSchema, generateBreadcrumbSchema, generateFAQSchema, generateProductSchema, generateDatasetSchema } from "@/components/seo/StructuredData";
 import RelatedReportsSection from "@/components/reports/RelatedReportsSection";
 import { ReportStickyBar } from "@/components/reports/ReportStickyBar";
+import { RequestSampleModal } from "@/components/reports/RequestSampleModal";
 import categories from "@/data/categories.json";
 
 const CHART_DISCLAIMER =
@@ -744,6 +745,11 @@ export default async function ReportPage({
         </ReportContentWrapper>
       </div>
       </div>
+
+      <RequestSampleModal
+        reportTitle={report.title}
+        reportSlug={report.slug}
+      />
     </>
   );
 }

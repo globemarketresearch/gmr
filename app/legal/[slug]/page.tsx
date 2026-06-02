@@ -152,10 +152,10 @@ export default async function LegalDetailPage({ params }: LegalPageProps) {
             <p className="text-lg">
               Contact us at{' '}
               <a
-                href="mailto:support@globemarketresearch.com"
+                href="mailto:sales@globemarketresearch.com"
                 className="text-[var(--primary)] hover:underline font-medium"
               >
-                support@globemarketresearch.com
+                sales@globemarketresearch.com
               </a>
             </p>
           </div>

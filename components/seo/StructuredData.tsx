@@ -37,7 +37,7 @@ export const generateOrganizationSchema = () => ({
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Customer Service',
-    email: 'support@globemarketresearch.com',
+    email: 'sales@globemarketresearch.com',
   },
   sameAs: [
     'https://x.com/Healthcare_F',
@@ -289,8 +289,7 @@ export const generateLocalBusinessSchema = () => ({
   '@type': 'LocalBusiness',
   name: 'Globe Market Research',
   url: 'https://www.globemarketresearch.com',
-  email: 'support@globemarketresearch.com',
-  telephone: '+17377342707',
+  email: 'sales@globemarketresearch.com',
   image: 'https://www.globemarketresearch.com/assets/images/logo.jpg',
   priceRange: '$$$$',
   description: 'Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.',
@@ -300,12 +299,4 @@ export const generateLocalBusinessSchema = () => ({
     'https://www.instagram.com/GlobeMarketResearch',
     'https://www.facebook.com/people/Healthcare-Foresights/61588605652792/',
   ],
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '1333, 701 Tillery Street Unit 12',
-    addressLocality: 'Austin',
-    addressRegion: 'TX',
-    postalCode: '78702',
-    addressCountry: 'US',
-  },
 });

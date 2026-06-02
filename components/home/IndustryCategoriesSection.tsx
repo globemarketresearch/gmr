@@ -1,137 +1,391 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { Section, Container } from '@/components/ui';
-import { truncate } from '@/lib/utils';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import categories from '@/data/categories.json';
 
-const categoryIcons: Record<string, string> = {
-  'aerospace-and-defence': 'M12 19l9 2-9-18-9 18 9-2zm0 0v-8',
-  'automotive-and-transportation': 'M8 17l4-4 4 4m0-10l-4 4-4-4M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z',
-  'chemical-and-material': 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',
-  'consumer-goods': 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z',
-  'manufacturing-and-construction': 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
-  'semiconductor-and-electronics': 'M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18',
-  'healthcare-and-pharmaceuticals': 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
-  'food-and-beverages': 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z',
-  'information-and-technology': 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-  agriculture: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
-  'energy-and-power': 'M13 10V3L4 14h7v7l9-11h-7z',
-  packaging: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
-  'smart-technologies': 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+const categoryImages: Record<string, string> = {
+  'aerospace-and-defence': '/assets/report-assets/Reports Image/Aerospace & Defence Market.png',
+  'automotive-and-transportation': '/assets/report-assets/Reports Image/Automotive & Transportation Market.png',
+  'chemical-and-material': '/assets/report-assets/Reports Image/Chemical & Material Market.png',
+  'consumer-goods': '/assets/report-assets/Reports Image/Consumer Goods Market .png',
+  'manufacturing-and-construction': '/assets/report-assets/Reports Image/Manufacturing and Construction Market.png',
+  'semiconductor-and-electronics': '/assets/report-assets/Reports Image/Semiconductor & Electronics Market.png',
+  'healthcare-and-pharmaceuticals': '/assets/report-assets/Reports Image/Healthcare & Pharmaceutical Market.png',
+  'food-and-beverages': '/assets/report-assets/Reports Image/Food and Beverages Market .png',
+  'information-and-technology': '/assets/report-assets/Reports Image/Information and Technology Market .png',
+  agriculture: '/assets/report-assets/Reports Image/Agriculture Market.png',
+  'energy-and-power': '/assets/report-assets/Reports Image/Energy and Power Market.png',
+  packaging: '/assets/report-assets/Reports Image/Packaging Market.png',
+  'smart-technologies': '/assets/report-assets/Reports Image/Smart Technologies Market.png',
 };
 
-const accentColors = [
-  'from-sky-500 to-blue-600',
-  'from-violet-500 to-purple-600',
-  'from-emerald-500 to-teal-600',
-  'from-amber-500 to-orange-600',
-  'from-cyan-500 to-blue-500',
-  'from-rose-500 to-pink-600',
-  'from-indigo-500 to-blue-600',
-  'from-green-500 to-emerald-600',
-  'from-blue-500 to-indigo-600',
-  'from-orange-500 to-amber-600',
-  'from-teal-500 to-cyan-600',
-  'from-fuchsia-500 to-violet-600',
-];
+const CARDS_PER_PAGE = 6;
+const totalPages = Math.ceil(categories.length / CARDS_PER_PAGE);
 
 export default function IndustryCategoriesSection() {
-  const featured = categories[0];
-  const rest = categories.slice(1);
+  const [page, setPage] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const pageRef = useRef(0);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const drag = useRef({
+    active: false,
+    startX: 0,
+    lastX: 0,
+    lastTime: 0,
+    velocity: 0,
+    offset: 0,
+    hasMoved: false,
+  });
+
+  const autoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const getPageWidth = () => wrapperRef.current?.offsetWidth ?? 0;
+
+  const applyTransform = useCallback((offset: number, animated: boolean) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const x = -(pageRef.current * getPageWidth()) + offset;
+    el.style.transition = animated ? 'transform 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
+    el.style.transform = `translateX(${x}px)`;
+  }, []);
+
+  const snapToPage = useCallback((target: number) => {
+    const clamped = Math.max(0, Math.min(totalPages - 1, target));
+    pageRef.current = clamped;
+    setPage(clamped);
+    applyTransform(0, true);
+  }, [applyTransform]);
+
+  const scheduleAuto = useCallback(() => {
+    if (autoTimer.current) clearTimeout(autoTimer.current);
+    autoTimer.current = setTimeout(() => {
+      snapToPage((pageRef.current + 1) % totalPages);
+    }, 5000);
+  }, [snapToPage]);
+
+  useEffect(() => {
+    scheduleAuto();
+    return () => { if (autoTimer.current) clearTimeout(autoTimer.current); };
+  }, [page, scheduleAuto]);
+
+  // ── Mouse drag ────────────────────────────────────────────────────
+  const onMouseDown = (e: React.MouseEvent) => {
+    if (autoTimer.current) clearTimeout(autoTimer.current);
+    drag.current = {
+      active: true,
+      startX: e.clientX,
+      lastX: e.clientX,
+      lastTime: performance.now(),
+      velocity: 0,
+      offset: 0,
+      hasMoved: false,
+    };
+    setIsDragging(true);
+  };
+
+  const onMouseMove = useCallback((e: MouseEvent) => {
+    if (!drag.current.active) return;
+    const now = performance.now();
+    const dt = now - drag.current.lastTime;
+    const dx = e.clientX - drag.current.lastX;
+    drag.current.velocity = dt > 0 ? dx / dt : 0;
+    drag.current.lastX = e.clientX;
+    drag.current.lastTime = now;
+    drag.current.offset = e.clientX - drag.current.startX;
+    if (Math.abs(drag.current.offset) > 4) drag.current.hasMoved = true;
+    applyTransform(drag.current.offset, false);
+  }, [applyTransform]);
+
+  const onMouseUp = useCallback(() => {
+    if (!drag.current.active) return;
+    drag.current.active = false;
+    setIsDragging(false);
+    const pageW = getPageWidth();
+    const total = (drag.current.lastX - drag.current.startX) + drag.current.velocity * 120;
+    const threshold = pageW * 0.15;
+    let target = pageRef.current;
+    if (total < -threshold) target = pageRef.current + 1;
+    else if (total > threshold) target = pageRef.current - 1;
+    snapToPage(target);
+    scheduleAuto();
+  }, [snapToPage, scheduleAuto]);
+
+  useEffect(() => {
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
+    };
+  }, [onMouseMove, onMouseUp]);
+
+  // ── Touch ─────────────────────────────────────────────────────────
+  const onTouchStart = (e: React.TouchEvent) => {
+    if (autoTimer.current) clearTimeout(autoTimer.current);
+    const t = e.touches[0];
+    drag.current = {
+      active: true,
+      startX: t.clientX,
+      lastX: t.clientX,
+      lastTime: performance.now(),
+      velocity: 0,
+      offset: 0,
+      hasMoved: false,
+    };
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (!drag.current.active) return;
+    const t = e.touches[0];
+    const now = performance.now();
+    const dt = now - drag.current.lastTime;
+    const dx = t.clientX - drag.current.lastX;
+    drag.current.velocity = dt > 0 ? dx / dt : 0;
+    drag.current.lastX = t.clientX;
+    drag.current.lastTime = now;
+    drag.current.offset = t.clientX - drag.current.startX;
+    if (Math.abs(drag.current.offset) > 4) drag.current.hasMoved = true;
+    applyTransform(drag.current.offset, false);
+  };
+
+  const onTouchEnd = () => {
+    if (!drag.current.active) return;
+    drag.current.active = false;
+    const pageW = getPageWidth();
+    const total = (drag.current.lastX - drag.current.startX) + drag.current.velocity * 120;
+    const threshold = pageW * 0.15;
+    let target = pageRef.current;
+    if (total < -threshold) target = pageRef.current + 1;
+    else if (total > threshold) target = pageRef.current - 1;
+    snapToPage(target);
+    scheduleAuto();
+  };
+
+  const onClickCapture = (e: React.MouseEvent) => {
+    if (drag.current.hasMoved) {
+      e.preventDefault();
+      e.stopPropagation();
+      drag.current.hasMoved = false;
+    }
+  };
+
+  const goToDot = (i: number) => {
+    snapToPage(i);
+    scheduleAuto();
+  };
 
   return (
-    <Section padding="sm">
-      <Container size="xl">
-        <div className="space-y-10">
-          <div className="text-center space-y-3">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[var(--text-primary)]" style={{ letterSpacing: '-0.03em' }}>
-              Industry Coverage
-            </h2>
-            <p className="font-body text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
-              Comprehensive research across key global market sectors
-            </p>
-          </div>
+    <section className="ind-section">
+      <div className="ind-inner">
+        <div className="ind-heading">
+          <h2 className="ind-title">Industries We Work With</h2>
+          <p className="ind-sub">Comprehensive market intelligence across key global sectors</p>
+        </div>
 
-          {/* Bento grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[160px]">
-            {/* Featured tile — spans 2×2 */}
-            <Link
-              href={`/industry/${featured.slug}`}
-              className="col-span-2 row-span-2 group relative rounded-lg overflow-hidden bg-[var(--featured-bg)] p-8 flex flex-col justify-between shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 h-full"
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${accentColors[0]} opacity-10 group-hover:opacity-20 transition-opacity duration-300`} />
-              {/* Decorative healthcare icon image */}
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 opacity-20 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none">
-                <Image
-                  src="/assets/other/Minimalist_3D_healthcare_industry_icon,_202605080343.jpeg"
-                  alt=""
-                  fill
-                  className="object-cover rounded-full"
-                  aria-hidden
-                />
-              </div>
-              <div className="absolute -top-8 -right-8 w-40 h-40 bg-gradient-to-br from-sky-400/20 to-transparent rounded-full blur-2xl" />
-              <div className="relative z-10">
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${accentColors[0]} flex items-center justify-center mb-4 shadow-lg`}>
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={categoryIcons[featured.slug] ?? categoryIcons['biotechnology']} />
-                  </svg>
-                </div>
-                <h3 className="font-display text-2xl font-bold text-white mb-2" style={{ letterSpacing: '-0.025em' }}>
-                  {featured.name}
-                </h3>
-                <p className="font-body text-sm text-white/60 leading-relaxed">
-                  {(featured as { description?: string }).description ?? ''}
-                </p>
-              </div>
-              <div className="relative z-10 flex items-center gap-1.5 text-sky-300 text-sm font-medium font-body group-hover:gap-3 transition-all duration-200">
-                <span>Explore Reports</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
-
-            {/* Remaining tiles */}
-            {rest.map((category, i) => {
-              const gradient = accentColors[(i + 1) % accentColors.length];
-              const icon = categoryIcons[category.slug];
+        <div
+          ref={wrapperRef}
+          className="ind-viewport"
+          onMouseDown={onMouseDown}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          onClickCapture={onClickCapture}
+          style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+        >
+          <div
+            ref={trackRef}
+            className="ind-track"
+            style={{ width: `${totalPages * 100}%` }}
+          >
+            {Array.from({ length: totalPages }).map((_, pi) => {
+              const slice = categories.slice(pi * CARDS_PER_PAGE, pi * CARDS_PER_PAGE + CARDS_PER_PAGE);
               return (
-                <Link
-                  key={category.id}
-                  href={`/industry/${category.slug}`}
-                  className="group relative rounded-lg overflow-hidden bg-[var(--surface-raised)] border border-[var(--border-color)] p-5 flex flex-col shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all duration-200 h-full"
+                <div
+                  key={pi}
+                  className="ind-page"
+                  style={{ width: `${100 / totalPages}%` }}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                  <div className="relative z-10 space-y-2">
-                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${gradient} flex items-center justify-center shadow-sm`}>
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d={icon ?? categoryIcons['biotechnology']} />
-                      </svg>
-                    </div>
-                    <h3 className="font-display text-sm font-semibold text-[var(--text-primary)] leading-snug" style={{ letterSpacing: '-0.01em' }}>
-                      {category.name}
-                    </h3>
-                    {(category as { description?: string }).description && (
-                      <p className="font-body text-xs text-[var(--text-secondary)] leading-relaxed line-clamp-2 hidden md:block">
-                        {truncate((category as { description?: string }).description ?? '', 65)}
-                      </p>
-                    )}
-                  </div>
-                  <div className="absolute top-4 right-5 z-10">
-                    <span className="inline-flex items-center gap-1 text-xs font-medium text-[var(--accent)] opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 font-body">
-                      View
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </span>
-                  </div>
-                </Link>
+                  {slice.map((cat) => {
+                    const img = categoryImages[cat.slug];
+                    return (
+                      <Link
+                        key={cat.id}
+                        href={`/industry/${cat.slug}`}
+                        className="ind-card"
+                        draggable={false}
+                      >
+                        {img && (
+                          <Image
+                            src={img}
+                            alt={cat.name}
+                            fill
+                            className="ind-card-img"
+                            sizes="(max-width: 768px) 50vw, 33vw"
+                            draggable={false}
+                          />
+                        )}
+                        <div className="ind-card-overlay" />
+                        <div className="ind-card-content">
+                          <span className="ind-card-label">{cat.name}</span>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
               );
             })}
           </div>
         </div>
-      </Container>
-    </Section>
+
+        <div className="ind-dots">
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <button
+              key={i}
+              className={`ind-dot${i === page ? ' ind-dot-active' : ''}`}
+              onClick={() => goToDot(i)}
+              aria-label={`Go to page ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        .ind-section {
+          background: #ffffff;
+          padding: 72px 0 64px;
+        }
+        .ind-inner {
+          max-width: 1240px;
+          margin: 0 auto;
+          padding: 0 24px;
+        }
+        .ind-heading {
+          text-align: center;
+          margin-bottom: 48px;
+        }
+        .ind-title {
+          font-family: var(--font-inter), 'Inter', ui-sans-serif, sans-serif;
+          font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+          font-weight: 700;
+          color: #0f172a;
+          letter-spacing: -0.02em;
+          margin: 0 0 10px;
+          line-height: 1.2;
+        }
+        .ind-sub {
+          font-family: var(--font-roboto), 'Roboto', ui-sans-serif, sans-serif;
+          font-size: 1rem;
+          color: #64748b;
+          margin: 0;
+        }
+        .ind-viewport {
+          overflow: hidden;
+          border-radius: 6px;
+          user-select: none;
+          -webkit-user-select: none;
+        }
+        .ind-track {
+          display: flex;
+          will-change: transform;
+        }
+        .ind-page {
+          flex-shrink: 0;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(2, 220px);
+          gap: 10px;
+        }
+        @media (max-width: 900px) {
+          .ind-page {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 200px);
+          }
+        }
+        @media (max-width: 560px) {
+          .ind-page {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 160px);
+          }
+        }
+        .ind-card {
+          position: relative;
+          display: block;
+          overflow: hidden;
+          border-radius: 6px;
+          text-decoration: none;
+          outline: none;
+        }
+        .ind-card-img {
+          object-fit: cover;
+          transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          pointer-events: none;
+        }
+        .ind-card:hover .ind-card-img {
+          transform: scale(1.06);
+        }
+        .ind-card-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to top,
+            rgba(0,0,0,0.78) 0%,
+            rgba(0,0,0,0.36) 45%,
+            rgba(0,0,0,0.12) 100%
+          );
+          transition: background 0.3s ease;
+        }
+        .ind-card:hover .ind-card-overlay {
+          background: linear-gradient(
+            to top,
+            rgba(0,0,0,0.86) 0%,
+            rgba(0,0,0,0.50) 45%,
+            rgba(0,0,0,0.20) 100%
+          );
+        }
+        .ind-card-content {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 16px 18px 20px;
+        }
+        .ind-card-label {
+          font-family: var(--font-inter), 'Inter', ui-sans-serif, sans-serif;
+          font-size: 0.78rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #ffffff;
+          line-height: 1.3;
+        }
+        .ind-dots {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 28px;
+        }
+        .ind-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          border: 2px solid #cbd5e1;
+          background: transparent;
+          cursor: pointer;
+          padding: 0;
+          transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .ind-dot:hover { border-color: #e85d26; transform: scale(1.15); }
+        .ind-dot-active {
+          background: #e85d26;
+          border-color: #e85d26;
+          transform: scale(1.1);
+        }
+      `}</style>
+    </section>
   );
 }

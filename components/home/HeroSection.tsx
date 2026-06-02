@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button, SearchBar } from '@/components/ui';
-import ParticleCanvas from './ParticleCanvas';
 
 const TRENDING_CATEGORIES = [
   { label: 'AI',               href: '/search?q=ai' },
@@ -22,54 +20,18 @@ export default function HeroSection() {
   return (
     <section className="relative overflow-hidden" style={{ background: '#060d1e' }}>
 
-      {/* ── Dark cinematic background layers ──────────────────────── */}
+      {/* ── Video background ──────────────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
-
-        {/* Hero background photo — lit office towers at night */}
-        <Image
-          src="/assets/other/hero-background.jpeg"
-          alt=""
-          fill
-          priority
-          className="object-cover object-center opacity-35"
+        <video
+          src="/assets/report-assets/DARKBL_1.MP4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
         />
-
-        {/* Warm building-glow — mimics the lit office towers in the ref */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: [
-              /* centre-right warm pink/magenta glow */
-              'radial-gradient(ellipse 55% 70% at 72% 55%, rgba(180, 60, 110, 0.22) 0%, transparent 65%)',
-              /* left mid-blue accent */
-              'radial-gradient(ellipse 45% 60% at 22% 50%, rgba(40, 70, 180, 0.18) 0%, transparent 60%)',
-              /* top-centre cool blue lift */
-              'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(30, 60, 130, 0.30) 0%, transparent 70%)',
-              /* subtle bottom fade to pure black */
-              'linear-gradient(to bottom, transparent 60%, rgba(4,8,18,0.65) 100%)',
-            ].join(', '),
-          }}
-        />
-
-        {/* Very subtle horizontal scanline texture — adds cinematic depth */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,0.5) 4px)',
-          }}
-        />
-
-        {/* Particle network canvas — sits above colour layers */}
-        <ParticleCanvas />
-
-        {/* Edge vignette — keeps the eye on centre content */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 85% 90% at 50% 50%, transparent 40%, rgba(4,8,18,0.65) 100%)',
-          }}
-        />
+        {/* Subtle dark overlay to keep text legible over the video */}
+        <div className="absolute inset-0" style={{ background: 'rgba(4,8,18,0.45)' }} />
       </div>
 
       {/* ── Hero content ───────────────────────────────────────────── */}

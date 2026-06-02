@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Category {
   id: number;
@@ -11,6 +12,22 @@ interface Category {
 interface IndustryHeroProps {
   activeCategory?: Category | null;
 }
+
+const CATEGORY_IMAGES: Record<string, string> = {
+  'Aerospace and Defence': '/assets/report-assets/Reports Image/Aerospace & Defence Market.png',
+  'Automotive and Transportation': '/assets/report-assets/Reports Image/Automotive & Transportation Market.png',
+  'Chemical and Material': '/assets/report-assets/Reports Image/Chemical & Material Market.png',
+  'Consumer Goods': '/assets/report-assets/Reports Image/Consumer Goods Market .png',
+  'Manufacturing and Construction': '/assets/report-assets/Reports Image/Manufacturing and Construction Market.png',
+  'Semiconductor and Electronics': '/assets/report-assets/Reports Image/Semiconductor & Electronics Market.png',
+  'Healthcare and Pharmaceuticals': '/assets/report-assets/Reports Image/Healthcare & Pharmaceutical Market.png',
+  'Food and Beverages': '/assets/report-assets/Reports Image/Food and Beverages Market .png',
+  'Information and Technology': '/assets/report-assets/Reports Image/Information and Technology Market .png',
+  'Agriculture': '/assets/report-assets/Reports Image/Agriculture Market.png',
+  'Energy and Power': '/assets/report-assets/Reports Image/Energy and Power Market.png',
+  'Packaging': '/assets/report-assets/Reports Image/Packaging Market.png',
+  'Smart Technologies': '/assets/report-assets/Reports Image/Smart Technologies Market.png',
+};
 
 const CATEGORY_ICONS: Record<string, string> = {
   'Aerospace and Defence': '✈️',
@@ -30,12 +47,26 @@ const CATEGORY_ICONS: Record<string, string> = {
 
 export default function IndustryHero({ activeCategory }: IndustryHeroProps) {
   const categoryIcon = activeCategory ? (CATEGORY_ICONS[activeCategory.name] || '📊') : null;
+  const categoryImage = activeCategory ? CATEGORY_IMAGES[activeCategory.name] : null;
 
   return (
     <div
       className="relative overflow-hidden border-b border-[var(--border-color)]"
       style={{ background: 'var(--featured-bg)' }}
     >
+      {/* Category image — full-width background */}
+      {categoryImage && (
+        <Image
+          src={categoryImage}
+          alt=""
+          fill
+          className="object-cover object-center"
+          aria-hidden
+          priority
+        />
+      )}
+      {/* Subtle gradient overlay so text stays readable without killing the image */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(3,26,61,0.35) 0%, rgba(3,26,61,0.55) 100%)' }} />
       {/* Dot-grid atmospheric background */}
       <div
         aria-hidden="true"
@@ -53,7 +84,7 @@ export default function IndustryHero({ activeCategory }: IndustryHeroProps) {
         style={{ background: 'radial-gradient(circle, #0284c7, transparent 70%)' }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs mb-6" style={{ color: 'rgba(255,255,255,0.45)' }}>
           <Link href="/" className="hover:text-white transition-colors">Home</Link>

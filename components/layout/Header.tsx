@@ -95,7 +95,7 @@ export default function Header() {
             {/* Request Sample CTA */}
             <Link
               href="/request-sample"
-              className="hidden md:inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide px-4 py-2 rounded-lg text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 focus-visible:ring-offset-2"
+              className="hidden md:inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-wide px-4 py-2 rounded-lg text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 focus-visible:ring-offset-2"
               style={{
                 background: "linear-gradient(135deg, #1DAEBF 0%, #2CC8D8 100%)",
                 boxShadow: "0 0 0 1px rgba(44,200,216,0.3), 0 2px 8px rgba(44,200,216,0.3)",

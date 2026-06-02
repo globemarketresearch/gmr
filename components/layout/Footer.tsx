@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Mail, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/contact";
 import FooterNewsletter from "./FooterNewsletter";
 
@@ -165,31 +165,6 @@ export default function Footer() {
                   <span className="break-all leading-snug">{CONTACT_INFO.email}</span>
                 </a>
 
-                <a
-                  href={`tel:${CONTACT_INFO.offices.usa.phone}`}
-                  className="flex items-center gap-2.5 text-slate-500 hover:text-sky-600 transition-colors duration-150"
-                >
-                  <Phone className="w-4 h-4 shrink-0 text-sky-500" />
-                  <span>{CONTACT_INFO.offices.usa.phoneFormatted}</span>
-                </a>
-
-                <a
-                  href={`tel:${CONTACT_INFO.offices.india.phone}`}
-                  className="flex items-center gap-2.5 text-slate-500 hover:text-sky-600 transition-colors duration-150"
-                >
-                  <Phone className="w-4 h-4 shrink-0 text-sky-500" />
-                  <span>{CONTACT_INFO.offices.india.phoneFormatted}</span>
-                </a>
-
-                <div className="flex items-start gap-2.5 text-slate-500">
-                  <MapPin className="w-4 h-4 shrink-0 text-sky-500 mt-0.5" />
-                  <address className="not-italic leading-relaxed">
-                    {CONTACT_INFO.offices.usa.addressLine1},<br />
-                    {CONTACT_INFO.offices.usa.city}, {CONTACT_INFO.offices.usa.state}{" "}
-                    {CONTACT_INFO.offices.usa.postalCode}<br />
-                    {CONTACT_INFO.offices.usa.country}
-                  </address>
-                </div>
               </div>
             </div>
           </div>

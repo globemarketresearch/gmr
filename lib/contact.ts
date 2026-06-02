@@ -27,7 +27,7 @@ export interface ContactInfo {
 }
 
 export const CONTACT_INFO: ContactInfo = {
-  email: 'support@globemarketresearch.com',
+  email: 'sales@globemarketresearch.com',
   whatsapp: {
     number: '+18016399061',
     formatted: '+1 801-639-9061',

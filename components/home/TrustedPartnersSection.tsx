@@ -47,7 +47,7 @@ export default function TrustedPartnersSection() {
               {duplicatedPartners.map((partner, index) => (
                 <div
                   key={`${partner.id}-${index}`}
-                  className="flex-shrink-0 w-[220px] h-[112px] flex items-center justify-center px-8 py-5 rounded-xl border border-[var(--border-color)] bg-[var(--surface-raised)] hover:border-[var(--accent)]/40 hover:shadow-[var(--shadow-sm)] transition-all duration-300"
+                  className="flex-shrink-0 w-[220px] h-[112px] flex items-center justify-center px-8 py-5 rounded-xl border border-[var(--border-color)] bg-white hover:border-[var(--accent)]/40 hover:shadow-[var(--shadow-sm)] transition-all duration-300"
                 >
                   <Image
                     src={partner.logo}

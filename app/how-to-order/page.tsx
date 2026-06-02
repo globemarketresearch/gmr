@@ -346,16 +346,15 @@ export default function HowToOrderPage() {
             <h2 className="text-2xl font-bold mb-3">Contact Our Team</h2>
             <p className="text-[var(--muted-foreground)] mb-2">
               For orders, sample requests, customization support, or payment assistance, please
-              contact Globe Market Research through the email, phone number, or contact form
-              available on the website.
+              contact Globe Market Research through the email or contact form available on the website.
             </p>
             <p className="text-lg mb-6">
               Contact us at{" "}
               <a
-                href="mailto:support@globemarketresearch.com"
+                href="mailto:sales@globemarketresearch.com"
                 className="text-[var(--primary)] hover:underline font-medium"
               >
-                support@globemarketresearch.com
+                sales@globemarketresearch.com
               </a>
             </p>
             <p className="text-[var(--muted-foreground)]">

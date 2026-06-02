@@ -28,7 +28,7 @@ function NavLink({ href, label, pathname }: { href: string; label: string; pathn
     <Link
       href={href}
       className={cn(
-        "relative text-[13px] tracking-wide transition-all duration-150 whitespace-nowrap py-1",
+        "relative text-[14.5px] tracking-wide transition-all duration-150 whitespace-nowrap py-1",
         isActive
           ? "font-extrabold text-black"
           : "font-medium text-black/55 hover:text-black hover:font-semibold"
@@ -73,7 +73,7 @@ export default function Navigation() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center gap-6">
+      <nav className="hidden md:flex items-center gap-4 lg:gap-5">
         {navItems.map((item) => (
           <NavLink key={item.href} href={item.href} label={item.name} pathname={pathname} />
         ))}

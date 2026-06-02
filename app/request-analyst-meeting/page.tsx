@@ -12,7 +12,6 @@ import {
   Button,
   Badge,
 } from "@/components/ui";
-import { CONTACT_INFO } from "@/lib/contact";
 import { QuickContactSection, TrustedPartnersSidebar } from "@/components/contact";
 import { DateTimePicker } from "@/components/contact/DateTimePicker";
 import type { DateTimeSelection } from "@/components/contact/DateTimePicker";
@@ -322,22 +321,7 @@ export default function RequestAnalystMeetingPage() {
                   Need immediate assistance?{" "}
                   <a href="/contact" className="text-[var(--primary)] hover:underline font-medium">
                     Contact us directly
-                  </a>{" "}
-                  or call{" "}
-                  <a
-                    href={`tel:${CONTACT_INFO.offices.usa.phone}`}
-                    className="text-[var(--primary)] hover:underline font-medium"
-                  >
-                    {CONTACT_INFO.offices.usa.phoneFormatted}
-                  </a>{" "}
-                  (USA) /{" "}
-                  <a
-                    href={`tel:${CONTACT_INFO.offices.india.phone}`}
-                    className="text-[var(--primary)] hover:underline font-medium"
-                  >
-                    {CONTACT_INFO.offices.india.phoneFormatted}
-                  </a>{" "}
-                  (India) - 24Ã—7 Support
+                  </a>
                 </p>
               </div>
             </div>
