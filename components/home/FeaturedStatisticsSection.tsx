@@ -93,7 +93,7 @@ function StatCard({ blog, index }: { blog: Blog; index: number }) {
 export default async function FeaturedStatisticsSection() {
   const response = await getBlogs({
     status: 'published',
-    limit: 3,
+    limit: 6,
     sort_by: 'publish_date_desc',
   });
 

@@ -107,7 +107,7 @@ function PressReleaseCard({ pr, index }: { pr: PressRelease; index: number }) {
 export default async function FeaturedPressReleasesSection() {
   const response = await getPressReleases({
     status: 'published',
-    limit: 3,
+    limit: 6,
     sort_by: 'publish_date_desc',
   });
 

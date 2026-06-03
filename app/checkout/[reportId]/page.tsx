@@ -26,10 +26,13 @@ export async function generateMetadata({
 
 export default async function CheckoutPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ reportId: string }>;
+  searchParams: Promise<{ license?: string }>;
 }) {
   const { reportId } = await params;
+  const { license } = await searchParams;
 
   const response = await getReportBySlug(reportId);
   if (isApiError(response)) {
@@ -80,10 +83,10 @@ export default async function CheckoutPage({
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Left: form */}
           <div className="lg:col-span-3 bg-[var(--card)] border border-[var(--border)] rounded-lg p-6">
-            <h2 className="text-lg font-semibold text-[var(--foreground)] mb-6">Your Details</h2>
             <CheckoutForm
               reportSlug={report.slug}
               reportTitle={report.title}
+              licenseId={license}
             />
           </div>
 
@@ -95,6 +98,7 @@ export default async function CheckoutPage({
               price={price}
               discountedPrice={discountedPrice}
               currency="USD"
+              licenseId={license}
             />
 
             <div className="bg-[var(--card)] border border-[var(--border)] rounded-lg p-4 text-xs text-[var(--muted-foreground)] space-y-2">
