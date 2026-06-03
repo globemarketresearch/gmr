@@ -5,21 +5,21 @@ import Image from 'next/image';
 import { Cpu, Activity, UtensilsCrossed, Monitor, Sprout, Zap, Package, Wifi, Car, FlaskConical, ShoppingBag, Factory } from 'lucide-react';
 import categories from '@/data/categories.json';
 
-const BASE = '/assets/report-assets/Reports Image';
+const BASE = '/assets/report-assets/reports-image';
 const categoryImages: Record<string, string> = {
-  'aerospace-and-defence':         `${BASE}/Aerospace & Defence Market.png`,
-  'automotive-and-transportation':  `${BASE}/Automotive & Transportation Market.png`,
-  'chemical-and-material':          `${BASE}/Chemical & Material Market.png`,
-  'consumer-goods':                 `${BASE}/Consumer Goods Market .png`,
-  'manufacturing-and-construction': `${BASE}/Manufacturing and Construction Market.png`,
-  'semiconductor-and-electronics':  `${BASE}/Semiconductor & Electronics Market.png`,
-  'healthcare-and-pharmaceuticals': `${BASE}/Healthcare & Pharmaceutical Market.png`,
-  'food-and-beverages':             `${BASE}/Food and Beverages Market .png`,
-  'information-and-technology':     `${BASE}/Information and Technology Market .png`,
-  'agriculture':                    `${BASE}/Agriculture Market.png`,
-  'energy-and-power':               `${BASE}/Energy and Power Market.png`,
-  'packaging':                      `${BASE}/Packaging Market.png`,
-  'smart-technologies':             `${BASE}/Smart Technologies Market.png`,
+  'aerospace-and-defence':         `${BASE}/aerospace-and-defence.png`,
+  'automotive-and-transportation':  `${BASE}/automotive-and-transportation.png`,
+  'chemical-and-material':          `${BASE}/chemical-and-material.png`,
+  'consumer-goods':                 `${BASE}/consumer-goods.png`,
+  'manufacturing-and-construction': `${BASE}/manufacturing-and-construction.png`,
+  'semiconductor-and-electronics':  `${BASE}/semiconductor-and-electronics.png`,
+  'healthcare-and-pharmaceuticals': `${BASE}/healthcare-and-pharmaceuticals.png`,
+  'food-and-beverages':             `${BASE}/food-and-beverages.png`,
+  'information-and-technology':     `${BASE}/information-and-technology.png`,
+  'agriculture':                    `${BASE}/agriculture.png`,
+  'energy-and-power':               `${BASE}/energy-and-power.png`,
+  'packaging':                      `${BASE}/packaging.png`,
+  'smart-technologies':             `${BASE}/smart-technologies.png`,
 };
 
 const categoryIcons: Record<string, React.ReactNode> = {

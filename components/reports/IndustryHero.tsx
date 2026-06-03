@@ -13,20 +13,21 @@ interface IndustryHeroProps {
   activeCategory?: Category | null;
 }
 
+const BASE = '/assets/report-assets/reports-image';
 const CATEGORY_IMAGES: Record<string, string> = {
-  'Aerospace and Defence': '/assets/report-assets/Reports Image/Aerospace & Defence Market.png',
-  'Automotive and Transportation': '/assets/report-assets/Reports Image/Automotive & Transportation Market.png',
-  'Chemical and Material': '/assets/report-assets/Reports Image/Chemical & Material Market.png',
-  'Consumer Goods': '/assets/report-assets/Reports Image/Consumer Goods Market .png',
-  'Manufacturing and Construction': '/assets/report-assets/Reports Image/Manufacturing and Construction Market.png',
-  'Semiconductor and Electronics': '/assets/report-assets/Reports Image/Semiconductor & Electronics Market.png',
-  'Healthcare and Pharmaceuticals': '/assets/report-assets/Reports Image/Healthcare & Pharmaceutical Market.png',
-  'Food and Beverages': '/assets/report-assets/Reports Image/Food and Beverages Market .png',
-  'Information and Technology': '/assets/report-assets/Reports Image/Information and Technology Market .png',
-  'Agriculture': '/assets/report-assets/Reports Image/Agriculture Market.png',
-  'Energy and Power': '/assets/report-assets/Reports Image/Energy and Power Market.png',
-  'Packaging': '/assets/report-assets/Reports Image/Packaging Market.png',
-  'Smart Technologies': '/assets/report-assets/Reports Image/Smart Technologies Market.png',
+  'Aerospace and Defence':          `${BASE}/aerospace-and-defence.png`,
+  'Automotive and Transportation':  `${BASE}/automotive-and-transportation.png`,
+  'Chemical and Material':          `${BASE}/chemical-and-material.png`,
+  'Consumer Goods':                 `${BASE}/consumer-goods.png`,
+  'Manufacturing and Construction': `${BASE}/manufacturing-and-construction.png`,
+  'Semiconductor and Electronics':  `${BASE}/semiconductor-and-electronics.png`,
+  'Healthcare and Pharmaceuticals': `${BASE}/healthcare-and-pharmaceuticals.png`,
+  'Food and Beverages':             `${BASE}/food-and-beverages.png`,
+  'Information and Technology':     `${BASE}/information-and-technology.png`,
+  'Agriculture':                    `${BASE}/agriculture.png`,
+  'Energy and Power':               `${BASE}/energy-and-power.png`,
+  'Packaging':                      `${BASE}/packaging.png`,
+  'Smart Technologies':             `${BASE}/smart-technologies.png`,
 };
 
 const CATEGORY_ICONS: Record<string, string> = {
