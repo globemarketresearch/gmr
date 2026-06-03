@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { getReportBySlug, isApiError } from '@/lib/api';
 
-export const alt = 'Healthcare Market Research Report';
+export const alt = 'Globe Market Research Report';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -12,7 +12,7 @@ export default async function Image({
 }) {
   const { slug } = await params;
 
-  let title = 'Healthcare Market Research Report';
+  let title = 'Globe Market Research Report';
   let category = 'Market Research';
   let region = 'Global';
   let reportCode = '';

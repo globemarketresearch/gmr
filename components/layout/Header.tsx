@@ -29,7 +29,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div ref={stickyRef} className="relative w-full z-50">
+    <div ref={stickyRef} className="fixed top-0 inset-x-0 z-50">
       {/* Announcement bar */}
       {/* {announcementVisible && (
         <div className="relative bg-[#071524] text-white text-xs py-2 px-4 text-center flex items-center justify-center gap-3 border-b border-white/5">
@@ -73,7 +73,7 @@ export default function Header() {
           <Link href="/" className="flex min-w-0 items-center flex-shrink group">
             <div className="min-w-0 transition-opacity duration-200 group-hover:opacity-90">
               <Image
-                src="/assets/images/logo.jpg"
+                src="/assets/images/logo.png"
                 alt="Globe Market Research"
                 width={360}
                 height={106}
@@ -90,7 +90,7 @@ export default function Header() {
             <Navigation />
 
             {/* Divider */}
-            <div className="hidden md:block h-5 w-px bg-gray-200 mx-1" />
+            <div className="hidden md:block h-5 w-px mx-1 bg-gray-200" />
 
             {/* Request Sample CTA */}
             <Link

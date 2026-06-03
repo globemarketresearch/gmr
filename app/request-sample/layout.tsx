@@ -2,8 +2,8 @@
 
 export const metadata: Metadata = {
   title: "Request Sample Report | Globe Market Research",
-  description: "Request a free sample of our healthcare market research reports to experience the depth and quality of our industry analysis.",
-  keywords: ["healthcare report sample", "free healthcare research", "market research sample"],
+  description: "Request a free sample of our globe market research reports to experience the depth and quality of our industry analysis.",
+  keywords: ["globe report sample", "free globe research", "market research sample"],
   alternates: {
     canonical: '/request-sample',
   },

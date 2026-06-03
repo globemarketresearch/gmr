@@ -116,13 +116,13 @@ export function ReportShareButtons({ title, url }: ReportShareButtonsProps) {
   }, [url]);
 
   const btnBase = {
-    background: "rgba(255,255,255,0.08)",
-    border: "1px solid rgba(255,255,255,0.12)",
-    color: "rgba(255,255,255,0.55)",
+    background: "rgba(65,105,225,0.12)",
+    border: "1px solid rgba(65,105,225,0.3)",
+    color: "#7BA7FF",
   };
   const btnHover = {
-    background: "rgba(255,255,255,0.18)",
-    borderColor: "rgba(255,255,255,0.3)",
+    background: "#4169E1",
+    borderColor: "#4169E1",
     color: "#fff",
   };
 
@@ -161,29 +161,26 @@ export function ReportShareButtons({ title, url }: ReportShareButtonsProps) {
         aria-label={copied ? "Link copied!" : "Copy link to clipboard"}
         className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200"
         style={{
-          background: copied ? "rgba(2,132,199,0.25)" : "rgba(255,255,255,0.08)",
+          background: copied ? "#4169E1" : "rgba(65,105,225,0.12)",
           border: copied
-            ? "1px solid rgba(2,132,199,0.5)"
-            : "1px solid rgba(255,255,255,0.12)",
-          color: copied ? "#7dd3fc" : "rgba(255,255,255,0.55)",
+            ? "1px solid #4169E1"
+            : "1px solid rgba(65,105,225,0.3)",
+          color: copied ? "#fff" : "#7BA7FF",
         }}
         onMouseEnter={(e) => {
           if (!copied) {
-            (e.currentTarget as HTMLButtonElement).style.background =
-              "rgba(255,255,255,0.18)";
+            (e.currentTarget as HTMLButtonElement).style.background = "#4169E1";
             (e.currentTarget as HTMLButtonElement).style.color = "#fff";
-            (e.currentTarget as HTMLButtonElement).style.borderColor =
-              "rgba(255,255,255,0.3)";
+            (e.currentTarget as HTMLButtonElement).style.borderColor = "#4169E1";
           }
         }}
         onMouseLeave={(e) => {
           if (!copied) {
             (e.currentTarget as HTMLButtonElement).style.background =
-              "rgba(255,255,255,0.08)";
-            (e.currentTarget as HTMLButtonElement).style.color =
-              "rgba(255,255,255,0.55)";
+              "rgba(65,105,225,0.12)";
+            (e.currentTarget as HTMLButtonElement).style.color = "#7BA7FF";
             (e.currentTarget as HTMLButtonElement).style.borderColor =
-              "rgba(255,255,255,0.12)";
+              "rgba(65,105,225,0.3)";
           }
         }}
       >

@@ -18,7 +18,13 @@ const TRENDING_CATEGORIES = [
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden" style={{ background: '#060d1e' }}>
+    <section
+      className="relative overflow-hidden"
+      style={{
+        background: '#060d1e',
+        marginTop: 'calc(-1 * var(--sticky-header-height, 96px))',
+      }}
+    >
 
       {/* ── Video background ──────────────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
@@ -35,7 +41,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Hero content ───────────────────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-[88rem] mx-auto px-6 lg:px-14 pt-24 pb-14 lg:pt-36 lg:pb-20">
+      <div className="relative z-10 w-full max-w-[88rem] mx-auto px-4 sm:px-6 lg:px-14 pt-16 pb-12 sm:pt-20 sm:pb-14 lg:pt-36 lg:pb-20">
         <div className="flex flex-col items-center text-center gap-8 max-w-4xl mx-auto">
 
           {/* Eyebrow badge */}
@@ -57,7 +63,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Subtext */}
-          <p className="font-body text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: 'rgba(200,220,255,0.72)' }}>
+          <p className="font-body text-lg md:text-xl max-w-2xl leading-relaxed text-white">
             Reliable research and clear insights to help businesses understand markets, reduce risks,
             and make smarter growth decisions.
           </p>
@@ -66,7 +72,7 @@ export default function HeroSection() {
           <div className="w-full max-w-2xl flex flex-col items-center gap-4">
             <SearchBar
               variant="hero"
-              placeholder="Search reports or markets..."
+              placeholder="Search Market Reports, Forecasts & Statistics"
               className="w-full"
             />
 

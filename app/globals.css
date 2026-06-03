@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Content protection — prevent text selection site-wide */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow selection only inside form inputs so usability isn't broken */
+input, textarea, [contenteditable] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
 /* ─── Column Design System — GMR Brand Theme ─────────────────────────────── */
 :root {
   /* ── Color primitives ── */
@@ -82,10 +98,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
+  /* Safe area for iPhones with home indicator */
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 html {
   overflow-x: hidden;
+}
+
+/* Ensure tap highlight is minimal on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media (max-width: 767px) {

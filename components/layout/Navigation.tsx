@@ -95,22 +95,22 @@ export default function Navigation() {
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg hover:bg-gray-100 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/40"
+        className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-colors outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/40 hover:bg-gray-100"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         aria-expanded={isMobileMenuOpen}
       >
         <div className="relative w-[18px] h-[14px]">
           <span className={cn(
-            "absolute left-0 w-[18px] h-[1.5px] bg-gray-600 transition-all duration-250",
+            "absolute left-0 w-[18px] h-[1.5px] transition-all duration-250 bg-gray-600",
             isMobileMenuOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
           )} />
           <span className={cn(
-            "absolute left-0 top-1/2 -translate-y-1/2 w-[18px] h-[1.5px] bg-gray-600 transition-all duration-250",
+            "absolute left-0 top-1/2 -translate-y-1/2 w-[18px] h-[1.5px] transition-all duration-250 bg-gray-600",
             isMobileMenuOpen ? "opacity-0 scale-x-0" : "opacity-100"
           )} />
           <span className={cn(
-            "absolute left-0 w-[18px] h-[1.5px] bg-gray-600 transition-all duration-250",
+            "absolute left-0 w-[18px] h-[1.5px] transition-all duration-250 bg-gray-600",
             isMobileMenuOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0"
           )} />
         </div>

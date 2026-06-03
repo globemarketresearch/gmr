@@ -86,13 +86,9 @@ export const MarketGrowthChart: React.FC<MarketGrowthChartProps> = ({
 
   return (
     <Card className={className}>
-      <CardHeader>
-        {/* <CardTitle className="text-[var(--teal-deep)]">Market Size &amp; Forecast</CardTitle>
-        <CardDescription>
-          Projected market growth {startYear}–{endYear} at a CAGR of {cagr}
-        </CardDescription> */}
-        <CardTitle className="text-[var(--teal-deep)]">Projected market expansion: {cagr} CAGR </CardTitle>
-      </CardHeader>
+      {/* <CardHeader>
+        <CardTitle className="text-[var(--teal-deep)]">Market Size &amp; Forecast</CardTitle>
+      </CardHeader> */}
       <CardContent>
         <ChartContainer config={chartConfig} className="h-[320px] w-full">
           <AreaChart
@@ -111,13 +107,13 @@ export const MarketGrowthChart: React.FC<MarketGrowthChartProps> = ({
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tick={{ fontSize: 12, fill: '#64748b', fontFamily: 'var(--font-geist-sans, inherit)' }}
+              tick={{ fontSize: 12, fill: '#1e293b', fontFamily: 'var(--font-geist-sans, inherit)', fontWeight: 700 }}
             />
             <YAxis
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tick={{ fontSize: 11, fill: '#64748b', fontFamily: 'var(--font-geist-sans, inherit)' }}
+              tick={{ fontSize: 11, fill: '#1e293b', fontFamily: 'var(--font-geist-sans, inherit)', fontWeight: 700 }}
               tickFormatter={(v) => `${v} ${unit}`}
               width={60}
             />

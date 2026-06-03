@@ -129,7 +129,7 @@ export default function TestimonialsSection() {
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={prevSlide}
-              className="w-9 h-9 rounded-full border border-[var(--border-color)] bg-[var(--surface-raised)] hover:bg-[var(--accent-muted)] hover:border-[var(--accent)] text-[var(--text-secondary)] hover:text-[var(--accent)] flex items-center justify-center transition-all duration-200"
+              className="w-11 h-11 rounded-full border border-[var(--border-color)] bg-[var(--surface-raised)] hover:bg-[var(--accent-muted)] hover:border-[var(--accent)] text-[var(--text-secondary)] hover:text-[var(--accent)] flex items-center justify-center transition-all duration-200"
               aria-label="Previous testimonials"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,7 +137,7 @@ export default function TestimonialsSection() {
               </svg>
             </button>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
               {Array.from({ length: totalSlides }).map((_, index) => (
                 <button
                   key={index}
@@ -148,13 +148,14 @@ export default function TestimonialsSection() {
                       : 'w-2 bg-[var(--border-color)] hover:bg-[var(--text-tertiary)]'
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
+                  style={{ minWidth: index === currentIndex ? '2rem' : '0.5rem' }}
                 />
               ))}
             </div>
 
             <button
               onClick={nextSlide}
-              className="w-9 h-9 rounded-full border border-[var(--border-color)] bg-[var(--surface-raised)] hover:bg-[var(--accent-muted)] hover:border-[var(--accent)] text-[var(--text-secondary)] hover:text-[var(--accent)] flex items-center justify-center transition-all duration-200"
+              className="w-11 h-11 rounded-full border border-[var(--border-color)] bg-[var(--surface-raised)] hover:bg-[var(--accent-muted)] hover:border-[var(--accent)] text-[var(--text-secondary)] hover:text-[var(--accent)] flex items-center justify-center transition-all duration-200"
               aria-label="Next testimonials"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -82,7 +82,7 @@ export async function generateMetadata({
     // Parse meta_keywords if available, otherwise use default keywords
     const keywords = report.meta_keywords
       ? report.meta_keywords.split(',').map(k => k.trim()).filter(Boolean)
-      : ["healthcare market research", "healthcare industry analysis", report.category, report.region];
+      : ["globe market research", "globe industry analysis", report.category, report.region];
 
     return {
       title: { absolute: title },

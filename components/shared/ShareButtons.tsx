@@ -106,13 +106,13 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
 
   const btnStyle = {
     base: {
-      background: "rgba(255,255,255,0.08)",
-      border: "1px solid rgba(255,255,255,0.12)",
-      color: "rgba(255,255,255,0.55)",
+      background: "rgba(65,105,225,0.12)",
+      border: "1px solid rgba(65,105,225,0.3)",
+      color: "#7BA7FF",
     },
     hover: {
-      background: "rgba(255,255,255,0.18)",
-      border: "1px solid rgba(255,255,255,0.3)",
+      background: "#4169E1",
+      border: "1px solid #4169E1",
       color: "#fff",
     },
   };
@@ -147,7 +147,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
           className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200"
           style={
             copied
-              ? { background: "rgba(2,132,199,0.25)", border: "1px solid rgba(2,132,199,0.5)", color: "#7dd3fc" }
+              ? { background: "#4169E1", border: "1px solid #4169E1", color: "#fff" }
               : btnStyle.base
           }
           onMouseEnter={(e) => { if (!copied) Object.assign((e.currentTarget as HTMLElement).style, btnStyle.hover); }}

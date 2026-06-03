@@ -86,7 +86,7 @@ export default function NotFoundPage() {
                       <div>
                         <h4 className="font-semibold mb-1">Browse All Reports</h4>
                         <p className="text-sm text-[var(--muted-foreground)]">
-                          Explore our complete library of healthcare market research reports
+                          Explore our complete library of market research reports
                         </p>
                       </div>
                     </CardContent>

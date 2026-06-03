@@ -121,8 +121,8 @@ export default async function FeaturedPressReleasesSection() {
     <Section background="muted" padding="sm">
       <Container size="xl">
         <div className="space-y-8">
-          <div className="flex items-end justify-between gap-4">
-            <div className="space-y-2">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="space-y-2 min-w-0">
               <div className="flex items-center gap-2">
                 <span
                   className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
@@ -133,7 +133,7 @@ export default async function FeaturedPressReleasesSection() {
                 </span>
               </div>
               <h2
-                className="font-display text-3xl md:text-4xl font-bold text-[var(--text-primary)]"
+                className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)]"
                 style={{ letterSpacing: '-0.03em' }}
               >
                 Latest Press Releases

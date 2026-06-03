@@ -167,10 +167,10 @@ export function ReportStickyBar({
 
           {/* Title + metadata row */}
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-bold text-gray-900 truncate leading-snug">
+            <p className="text-lg font-bold text-gray-900 truncate leading-snug">
               {reportTitle}
             </p>
-            <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+            <div className="hidden sm:flex items-center gap-2 mt-1 flex-wrap">
               {publishedDate && (
                 <span className="text-xs text-gray-500">Published: {publishedDate}</span>
               )}
@@ -195,10 +195,10 @@ export function ReportStickyBar({
           </div>
 
           {/* CTA buttons */}
-          <div className="flex items-center gap-2.5 flex-shrink-0">
-            <Link href={sampleHref}>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <Link href={sampleHref} className="hidden sm:block">
               <button
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-3 py-2.5 sm:px-4 text-sm font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
                 style={{
                   background: 'linear-gradient(135deg, #1DAEBF 0%, #2CC8D8 100%)',
                   boxShadow: '0 0 0 1px rgba(44,200,216,0.3), 0 2px 8px rgba(44,200,216,0.25)',
@@ -213,13 +213,13 @@ export function ReportStickyBar({
 
             <Link href={buyHref}>
               <button
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-3 py-2.5 sm:px-4 text-sm font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
                 style={{
                   background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
                   boxShadow: '0 0 0 1px rgba(249,115,22,0.3), 0 2px 8px rgba(249,115,22,0.25)',
                 }}
               >
-                <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-4 h-4 flex-shrink-0 hidden sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
                 Buy Now

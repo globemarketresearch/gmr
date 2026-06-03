@@ -16,9 +16,9 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
   const query = q?.trim() || '';
   return {
     title: query
-      ? `Search results for "${query}" | Healthcare Market Research`
-      : 'Search | Healthcare Market Research',
-    description: `Browse healthcare market research reports${query ? ` matching "${query}"` : ''}.`,
+      ? `Search results for "${query}" | Globe Market Research`
+      : 'Search | Globe Market Research',
+    description: `Browse Globe market research reports${query ? ` matching "${query}"` : ''}.`,
     robots: { index: false },
   };
 }
@@ -142,7 +142,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
             </h1>
             <p className="text-sm sm:text-base text-[var(--text-secondary)]">
               {query
-                ? 'Showing healthcare market research reports matching your query.'
+                ? 'Showing globe market research reports matching your query.'
                 : 'Enter a keyword in the search bar above to find reports.'}
             </p>
           </div>

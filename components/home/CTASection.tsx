@@ -29,7 +29,7 @@ export default function CTASection() {
           </div> */}
 
           {/* Ambient glows */}
-          <div className="relative z-10 px-8 py-12 md:px-16 md:py-16 lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-12">
+          <div className="relative z-10 px-5 py-10 sm:px-8 sm:py-12 md:px-16 md:py-16 lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-12">
             <div className="space-y-6 max-w-2xl">
               <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-body tracking-wide backdrop-blur-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-sky-300 animate-pulse" />

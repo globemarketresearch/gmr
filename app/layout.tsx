@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -22,6 +22,12 @@ const roboto = Roboto({
   display: "swap",
   preload: true,
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.globemarketresearch.com'),
@@ -69,6 +75,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Content protection: disable right-click, copy, cut, and text selection */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+              document.addEventListener('keydown', function(e) {
+                if (
+                  (e.ctrlKey || e.metaKey) &&
+                  ['c','x','u','s','a','p'].includes(e.key.toLowerCase())
+                ) { e.preventDefault(); }
+                if (e.key === 'F12') { e.preventDefault(); }
+              });
+              document.addEventListener('copy', function(e) { e.preventDefault(); });
+              document.addEventListener('cut', function(e) { e.preventDefault(); });
+            `,
+          }}
+        />
         {/* Preconnect to third-party origins to reduce connection latency */}
         <link rel="preconnect" href="https://translate.google.com" />
         <link rel="dns-prefetch" href="https://translate.google.com" />
@@ -81,7 +104,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${roboto.variable} antialiased`}>
         <div id="google_translate_element" className="hidden" />
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen" style={{ paddingTop: "var(--sticky-header-height, 96px)" }}>{children}</main>
         <Footer />
         <GoogleAnalytics gaId="G-NJ1DNL58KB" />
         <Script
