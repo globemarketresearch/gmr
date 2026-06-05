@@ -106,7 +106,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen" style={{ paddingTop: "var(--sticky-header-height, 96px)" }}>{children}</main>
         <Footer />
-        <GoogleAnalytics gaId="G-NJ1DNL58KB" />
+        {/* <GoogleAnalytics gaId="G-NJ1DNL58KB" /> */}
         <Script
           type="text/javascript"
           id="hs-script-loader"
