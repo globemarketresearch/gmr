@@ -1,12 +1,29 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Section, Container } from '@/components/ui';
 
 export default function CTASection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Section padding="sm">
       <Container size="lg">
-        <div className="relative rounded-lg overflow-hidden">
+        <div ref={ref} className="relative rounded-lg overflow-hidden">
           {/* Gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#0f2236] via-[#0c3a5e] to-[#0284c7]" />
 
@@ -16,35 +33,35 @@ export default function CTASection() {
             backgroundSize: '48px 48px',
           }} />
 
-          {/* World map image — right side decoration */}
-          {/* <div className="absolute inset-y-0 right-0 w-1/2 hidden lg:block">
-            <Image
-              src="/assets/other/Professional_world_map_with_glowing_202605080342.jpeg"
-              alt=""
-              fill
-              className="object-cover object-center opacity-20 mix-blend-luminosity"
-              aria-hidden
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0c3a5e] to-transparent" />
-          </div> */}
-
           {/* Ambient glows */}
           <div className="relative z-10 px-5 py-10 sm:px-8 sm:py-12 md:px-16 md:py-16 lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-12">
             <div className="space-y-6 max-w-2xl">
-              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-body tracking-wide backdrop-blur-sm">
+              <div
+                className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-body tracking-wide backdrop-blur-sm transition-all duration-500"
+                style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(16px)', transitionDelay: '0ms' }}
+              >
                 <span className="w-1.5 h-1.5 rounded-full bg-sky-300 animate-pulse" />
                 Get started today
               </div>
 
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.03em' }}>
+              <h2
+                className="font-display text-3xl md:text-4xl font-bold text-white leading-tight transition-all duration-500"
+                style={{ letterSpacing: '-0.03em', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)', transitionDelay: '100ms' }}
+              >
                 Ready to Power Your Business Decisions?
               </h2>
 
-              <p className="font-body text-lg text-white/70 max-w-xl leading-relaxed">
+              <p
+                className="font-body text-lg text-white/70 max-w-xl leading-relaxed transition-all duration-500"
+                style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)', transitionDelay: '200ms' }}
+              >
                 Get in touch with our team to see how our research can drive your decisions
               </p>
 
-              <div className="flex flex-col sm:flex-row items-start gap-4 pt-2">
+              <div
+                className="flex flex-col sm:flex-row items-start gap-4 pt-2 transition-all duration-500"
+                style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)', transitionDelay: '300ms' }}
+              >
                 <Link
                   href="/contact"
                   className="font-body inline-flex items-center gap-2 bg-white text-[var(--featured-bg)] hover:bg-white/90 font-semibold text-sm px-7 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
@@ -52,10 +69,10 @@ export default function CTASection() {
                   Contact Sales
                 </Link>
                 <Link
-                  href="/industry"
+                  href="/request-sample"
                   className="font-body inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white hover:bg-white/20 hover:border-white/40 font-semibold text-sm px-7 py-3 rounded-lg backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  View Reports
+                  Request Free Sample
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -64,7 +81,10 @@ export default function CTASection() {
             </div>
 
             {/* Globe image panel */}
-            <div className="hidden lg:block flex-shrink-0 w-[380px] h-[300px] relative rounded-lg overflow-hidden border border-white/10 shadow-2xl">
+            <div
+              className="hidden lg:block flex-shrink-0 w-[380px] h-[300px] relative rounded-lg overflow-hidden border border-white/10 shadow-2xl transition-all duration-700"
+              style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateX(0)' : 'translateX(32px)', transitionDelay: '200ms' }}
+            >
               <Image
                 src="/assets/other/Abstract_digital_globe_with_flowing_202605080343.jpeg"
                 alt="Global market research coverage"

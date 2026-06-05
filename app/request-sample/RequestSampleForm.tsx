@@ -7,6 +7,7 @@ import { CountrySelect } from "@/components/ui/country-select";
 import { QuickContactSection, TrustedPartnersSidebar } from "@/components/contact";
 import { submitRequestSampleForm, isFormError } from "@/lib/api";
 import { getDefaultCountry, type Country } from "@/lib/data/countries";
+import { isBusinessEmail } from "@/lib/validators";
 
 interface RequestSampleFormProps {
   reportTitle?: string;
@@ -54,6 +55,11 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+
+    if (!isBusinessEmail(formData.email)) {
+      setError("Please use a business email address.");
+      return;
+    }
 
     // Validate CAPTCHA
     if (!captchaRef.current?.validate()) {

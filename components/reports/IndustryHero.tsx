@@ -30,24 +30,7 @@ const CATEGORY_IMAGES: Record<string, string> = {
   'Smart Technologies':             `${BASE}/smart-technologies.png`,
 };
 
-const CATEGORY_ICONS: Record<string, string> = {
-  'Aerospace and Defence': '✈️',
-  'Automotive and Transportation': '🚗',
-  'Chemical and Material': '⚗️',
-  'Consumer Goods': '🛍️',
-  'Manufacturing and Construction': '🏗️',
-  'Semiconductor and Electronics': '💡',
-  'Healthcare and Pharmaceuticals': '🏥',
-  'Food and Beverages': '🍽️',
-  'Information and Technology': '💻',
-  'Agriculture': '🌾',
-  'Energy and Power': '⚡',
-  'Packaging': '📦',
-  'Smart Technologies': '🤖',
-};
-
 export default function IndustryHero({ activeCategory }: IndustryHeroProps) {
-  const categoryIcon = activeCategory ? (CATEGORY_ICONS[activeCategory.name] || '📊') : null;
   const categoryImage = activeCategory ? CATEGORY_IMAGES[activeCategory.name] : null;
 
   return (
@@ -104,20 +87,6 @@ export default function IndustryHero({ activeCategory }: IndustryHeroProps) {
         </nav>
 
         <div className="flex items-start gap-5">
-          {categoryIcon && (
-            <div
-              aria-hidden="true"
-              className="hidden sm:flex items-center justify-center w-16 h-16 rounded-2xl text-3xl shrink-0 mt-0.5"
-              style={{
-                background: 'rgba(2,132,199,0.15)',
-                border: '1px solid rgba(2,132,199,0.3)',
-                backdropFilter: 'blur(8px)',
-              }}
-            >
-              {categoryIcon}
-            </div>
-          )}
-
           <div className="flex-1 min-w-0">
             {/* Label chip */}
             <span

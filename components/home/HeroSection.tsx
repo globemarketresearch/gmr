@@ -41,7 +41,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Hero content ───────────────────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-[88rem] mx-auto px-4 sm:px-6 lg:px-14 pt-16 pb-12 sm:pt-20 sm:pb-14 lg:pt-36 lg:pb-20">
+      <div className="relative z-10 w-full max-w-[88rem] mx-auto px-4 sm:px-6 lg:px-14 pt-28 pb-12 sm:pt-28 sm:pb-14 lg:pt-36 lg:pb-20">
         <div className="flex flex-col items-center text-center gap-8 max-w-4xl mx-auto">
 
           {/* Eyebrow badge */}

@@ -7,6 +7,7 @@ import { CountrySelect } from '@/components/ui/country-select';
 import { getDefaultCountry, type Country } from '@/lib/data/countries';
 import { submitRequestSampleForm } from '@/lib/api/forms';
 import { getLicenseTierById, LICENSE_TIERS } from '@/lib/license-tiers';
+import { isBusinessEmail } from '@/lib/validators';
 
 // ─── Payment integrations (kept for future activation) ────────────────────────
 // import { PayPalButton } from './PayPalButton';
@@ -15,12 +16,12 @@ import { getLicenseTierById, LICENSE_TIERS } from '@/lib/license-tiers';
 // ──────────────────────────────────────────────────────────────────────────────
 
 type Step = 'details' | 'payment' | 'processing' | 'success';
-type PaymentMethod = 'card' | 'paypal' | 'wire';
 
 interface CheckoutFormProps {
   reportSlug: string;
   reportTitle: string;
   licenseId?: string;
+  onLicenseChange?: (id: string) => void;
 }
 
 interface CustomerDetails {
@@ -44,47 +45,47 @@ const getInitialDetails = (): CustomerDetails => {
   };
 };
 
-const PAYMENT_METHODS: { id: PaymentMethod; label: string; description: string; icon: React.ReactNode }[] = [
-  {
-    id: 'card',
-    label: 'Credit / Debit Card',
-    description: 'Visa, Mastercard, Amex',
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-        <rect x="2" y="5" width="20" height="14" rx="2" />
-        <path d="M2 10h20" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    id: 'paypal',
-    label: 'PayPal',
-    description: 'Pay with your PayPal account',
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.5 21H4.5L6.5 8h5.5c2.5 0 4.5 1.5 4 4.5C15.5 15.5 13 17 10.5 17H8.5L7.5 21Z" fill="#003087"/>
-        <path d="M10.5 17h2c2.5 0 5-1.5 5.5-4.5.5-2.5-1-4.5-3.5-4.5H11" fill="#009cde"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'wire',
-    label: 'Wire Transfer',
-    description: 'Bank transfer / SWIFT',
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
-      </svg>
-    ),
-  },
-];
+const VisaIcon = () => (
+  <svg viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-4 w-auto">
+    <text x="0" y="16" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="18" fill="#1A1F71" letterSpacing="-0.5">VISA</text>
+  </svg>
+);
 
-export function CheckoutForm({ reportSlug, reportTitle, licenseId = 'single' }: CheckoutFormProps) {
+const MastercardIcon = () => (
+  <svg viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-auto">
+    <circle cx="14" cy="12" r="10" fill="#EB001B"/>
+    <circle cx="24" cy="12" r="10" fill="#F79E1B"/>
+    <path d="M19 4.8a10 10 0 010 14.4A10 10 0 0119 4.8z" fill="#FF5F00"/>
+  </svg>
+);
+
+const AmexIcon = ({ active }: { active: boolean }) => (
+  <svg viewBox="0 0 52 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-4 w-auto">
+    <text x="0" y="16" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="16" fill={active ? '#fff' : '#2E77BC'} letterSpacing="0.5">AMEX</text>
+  </svg>
+);
+
+const PayPalIcon = () => (
+  <svg viewBox="0 0 80 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-4 w-auto">
+    <text x="0" y="16" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="16" fill="#003087">Pay</text>
+    <text x="32" y="16" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="16" fill="#009cde">Pal</text>
+  </svg>
+);
+
+const BankIcon = () => (
+  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+    <polyline points="9 22 9 12 15 12 15 22" />
+  </svg>
+);
+
+type PaymentMethod = 'visa' | 'mastercard' | 'amex' | 'paypal' | 'wire';
+
+export function CheckoutForm({ reportSlug, reportTitle, licenseId = 'single', onLicenseChange }: CheckoutFormProps) {
   const router = useRouter();
   const [step, setStep] = useState<Step>('details');
   const [selectedLicenseId, setSelectedLicenseId] = useState(licenseId);
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('card');
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('visa');
   const [details, setDetails] = useState<CustomerDetails>(getInitialDetails);
   const [countryCode, setCountryCode] = useState<string>(getDefaultCountry().code);
   const [dialCode, setDialCode] = useState<string>(getDefaultCountry().dialCode);
@@ -96,6 +97,12 @@ export function CheckoutForm({ reportSlug, reportTitle, licenseId = 'single' }: 
   const handleDetailsSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    if (!isBusinessEmail(details.customer_email)) {
+      setError('Please use a business email address.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -165,7 +172,7 @@ export function CheckoutForm({ reportSlug, reportTitle, licenseId = 'single' }: 
                 <button
                   key={tier.id}
                   type="button"
-                  onClick={() => setSelectedLicenseId(tier.id)}
+                  onClick={() => { setSelectedLicenseId(tier.id); onLicenseChange?.(tier.id); }}
                   className={`relative text-left rounded-lg px-3 py-2.5 border transition-all duration-150 ${
                     selectedLicenseId === tier.id
                       ? 'border-[var(--primary)] bg-[var(--primary)]/5 ring-1 ring-[var(--primary)]'
@@ -191,29 +198,72 @@ export function CheckoutForm({ reportSlug, reportTitle, licenseId = 'single' }: 
           {/* ── Payment Method ────────────────────────────────────────── */}
           <div>
             <p className="text-sm font-semibold text-[var(--foreground)] mb-3">Payment Method</p>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
-              {PAYMENT_METHODS.map((method) => (
-                <button
-                  key={method.id}
-                  type="button"
-                  onClick={() => setPaymentMethod(method.id)}
-                  className={`flex items-center gap-3 rounded-lg px-3 py-3 border text-left transition-all duration-150 ${
-                    paymentMethod === method.id
-                      ? 'border-[var(--primary)] bg-[var(--primary)]/5 ring-1 ring-[var(--primary)]'
-                      : 'border-[var(--border)] hover:border-[var(--primary)]/50'
-                  }`}
-                >
-                  <span className={paymentMethod === method.id ? 'text-[var(--primary)]' : 'text-[var(--muted-foreground)]'}>
-                    {method.icon}
-                  </span>
-                  <div>
-                    <p className={`text-xs font-semibold leading-tight ${paymentMethod === method.id ? 'text-[var(--primary)]' : 'text-[var(--foreground)]'}`}>
-                      {method.label}
-                    </p>
-                    <p className="text-[10px] text-[var(--muted-foreground)] mt-0.5">{method.description}</p>
-                  </div>
-                </button>
-              ))}
+            <div className="flex flex-wrap gap-2">
+              {/* Visa */}
+              <button
+                type="button"
+                onClick={() => setPaymentMethod('visa')}
+                className={`flex items-center justify-center px-4 py-2 rounded-lg border transition-all duration-150 min-w-[72px] h-10 ${
+                  paymentMethod === 'visa'
+                    ? 'border-[var(--primary)] bg-[var(--primary)]/5 ring-1 ring-[var(--primary)]'
+                    : 'border-[var(--border)] hover:border-[var(--primary)]/50 bg-white'
+                }`}
+              >
+                <VisaIcon />
+              </button>
+
+              {/* Mastercard */}
+              <button
+                type="button"
+                onClick={() => setPaymentMethod('mastercard')}
+                className={`flex items-center justify-center px-4 py-2 rounded-lg border transition-all duration-150 min-w-[72px] h-10 ${
+                  paymentMethod === 'mastercard'
+                    ? 'border-[var(--primary)] bg-[var(--primary)]/5 ring-1 ring-[var(--primary)]'
+                    : 'border-[var(--border)] hover:border-[var(--primary)]/50 bg-white'
+                }`}
+              >
+                <MastercardIcon />
+              </button>
+
+              {/* Amex */}
+              <button
+                type="button"
+                onClick={() => setPaymentMethod('amex')}
+                className={`flex items-center justify-center px-4 py-2 rounded-lg border transition-all duration-150 min-w-[72px] h-10 ${
+                  paymentMethod === 'amex'
+                    ? 'border-[var(--primary)] bg-[var(--primary)] ring-1 ring-[var(--primary)]'
+                    : 'border-[var(--border)] hover:border-[var(--primary)]/50 bg-white'
+                }`}
+              >
+                <AmexIcon active={paymentMethod === 'amex'} />
+              </button>
+
+              {/* PayPal */}
+              <button
+                type="button"
+                onClick={() => setPaymentMethod('paypal')}
+                className={`flex items-center justify-center px-4 py-2 rounded-lg border transition-all duration-150 min-w-[80px] h-10 ${
+                  paymentMethod === 'paypal'
+                    ? 'border-[var(--primary)] bg-[var(--primary)]/5 ring-1 ring-[var(--primary)]'
+                    : 'border-[var(--border)] hover:border-[var(--primary)]/50 bg-white'
+                }`}
+              >
+                <PayPalIcon />
+              </button>
+
+              {/* Wire Transfer */}
+              <button
+                type="button"
+                onClick={() => setPaymentMethod('wire')}
+                className={`flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg border transition-all duration-150 h-10 ${
+                  paymentMethod === 'wire'
+                    ? 'border-[var(--primary)] bg-[var(--primary)]/5 ring-1 ring-[var(--primary)] text-[var(--primary)]'
+                    : 'border-[var(--border)] hover:border-[var(--primary)]/50 bg-white text-[var(--muted-foreground)]'
+                }`}
+              >
+                <BankIcon />
+                <span className="text-xs font-medium whitespace-nowrap">Wire Transfer</span>
+              </button>
             </div>
             <p className="text-xs text-[var(--muted-foreground)] mt-2">
               Our team will send payment instructions to your email after submission.

@@ -95,7 +95,7 @@ export default function Header() {
             {/* Request Sample CTA */}
             <Link
               href="/request-sample"
-              className="hidden md:inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-wide px-4 py-2 rounded-lg text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 focus-visible:ring-offset-2"
+              className="hidden md:inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-wide px-4 py-2 rounded-lg text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 focus-visible:ring-offset-2 relative overflow-hidden"
               style={{
                 background: "linear-gradient(135deg, #1DAEBF 0%, #2CC8D8 100%)",
                 boxShadow: "0 0 0 1px rgba(44,200,216,0.3), 0 2px 8px rgba(44,200,216,0.3)",
@@ -113,6 +113,7 @@ export default function Header() {
               <svg className="w-3 h-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
               </svg>
+              <span className="btn-shine" aria-hidden="true" />
             </Link>
 
             {/* Google Translate */}

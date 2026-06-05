@@ -15,7 +15,9 @@ function getCategoryStyle(category: string): string {
   if (c.includes('retail') || c.includes('consumer') || c.includes('food') || c.includes('beverage')) return 'text-orange-500';
   if (c.includes('energy') || c.includes('environment')) return 'text-yellow-600';
   if (c.includes('finance') || c.includes('banking') || c.includes('insurance')) return 'text-violet-600';
-  return 'text-emerald-600';
+  if (c.includes('health') || c.includes('pharma') || c.includes('medical')) return 'text-blue-500';
+  if (c.includes('auto') || c.includes('transport') || c.includes('manufactur')) return 'text-blue-600';
+  return 'text-blue-600';
 }
 
 function formatMarketSize(raw: string | undefined): string {
@@ -68,7 +70,7 @@ function ReportCard({ report, index }: { report: Report; index: number }) {
       </h3>
 
       {/* Description */}
-      <p className="text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-2 mb-4 flex-1">
+      <p className="text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-3 mb-4 flex-1">
         {report.summary || report.description}
       </p>
 
@@ -96,7 +98,7 @@ function ReportCard({ report, index }: { report: Report; index: number }) {
         </span>
         <div className="flex items-center gap-2">
           <span className="text-sm font-semibold text-[var(--text-primary)]">
-            From {report.price}
+            From $3,199
           </span>
           <div
             className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors duration-200 ${

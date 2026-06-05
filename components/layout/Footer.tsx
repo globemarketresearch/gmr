@@ -29,7 +29,7 @@ export default function Footer() {
   const socials = [
     { href: "https://www.linkedin.com/company/globemarketresearch/", Icon: Linkedin, label: "LinkedIn" },
     { href: "https://x.com/GMR172026", Icon: Twitter, label: "X (Twitter)" },
-    { href: "https://www.facebook.com/globemarketresearch", Icon: Facebook, label: "Facebook" },
+    { href: "https://www.facebook.com/people/Globe-Market-Research/61590289933378/", Icon: Facebook, label: "Facebook" },
     { href: "https://www.instagram.com/GlobeMarketResearch", Icon: Instagram, label: "Instagram" },
   ];
 
@@ -172,13 +172,20 @@ export default function Footer() {
                   <Mail className="w-4 h-4 mt-0.5 shrink-0 text-sky-500" />
                   <span className="break-all leading-snug">{CONTACT_INFO.email}</span>
                 </a>
-
+                <Image
+                  src="/assets/other/secure-payments.png"
+                  alt="Accepted payment methods"
+                  width={280}
+                  height={60}
+                  className="h-auto w-full max-w-[280px] mt-2 mix-blend-multiply"
+                />
               </div>
             </div>
           </div>
 
+
           {/* ── Bottom bar ── */}
-          <div className="mt-10 pt-5 border-t border-slate-200 text-center">
+          <div className="mt-5 pt-5 border-t border-slate-200 text-center">
             <p className="text-xs text-slate-400">
               &copy; {currentYear} Globe Market Research. All rights reserved.
             </p>

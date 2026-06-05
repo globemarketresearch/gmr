@@ -40,10 +40,10 @@ export const generateOrganizationSchema = () => ({
     email: 'sales@globemarketresearch.com',
   },
   sameAs: [
-    'https://x.com/Healthcare_F',
-    'https://www.linkedin.com/company/healthcare-foresights/',
+    'https://x.com/GMR172026',
+    'https://www.linkedin.com/company/globemarketresearch/',
     'https://www.instagram.com/GlobeMarketResearch',
-    'https://www.facebook.com/people/Healthcare-Foresights/61588605652792/',
+    'https://www.facebook.com/people/Globe-Market-Research/61590289933378/',
   ],
 });
 
@@ -294,9 +294,9 @@ export const generateLocalBusinessSchema = () => ({
   priceRange: '$$$$',
   description: 'Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.',
   sameAs: [
-    'https://x.com/Healthcare_F',
-    'https://www.linkedin.com/company/healthcare-foresights/',
+    'https://x.com/GMR172026',
+    'https://www.linkedin.com/company/globemarketresearch/',
     'https://www.instagram.com/GlobeMarketResearch',
-    'https://www.facebook.com/people/Healthcare-Foresights/61588605652792/',
+    'https://www.facebook.com/people/Globe-Market-Research/61590289933378/',
   ],
 });

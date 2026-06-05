@@ -149,7 +149,7 @@ export default function IndustryCategoriesSection() {
       <style>{`
         .ic-section {
           background: #eef2f9;
-          padding: 72px 0 80px;
+          padding: 40px 0 80px;
         }
         .ic-inner {
           max-width: 1240px;

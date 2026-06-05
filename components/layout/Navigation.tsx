@@ -141,7 +141,7 @@ export default function Navigation() {
             aria-hidden={!isMobileMenuOpen}
             style={{
               background: "linear-gradient(180deg, #071828 0%, #0a1e30 100%)",
-              boxShadow: "-24px 0 60px rgba(0,0,0,0.5)",
+              boxShadow: isMobileMenuOpen ? "-24px 0 60px rgba(0,0,0,0.5)" : "none",
             }}
           >
             {/* Drawer header */}

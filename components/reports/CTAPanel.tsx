@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui';
 import { Button } from '@/components/ui';
 import { LICENSE_TIERS, type LicenseTier } from '@/lib/license-tiers';
@@ -100,35 +101,13 @@ export const CTAPanel = React.forwardRef<HTMLDivElement, CTAPanelProps>(
 
           {/* Payment methods */}
           <div className="pt-2 border-t border-[var(--border)]">
-            <p className="text-[10px] uppercase tracking-widest text-[var(--muted-foreground)] mb-2 font-semibold">
-              Accepted Payments
-            </p>
-            <div className="flex items-center gap-2 flex-wrap">
-              {/* Credit / Debit Card */}
-              <div className="flex items-center gap-1 bg-[var(--surface,#f8fafc)] border border-[var(--border)] rounded px-2 py-1">
-                <svg className="w-4 h-4 text-[var(--muted-foreground)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                  <rect x="2" y="5" width="20" height="14" rx="2" />
-                  <path d="M2 10h20" strokeLinecap="round" />
-                </svg>
-                <span className="text-[10px] text-[var(--muted-foreground)] font-medium">Card</span>
-              </div>
-              {/* PayPal */}
-              <div className="flex items-center gap-1 bg-[var(--surface,#f8fafc)] border border-[var(--border)] rounded px-2 py-1">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7.5 21H4.5L6.5 8h5.5c2.5 0 4.5 1.5 4 4.5C15.5 15.5 13 17 10.5 17H8.5L7.5 21Z" fill="#003087"/>
-                  <path d="M10.5 17h2c2.5 0 5-1.5 5.5-4.5.5-2.5-1-4.5-3.5-4.5H11" fill="#009cde"/>
-                </svg>
-                <span className="text-[10px] text-[var(--muted-foreground)] font-medium">PayPal</span>
-              </div>
-              {/* Wire Transfer */}
-              <div className="flex items-center gap-1 bg-[var(--surface,#f8fafc)] border border-[var(--border)] rounded px-2 py-1">
-                <svg className="w-4 h-4 text-[var(--muted-foreground)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
-                <span className="text-[10px] text-[var(--muted-foreground)] font-medium">Wire</span>
-              </div>
-            </div>
+            <Image
+              src="/assets/other/secure-payments.png"
+              alt="Accepted payment methods"
+              width={300}
+              height={40}
+              className="w-full h-auto mix-blend-multiply"
+            />
           </div>
         </CardContent>
       </Card>
