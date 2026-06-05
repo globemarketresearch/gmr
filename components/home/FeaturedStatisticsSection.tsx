@@ -9,13 +9,8 @@ function formatShortDate(dateStr: string): string {
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
-function getCategoryStyle(category: string): string {
-  const c = (category || '').toLowerCase();
-  if (c.includes('health') || c.includes('medical') || c.includes('pharma')) return 'text-emerald-600';
-  if (c.includes('tech') || c.includes('ai') || c.includes('data')) return 'text-blue-600';
-  if (c.includes('finance') || c.includes('market') || c.includes('econ')) return 'text-violet-600';
-  if (c.includes('energy') || c.includes('environ')) return 'text-yellow-600';
-  return 'text-sky-600';
+function getCategoryStyle(_category: string): string {
+  return 'text-blue-600';
 }
 
 function StatCard({ blog, index }: { blog: Blog; index: number }) {

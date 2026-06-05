@@ -10,14 +10,8 @@ function formatShortDate(dateStr: string | null | undefined): string {
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
-function getCategoryStyle(category: string): string {
-  const c = (category || '').toLowerCase();
-  if (c.includes('health') || c.includes('medical') || c.includes('pharma')) return 'text-rose-600';
-  if (c.includes('tech') || c.includes('ai') || c.includes('software')) return 'text-blue-600';
-  if (c.includes('finance') || c.includes('banking') || c.includes('market')) return 'text-violet-600';
-  if (c.includes('energy') || c.includes('environ')) return 'text-yellow-600';
-  if (c.includes('retail') || c.includes('consumer')) return 'text-orange-500';
-  return 'text-teal-600';
+function getCategoryStyle(_category: string): string {
+  return 'text-blue-600';
 }
 
 function PressReleaseCard({ pr, index }: { pr: PressRelease; index: number }) {

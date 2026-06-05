@@ -9,14 +9,7 @@ function formatShortDate(dateStr: string): string {
   return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 }
 
-function getCategoryStyle(category: string): string {
-  const c = category.toLowerCase();
-  if (c.includes('tech') || c.includes('it') || c.includes('software')) return 'text-blue-600';
-  if (c.includes('retail') || c.includes('consumer') || c.includes('food') || c.includes('beverage')) return 'text-orange-500';
-  if (c.includes('energy') || c.includes('environment')) return 'text-yellow-600';
-  if (c.includes('finance') || c.includes('banking') || c.includes('insurance')) return 'text-violet-600';
-  if (c.includes('health') || c.includes('pharma') || c.includes('medical')) return 'text-blue-500';
-  if (c.includes('auto') || c.includes('transport') || c.includes('manufactur')) return 'text-blue-600';
+function getCategoryStyle(_category: string): string {
   return 'text-blue-600';
 }
 
