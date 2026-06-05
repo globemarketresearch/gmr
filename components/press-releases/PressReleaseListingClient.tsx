@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { PressRelease } from '@/lib/api/press-releases.types';
 import PressReleaseListCard from './PressReleaseListCard';
 import Pagination from '@/components/reports/Pagination';
@@ -70,6 +71,15 @@ export default function PressReleaseListingClient({
         className="relative overflow-hidden border-b border-[var(--border-color)]"
         style={{ background: 'var(--featured-bg)' }}
       >
+        <Image
+          src="/assets/other/PressReleases.png"
+          alt=""
+          fill
+          className="object-cover object-center"
+          aria-hidden
+          priority
+        />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(3,26,61,0.35) 0%, rgba(3,26,61,0.55) 100%)' }} />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
@@ -84,7 +94,7 @@ export default function PressReleaseListingClient({
           className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-10"
           style={{ background: 'radial-gradient(circle, #0284c7, transparent 70%)' }}
         />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs mb-6" style={{ color: 'rgba(255,255,255,0.45)' }}>
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
