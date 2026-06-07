@@ -735,13 +735,13 @@ html body { top: 0 !important; }
   /* color: var(--teal-bright, #3F37C9); */
   /* color: var(--teal-bright, #3F37C9); */
   font-weight: 700;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
 }
 
-.styled-report-content h2,
+/* .styled-report-content h2,
 .styled-article-content h2 {
   margin-bottom: 1.5rem;
-}
+} */
 
 .styled-report-content h2 {
   font-size: 1.25rem;
@@ -789,7 +789,7 @@ html body { top: 0 !important; }
 
 .styled-report-content p {
   font-size: 1rem;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .styled-article-content p {
@@ -824,6 +824,7 @@ html body { top: 0 !important; }
 .styled-report-content table,
 .styled-article-content table {
   color: #333333;
+  margin-bottom: 1.5rem;
 }
 
 .styled-report-content th,
@@ -906,7 +907,7 @@ html body { top: 0 !important; }
 .styled-report-content > h3 + *,
 .styled-article-content > h2 + *,
 .styled-article-content > h3 + * {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .image-wrapper {

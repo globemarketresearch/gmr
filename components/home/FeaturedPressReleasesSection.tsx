@@ -114,7 +114,7 @@ export default async function FeaturedPressReleasesSection() {
   return (
     <Section background="muted" padding="sm">
       <Container size="xl">
-        <div className="space-y-8">
+        <div className="space-y-5">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="space-y-2 min-w-0">
               <div className="flex items-center gap-2">

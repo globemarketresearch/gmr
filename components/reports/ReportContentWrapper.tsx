@@ -6,7 +6,7 @@ import { FullReportTOC } from './FullReportTOC';
 import { CTAPanel } from './CTAPanel';
 import { CustomizeReportCard } from './CustomizeReportCard';
 import { BriefWithAI } from './BriefWithAI';
-import { groupTableOfContents, SidebarTOCItem, TOCItem } from '@/lib/toc-utils';
+import { SidebarTOCItem, TOCItem } from '@/lib/toc-utils';
 import { useGeneratedTOC } from '@/hooks/useGeneratedTOC';
 
 interface ReportContentWrapperProps {
@@ -40,9 +40,6 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
 
   // Use provided TOC or fall back to auto-generated TOC
   const activeTOC = tableOfContents || generatedTOC;
-
-  // Transform full report TOC data into chapters
-  const chapters = fullReportTOC ? groupTableOfContents(fullReportTOC) : [];
 
   // Handle scroll to top when full TOC is opened
   useEffect(() => {
@@ -115,7 +112,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
       <main>
         {showFullTOC ? (
           <FullReportTOC
-            chapters={chapters}
+            items={fullReportTOC ?? []}
             onClose={() => setShowFullTOC(false)}
           />
         ) : (

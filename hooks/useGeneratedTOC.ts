@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { SidebarTOCItem } from '@/lib/toc-utils';
 
 // Default heading levels array - defined outside to maintain stable reference
-const DEFAULT_HEADING_LEVELS = ['h2', 'h3'];
+const DEFAULT_HEADING_LEVELS = ['h2'];
 
 /**
  * Custom hook to automatically generate a Table of Contents from headings in the DOM

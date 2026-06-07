@@ -10,6 +10,7 @@ interface TableOfContentsProps {
   onShowFullTOC?: () => void;
   showFullTOC?: boolean;
   onNavigateToSection?: (sectionId: string) => void;
+  label?: string;
 }
 
 export const TableOfContents: React.FC<TableOfContentsProps> = ({
@@ -18,6 +19,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
   onShowFullTOC,
   showFullTOC,
   onNavigateToSection,
+  label = 'Report Details',
 }) => {
   const [activeId, setActiveId] = useState<string>('');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -141,7 +143,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
         <div className="flex items-center gap-2 mb-4 flex-shrink-0">
           <div className="w-1 h-4 rounded-full bg-[var(--primary)]" />
           <h3 className="text-[11px] font-bold text-[var(--primary)] uppercase tracking-[0.12em]">
-            Report Details
+            {label}
           </h3>
         </div>
 

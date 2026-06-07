@@ -302,7 +302,7 @@ export default function ContactPage() {
             </Card>
 
             {/* WhatsApp Card */}
-            <Card className="text-center hover:shadow-lg transition-shadow">
+            {/*<Card className="text-center hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
                 <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -319,7 +319,7 @@ export default function ContactPage() {
                   {CONTACT_INFO.whatsapp.formatted}
                 </a>
               </CardContent>
-            </Card>
+            </Card> */}
 
             {/* USA Office Card */}
             <Card className="text-center hover:shadow-lg transition-shadow">

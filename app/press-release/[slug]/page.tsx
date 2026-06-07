@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Section, Container, StyledArticleContent, Button, Card, CardContent } from "@/components/ui";
+import { ArticleContentWrapper } from "@/components/shared/ArticleContentWrapper";
 import { getPressReleases, getPressReleaseBySlug, getReportBySlug, isApiError } from "@/lib/api";
 import type { Metadata } from "next";
 import { StructuredData, generateArticleSchema, generateBreadcrumbSchema } from "@/components/seo/StructuredData";
@@ -137,7 +138,7 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
           className="pointer-events-none absolute -top-32 -right-32 w-[32rem] h-[32rem] rounded-full opacity-10"
           style={{ background: 'radial-gradient(circle, #0284c7, transparent 70%)' }}
         />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="relative max-w-[1400px] 2xl:max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs mb-7" style={{ color: 'rgba(255,255,255,0.4)' }}>
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -224,80 +225,78 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
         </div>
       </div>
 
-      <Section className="pt-8">
-        <Container size="lg">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Left – article (2/3 width) */}
-            <div className="lg:col-span-2">
-              <article>
-                <StyledArticleContent htmlContent={pressRelease.content} />
-              </article>
+      <Section className="pt-8" container={false}>
+        <Container size="xl">
+          <ArticleContentWrapper
+            sidebar={
+              <div className="space-y-6">
+                <Card>
+                  <CardContent className="space-y-3 pt-4">
+                    {relatedReportId && (
+                      <>
+                        <Link href={`/request-sample?reportId=${relatedReportId}`}>
+                          <Button
+                            className="w-full bg-[#E3F2FD] text-[#1565C0] hover:bg-[#BBDEFB]  border-[#90CAF9] hover:border-[#64B5F6]"
+                            variant="outline"
+                            size="lg"
+                          >
+                            Request Sample
+                          </Button>
+                        </Link>
+                        <Link href={`/request-customization?reportId=${relatedReportId}`}>
+                          <Button
+                            className="w-full mt-3 bg-green-50 text-green-700 hover:bg-green-100 hover:text-green-800 border-green-200 hover:border-green-300"
+                            variant="outline"
+                            size="lg"
+                          >
+                            Customization
+                          </Button>
+                        </Link>
+                      </>
+                    )}
+                    {pressRelease.reportUrl && (
+                      <Link href={pressRelease.reportUrl}>
+                        <Button
+                          className="w-full mt-3"
+                          size="lg"
+                        >
+                          Read Report
+                        </Button>
+                      </Link>
+                    )}
+                  </CardContent>
+                </Card>
 
-              <div className="mt-12 pt-8 border-t border-[var(--border)]">
-                <Link
-                  href="/press-releases"
-                  className="inline-flex items-center gap-2 text-[var(--primary)] hover:underline font-medium"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m15 18-6-6 6-6"/>
-                  </svg>
-                  View all press releases
-                </Link>
+                <TrustedPartnersSidebar />
               </div>
-            </div>
+            }
+          >
+            <article>
+              <StyledArticleContent htmlContent={pressRelease.content} />
+            </article>
 
-            {/* Right – sidebar (1/3 width) */}
-            <div className="space-y-6">
-              <Card>
-                <CardContent className="space-y-3 pt-4">
-                  {relatedReportId && (
-                    <>
-                      <Link href={`/request-sample?reportId=${relatedReportId}`}>
-                        <Button
-                          className="w-full bg-[#E3F2FD] text-[#1565C0] hover:bg-[#BBDEFB]  border-[#90CAF9] hover:border-[#64B5F6]"
-                          variant="outline"
-                          size="lg"
-                        >
-                          Request Sample
-                        </Button>
-                      </Link>
-                      <Link href={`/request-customization?reportId=${relatedReportId}`}>
-                        <Button
-                          className="w-full mt-3 bg-green-50 text-green-700 hover:bg-green-100 hover:text-green-800 border-green-200 hover:border-green-300"
-                          variant="outline"
-                          size="lg"
-                        >
-                          Customization
-                        </Button>
-                      </Link>
-                    </>
-                  )}
-                  {pressRelease.reportUrl && (
-                    <Link href={pressRelease.reportUrl}>
-                      <Button
-                        className="w-full mt-3"
-                        size="lg"
-                      >
-                        Read Report
-                      </Button>
-                    </Link>
-                  )}
-                </CardContent>
-              </Card>
-
-              <TrustedPartnersSidebar />
+            <div className="mt-12 pt-8 border-t border-[var(--border)]">
+              <Link
+                href="/press-releases"
+                className="inline-flex items-center gap-2 text-[var(--primary)] hover:underline font-medium"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+                View all press releases
+              </Link>
             </div>
-          </div>
+          </ArticleContentWrapper>
         </Container>
       </Section>
     </>

@@ -149,7 +149,7 @@ export default function IndustryCategoriesSection() {
       <style>{`
         .ic-section {
           background: #eef2f9;
-          padding: 40px 0 80px;
+          padding: 24px 0 40px;
         }
         .ic-inner {
           max-width: 1240px;
@@ -161,7 +161,7 @@ export default function IndustryCategoriesSection() {
         }
         .ic-heading {
           text-align: center;
-          margin-bottom: 36px;
+          margin-bottom: 16px;
         }
         .ic-title {
           font-size: clamp(1.8rem, 3.5vw, 2.5rem);
@@ -362,7 +362,7 @@ export default function IndustryCategoriesSection() {
         }
         @media (max-width: 480px) {
           .ic-section {
-            padding: 48px 0 56px;
+            padding: 20px 0 32px;
           }
           .ic-featured {
             height: 260px;

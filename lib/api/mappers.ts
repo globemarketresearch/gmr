@@ -287,7 +287,7 @@ export function mapApiReportToReport(apiReport: ApiReport): Report {
     categoryImageUrl: apiReport.category_image_url || undefined,
 
     // Extended fields for detail page
-    reportCode: `HF${apiReport.id}`,
+    reportCode: `GMR${apiReport.id}`,
     baseYear,
     forecastPeriod,
     marketSize2024,

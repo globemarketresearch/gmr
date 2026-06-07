@@ -401,7 +401,7 @@ export default async function ReportPage({
     price: report.price,
     discountedPrice: report.discounted_price,
     category: report.category,
-    reportCode: report.reportCode || `HF${report.id}`,
+    reportCode: `GMR${report.id}`,
     keywords: reportKeywords,
     datePublished: report.date,
     image: reportOgImage,
@@ -524,7 +524,7 @@ export default async function ReportPage({
             >
               <div className="flex flex-wrap items-center gap-6">
                 {[
-                  { label: 'Report Code', value: report.reportCode || `HF${report.id}` },
+                  { label: 'Report Code', value: report.reportCode || `GMR${report.id}` },
                   { label: 'Published', value: report.date },
                   { label: 'Pages', value: report.pages ? `${report.pages}+` : '—' },
                   { label: 'Format', value: 'PDF, Excel' },

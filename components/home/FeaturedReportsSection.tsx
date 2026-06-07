@@ -125,8 +125,8 @@ export default async function FeaturedReportsSection() {
   return (
     <Section background="muted" padding="sm">
       <Container size="xl">
-        <div className="space-y-8">
-          <div className="text-center space-y-3">
+        <div className="space-y-5">
+          <div className="text-center space-y-2">
             <h2
               className="font-display text-3xl md:text-4xl font-bold text-[var(--text-primary)]"
               style={{ letterSpacing: '-0.03em' }}
