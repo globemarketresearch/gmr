@@ -1,27 +1,16 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { SidebarTOCItem } from '@/lib/toc-utils';
-
-// Default heading levels array - defined outside to maintain stable reference
-const DEFAULT_HEADING_LEVELS = ['h2'];
 
 /**
  * Custom hook to automatically generate a Table of Contents from headings in the DOM
- * Supports h2, h3, and h4 headings and uses MutationObserver to detect dynamically added content
+ * Uses h2 headings only and uses MutationObserver to detect dynamically added content
  * @param containerSelector - CSS selector for the container element (default: 'article')
- * @param headingLevels - Array of heading levels to include (default: ['h2', 'h3', 'h4'])
  * @returns Array of SidebarTOCItem extracted from headings
  */
 export function useGeneratedTOC(
-  containerSelector: string = 'article',
-  headingLevels?: string[]
+  containerSelector: string = 'article'
 ): SidebarTOCItem[] {
   const [tocItems, setTocItems] = useState<SidebarTOCItem[]>([]);
-
-  // Use stable reference for heading levels
-  const levels = headingLevels || DEFAULT_HEADING_LEVELS;
-
-  // Create a stable key from levels array to use in dependency array
-  const levelsKey = useMemo(() => levels.join(','), [levels]);
 
   useEffect(() => {
     // Function to generate a URL-safe ID from heading text
@@ -49,9 +38,7 @@ export function useGeneratedTOC(
         observer.disconnect();
       }
 
-      // Find all specified heading elements within the container
-      const headingSelector = levels.join(', ');
-      const headings = container.querySelectorAll(headingSelector);
+      const headings = container.querySelectorAll('h2');
       const items: SidebarTOCItem[] = [];
 
       headings.forEach((heading) => {
@@ -107,12 +94,10 @@ export function useGeneratedTOC(
           mutation.addedNodes.forEach((node) => {
             if (node.nodeType === Node.ELEMENT_NODE) {
               const element = node as Element;
-              const headingSelector = levels.join(', ');
-
-              // Check if the node itself is a heading or contains headings
+              // Check if the node itself is an h2 or contains h2 headings
               if (
-                levels.includes(element.tagName.toLowerCase()) ||
-                element.querySelector(headingSelector)
+                element.tagName.toLowerCase() === 'h2' ||
+                element.querySelector('h2')
               ) {
                 shouldUpdate = true;
               }
@@ -142,7 +127,7 @@ export function useGeneratedTOC(
         observer.disconnect();
       }
     };
-  }, [containerSelector, levelsKey]);
+  }, [containerSelector]);
 
   return tocItems;
 }

@@ -39,7 +39,11 @@ export const metadata: Metadata = {
   keywords: ["Globe Market Research", "global market research", "market intelligence", "industry research reports", "market analysis", "business insights"],
   authors: [{ name: "Globe Market Research Team" }],
   icons: {
-    icon: "/assets/images/favicon.png",
+    icon: [
+      { url: "/assets/images/favicon.png", type: "image/png" },
+    ],
+    apple: "/assets/images/favicon.png",
+    shortcut: "/assets/images/favicon.png",
   },
   openGraph: {
     type: "website",

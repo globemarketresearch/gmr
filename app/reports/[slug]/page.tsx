@@ -219,8 +219,7 @@ export default async function ReportPage({
     // Add Competitive Landscape section if key players exist
     if (report.keyPlayers && report.keyPlayers.length > 0) {
       staticSections.push(
-        { id: 'competitive', title: 'Competitive Landscape', level: 2 },
-        { id: 'key-players', title: 'Key Market Players', level: 3 }
+        { id: 'competitive', title: 'Competitive Landscape', level: 2 }
       );
     }
 

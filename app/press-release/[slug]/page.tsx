@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Section, Container, StyledArticleContent, Button, Card, CardContent } from "@/components/ui";
+import { Section, Container, Button, Card, CardContent } from "@/components/ui";
+import { StyledReportContent } from "@/components/reports/StyledReportContent";
 import { ArticleContentWrapper } from "@/components/shared/ArticleContentWrapper";
 import { getPressReleases, getPressReleaseBySlug, getReportBySlug, isApiError } from "@/lib/api";
 import type { Metadata } from "next";
@@ -272,7 +273,7 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
             }
           >
             <article>
-              <StyledArticleContent htmlContent={pressRelease.content} />
+              <StyledReportContent htmlContent={pressRelease.content} />
             </article>
 
             <div className="mt-12 pt-8 border-t border-[var(--border)]">

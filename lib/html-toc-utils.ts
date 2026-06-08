@@ -44,8 +44,8 @@ export function parseHTMLAndGenerateTOC(htmlContent: string): {
   const toc: SidebarTOCItem[] = [];
   const idCounts = new Map<string, number>();
 
-  // Regex to match h2 and h3 tags with their content
-  const headingRegex = /<(h[23])(\s+[^>]*)?>(.*?)<\/\1>/gi;
+  // Regex to match h2 tags with their content
+  const headingRegex = /<(h2)(\s+[^>]*)?>(.*?)<\/\1>/gi;
 
   let modifiedHtml = htmlContent;
   let match;
@@ -55,7 +55,7 @@ export function parseHTMLAndGenerateTOC(htmlContent: string): {
 
   while ((match = headingRegex.exec(htmlContent)) !== null) {
     const [fullMatch, tag, attributes = '', content] = match;
-    const level = parseInt(tag.substring(1)); // 'h2' -> 2, 'h3' -> 3
+    const level = parseInt(tag.substring(1)); // 'h2' -> 2
 
     // Remove HTML tags from content to get plain text and decode HTML entities
     const text = decodeHTMLEntities(content.replace(/<[^>]+>/g, '').trim());
