@@ -77,63 +77,89 @@ function parseKeyPlayers(jsonString?: string): Array<{ name: string; marketShare
   }
 }
 
-/**
- * Parse table of contents JSON string and flatten nested structure
- */
-function parseTableOfContents(tocString?: string): Array<{ id: string; title: string; number?: string; children?: Array<{ id: string; title: string; number?: string }> }> {
-  if (!tocString) return [];
+type FlatTOCItem = { id: string; title: string; number?: string; children?: FlatTOCItem[] };
 
-  try {
-    const toc = JSON.parse(tocString) as { chapters?: TOCChapter[] };
-    if (!toc.chapters || !Array.isArray(toc.chapters)) {
-      return [];
+/**
+ * Parse raw-text TOC (newline/tab/space indented) into flat array.
+ * Chapter lines ("Chapter N. Title" or "N. Title") get a plain number like "1".
+ * Section lines ("N.N ...") keep their dotted number.
+ */
+function parseRawTextTOC(text: string): FlatTOCItem[] {
+  const flat: FlatTOCItem[] = [];
+  let id = 0;
+  const genId = () => `toc-raw-${++id}`;
+
+  for (const line of text.split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+
+    // Subsection: 1.1.1 or 1.1.1.
+    const sub = trimmed.match(/^(\d+\.\d+\.\d+)\.?\s+(.+)$/);
+    if (sub) {
+      flat.push({ id: genId(), title: sub[2], number: sub[1] });
+      continue;
     }
 
-    // Flatten the nested structure into a flat array with proper numbering
-    const flatTOC: Array<{ id: string; title: string; number?: string; children?: Array<{ id: string; title: string; number?: string }> }> = [];
+    // Section: 1.1 or 1.1.
+    const sec = trimmed.match(/^(\d+\.\d+)\.?\s+(.+)$/);
+    if (sec) {
+      flat.push({ id: genId(), title: sec[2], number: sec[1] });
+      continue;
+    }
 
-    toc.chapters.forEach((chapter: TOCChapter, chapterIndex: number) => {
-      const chapterNumber = (chapterIndex + 1).toString();
+    // Chapter: "Chapter N. Title" or "N. Title"
+    const ch = trimmed.match(/^(?:Chapter\s+)?(\d+)\.(?!\d)\s*(.+)$/i);
+    if (ch) {
+      flat.push({ id: genId(), title: ch[2], number: ch[1] });
+      continue;
+    }
 
-      // Add chapter
-      flatTOC.push({
-        id: chapter.id || `ch${chapterNumber}`,
-        title: chapter.title,
-        number: chapterNumber,
+    // Unrecognized line — emit as a chapter-level entry without a number
+    flat.push({ id: genId(), title: trimmed });
+  }
+
+  return flat;
+}
+
+/**
+ * Parse table of contents from backend string.
+ * Handles both legacy JSON {chapters:[]} format and new raw text format.
+ */
+function parseTableOfContents(tocString?: string): FlatTOCItem[] {
+  if (!tocString) return [];
+
+  // Try JSON (legacy structured format)
+  try {
+    const toc = JSON.parse(tocString) as { chapters?: TOCChapter[] };
+    if (toc.chapters && Array.isArray(toc.chapters)) {
+      const flatTOC: FlatTOCItem[] = [];
+
+      toc.chapters.forEach((chapter: TOCChapter, chapterIndex: number) => {
+        const chapterNumber = (chapterIndex + 1).toString();
+        flatTOC.push({ id: chapter.id || `ch${chapterNumber}`, title: chapter.title, number: chapterNumber });
+
+        if (chapter.sections && Array.isArray(chapter.sections)) {
+          chapter.sections.forEach((section: TOCSection, sectionIndex: number) => {
+            const sectionNumber = `${chapterNumber}.${sectionIndex + 1}`;
+            flatTOC.push({ id: section.id || `sec${sectionNumber}`, title: section.title, number: sectionNumber });
+
+            if (section.subsections && Array.isArray(section.subsections)) {
+              section.subsections.forEach((subsection: TOCSubsection, subsectionIndex: number) => {
+                const subsectionNumber = `${sectionNumber}.${subsectionIndex + 1}`;
+                flatTOC.push({ id: subsection.id || `subsec${subsectionNumber}`, title: subsection.title, number: subsectionNumber });
+              });
+            }
+          });
+        }
       });
 
-      // Add sections if they exist
-      if (chapter.sections && Array.isArray(chapter.sections)) {
-        chapter.sections.forEach((section: TOCSection, sectionIndex: number) => {
-          const sectionNumber = `${chapterNumber}.${sectionIndex + 1}`;
-
-          flatTOC.push({
-            id: section.id || `sec${sectionNumber}`,
-            title: section.title,
-            number: sectionNumber,
-          });
-
-          // Add subsections if they exist
-          if (section.subsections && Array.isArray(section.subsections)) {
-            section.subsections.forEach((subsection: TOCSubsection, subsectionIndex: number) => {
-              const subsectionNumber = `${sectionNumber}.${subsectionIndex + 1}`;
-
-              flatTOC.push({
-                id: subsection.id || `subsec${subsectionNumber}`,
-                title: subsection.title,
-                number: subsectionNumber,
-              });
-            });
-          }
-        });
-      }
-    });
-
-    return flatTOC;
-  } catch (error) {
-    console.error('Failed to parse table of contents:', error);
-    return [];
+      return flatTOC;
+    }
+  } catch {
+    // not JSON — fall through to raw text parsing
   }
+
+  return parseRawTextTOC(tocString);
 }
 
 /**
