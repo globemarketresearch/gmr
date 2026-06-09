@@ -69,10 +69,10 @@ export const radarData = [
 ];
 
 export const radialBarData = [
-  { name: 'Market Penetration', value: 68, fill: '#3b82f6' },
-  { name: 'Customer Retention', value: 82, fill: '#10b981' },
-  { name: 'Revenue Growth', value: 74, fill: '#f59e0b' },
-  { name: 'Operational Efficiency', value: 91, fill: '#8b5cf6' },
+  { name: 'Market Penetration', value: 68, fill: '#2CC8D8' },
+  { name: 'Customer Retention', value: 82, fill: '#44b48b' },
+  { name: 'Revenue Growth', value: 74, fill: '#ec652b' },
+  { name: 'Operational Efficiency', value: 91, fill: '#7ea7e9' },
 ];
 
 export const composedData = [
@@ -101,16 +101,16 @@ export const treemapData = [
 ];
 
 export const funnelData = [
-  { value: 100, name: 'Market Awareness', fill: '#3b82f6' },
-  { value: 78, name: 'Active Consideration', fill: '#10b981' },
-  { value: 54, name: 'Intent to Purchase', fill: '#f59e0b' },
-  { value: 38, name: 'Evaluation Stage', fill: '#ef4444' },
-  { value: 22, name: 'Purchase Complete', fill: '#8b5cf6' },
+  { value: 100, name: 'Market Awareness', fill: '#2CC8D8' },
+  { value: 78, name: 'Active Consideration', fill: '#44b48b' },
+  { value: 54, name: 'Intent to Purchase', fill: '#ec652b' },
+  { value: 38, name: 'Evaluation Stage', fill: '#1a6fa8' },
+  { value: 22, name: 'Purchase Complete', fill: '#162050' },
 ];
 
-export const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+export const COLORS = ['#2CC8D8', '#44b48b', '#ec652b', '#1a6fa8', '#7ea7e9'];
 
 export const TREEMAP_COLORS = [
-  '#1d4ed8', '#2563eb', '#3b82f6', '#60a5fa',
-  '#0f766e', '#0d9488', '#14b8a6', '#2dd4bf',
+  '#162050', '#1a4a7a', '#1a6fa8', '#7ea7e9',
+  '#0d8a96', '#1DAEBF', '#2CC8D8', '#45D4E3',
 ];

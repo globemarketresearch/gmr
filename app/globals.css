@@ -749,7 +749,8 @@ html body { top: 0 !important; }
 
 .styled-report-content h3,
 .styled-article-content h3 {
-  color: #00695C;
+  color: #37448C;
+  font-size: 1.125rem;
   font-weight: 600;
   margin-top: 1rem;
   margin-bottom: 1rem;

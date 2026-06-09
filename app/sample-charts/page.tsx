@@ -10,7 +10,6 @@ import {
   RadialBarChart, RadialBar,
   ComposedChart,
   Treemap,
-  FunnelChart, Funnel, LabelList,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from "recharts";
 import Link from "next/link";
@@ -18,7 +17,7 @@ import { Section, Container, Card, CardContent, CardHeader, CardTitle, CardDescr
 import {
   lineData, barData, areaData, pieData, stackedBarData,
   scatterData, radarData, radialBarData, composedData,
-  treemapData, funnelData, COLORS, TREEMAP_COLORS,
+  treemapData, COLORS, TREEMAP_COLORS,
 } from "./data";
 
 const CHART_HEIGHT = 320;
@@ -99,7 +98,7 @@ export default function SampleChartsPage() {
                   <XAxis dataKey="year" tick={{ fontSize: 11 }} />
                   <YAxis tick={{ fontSize: 11 }} unit="B" />
                   <Tooltip formatter={(v: number) => [`$${v}B`, "Market Size"]} />
-                  <Line type="monotone" dataKey="value" stroke="#3b82f6" strokeWidth={2} dot={{ r: 3 }} activeDot={{ r: 5 }} />
+                  <Line type="monotone" dataKey="value" stroke="#2CC8D8" strokeWidth={2} dot={{ r: 3 }} activeDot={{ r: 5 }} />
                 </LineChart>
               </ResponsiveContainer>
             </ChartCard>
@@ -114,7 +113,7 @@ export default function SampleChartsPage() {
                   <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
                   <XAxis dataKey="region" tick={{ fontSize: 10 }} />
                   <YAxis tick={{ fontSize: 11 }} unit="B" />
-                  <Tooltip formatter={(v: number) => [`$${v}B`, "Revenue"]} />
+                  <Tooltip formatter={(v: number) => [`$${v}B`, "Revenue"]} cursor={{ fill: "rgba(0,0,0,0.05)" }} />
                   <Bar dataKey="revenue" radius={[4, 4, 0, 0]}>
                     {barData.map((_, i) => (
                       <Cell key={i} fill={COLORS[i % COLORS.length]} />
@@ -136,10 +135,10 @@ export default function SampleChartsPage() {
                   <YAxis tick={{ fontSize: 11 }} unit="B" />
                   <Tooltip formatter={(v: number) => [`$${v}B`]} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
-                  <Area type="monotone" dataKey="therapeutics" stackId="1" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.6} />
-                  <Area type="monotone" dataKey="diagnostics" stackId="1" stroke="#10b981" fill="#10b981" fillOpacity={0.6} />
-                  <Area type="monotone" dataKey="devices" stackId="1" stroke="#f59e0b" fill="#f59e0b" fillOpacity={0.6} />
-                  <Area type="monotone" dataKey="services" stackId="1" stroke="#8b5cf6" fill="#8b5cf6" fillOpacity={0.6} />
+                  <Area type="monotone" dataKey="therapeutics" stackId="1" stroke="#2CC8D8" fill="#2CC8D8" fillOpacity={0.6} />
+                  <Area type="monotone" dataKey="diagnostics" stackId="1" stroke="#44b48b" fill="#44b48b" fillOpacity={0.6} />
+                  <Area type="monotone" dataKey="devices" stackId="1" stroke="#ec652b" fill="#ec652b" fillOpacity={0.6} />
+                  <Area type="monotone" dataKey="services" stackId="1" stroke="#7ea7e9" fill="#7ea7e9" fillOpacity={0.6} />
                 </AreaChart>
               </ResponsiveContainer>
             </ChartCard>
@@ -181,12 +180,12 @@ export default function SampleChartsPage() {
                   <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
                   <XAxis dataKey="year" tick={{ fontSize: 11 }} />
                   <YAxis tick={{ fontSize: 11 }} unit="B" />
-                  <Tooltip formatter={(v: number) => [`$${v}B`]} />
+                  <Tooltip formatter={(v: number) => [`$${v}B`]} cursor={{ fill: "rgba(0,0,0,0.05)" }} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
-                  <Bar dataKey="pharma" stackId="a" fill="#3b82f6" radius={[0, 0, 0, 0]} name="Pharma" />
-                  <Bar dataKey="biotech" stackId="a" fill="#10b981" name="Biotech" />
-                  <Bar dataKey="medtech" stackId="a" fill="#f59e0b" name="MedTech" />
-                  <Bar dataKey="services" stackId="a" fill="#8b5cf6" radius={[4, 4, 0, 0]} name="Services" />
+                  <Bar dataKey="pharma" stackId="a" fill="#2CC8D8" radius={[0, 0, 0, 0]} name="Pharma" />
+                  <Bar dataKey="biotech" stackId="a" fill="#44b48b" name="Biotech" />
+                  <Bar dataKey="medtech" stackId="a" fill="#ec652b" name="MedTech" />
+                  <Bar dataKey="services" stackId="a" fill="#7ea7e9" radius={[4, 4, 0, 0]} name="Services" />
                 </BarChart>
               </ResponsiveContainer>
             </ChartCard>
@@ -202,7 +201,7 @@ export default function SampleChartsPage() {
                   <XAxis dataKey="price" name="Price" unit="$" tick={{ fontSize: 11 }} label={{ value: 'Unit Price ($)', position: 'insideBottom', offset: -2, fontSize: 11 }} />
                   <YAxis dataKey="volume" name="Volume" tick={{ fontSize: 11 }} label={{ value: 'Volume', angle: -90, position: 'insideLeft', fontSize: 11 }} />
                   <Tooltip cursor={{ strokeDasharray: "3 3" }} formatter={(v: number, name: string) => [name === "Price" ? `$${v}` : v.toLocaleString(), name]} />
-                  <Scatter data={scatterData} fill="#3b82f6" fillOpacity={0.7} />
+                  <Scatter data={scatterData} fill="#2CC8D8" fillOpacity={0.7} />
                 </ScatterChart>
               </ResponsiveContainer>
             </ChartCard>
@@ -217,9 +216,9 @@ export default function SampleChartsPage() {
                   <PolarGrid stroke="var(--border)" />
                   <PolarAngleAxis dataKey="dimension" tick={{ fontSize: 10 }} />
                   <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fontSize: 9 }} />
-                  <Radar name="Company A" dataKey="companyA" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.2} />
-                  <Radar name="Company B" dataKey="companyB" stroke="#10b981" fill="#10b981" fillOpacity={0.2} />
-                  <Radar name="Company C" dataKey="companyC" stroke="#f59e0b" fill="#f59e0b" fillOpacity={0.2} />
+                  <Radar name="Company A" dataKey="companyA" stroke="#2CC8D8" fill="#2CC8D8" fillOpacity={0.2} />
+                  <Radar name="Company B" dataKey="companyB" stroke="#44b48b" fill="#44b48b" fillOpacity={0.2} />
+                  <Radar name="Company C" dataKey="companyC" stroke="#ec652b" fill="#ec652b" fillOpacity={0.2} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
                   <Tooltip />
                 </RadarChart>
@@ -259,10 +258,10 @@ export default function SampleChartsPage() {
                   <XAxis dataKey="year" tick={{ fontSize: 11 }} />
                   <YAxis yAxisId="left" tick={{ fontSize: 11 }} unit="B" />
                   <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11 }} unit="%" domain={[14, 16]} />
-                  <Tooltip />
+                  <Tooltip cursor={{ fill: "rgba(0,0,0,0.05)" }} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
-                  <Bar yAxisId="left" dataKey="revenue" fill="#3b82f6" fillOpacity={0.7} radius={[4, 4, 0, 0]} name="Revenue (B)" />
-                  <Line yAxisId="right" type="monotone" dataKey="cagr" stroke="#ef4444" strokeWidth={2} dot={{ r: 4 }} name="CAGR %" connectNulls={false} />
+                  <Bar yAxisId="left" dataKey="revenue" fill="#2CC8D8" fillOpacity={0.7} radius={[4, 4, 0, 0]} name="Revenue (B)" />
+                  <Line yAxisId="right" type="monotone" dataKey="cagr" stroke="#ec652b" strokeWidth={2} dot={{ r: 4 }} name="CAGR %" connectNulls={false} />
                 </ComposedChart>
               </ResponsiveContainer>
             </ChartCard>
@@ -282,21 +281,6 @@ export default function SampleChartsPage() {
                 >
                   <Tooltip formatter={(v: number) => [`$${v}B`, "Revenue"]} />
                 </Treemap>
-              </ResponsiveContainer>
-            </ChartCard>
-
-            {/* 11. Funnel Chart */}
-            <ChartCard
-              title="Market Adoption Pipeline"
-              description="Conversion funnel from market awareness through to completed purchase"
-            >
-              <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-                <FunnelChart>
-                  <Tooltip formatter={(v: number) => [`${v}%`, "Stage"]} />
-                  <Funnel dataKey="value" data={funnelData} isAnimationActive>
-                    <LabelList position="center" fill="#fff" fontSize={12} fontWeight={500} dataKey="name" />
-                  </Funnel>
-                </FunnelChart>
               </ResponsiveContainer>
             </ChartCard>
 
