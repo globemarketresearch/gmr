@@ -40,7 +40,7 @@ interface TreemapContentProps {
 
 function TreemapContent({ x, y, width, height, name, index }: TreemapContentProps) {
   const i = index ?? 0;
-  if (!x || !y || !width || !height || width < 20 || height < 20) return <g />;
+  if (x == null || y == null || width == null || height == null || width < 20 || height < 20) return <g />;
   return (
     <g>
       <rect x={x} y={y} width={width} height={height} fill={TREEMAP_COLORS[i % TREEMAP_COLORS.length]} stroke="#fff" strokeWidth={2} />
@@ -278,7 +278,7 @@ export default function SampleChartsPage() {
                   dataKey="size"
                   aspectRatio={4 / 3}
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  content={<TreemapContent /> as any}
+                  content={TreemapContent as any}
                 >
                   <Tooltip formatter={(v: number) => [`$${v}B`, "Revenue"]} />
                 </Treemap>
