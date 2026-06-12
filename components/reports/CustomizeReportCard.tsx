@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, Button } from '@/components/ui';
+import { PhoneCall } from 'lucide-react';
 
 interface CustomizeReportCardProps {
   reportTitle?: string;
@@ -19,7 +20,7 @@ export const CustomizeReportCard = React.forwardRef<HTMLDivElement, CustomizeRep
           </h3>
 
           <p className="text-sm">
-            Get a free sample of this report to explore the data, methodology, and insights before you buy.
+            Get free sample of the report to explore data, methodology, and insights before buying.
           </p>
 
           <Link href={reportId ? `/request-sample?reportId=${reportId}` : `/request-sample${reportTitle ? `?report=${encodeURIComponent(reportTitle)}${reportSlug ? `&slug=${encodeURIComponent(reportSlug)}` : ''}` : ''}`}>
@@ -29,6 +30,18 @@ export const CustomizeReportCard = React.forwardRef<HTMLDivElement, CustomizeRep
               size="lg"
             >
               Request Sample
+              <span className="btn-shine" aria-hidden="true" />
+            </Button>
+          </Link>
+
+          <Link href="/contact">
+            <Button
+              variant="outline"
+              className="w-full mt-2 relative overflow-hidden bg-[#E0F7FA] text-[#00838F] hover:text-[#006064] hover:bg-[#B2EBF2] border-[#80DEEA] hover:border-[#4DD0E1] focus:ring-[#1DAEBF] btn-glow-teal"
+              size="lg"
+            >
+              <PhoneCall className="w-4 h-4 mr-2" aria-hidden="true" />
+              Book Consultation
               <span className="btn-shine" aria-hidden="true" />
             </Button>
           </Link>
