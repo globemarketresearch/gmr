@@ -42,5 +42,20 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CloudflareBrowserRenderingCrawler
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
 # ── Sitemaps ────────────────────────────────────────────────────────────────────
 Sitemap: https://www.globemarketresearch.com/sitemap.xml
