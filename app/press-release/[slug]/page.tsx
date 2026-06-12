@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import { StructuredData, generateArticleSchema, generateBreadcrumbSchema } from "@/components/seo/StructuredData";
 import { TrustedPartnersSidebar } from "@/components/contact";
 import { ShareButtons } from "@/components/shared/ShareButtons";
+import RelatedPressReleasesSection from "@/components/press-releases/RelatedPressReleasesSection";
 
 export const revalidate = 300;
 
@@ -275,6 +276,12 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
             <article>
               <StyledReportContent htmlContent={pressRelease.content} />
             </article>
+
+            <RelatedPressReleasesSection
+              categorySlug={pressRelease.category.toLowerCase().replace(/\s+/g, '-')}
+              categoryName={pressRelease.category}
+              currentSlug={pressRelease.slug}
+            />
 
             <div className="mt-12 pt-8 border-t border-[var(--border)]">
               <Link

@@ -21,8 +21,7 @@ export default function ReportCard({ report }: ReportCardProps) {
   }
   if (!formattedDate) formattedDate = report.year || '';
 
-  const priceNum = report.price ? parseInt(report.price.replace(/[^0-9]/g, '')) : 0;
-  const hasPrice = priceNum > 0;
+  const hasPrice = true;
 
   return (
     <Link href={`/reports/${report.slug}`} className="group block mb-3">
@@ -103,7 +102,7 @@ export default function ReportCard({ report }: ReportCardProps) {
           <div className="flex items-center gap-3 shrink-0">
             {hasPrice && (
               <span className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>
-                {report.price}
+                $3,199
               </span>
             )}
             <span

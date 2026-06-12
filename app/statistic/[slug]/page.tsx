@@ -9,6 +9,7 @@ import { StructuredData, generateArticleSchema, generateBreadcrumbSchema } from 
 import StatisticsSidebarForm from "@/components/statistics/StatisticsSidebarForm";
 import { QuickContactSection } from "@/components/contact";
 import { ShareButtons } from "@/components/shared/ShareButtons";
+import RelatedStatisticsSection from "@/components/statistics/RelatedStatisticsSection";
 
 interface StatisticPageProps {
   params: Promise<{
@@ -229,6 +230,12 @@ export default async function StatisticDetailPage({ params }: StatisticPageProps
             <article>
               <StyledReportContent htmlContent={blog.content} />
             </article>
+
+            <RelatedStatisticsSection
+              categorySlug={blog.category.toLowerCase().replace(/\s+/g, '-')}
+              categoryName={blog.category}
+              currentSlug={blog.slug}
+            />
 
             <div className="mt-12 pt-8 border-t border-[var(--border)]">
               <Link

@@ -17,43 +17,30 @@ Disallow: /checkout/
 # ── AI / LLM crawlers — full access to public research content ──────────────────
 User-agent: GPTBot
 Allow: /
-Disallow: /checkout/
-Disallow: /legal/
 
 User-agent: ChatGPT-User
 Allow: /
-Disallow: /checkout/
-Disallow: /legal/
+
+User-agent: ClaudeBot
+Allow: /
 
 User-agent: Claude-Web
 Allow: /
-Disallow: /checkout/
-Disallow: /legal/
 
 User-agent: anthropic-ai
 Allow: /
-Disallow: /checkout/
-Disallow: /legal/
 
 User-agent: CCBot
 Allow: /
-Disallow: /checkout/
-Disallow: /legal/
 
 User-agent: cohere-ai
 Allow: /
-Disallow: /checkout/
-Disallow: /legal/
 
 User-agent: Google-Extended
 Allow: /
-Disallow: /checkout/
-Disallow: /legal/
 
 User-agent: PerplexityBot
 Allow: /
-Disallow: /checkout/
-Disallow: /legal/
 
 # ── Sitemaps ────────────────────────────────────────────────────────────────────
 Sitemap: https://www.globemarketresearch.com/sitemap.xml
