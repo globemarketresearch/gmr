@@ -6,6 +6,7 @@ import { FullReportTOC } from './FullReportTOC';
 import { CTAPanel } from './CTAPanel';
 import { CustomizeReportCard } from './CustomizeReportCard';
 import { BriefWithAI } from './BriefWithAI';
+import { BookConsultationCard } from './BookConsultationCard';
 import { SidebarTOCItem, TOCItem } from '@/lib/toc-utils';
 import { useGeneratedTOC } from '@/hooks/useGeneratedTOC';
 
@@ -131,6 +132,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
         >
           <BriefWithAI reportTitle={reportTitle} reportSlug={reportSlug} />
           <CustomizeReportCard reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
+          <BookConsultationCard />
           <CTAPanel discounted_price={discounted_price} price={price} reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
         </div>
       </aside>
