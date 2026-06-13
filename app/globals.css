@@ -518,7 +518,14 @@ html body { top: 0 !important; }
   }
 
   .prose a {
-    @apply text-[var(--primary)] underline hover:text-[var(--primary-hover)] transition-colors;
+    color: #1a56db;
+    text-decoration: underline;
+    text-decoration-color: rgba(26, 86, 219, 0.35);
+  }
+
+  .prose a:hover {
+    color: #1a56db;
+    text-decoration-color: rgba(26, 86, 219, 0.7);
   }
 
   .prose blockquote {
@@ -873,22 +880,15 @@ html body { top: 0 !important; }
 
 .styled-report-content a,
 .styled-article-content a {
-  color: #00695C;
+  color: #1a56db;
   text-decoration: underline;
-  text-decoration-color: #B0D9D5;
-  text-decoration-color: var(--teal-border, #B0D9D5);
-}
-
-.styled-article-content a {
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  text-decoration-color: rgba(26, 86, 219, 0.35);
 }
 
 .styled-report-content a:hover,
 .styled-article-content a:hover {
-  color: #22E1B0;
-  color: var(--teal-bright, #22E1B0);
-  text-decoration-color: #22E1B0;
-  text-decoration-color: var(--teal-bright, #22E1B0);
+  color: #1a56db;
+  text-decoration-color: rgba(26, 86, 219, 0.7);
 }
 
 .styled-report-content blockquote,
