@@ -5,9 +5,9 @@ import PressReleasesLoading from "./loading";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Healthcare Press Releases & Industry News",
-  description: "Stay updated with the latest healthcare press releases, research announcements, and industry developments.",
-  keywords: ["healthcare press releases", "healthcare news", "industry announcements", "healthcare market updates"],
+  title: "Press Releases & Industry News",
+  description: "Stay updated with the latest press releases, research announcements, and industry developments.",
+  keywords: ["press releases", "industry news", "industry announcements", "market updates"],
   alternates: {
     canonical: '/press-releases',
   },

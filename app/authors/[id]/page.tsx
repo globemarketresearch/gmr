@@ -44,12 +44,12 @@ export async function generateMetadata({
     const author = response.data;
 
     return {
-      title: `Healthcare Articles by ${author.name}`,
-      description: `Browse healthcare market articles, insights, and research content published by ${author.name}.`,
-      keywords: ["healthcare articles", "healthcare research blogs", "market insights", "medical industry content"],
+      title: `Articles by ${author.name}`,
+      description: `Browse market articles, insights, and research content published by ${author.name}.`,
+      keywords: ["market articles", "research blogs", "market insights", "industry content"],
       openGraph: {
-        title: `Healthcare Articles by ${author.name}`,
-        description: `Browse healthcare market articles, insights, and research content published by ${author.name}.`,
+        title: `Articles by ${author.name}`,
+        description: `Browse market articles, insights, and research content published by ${author.name}.`,
         images: author.imageUrl ? [{ url: author.imageUrl }] : [],
       },
     };

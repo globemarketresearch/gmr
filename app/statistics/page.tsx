@@ -5,9 +5,9 @@ import StatisticsLoading from "@/app/statistic/loading";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Healthcare Statistics | Trends, News & Analysis",
-  description: "Read expert statistics on healthcare trends, innovations, policy updates, market developments, and industry insights.",
-  keywords: ["healthcare statistics", "healthcare insights", "healthcare trends", "medical industry news", "healthcare analysis"],
+  title: "Statistics | Trends, News & Analysis",
+  description: "Read expert statistics on market trends, innovations, policy updates, market developments, and industry insights.",
+  keywords: ["market statistics", "industry insights", "market trends", "industry news", "market analysis"],
   alternates: {
     canonical: '/statistics',
   },

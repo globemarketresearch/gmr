@@ -410,7 +410,7 @@ function parseTags(tagsString?: string): string[] {
  */
 export function mapApiBlogToBlog(apiBlog: ApiBlog): Blog {
   // Use populated category from API or fallback
-  const category = apiBlog.category?.name || 'Healthcare Insights';
+  const category = apiBlog.category?.name || 'Market Insights';
 
   // Use populated author from API or fallback
   const author = apiBlog.author?.name || 'Globe Market Research';
