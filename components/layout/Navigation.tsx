@@ -90,6 +90,7 @@ export default function Navigation() {
         />
 
         <NavLink href="/about" label="About Us" pathname={pathname} />
+        <NavLink href="/research-methodology" label="Methodology" pathname={pathname} />
         <NavLink href="/contact" label="Contact" pathname={pathname} />
       </nav>
 
@@ -160,7 +161,7 @@ export default function Navigation() {
 
             <div className="overflow-y-auto h-[calc(100%-65px)]">
               <nav className="flex flex-col p-3 gap-0.5">
-                {[...navItems, { name: "About Us", href: "/about" }, { name: "Contact", href: "/contact" }].map((item) => {
+                {[...navItems, { name: "About Us", href: "/about" }, { name: "Methodology", href: "/research-methodology" }, { name: "Contact", href: "/contact" }].map((item) => {
                   const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
                   return (
                     <Link

@@ -24,6 +24,7 @@ export default function Footer() {
     { href: "/legal/refund-policy", label: "Return & Refund Policy" },
     { href: "/legal/terms-and-conditions", label: "Terms & Conditions" },
     { href: "/how-to-order", label: "How to Order" },
+    { href: "/research-methodology", label: "Research Methodology" },
   ];
 
   const socials = [
