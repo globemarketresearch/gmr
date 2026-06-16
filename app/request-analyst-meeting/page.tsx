@@ -75,7 +75,7 @@ export default function RequestAnalystMeetingPage() {
             <Badge variant="primary" size="md">
               Request Analyst Meeting
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold">See Our Platform in Action</h1>
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold">See Our Platform in Action</h1>
             <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto">
               Schedule a personalized demo to discover how our healthcare market intelligence can
               transform your strategic decision-making.

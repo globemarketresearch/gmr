@@ -175,7 +175,7 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
           {/* Title */}
           <h1
             className="mb-5 font-bold leading-tight"
-            style={{ color: '#fff', fontSize: 'clamp(1.6rem, 4vw, 2.25rem)', letterSpacing: '-0.03em' }}
+            style={{ color: '#fff', fontSize: 'clamp(1.25rem, 4vw, 2.25rem)', letterSpacing: '-0.03em' }}
           >
             {pressRelease.title}
           </h1>

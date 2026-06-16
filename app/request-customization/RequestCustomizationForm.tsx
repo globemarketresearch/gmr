@@ -109,7 +109,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
             <Badge variant="primary" size="md">
               Request Customisation
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold">Tailor the Report to Your Needs</h1>
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold">Tailor the Report to Your Needs</h1>
             {reportTitle && (
               <p className="text-xl font-medium text-[var(--foreground)] max-w-3xl mx-auto">
                 {reportTitle}

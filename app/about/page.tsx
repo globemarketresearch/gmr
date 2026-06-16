@@ -221,7 +221,7 @@ export default function AboutPage() {
               About Globe Market Research
               <span className="w-8 h-px bg-blue-400" />
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.15]">
+            <h1 className="text-2xl md:text-4xl lg:text-[3.5rem] font-bold text-white leading-[1.15]">
               See Beyond Data.<br />
               <span className="text-blue-400">Make Decisions That Matter.</span>
             </h1>
@@ -269,12 +269,12 @@ export default function AboutPage() {
         <Container size="lg">
           {/* Decorated heading */}
           <div className="flex items-center gap-5 mb-12">
-            <span className="flex-1 h-px bg-gray-200" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center whitespace-nowrap">
+            <span className="hidden sm:block flex-1 h-px bg-gray-200" />
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center">
               The Core Values Behind{" "}
               <span className="text-[#E07B00]">GMR</span>
             </h2>
-            <span className="flex-1 h-px bg-gray-200" />
+            <span className="hidden sm:block flex-1 h-px bg-gray-200" />
           </div>
 
           {/* G · M · R cards */}

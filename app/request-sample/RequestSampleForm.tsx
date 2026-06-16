@@ -121,7 +121,7 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
             <Badge variant="primary" size="md">
               Request Sample
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold">Get a Free Report Sample</h1>
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold">Get a Free Report Sample</h1>
             {reportTitle && (
               <p className="text-xl font-medium text-[var(--foreground)] max-w-3xl mx-auto">
                 {reportTitle}

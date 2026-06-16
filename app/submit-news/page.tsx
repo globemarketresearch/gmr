@@ -18,7 +18,7 @@ export default function SubmitNewsPage() {
             <Badge variant="primary" size="md">
               Publish Your News
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
               Submit News &amp; Press Releases
             </h1>
             <p className="text-lg text-[var(--muted-foreground)]">

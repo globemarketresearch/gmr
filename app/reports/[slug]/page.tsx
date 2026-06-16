@@ -501,7 +501,7 @@ export default async function ReportPage({
             {/* Title */}
             <h1
               className="mb-4 font-bold leading-tight"
-              style={{ color: '#fff', fontSize: 'clamp(1.5rem, 3.5vw, 2.1rem)', letterSpacing: '-0.03em', maxWidth: '900px' }}
+              style={{ color: '#fff', fontSize: 'clamp(1.25rem, 3.5vw, 2.1rem)', letterSpacing: '-0.03em', maxWidth: '100%' }}
             >
               {report.title}
             </h1>

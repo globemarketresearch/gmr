@@ -93,7 +93,7 @@ export default function ContactPage() {
             <Badge variant="primary" size="md">
               Get in Touch
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold">Contact Us</h1>
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold">Contact Us</h1>
             <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto">
               Have questions about our research? We are here to help. Reach out to our team for inquiries, demos, or custom research needs.
             </p>

@@ -263,7 +263,9 @@ const samplingLayers = [
     subtitle: "Supply Ecosystem",
     Icon: Factory,
     accent: "#2563eb",
-    image: "/assets/methodology/upstream-sampling.png",
+    image: "/assets/methodology/Picture1.png",
+    imgWidth: 1533,
+    imgHeight: 739,
     desc: "Understanding the fundamental supply-side dynamics that influence cost structures, availability, and technological evolution.",
     objectives: [
       "Assessing raw material availability, pricing trends, and supply volatility",
@@ -279,7 +281,9 @@ const samplingLayers = [
     subtitle: "Manufacturing & Integration",
     Icon: Layers,
     accent: "#059669",
-    image: "/assets/methodology/midstream-sampling.png",
+    image: "/assets/methodology/Picture2.png",
+    imgWidth: 1464,
+    imgHeight: 782,
     desc: "Capturing core market mechanics, including production, pricing, and competitive dynamics.",
     objectives: [
       "Evaluating production capacity, utilisation rates, and expansion plans",
@@ -296,7 +300,9 @@ const samplingLayers = [
     subtitle: "Market & Demand Layer",
     Icon: ShoppingCart,
     accent: "#7c3aed",
-    image: "/assets/methodology/downstream-sampling.png",
+    image: "/assets/methodology/Picture3.png",
+    imgWidth: 1377,
+    imgHeight: 731,
     desc: "Focusing on demand-side intelligence, capturing how markets behave commercially.",
     objectives: [
       "Understanding purchase decision criteria and supplier selection processes",
@@ -465,7 +471,7 @@ export default function ResearchMethodologyPage() {
       {/* ── Hero ── */}
       <Section className="bg-[var(--muted)]">
         <Container size="sm">
-          <h1 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
+          <h1 className="mb-6 text-2xl font-bold md:text-4xl lg:text-6xl">
             Research Methodology
           </h1>
           <p className="text-xl text-[var(--muted-foreground)] mb-4 leading-relaxed">
@@ -490,11 +496,11 @@ export default function ResearchMethodologyPage() {
           {/* ── Table of Contents ── */}
           <section className="my-10" aria-label="How this methodology is organised">
             <div className="flex items-center gap-4 mb-8">
-              <span className="flex-1 h-px" style={{ background: "var(--border)" }} />
-              <span className="shrink-0 font-semibold tracking-[0.22em] uppercase" style={{ color: "var(--muted-foreground)" }}>
+              <span className="hidden sm:block flex-1 h-px" style={{ background: "var(--border)" }} />
+              <span className="font-semibold tracking-[0.22em] uppercase text-center" style={{ color: "var(--muted-foreground)" }}>
                 How This Methodology Is Organised
               </span>
-              <span className="flex-1 h-px" style={{ background: "var(--border)" }} />
+              <span className="hidden sm:block flex-1 h-px" style={{ background: "var(--border)" }} />
             </div>
             <p className="text-[var(--muted-foreground)] leading-relaxed mb-8">
               This document is divided into six substantive parts that mirror the lifecycle of a
@@ -880,27 +886,35 @@ export default function ResearchMethodologyPage() {
 
             {/* ── Sampling distribution diagrams ── */}
             <div className="mt-10 space-y-8">
-              {samplingLayers.map(({ layer, subtitle, accent, image }) => (
+              {samplingLayers.map(({ layer, subtitle, accent, image, imgWidth, imgHeight }) => (
                 <div
                   key={layer}
                   className="rounded-2xl border p-6 bg-[var(--card)]"
                   style={{ borderColor: `color-mix(in srgb, ${accent} 25%, #e5e7eb)` }}
                 >
-                  <div className="flex items-center gap-2 mb-4">
+                  <div className="flex items-center gap-2 mb-4 flex-wrap">
                     <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: accent }} />
                     <h4 className="font-semibold text-base text-[var(--foreground)]">
                       {layer} Sampling Distribution
                     </h4>
-                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: accent }}>
+                    <span
+                      className="text-xs font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full"
+                      style={{
+                        color: accent,
+                        background: `color-mix(in srgb, ${accent} 12%, transparent)`,
+                        border: `1px solid color-mix(in srgb, ${accent} 20%, transparent)`,
+                      }}
+                    >
                       {subtitle}
                     </span>
                   </div>
-                  <div className="relative w-full max-w-2xl mx-auto aspect-square rounded-xl overflow-hidden bg-white">
+                  <div className="w-full overflow-hidden">
                     <Image
                       src={image}
                       alt={`${layer} (${subtitle}) sampling distribution across geography, stakeholder type, company size, and functional role`}
-                      fill
-                      className="object-contain"
+                      width={imgWidth}
+                      height={imgHeight}
+                      className="w-full h-auto block"
                     />
                   </div>
                 </div>

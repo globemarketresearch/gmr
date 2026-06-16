@@ -67,7 +67,7 @@ export default function HowToOrderPage() {
           <div className="mb-6">
             <Badge variant="default">Ordering Guide</Badge>
           </div>
-          <h1 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
+          <h1 className="mb-6 text-2xl font-bold md:text-4xl lg:text-6xl">
             How to Order
           </h1>
           <p className="text-xl text-[var(--muted-foreground)] mb-4 leading-relaxed">
