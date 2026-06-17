@@ -471,9 +471,9 @@ export default function ResearchMethodologyPage() {
       {/* ── Hero ── */}
       <Section className="bg-[var(--muted)]">
         <Container size="sm">
-          <h1 className="mb-6 text-2xl font-bold md:text-4xl lg:text-6xl">
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl lg:text-4xl">
             Research Methodology
-          </h1>
+          </h2>
           <p className="text-xl text-[var(--muted-foreground)] mb-4 leading-relaxed">
             This Research Methodology document governs all market intelligence outputs produced
             by Globe Market Research. It establishes the standards, processes, verification
