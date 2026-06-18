@@ -1,66 +1,263 @@
+export type LicenseTierId = 'single' | 'corporate' | 'excel' | 'student';
+export type EditionId = 'global' | 'region' | 'country';
+
 export interface LicenseTier {
-  id: 'single' | 'multi' | 'corporate' | 'dataset';
+  id: LicenseTierId;
   name: string;
-  price: number;
   badge?: string;
+  deliverables: string;
   includes: string[];
-  notIncluded?: string[];
+  commercials: string[];
+  reportScope: string;
+  countrySegmentation: string;
+  isStudentTier?: boolean;
 }
 
-export const LICENSE_TIERS: LicenseTier[] = [
+export interface Edition {
+  id: EditionId;
+  label: string;
+  icon: string;
+  prices: Record<LicenseTierId, number>;
+  tiers: LicenseTier[];
+}
+
+const GLOBAL_TIERS: LicenseTier[] = [
   {
     id: 'single',
-    name: 'Single User',
-    price: 3199,
+    name: 'Single User License',
+    deliverables: 'PDF + Excel',
+    reportScope: 'Competitor Analysis, 6 Regions, 34 Countries',
+    countrySegmentation: 'Top 15 Countries, Segmentation Analysis',
     includes: [
-      'Single user access (1 device)',
-      'PDF format',
-      'Non-printable & non-shareable',
+      'Report accessible by 1 user only',
+      'PDF + Excel formats',
       'Email delivery within 24 hrs',
-      'Analyst support (6 months)',
     ],
-  },
-  {
-    id: 'multi',
-    name: 'Multi User',
-    price: 5599,
-    includes: [
-      'Up to 5 users',
-      'PDF format (printable)',
-      'Internal sharing permitted',
-      'Email delivery within 24 hrs',
-      'Analyst support (6 months)',
-      'Free updates (1 year)',
+    commercials: [
+      'Free 15% or 32 hours of customisation',
+      'Free post-sale service assistance',
+      'Direct access to lead analysts – 4 hours free consultation',
     ],
   },
   {
     id: 'corporate',
-    name: 'Corporate',
-    price: 6999,
-    badge: 'Best Value',
+    name: 'Corporate User License',
+    badge: 'Most Popular',
+    deliverables: 'PDF + Excel + PPT',
+    reportScope: 'Competitor Analysis, 6 Regions, 34 Countries',
+    countrySegmentation: 'Top 15 Countries, Segmentation Analysis',
     includes: [
-      'Unlimited users (org-wide)',
-      'PDF + Excel formats',
-      'Printable & shareable internally',
+      'Unlimited user access (within organization)',
+      'PDF + Excel + PPT formats',
       'Email delivery within 24 hrs',
-      'Priority analyst support (1 year)',
-      'Free updates (1 year)',
+      'Exclusive previews of upcoming research',
+      '15% discount on your next purchase',
+    ],
+    commercials: [
+      'Free 30% or 64 hours of customisation',
+      'Direct access to lead analysts – 8 hours free consultation',
     ],
   },
   {
-    id: 'dataset',
-    name: 'Data Set (Excel)',
-    price: 1690,
+    id: 'excel',
+    name: 'Excel License',
+    deliverables: 'Raw Data Workbook (.xlsx)',
+    reportScope: 'Competitor Analysis, 6 Regions, 34 Countries',
+    countrySegmentation: 'Top 15 Countries, Segmentation Analysis',
     includes: [
-      'Excel data file (.xlsx)',
-      'Market size & forecast data',
-      'Fully editable raw data',
+      'All Data Tables & Charts',
+      'Granular Market Splits Included',
+      'Full Data Customization',
       'Single user access',
       'Email delivery within 24 hrs',
+    ],
+    commercials: [],
+  },
+  {
+    id: 'student',
+    name: 'Student User License',
+    deliverables: 'Academic Use Only',
+    reportScope: 'Academic Use Only',
+    countrySegmentation: 'Subject to university ID verification',
+    isStudentTier: true,
+    includes: [
+      'Academic use only',
+      'Specific data available for project usage',
+      'Remaining data is confidential',
+    ],
+    commercials: [
+      'Submit university ID to access',
+      'Contact sales for specific data availability',
     ],
   },
 ];
 
-export function getLicenseTierById(id: string): LicenseTier {
+const REGION_TIERS: LicenseTier[] = [
+  {
+    id: 'single',
+    name: 'Single User License',
+    deliverables: 'PDF + Excel',
+    reportScope: 'Full breakdown of 1 Target Regional Zone',
+    countrySegmentation: 'Regional segmentation analysis',
+    includes: [
+      'Report accessible by 1 user only',
+      'PDF + Excel formats',
+      'Email delivery within 24 hrs',
+    ],
+    commercials: [
+      'Free 15% or 32 hours of customisation',
+      'Direct access to lead analysts – 3 hours free consultation',
+    ],
+  },
+  {
+    id: 'corporate',
+    name: 'Corporate User License',
+    badge: 'Most Popular',
+    deliverables: 'PDF + Excel + PPT',
+    reportScope: 'Full breakdown of 1 Target Regional Zone',
+    countrySegmentation: 'Regional segmentation analysis',
+    includes: [
+      'Unlimited Regional Sharing',
+      'PDF + Excel + PPT formats',
+      'Email delivery within 24 hrs',
+    ],
+    commercials: [
+      'Free 30% or 64 hours of customisation',
+      'Direct access to lead analysts – 6 hours free consultation',
+    ],
+  },
+  {
+    id: 'excel',
+    name: 'Excel License',
+    deliverables: 'Raw Data Workbook (.xlsx)',
+    reportScope: 'Breakdown of 1 Target Regional Zone',
+    countrySegmentation: 'Regional Data Tables & Charts',
+    includes: [
+      'Regional Data Tables & Charts',
+      'Single user access',
+      'Email delivery within 24 hrs',
+    ],
+    commercials: [],
+  },
+  {
+    id: 'student',
+    name: 'Student User License',
+    deliverables: 'Academic Use Only',
+    reportScope: 'Academic Use Only',
+    countrySegmentation: 'Subject to university ID verification',
+    isStudentTier: true,
+    includes: [
+      'Academic use only',
+      'Specific data available for project usage',
+      'Remaining data is confidential',
+    ],
+    commercials: [
+      'Submit university ID to access',
+      'Contact sales for specific data availability',
+    ],
+  },
+];
+
+const COUNTRY_TIERS: LicenseTier[] = [
+  {
+    id: 'single',
+    name: 'Single User License',
+    deliverables: 'PDF + Excel',
+    reportScope: 'Isolated 1 Country Specific Data Matrix',
+    countrySegmentation: 'Single country segmentation analysis',
+    includes: [
+      'Report accessible by 1 user only',
+      'PDF + Excel formats',
+      'Email delivery within 24 hrs',
+    ],
+    commercials: [
+      'Free 15% or 32 hours of customisation',
+      'Direct access to lead analysts – 3 hours free consultation',
+    ],
+  },
+  {
+    id: 'corporate',
+    name: 'Corporate User License',
+    badge: 'Most Popular',
+    deliverables: 'PDF + Excel + PPT',
+    reportScope: 'Isolated 1 Country Specific Data Matrix',
+    countrySegmentation: 'Single country segmentation analysis',
+    includes: [
+      'Enterprise-wide Country sharing',
+      'PDF + Excel + PPT formats',
+      'Email delivery within 24 hrs',
+    ],
+    commercials: [
+      'Free 30% or 64 hours of customisation',
+      'Direct access to lead analysts – 6 hours free consultation',
+    ],
+  },
+  {
+    id: 'excel',
+    name: 'Excel License',
+    deliverables: 'Raw Data Workbook (.xlsx)',
+    reportScope: 'Isolated 1 Country Specific Data Matrix',
+    countrySegmentation: 'Single Country Tables & Charts',
+    includes: [
+      'Single Country Tables & Charts',
+      'Single user access',
+      'Email delivery within 24 hrs',
+    ],
+    commercials: [],
+  },
+  {
+    id: 'student',
+    name: 'Student User License',
+    deliverables: 'Academic Use Only',
+    reportScope: 'Academic Use Only',
+    countrySegmentation: 'Subject to university ID verification',
+    isStudentTier: true,
+    includes: [
+      'Academic use only',
+      'Specific data available for project usage',
+      'Remaining data is confidential',
+    ],
+    commercials: [
+      'Submit university ID to access',
+      'Contact sales for specific data availability',
+    ],
+  },
+];
+
+export const EDITIONS: Edition[] = [
+  {
+    id: 'global',
+    label: 'Global Edition',
+    icon: '🌐',
+    prices: { single: 3499, corporate: 5449, excel: 1799, student: 799 },
+    tiers: GLOBAL_TIERS,
+  },
+  {
+    id: 'region',
+    label: 'Region Edition',
+    icon: '🗺️',
+    prices: { single: 2999, corporate: 4199, excel: 1499, student: 699 },
+    tiers: REGION_TIERS,
+  },
+  {
+    id: 'country',
+    label: 'Country Edition',
+    icon: '📍',
+    prices: { single: 1999, corporate: 2690, excel: 990, student: 499 },
+    tiers: COUNTRY_TIERS,
+  },
+];
+
+// Backward-compatible flat tier list (Global edition prices) for checkout components
+export interface LicenseTierFlat extends LicenseTier {
+  price: number;
+}
+
+export const LICENSE_TIERS: LicenseTierFlat[] = EDITIONS[0].tiers.map((tier) => ({
+  ...tier,
+  price: EDITIONS[0].prices[tier.id],
+}));
+
+export function getLicenseTierById(id: string): LicenseTierFlat {
   return LICENSE_TIERS.find((t) => t.id === id) ?? LICENSE_TIERS[0];
 }

@@ -6,6 +6,7 @@ import { FullReportTOC } from './FullReportTOC';
 import { CTAPanel } from './CTAPanel';
 import { CustomizeReportCard } from './CustomizeReportCard';
 import { BriefWithAI } from './BriefWithAI';
+import { PricingTable } from './PricingTable';
 import { SidebarTOCItem, TOCItem } from '@/lib/toc-utils';
 import { useGeneratedTOC } from '@/hooks/useGeneratedTOC';
 
@@ -33,6 +34,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
   children,
 }) => {
   const [showFullTOC, setShowFullTOC] = useState(false);
+  const [showPricing, setShowPricing] = useState(false);
   const targetSectionRef = useRef<string | null>(null);
 
   // Auto-generate TOC from h2 headings if not provided
@@ -85,9 +87,15 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
   };
 
   return (
-    <div className={`grid grid-cols-1 gap-8 ${hasFullContent ? 'lg:grid-cols-[240px_1fr_300px] 2xl:grid-cols-[280px_1fr_360px]' : 'lg:grid-cols-[1fr_300px] 2xl:grid-cols-[1fr_380px]'}`}>
-      {/* Left Sidebar - TOC Navigation */}
-      {hasFullContent && (
+    <div className={`grid grid-cols-1 gap-8 ${
+      showPricing
+        ? 'lg:grid-cols-[1fr_300px] 2xl:grid-cols-[1fr_360px]'
+        : hasFullContent
+        ? 'lg:grid-cols-[240px_1fr_300px] 2xl:grid-cols-[280px_1fr_360px]'
+        : 'lg:grid-cols-[1fr_300px] 2xl:grid-cols-[1fr_380px]'
+    }`}>
+      {/* Left Sidebar - TOC Navigation (hidden when pricing is shown) */}
+      {hasFullContent && !showPricing && (
         <aside className="hidden lg:block">
           <div
             className="sticky flex flex-col overflow-hidden transition-[top] duration-300"
@@ -110,7 +118,14 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
 
       {/* Main Content Area */}
       <main>
-        {showFullTOC ? (
+        {showPricing ? (
+          <PricingTable
+            reportTitle={reportTitle ?? ''}
+            reportId={reportId}
+            reportSlug={reportSlug}
+            onBack={() => setShowPricing(false)}
+          />
+        ) : showFullTOC ? (
           <FullReportTOC
             items={fullReportTOC ?? []}
             onClose={() => setShowFullTOC(false)}
@@ -131,7 +146,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
         >
           <BriefWithAI reportTitle={reportTitle} reportSlug={reportSlug} />
           <CustomizeReportCard reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
-          <CTAPanel discounted_price={discounted_price} price={price} reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
+          <CTAPanel discounted_price={discounted_price} price={price} reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} onBuyNow={() => setShowPricing(true)} />
         </div>
       </aside>
     </div>

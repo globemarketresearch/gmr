@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui';
 import { Button } from '@/components/ui';
-import { LICENSE_TIERS, type LicenseTier } from '@/lib/license-tiers';
+import { EDITIONS, type LicenseTier } from '@/lib/license-tiers';
 
 interface CTAPanelProps {
   price: string;
@@ -13,6 +13,7 @@ interface CTAPanelProps {
   reportTitle?: string;
   reportSlug?: string;
   reportId?: number;
+  onBuyNow?: () => void;
 }
 
 const CheckIcon = () => (
@@ -22,8 +23,11 @@ const CheckIcon = () => (
 );
 
 export const CTAPanel = React.forwardRef<HTMLDivElement, CTAPanelProps>(
-  ({ reportTitle, reportSlug, reportId }, ref) => {
-    const [selected, setSelected] = useState<LicenseTier>(LICENSE_TIERS[0]);
+  ({ reportTitle, reportSlug, reportId, onBuyNow }, ref) => {
+    const globalEdition = EDITIONS[0];
+    const [selected, setSelected] = useState<LicenseTier>(globalEdition.tiers[0]);
+
+    const selectedPrice = globalEdition.prices[selected.id];
 
     const checkoutHref = reportId
       ? `/checkout/${reportId}?license=${selected.id}`
@@ -40,7 +44,7 @@ export const CTAPanel = React.forwardRef<HTMLDivElement, CTAPanelProps>(
               Select License
             </p>
             <div className="grid grid-cols-2 gap-1.5">
-              {LICENSE_TIERS.map((tier) => (
+              {globalEdition.tiers.map((tier) => (
                 <button
                   key={tier.id}
                   type="button"
@@ -58,7 +62,7 @@ export const CTAPanel = React.forwardRef<HTMLDivElement, CTAPanelProps>(
                   )}
                   <span className="block leading-tight">{tier.name}</span>
                   <span className={`block font-bold mt-0.5 ${selected.id === tier.id ? 'text-[var(--primary)]' : 'text-[var(--foreground)]'}`}>
-                    ${tier.price.toLocaleString()}
+                    ${globalEdition.prices[tier.id].toLocaleString()}
                   </span>
                 </button>
               ))}
@@ -82,12 +86,23 @@ export const CTAPanel = React.forwardRef<HTMLDivElement, CTAPanelProps>(
 
           {/* CTA buttons */}
           <div className="space-y-2 pt-1">
-            <Link href={checkoutHref}>
-              <Button className="w-full relative overflow-hidden btn-glow-teal" size="lg">
-                Buy Now — ${selected.price.toLocaleString()}
+            {onBuyNow ? (
+              <Button
+                className="w-full relative overflow-hidden btn-glow-teal"
+                size="lg"
+                onClick={onBuyNow}
+              >
+                Buy Now — ${selectedPrice.toLocaleString()}
                 <span className="btn-shine" aria-hidden="true" />
               </Button>
-            </Link>
+            ) : (
+              <Link href={checkoutHref}>
+                <Button className="w-full relative overflow-hidden btn-glow-teal" size="lg">
+                  Buy Now — ${selectedPrice.toLocaleString()}
+                  <span className="btn-shine" aria-hidden="true" />
+                </Button>
+              </Link>
+            )}
             <Link href={reportId ? `/request-customization?reportId=${reportId}` : `/request-customization${reportTitle ? `?report=${encodeURIComponent(reportTitle)}${reportSlug ? `&slug=${encodeURIComponent(reportSlug)}` : ''}` : ''}`}>
               <Button
                 variant="outline"

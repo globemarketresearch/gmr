@@ -1,7 +1,7 @@
 'use client';
 
 import { Card, CardContent } from '@/components/ui';
-import { getLicenseTierById, type LicenseTier } from '@/lib/license-tiers';
+import { getLicenseTierById, type LicenseTierFlat } from '@/lib/license-tiers';
 
 interface OrderSummaryProps {
   reportTitle: string;
@@ -23,7 +23,7 @@ export function OrderSummary({
   currency = 'USD',
   licenseId = 'single',
 }: OrderSummaryProps) {
-  const license: LicenseTier = getLicenseTierById(licenseId);
+  const license: LicenseTierFlat = getLicenseTierById(licenseId);
 
   return (
     <Card>
