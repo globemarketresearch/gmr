@@ -8,7 +8,7 @@ import { Breadcrumb, Card, CardContent } from "@/components/ui";
 import { ReportContentWrapper } from "@/components/reports/ReportContentWrapper";
 import { ReportShareButtons } from "@/components/reports/ReportShareButtons";
 import { StyledReportContent } from "@/components/reports/StyledReportContent";
-import { MarketGrowthChart } from "@/components/reports/charts/MarketGrowthChart";
+// import { MarketGrowthChart } from "@/components/reports/charts/MarketGrowthChart";
 import MeetTheTeam from "@/components/reports/MeetTheTeam";
 import FAQ from "@/components/reports/FAQ";
 import { parseHTMLAndGenerateTOC, addStaticSectionsToTOC } from "@/lib/html-toc-utils";
@@ -597,7 +597,7 @@ export default async function ReportPage({
                     <h2 id="overview" className="text-2xl font-bold text-[var(--teal-deep)] mb-6 scroll-mt-24">
                       Market Size and Forecast
                     </h2>
-                    {report.marketSize2024 && report.marketSize2032 && report.cagr && (
+                    {/* {report.marketSize2024 && report.marketSize2032 && report.cagr && (
                       <div className="mb-8">
                         <MarketGrowthChart
                           marketSize2024={report.marketSize2024}
@@ -606,7 +606,7 @@ export default async function ReportPage({
                           forecastPeriod={report.forecastPeriod}
                         />
                       </div>
-                    )}
+                    )} */}
                     <StyledReportContent
                       htmlContent={marketDetailsWithIds}
                       reportSlug={report.slug}
