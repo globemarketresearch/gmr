@@ -94,6 +94,7 @@ export function ReportStickyBar({
   formats,
 }: ReportStickyBarProps) {
   const [visible, setVisible] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const sentinelRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
 
@@ -121,6 +122,7 @@ export function ReportStickyBar({
         setVisible(isVisible);
         if (!isVisible) {
           document.documentElement.style.setProperty('--sticky-bar-height', '0px');
+          setSheetOpen(false);
         }
       },
       { threshold: 0 }
@@ -132,8 +134,19 @@ export function ReportStickyBar({
     };
   }, []);
 
+  // Close sheet on Escape
+  useEffect(() => {
+    if (!sheetOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setSheetOpen(false); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [sheetOpen]);
+
   const buyHref = reportId ? `/checkout/${reportId}` : `/checkout/${reportSlug}`;
   const sampleHref = `/request-sample?report=${reportSlug}`;
+  const customizeHref = reportId
+    ? `/request-customization?reportId=${reportId}`
+    : `/request-customization?report=${encodeURIComponent(reportTitle)}&slug=${encodeURIComponent(reportSlug)}`;
   const activeFormats = formats && formats.length > 0 ? formats : DEFAULT_FORMATS;
 
   return (
@@ -196,9 +209,10 @@ export function ReportStickyBar({
 
           {/* CTA buttons */}
           <div className="flex items-center gap-2 flex-shrink-0">
+            {/* Desktop: Sample + Customize + Buy */}
             <Link href={sampleHref} className="hidden sm:block">
               <button
-                className="inline-flex items-center gap-1.5 px-3 py-2.5 sm:px-4 text-sm font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
                 style={{
                   background: 'linear-gradient(135deg, #1DAEBF 0%, #2CC8D8 100%)',
                   boxShadow: '0 0 0 1px rgba(44,200,216,0.3), 0 2px 8px rgba(44,200,216,0.25)',
@@ -211,23 +225,142 @@ export function ReportStickyBar({
               </button>
             </Link>
 
-            <Link href={buyHref}>
+            <Link href={customizeHref} className="hidden sm:block">
               <button
-                className="inline-flex items-center gap-1.5 px-3 py-2.5 sm:px-4 text-sm font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 whitespace-nowrap"
+                style={{
+                  background: '#E3F2FD',
+                  color: '#1565C0',
+                  border: '1px solid #90CAF9',
+                  boxShadow: '0 1px 4px rgba(21,101,192,0.1)',
+                }}
+              >
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                </svg>
+                Customize Report
+              </button>
+            </Link>
+
+            <Link href={buyHref} className="hidden sm:block">
+              <button
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
                 style={{
                   background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
                   boxShadow: '0 0 0 1px rgba(249,115,22,0.3), 0 2px 8px rgba(249,115,22,0.25)',
                 }}
               >
-                <svg className="w-4 h-4 flex-shrink-0 hidden sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
                 Buy Now
               </button>
             </Link>
+
+            {/* Mobile: Buy Now + ⋯ */}
+            <Link href={buyHref} className="sm:hidden">
+              <button
+                className="inline-flex items-center gap-1 px-2.5 py-2 text-xs font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
+                style={{
+                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
+                  boxShadow: '0 0 0 1px rgba(249,115,22,0.3), 0 2px 8px rgba(249,115,22,0.25)',
+                }}
+              >
+                Buy Now
+              </button>
+            </Link>
+
+            {/* More button — mobile only */}
+            <button
+              className="sm:hidden inline-flex items-center justify-center w-8 h-8 rounded-lg border border-gray-200 bg-gray-50 text-gray-600 hover:bg-gray-100 transition-colors flex-shrink-0"
+              onClick={() => setSheetOpen(true)}
+              aria-label="More options"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <circle cx="5" cy="12" r="1.5" />
+                <circle cx="12" cy="12" r="1.5" />
+                <circle cx="19" cy="12" r="1.5" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile bottom sheet */}
+      {sheetOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-[60] bg-black/40 sm:hidden"
+            onClick={() => setSheetOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Sheet */}
+          <div
+            className="fixed bottom-0 left-0 right-0 z-[61] bg-white rounded-t-2xl sm:hidden"
+            style={{ boxShadow: '0 -4px 24px rgba(0,0,0,0.12)' }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Report actions"
+          >
+            {/* Handle */}
+            <div className="flex justify-center pt-3 pb-1">
+              <div className="w-10 h-1 rounded-full bg-gray-300" />
+            </div>
+
+            <div className="px-5 pt-2 pb-8 flex flex-col gap-4">
+              <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-4">Report Actions</p>
+
+              <Link href={buyHref} className="block" onClick={() => setSheetOpen(false)}>
+                <button
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 text-sm font-semibold rounded-xl text-white transition-all duration-200"
+                  style={{
+                    background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
+                    boxShadow: '0 0 0 1px rgba(249,115,22,0.3), 0 2px 8px rgba(249,115,22,0.25)',
+                  }}
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  Buy Now
+                </button>
+              </Link>
+
+              <Link href={sampleHref} className="block" onClick={() => setSheetOpen(false)}>
+                <button
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 text-sm font-semibold rounded-xl text-white transition-all duration-200"
+                  style={{
+                    background: 'linear-gradient(135deg, #1DAEBF 0%, #2CC8D8 100%)',
+                    boxShadow: '0 0 0 1px rgba(44,200,216,0.3), 0 2px 8px rgba(44,200,216,0.25)',
+                  }}
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Request Sample
+                </button>
+              </Link>
+
+              <Link href={customizeHref} className="block" onClick={() => setSheetOpen(false)}>
+                <button
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 text-sm font-semibold rounded-xl transition-all duration-200"
+                  style={{
+                    background: '#E3F2FD',
+                    color: '#1565C0',
+                    border: '1px solid #90CAF9',
+                  }}
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                  </svg>
+                  Customize Report
+                </button>
+              </Link>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 }

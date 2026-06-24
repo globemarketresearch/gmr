@@ -1,52 +1,36 @@
 import { notFound } from 'next/navigation';
-import { getAuthorById, getReportsByAuthorId, isApiError } from '@/lib/api';
+import { getAuthorBySlug, getAllAuthors, getReportsByAuthorId, isApiError } from '@/lib/api';
+import { slugify } from '@/lib/utils';
 import { Breadcrumb } from '@/components/ui';
 import AuthorProfile from '@/components/authors/AuthorProfile';
 import AuthorReportsListing from '@/components/authors/AuthorReportsListing';
 import type { Metadata } from 'next';
 
-// Enable ISR with 10-minute revalidation
 export const revalidate = 600;
 
 export async function generateStaticParams() {
-  // Generate static pages for top 50 authors
-  // In production, fetch from API or database
-  const authorIds = Array.from({ length: 50 }, (_, i) => i + 1);
-
-  return authorIds.map((id) => ({
-    id: id.toString(),
-  }));
+  const response = await getAllAuthors();
+  if (isApiError(response)) return [];
+  return response.data.map((author) => ({ slug: slugify(author.name) }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   try {
-    const { id } = await params;
-    const authorId = parseInt(id);
+    const { slug } = await params;
+    const response = await getAuthorBySlug(slug);
 
-    if (isNaN(authorId)) {
-      return {
-        title: 'Author Not Found',
-      };
-    }
-
-    const response = await getAuthorById(authorId);
-
-    if (isApiError(response)) {
-      return {
-        title: 'Author Not Found',
-      };
-    }
+    if (isApiError(response)) return { title: 'Author Not Found' };
 
     const author = response.data;
 
     return {
       title: `Articles by ${author.name}`,
       description: `Browse market articles, insights, and research content published by ${author.name}.`,
-      keywords: ["market articles", "research blogs", "market insights", "industry content"],
+      keywords: ['market articles', 'research blogs', 'market insights', 'industry content'],
       openGraph: {
         title: `Articles by ${author.name}`,
         description: `Browse market articles, insights, and research content published by ${author.name}.`,
@@ -61,35 +45,21 @@ export async function generateMetadata({
 export default async function AuthorPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { id } = await params;
-  const authorId = parseInt(id);
+  const { slug } = await params;
 
-  // Validate numeric ID
-  if (isNaN(authorId)) {
-    notFound();
-  }
+  const authorResponse = await getAuthorBySlug(slug);
 
-  // Parallel fetch: author + reports
-  let authorResponse;
-  let reportsResponse;
-  try {
-    [authorResponse, reportsResponse] = await Promise.all([
-      getAuthorById(authorId),
-      getReportsByAuthorId(authorId, { status: 'published', limit: 1000 }),
-    ]);
-  } catch {
-    notFound();
-  }
-
-  // Error handling
-  if (isApiError(authorResponse)) {
-    console.error('Failed to fetch author:', authorResponse.message);
-    notFound();
-  }
+  if (isApiError(authorResponse)) notFound();
 
   const author = authorResponse.data;
+
+  const reportsResponse = await getReportsByAuthorId(author.id, {
+    status: 'published',
+    limit: 1000,
+  });
+
   const reports = isApiError(reportsResponse) ? [] : reportsResponse.data;
 
   const breadcrumbItems = [
@@ -100,14 +70,12 @@ export default async function AuthorPage({
 
   return (
     <div className="bg-[var(--background)]">
-      {/* Breadcrumb Bar */}
       <div className="border-b border-[var(--border)] bg-[var(--card)]">
         <div className="px-4 py-4 md:px-6">
           <Breadcrumb items={breadcrumbItems} />
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="px-4 py-8 md:px-6 max-w-7xl mx-auto">
         <AuthorProfile author={author} totalReports={reports.length} />
         <AuthorReportsListing reports={reports} authorName={author.name} />

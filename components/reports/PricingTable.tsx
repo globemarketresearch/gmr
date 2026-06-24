@@ -225,14 +225,14 @@ export function PricingTable({ reportTitle, reportId, reportSlug, onBack }: Pric
             key={ed.id}
             type="button"
             onClick={() => setActiveEdition(ed.id)}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 text-sm font-medium transition-colors border-b-2 ${
+            className={`flex-1 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors border-b-2 ${
               activeEdition === ed.id
                 ? 'border-[#1a3a8f] text-[#1a3a8f] bg-blue-50'
                 : 'border-transparent text-gray-500 hover:text-[#1a3a8f] hover:bg-gray-50'
             }`}
           >
-            <span>{ed.icon}</span>
-            <span>{ed.label}</span>
+            <span className="text-base sm:text-sm">{ed.icon}</span>
+            <span className="leading-tight text-center">{ed.label.replace(' Edition', '')}<span className="hidden sm:inline"> Edition</span></span>
           </button>
         ))}
       </div>

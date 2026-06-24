@@ -4,6 +4,7 @@ import { apiFetch, buildQueryString, type ApiResponse } from './config';
 import type { Report, ApiReport, ReportFilters } from './reports.types';
 import type { ApiAuthor } from './common.types';
 import { mapApiReportsToReports } from './mappers';
+import { slugify } from '@/lib/utils';
 
 /**
  * Author detail response from API
@@ -19,6 +20,43 @@ interface AuthorDetailData {
 interface AuthorReportsData {
   data?: ApiReport[];
   [key: string]: unknown;
+}
+
+interface AuthorsListData {
+  data?: ApiAuthor[];
+  [key: string]: unknown;
+}
+
+export async function getAllAuthors(): Promise<ApiResponse<ApiAuthor[]>> {
+  const response = await apiFetch<AuthorsListData>('/api/v1/authors?limit=100');
+
+  if (!response.success) return response;
+
+  let authors: ApiAuthor[];
+
+  if (Array.isArray(response.data)) {
+    authors = response.data;
+  } else if (response.data && 'data' in response.data && Array.isArray(response.data.data)) {
+    authors = response.data.data as ApiAuthor[];
+  } else {
+    return { success: false, error: 'invalid_response', message: 'Unexpected response structure' };
+  }
+
+  return { success: true, data: authors };
+}
+
+export async function getAuthorBySlug(slug: string): Promise<ApiResponse<ApiAuthor>> {
+  const listResponse = await getAllAuthors();
+
+  if (!listResponse.success) return listResponse;
+
+  const match = listResponse.data.find((a) => slugify(a.name) === slug);
+
+  if (!match) {
+    return { success: false, error: 'not_found', message: 'Author not found' };
+  }
+
+  return { success: true, data: match };
 }
 
 /**

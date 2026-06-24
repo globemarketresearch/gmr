@@ -4,6 +4,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Grid, Card, CardContent, CardTitle, CardDescription } from '@/components/ui';
+import { slugify } from '@/lib/utils';
 
 interface TeamMember {
   id: number;
@@ -55,7 +56,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
           <div className="flex-1">
             <div className="flex items-center gap-2">
               <Link
-                href={`/authors/${member.id}`}
+                href={`/authors/${slugify(member.name)}`}
                 className="hover:text-[var(--primary)] transition-colors"
               >
                 <CardTitle className="text-lg mb-1">{member.name}</CardTitle>
@@ -91,7 +92,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
 
         {/* View Profile Button */}
         <Link
-          href={`/authors/${member.id}`}
+          href={`/authors/${slugify(member.name)}`}
           className="inline-flex items-center gap-2 text-sm font-medium text-[var(--primary)] hover:text-[var(--primary)]/80 transition-colors pt-2"
         >
           View Author Profile
