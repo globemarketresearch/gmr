@@ -26,7 +26,7 @@ function ChevronIcon({ open }: { open: boolean }) {
 
 function CheckIcon() {
   return (
-    <svg className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ color: '#0284c7' }}>
+    <svg className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ color: '#059669' }}>
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
     </svg>
   );
@@ -41,7 +41,7 @@ function Accordion({ label, children, defaultOpen = false }: { label: string; ch
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-2.5 px-0 text-left"
       >
-        <span className="text-sm font-medium text-[#1a3a5c]">{label}</span>
+        <span className="text-sm font-medium text-[#064e3b]">{label}</span>
         <ChevronIcon open={open} />
       </button>
       {open && <div className="pb-3">{children}</div>}
@@ -78,7 +78,7 @@ function LicenseCard({
     <div
       className={`relative flex flex-col rounded-xl border-2 overflow-hidden transition-shadow ${
         isFeatured
-          ? 'border-[#1a3a8f] shadow-lg shadow-blue-100'
+          ? 'border-[#065f46] shadow-lg shadow-emerald-100'
           : 'border-gray-200 shadow-sm'
       }`}
     >
@@ -98,19 +98,19 @@ function LicenseCard({
       <div
         className={`px-5 pt-7 pb-4 text-center ${
           isFeatured
-            ? 'bg-gradient-to-br from-[#1a3a8f] to-[#0284c7] text-white'
+            ? 'bg-gradient-to-br from-[#064e3b] to-[#065f46] text-white'
             : 'bg-white'
         }`}
       >
-        <h3 className={`text-base font-semibold ${isFeatured ? 'text-white' : 'text-[#1a3a5c]'}`}>
+        <h3 className={`text-base font-semibold ${isFeatured ? 'text-white' : 'text-[#064e3b]'}`}>
           {tier.name}
         </h3>
         <div className="mt-3">
-          <span className={`text-3xl font-bold ${isFeatured ? 'text-white' : 'text-[#0f2236]'}`}>
+          <span className={`text-3xl font-bold ${isFeatured ? 'text-white' : 'text-[#052e16]'}`}>
             ${price.toLocaleString()}.00
           </span>
         </div>
-        <p className={`text-xs mt-1 ${isFeatured ? 'text-blue-100' : 'text-gray-500'}`}>
+        <p className={`text-xs mt-1 ${isFeatured ? 'text-emerald-200' : 'text-gray-500'}`}>
           {tier.deliverables}
         </p>
       </div>
@@ -120,12 +120,12 @@ function LicenseCard({
         <Accordion label="Data Included" defaultOpen>
           <div className="space-y-2">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#0284c7] mb-0.5">Market Scope</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[#059669] mb-0.5">Market Scope</p>
               <p className="text-xs text-gray-600">{tier.reportScope}</p>
               <p className="text-[10px] text-gray-400 mt-0.5">Competitive analysis · Technology readiness · 5 regions and 34 countries</p>
             </div>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#0284c7] mb-0.5">Country Insights</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[#059669] mb-0.5">Country Insights</p>
               <p className="text-xs text-gray-600">Top 15 countries with segmentation details</p>
             </div>
           </div>
@@ -163,8 +163,8 @@ function LicenseCard({
             type="button"
             className={`w-full py-3 rounded-lg text-sm font-semibold transition-all duration-150 ${
               isFeatured
-                ? 'bg-gradient-to-r from-[#1a3a8f] to-[#0284c7] text-white hover:opacity-90 shadow-md'
-                : 'bg-[#1a3a8f] text-white hover:bg-[#0284c7]'
+                ? 'bg-gradient-to-r from-[#064e3b] to-[#065f46] text-white hover:opacity-90 shadow-md'
+                : 'bg-[#064e3b] text-white hover:bg-[#047857]'
             }`}
           >
             {buyLabel}
@@ -186,7 +186,7 @@ export function PricingTable({ reportTitle, reportId, reportSlug, onBack }: Pric
       <button
         type="button"
         onClick={onBack}
-        className="inline-flex items-center gap-1.5 text-sm text-[#0284c7] hover:text-[#1a3a8f] font-medium mb-6 transition-colors"
+        className="inline-flex items-center gap-1.5 text-sm text-[#059669] hover:text-[#064e3b] font-medium mb-6 transition-colors"
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -197,13 +197,13 @@ export function PricingTable({ reportTitle, reportId, reportSlug, onBack }: Pric
       {/* Recommendation banner */}
       <div
         className="rounded-xl p-5 mb-6 text-white"
-        style={{ background: 'linear-gradient(135deg, #1a3a8f 0%, #0284c7 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #052e16 0%, #065f46 100%)' }}
       >
         <h2 className="text-lg font-bold mb-0.5">
           Choose the Right License for Your Business Needs
         </h2>
-        <p className="text-sm text-blue-200 mb-2">{reportTitle}</p>
-        <p className="text-sm text-blue-100 mb-3">
+        <p className="text-sm text-emerald-300 mb-2">{reportTitle}</p>
+        <p className="text-sm text-emerald-100 mb-3">
           For the best value, the <strong className="text-white">Corporate User License</strong> is recommended.
         </p>
         <ul className="space-y-1">
@@ -215,8 +215,8 @@ export function PricingTable({ reportTitle, reportId, reportSlug, onBack }: Pric
             'Decision Support: Helpful for planning and strategy',
             'Market Insights: Covers segments, regions, and competition analysis',
           ].map((item) => (
-            <li key={item} className="flex items-start gap-2 text-sm text-blue-100">
-              <span className="text-white font-bold mt-0.5">•</span>
+            <li key={item} className="flex items-start gap-2 text-sm text-emerald-100">
+              <span className="text-emerald-300 font-bold mt-0.5">•</span>
               <span dangerouslySetInnerHTML={{ __html: item.replace(/^([^:]+):/, '<strong class="text-white">$1:</strong>') }} />
             </li>
           ))}
@@ -232,8 +232,8 @@ export function PricingTable({ reportTitle, reportId, reportSlug, onBack }: Pric
             onClick={() => setActiveEdition(ed.id)}
             className={`flex-1 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors border-b-2 ${
               activeEdition === ed.id
-                ? 'border-[#1a3a8f] text-[#1a3a8f] bg-blue-50'
-                : 'border-transparent text-gray-500 hover:text-[#1a3a8f] hover:bg-gray-50'
+                ? 'border-[#065f46] text-[#065f46] bg-emerald-50'
+                : 'border-transparent text-gray-500 hover:text-[#065f46] hover:bg-gray-50'
             }`}
           >
             <span className="text-base sm:text-sm">{ed.icon}</span>
