@@ -26,7 +26,7 @@ const GLOBAL_TIERS: LicenseTier[] = [
     id: 'single',
     name: 'Single User License',
     deliverables: 'PDF + Excel',
-    reportScope: 'Competitor Analysis, 6 Regions, 34 Countries',
+    reportScope: 'Competitive analysis, Technology readiness, 5 regions and 34 countries',
     countrySegmentation: 'Top 15 Countries, Segmentation Analysis',
     includes: [
       'Report accessible by 1 user only',
@@ -44,7 +44,7 @@ const GLOBAL_TIERS: LicenseTier[] = [
     name: 'Corporate User License',
     badge: 'Most Popular',
     deliverables: 'PDF + Excel + PPT',
-    reportScope: 'Competitor Analysis, 6 Regions, 34 Countries',
+    reportScope: 'Competitive analysis, Technology readiness, 5 regions and 34 countries',
     countrySegmentation: 'Top 15 Countries, Segmentation Analysis',
     includes: [
       'Unlimited user access (within organization)',
@@ -62,7 +62,7 @@ const GLOBAL_TIERS: LicenseTier[] = [
     id: 'excel',
     name: 'Excel License',
     deliverables: 'Raw Data Workbook (.xlsx)',
-    reportScope: 'Competitor Analysis, 6 Regions, 34 Countries',
+    reportScope: 'Competitive analysis, Technology readiness, 5 regions and 34 countries',
     countrySegmentation: 'Top 15 Countries, Segmentation Analysis',
     includes: [
       'All Data Tables & Charts',
@@ -227,21 +227,21 @@ const COUNTRY_TIERS: LicenseTier[] = [
 export const EDITIONS: Edition[] = [
   {
     id: 'global',
-    label: 'Global Edition',
+    label: 'Global Coverage',
     icon: '🌐',
     prices: { single: 3499, corporate: 5449, excel: 1799, student: 799 },
     tiers: GLOBAL_TIERS,
   },
   {
     id: 'region',
-    label: 'Region Edition',
+    label: 'Regional Coverage',
     icon: '🗺️',
     prices: { single: 2999, corporate: 4199, excel: 1499, student: 699 },
     tiers: REGION_TIERS,
   },
   {
     id: 'country',
-    label: 'Country Edition',
+    label: 'Country Coverage',
     icon: '📍',
     prices: { single: 1999, corporate: 2690, excel: 990, student: 499 },
     tiers: COUNTRY_TIERS,

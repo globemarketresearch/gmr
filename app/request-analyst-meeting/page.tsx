@@ -289,10 +289,10 @@ export default function RequestAnalystMeetingPage() {
                           What to Expect:
                         </h4>
                         <ul className="text-sm text-blue-800 space-y-1">
-                          <li>â€¢ Live walkthrough of our research platform and reports</li>
-                          <li>â€¢ Discussion of your specific research needs</li>
-                          <li>â€¢ Overview of subscription options and pricing</li>
-                          <li>â€¢ Q&amp;A session with our product experts</li>
+                          <li>• Live walkthrough of our research platform and reports</li>
+                          <li>• Discussion of your specific research needs</li>
+                          <li>• Overview of subscription options and pricing</li>
+                          <li>• Q&amp;A session with our product experts</li>
                         </ul>
                       </div>
 

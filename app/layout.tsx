@@ -118,6 +118,23 @@ export default function RootLayout({
           defer
           src="//js.hs-scripts.com/22449271.js"
         />
+        {/* <Script
+          id="tawk-to"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var Tawk_API=Tawk_API||{}, Tawk_LoadTime=new Date();
+              (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/64a1b2c3d4e5f6a7b8c9d0e1/1h4abcdef';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+              })();
+            `,
+          }}
+        /> */}
       </body>
     </html>
   );

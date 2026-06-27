@@ -34,7 +34,7 @@ export const CustomizeReportCard = React.forwardRef<HTMLDivElement, CustomizeRep
             </Button>
           </Link>
 
-          <Link href="/contact">
+          <Link href="https://www.globemarketresearch.com/request-analyst-meeting" target="_blank" rel="noopener noreferrer">
             <Button
               variant="outline"
               className="w-full mt-2 relative overflow-hidden bg-[#E0F7FA] text-[#00838F] hover:text-[#006064] hover:bg-[#B2EBF2] border-[#80DEEA] hover:border-[#4DD0E1] focus:ring-[#1DAEBF] btn-glow-teal"

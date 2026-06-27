@@ -35,8 +35,14 @@ async function getRedirects(): Promise<ActiveRedirect[]> {
 
 export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
+  // Normalize trailing slash for matching (except root)
+  const normalizedPath = path.length > 1 ? path.replace(/\/$/, '') : path;
+
   const redirects = await getRedirects();
-  const match = redirects.find(r => r.sourceUrl === path);
+  const match = redirects.find(r => {
+    const src = r.sourceUrl.length > 1 ? r.sourceUrl.replace(/\/$/, '') : r.sourceUrl;
+    return src === normalizedPath;
+  });
 
   if (match) {
     // Fire-and-forget hit count increment — do not await
@@ -50,8 +56,13 @@ export async function middleware(request: NextRequest) {
       return new NextResponse(null, { status: match.redirectType });
     }
 
+    // Guard: skip if destination missing for non-410/451 types
+    if (!match.destinationUrl) {
+      return NextResponse.next();
+    }
+
     return NextResponse.redirect(
-      new URL(match.destinationUrl!, request.url),
+      new URL(match.destinationUrl, request.url),
       { status: match.redirectType }
     );
   }
@@ -60,5 +71,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon\\.ico|api/|.*\\.\\w+$).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon\\.ico|api/).*)'],
 };
