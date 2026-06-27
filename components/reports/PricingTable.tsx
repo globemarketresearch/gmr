@@ -120,17 +120,18 @@ function LicenseCard({
         <Accordion label="Data Included" defaultOpen>
           <div className="space-y-2">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#0284c7] mb-0.5">Report Scope</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[#0284c7] mb-0.5">Market Scope</p>
               <p className="text-xs text-gray-600">{tier.reportScope}</p>
+              <p className="text-[10px] text-gray-400 mt-0.5">Competitive analysis · Technology readiness · 5 regions and 34 countries</p>
             </div>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#0284c7] mb-0.5">Country-Level Segmentation</p>
-              <p className="text-xs text-gray-600">{tier.countrySegmentation}</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[#0284c7] mb-0.5">Country Insights</p>
+              <p className="text-xs text-gray-600">Top 15 countries with segmentation details</p>
             </div>
           </div>
         </Accordion>
 
-        <Accordion label="Access & Deliverables">
+        <Accordion label="Access & Delivery">
           <ul className="space-y-1.5">
             {tier.includes.map((item) => (
               <li key={item} className="flex items-start gap-2 text-xs text-gray-600">
@@ -142,7 +143,7 @@ function LicenseCard({
         </Accordion>
 
         {(tier.commercials.length > 0) && (
-          <Accordion label="Commercials">
+          <Accordion label="Commercial Support">
             <ul className="space-y-1.5">
               {tier.commercials.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-xs text-gray-600">
@@ -198,17 +199,21 @@ export function PricingTable({ reportTitle, reportId, reportSlug, onBack }: Pric
         className="rounded-xl p-5 mb-6 text-white"
         style={{ background: 'linear-gradient(135deg, #1a3a8f 0%, #0284c7 100%)' }}
       >
-        <h2 className="text-lg font-bold mb-1">
-          Compare &amp; Select Your License — {reportTitle}
+        <h2 className="text-lg font-bold mb-0.5">
+          Choose the Right License for Your Business Needs
         </h2>
+        <p className="text-sm text-blue-200 mb-2">{reportTitle}</p>
         <p className="text-sm text-blue-100 mb-3">
-          We recommend the <strong className="text-white">Corporate User License</strong> for maximum value:
+          For the best value, the <strong className="text-white">Corporate User License</strong> is recommended.
         </p>
         <ul className="space-y-1">
           {[
-            'Extended Support: Min. 2 years dedicated analyst access',
-            'Regular Updates: 8 quarterly updates',
-            'All Formats: PDF, PPT, Excel',
+            'Analyst Assistance: Minimum 1 years of dedicated support from research experts',
+            'Quarterly Insights: 8 quarterly updates included for ongoing market tracking',
+            'Multi-Format Delivery: Report available in PDF, PPT, and Excel formats',
+            'Team Use: Suitable for internal sharing',
+            'Decision Support: Helpful for planning and strategy',
+            'Market Insights: Covers segments, regions, and competition analysis',
           ].map((item) => (
             <li key={item} className="flex items-start gap-2 text-sm text-blue-100">
               <span className="text-white font-bold mt-0.5">•</span>

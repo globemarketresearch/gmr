@@ -7,18 +7,22 @@ import { CTAPanel } from './CTAPanel';
 import { CustomizeReportCard } from './CustomizeReportCard';
 import { BriefWithAI } from './BriefWithAI';
 import { PricingTable } from './PricingTable';
+import { ReportStickyBar } from './ReportStickyBar';
 import { SidebarTOCItem, TOCItem } from '@/lib/toc-utils';
 import { useGeneratedTOC } from '@/hooks/useGeneratedTOC';
 
 interface ReportContentWrapperProps {
-  tableOfContents?: SidebarTOCItem[];  // For sidebar navigation (optional, will be auto-generated if not provided)
-  fullReportTOC?: TOCItem[];           // For full report TOC modal
+  tableOfContents?: SidebarTOCItem[];
+  fullReportTOC?: TOCItem[];
   hasFullContent: boolean;
   price: string;
   discounted_price: string;
   reportTitle?: string;
   reportSlug?: string;
   reportId?: number;
+  publishedDate?: string;
+  pages?: number;
+  formats?: string[];
   children: ReactNode;
 }
 
@@ -31,6 +35,9 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
   reportTitle,
   reportSlug,
   reportId,
+  publishedDate,
+  pages,
+  formats,
   children,
 }) => {
   const [showFullTOC, setShowFullTOC] = useState(false);
@@ -87,6 +94,16 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
   };
 
   return (
+    <>
+    <ReportStickyBar
+      reportTitle={reportTitle ?? ''}
+      reportSlug={reportSlug ?? ''}
+      reportId={reportId}
+      publishedDate={publishedDate}
+      pages={pages}
+      formats={formats}
+      onBuyNow={() => setShowPricing(true)}
+    />
     <div className={`grid grid-cols-1 gap-8 ${
       showPricing
         ? 'lg:grid-cols-[1fr_300px] 2xl:grid-cols-[1fr_360px]'
@@ -150,5 +167,6 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
         </div>
       </aside>
     </div>
+    </>
   );
 };

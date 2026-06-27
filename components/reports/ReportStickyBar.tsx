@@ -11,6 +11,7 @@ interface ReportStickyBarProps {
   publishedDate?: string;
   pages?: number;
   formats?: string[];
+  onBuyNow?: () => void;
 }
 
 // Colored SVG icons for each document format
@@ -92,6 +93,7 @@ export function ReportStickyBar({
   publishedDate,
   pages,
   formats,
+  onBuyNow,
 }: ReportStickyBarProps) {
   const [visible, setVisible] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -242,33 +244,62 @@ export function ReportStickyBar({
               </button>
             </Link>
 
-            <Link href={buyHref} className="hidden sm:block">
+            {onBuyNow ? (
               <button
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
+                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
                 style={{
                   background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
                   boxShadow: '0 0 0 1px rgba(249,115,22,0.3), 0 2px 8px rgba(249,115,22,0.25)',
                 }}
+                onClick={onBuyNow}
               >
                 <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
                 Buy Now
               </button>
-            </Link>
+            ) : (
+              <Link href={buyHref} className="hidden sm:block">
+                <button
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
+                  style={{
+                    background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
+                    boxShadow: '0 0 0 1px rgba(249,115,22,0.3), 0 2px 8px rgba(249,115,22,0.25)',
+                  }}
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  Buy Now
+                </button>
+              </Link>
+            )}
 
             {/* Mobile: Buy Now + ⋯ */}
-            <Link href={buyHref} className="sm:hidden">
+            {onBuyNow ? (
               <button
-                className="inline-flex items-center gap-1 px-2.5 py-2 text-xs font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
+                className="sm:hidden inline-flex items-center gap-1 px-2.5 py-2 text-xs font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
                 style={{
                   background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
                   boxShadow: '0 0 0 1px rgba(249,115,22,0.3), 0 2px 8px rgba(249,115,22,0.25)',
                 }}
+                onClick={onBuyNow}
               >
                 Buy Now
               </button>
-            </Link>
+            ) : (
+              <Link href={buyHref} className="sm:hidden">
+                <button
+                  className="inline-flex items-center gap-1 px-2.5 py-2 text-xs font-semibold rounded-lg text-white transition-all duration-200 whitespace-nowrap"
+                  style={{
+                    background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
+                    boxShadow: '0 0 0 1px rgba(249,115,22,0.3), 0 2px 8px rgba(249,115,22,0.25)',
+                  }}
+                >
+                  Buy Now
+                </button>
+              </Link>
+            )}
 
             {/* More button — mobile only */}
             <button
@@ -312,20 +343,36 @@ export function ReportStickyBar({
             <div className="px-5 pt-2 pb-8 flex flex-col gap-4">
               <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-4">Report Actions</p>
 
-              <Link href={buyHref} className="block" onClick={() => setSheetOpen(false)}>
+              {onBuyNow ? (
                 <button
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 text-sm font-semibold rounded-xl text-white transition-all duration-200"
                   style={{
                     background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
                     boxShadow: '0 0 0 1px rgba(249,115,22,0.3), 0 2px 8px rgba(249,115,22,0.25)',
                   }}
+                  onClick={() => { setSheetOpen(false); onBuyNow(); }}
                 >
                   <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                   Buy Now
                 </button>
-              </Link>
+              ) : (
+                <Link href={buyHref} className="block" onClick={() => setSheetOpen(false)}>
+                  <button
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 text-sm font-semibold rounded-xl text-white transition-all duration-200"
+                    style={{
+                      background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
+                      boxShadow: '0 0 0 1px rgba(249,115,22,0.3), 0 2px 8px rgba(249,115,22,0.25)',
+                    }}
+                  >
+                    <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    Buy Now
+                  </button>
+                </Link>
+              )}
 
               <Link href={sampleHref} className="block" onClick={() => setSheetOpen(false)}>
                 <button

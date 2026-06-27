@@ -15,7 +15,6 @@ import { parseHTMLAndGenerateTOC, addStaticSectionsToTOC } from "@/lib/html-toc-
 import type { SidebarTOCItem } from "@/lib/toc-utils";
 import { StructuredData, generateArticleSchema, generateBreadcrumbSchema, generateFAQSchema, generateProductSchema, generateDatasetSchema } from "@/components/seo/StructuredData";
 import RelatedReportsSection from "@/components/reports/RelatedReportsSection";
-import { ReportStickyBar } from "@/components/reports/ReportStickyBar";
 import { RequestSampleModal } from "@/components/reports/RequestSampleModal";
 import categories from "@/data/categories.json";
 
@@ -544,16 +543,6 @@ export default async function ReportPage({
           </div>
         </div>
 
-        {/* Sticky "Request Sample + Buy Now" bar — appears on scroll */}
-        <ReportStickyBar
-          reportTitle={report.title}
-          reportSlug={report.slug}
-          reportId={report.id}
-          publishedDate={report.date}
-          pages={report.pages}
-          formats={report.formats}
-        />
-
         <div className="border-b border-border bg-card">
           <div className="max-w-[1400px] 2xl:max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <Breadcrumb items={breadcrumbItems} />
@@ -570,6 +559,9 @@ export default async function ReportPage({
           reportTitle={report.title}
           reportSlug={report.slug}
           reportId={report.id}
+          publishedDate={report.date}
+          pages={report.pages}
+          formats={report.formats}
         >
           <article>
               <section className="mb-10">
