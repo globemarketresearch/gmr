@@ -118,7 +118,7 @@ export default function RootLayout({
           defer
           src="//js.hs-scripts.com/22449271.js"
         />
-        {/* <Script
+        <Script
           id="tawk-to"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -127,14 +127,14 @@ export default function RootLayout({
               (function(){
                 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
                 s1.async=true;
-                s1.src='https://embed.tawk.to/64a1b2c3d4e5f6a7b8c9d0e1/1h4abcdef';
+                s1.src='https://embed.tawk.to/6a3cdf0ec127631d4a067117/1jrusekle';
                 s1.charset='UTF-8';
                 s1.setAttribute('crossorigin','*');
                 s0.parentNode.insertBefore(s1,s0);
               })();
             `,
           }}
-        /> */}
+        />
       </body>
     </html>
   );

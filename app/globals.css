@@ -904,6 +904,13 @@ html body { top: 0 !important; }
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
+.styled-report-content img,
+.styled-article-content img {
+  border: 2px solid #90CAF9;
+  box-shadow: 0 1px 4px rgba(21, 101, 192, 0.1);
+  border-radius: 0.5rem;
+}
+
 .styled-report-content > h2 + *,
 .styled-report-content > h3 + *,
 .styled-article-content > h2 + *,

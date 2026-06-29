@@ -28,7 +28,7 @@ export default function ReferenceImages({ images }: ReferenceImagesProps) {
       {/* 2x2 Grid Layout */}
       <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
         {images.map((image, index) => (
-          <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-200">
+          <Card key={index} className="overflow-hidden transition-shadow duration-200" style={{ border: '1px solid #90CAF9', boxShadow: '0 1px 4px rgba(21,101,192,0.1)' }}>
             <CardContent className="p-0">
               {/* Image Container with Aspect Ratio */}
               <div className="relative aspect-[3/2] w-full bg-[var(--muted)]">

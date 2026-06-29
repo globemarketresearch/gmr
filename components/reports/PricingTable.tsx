@@ -122,10 +122,12 @@ function LicenseCard({
             <div>
               <p className="text-xs text-gray-600">{tier.reportScope}</p>
             </div>
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#111D40] mb-0.5">Country Insights</p>
-              <p className="text-xs text-gray-600">Top 15 countries with segmentation details</p>
-            </div>
+            {!tier.isStudentTier && (
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-[#111D40] mb-0.5">Country Insights</p>
+                <p className="text-xs text-gray-600">Top 15 countries with segmentation details</p>
+              </div>
+            )}
           </div>
         </Accordion>
 
@@ -235,7 +237,7 @@ export function PricingTable({ reportTitle, reportId, reportSlug, onBack }: Pric
             }`}
           >
             <span className="text-base sm:text-sm">{ed.icon}</span>
-            <span className="leading-tight text-center">{ed.label.replace(' Edition', '')}<span className="hidden sm:inline"> Edition</span></span>
+            <span className="leading-tight text-center">{ed.label}</span>
           </button>
         ))}
       </div>

@@ -14,8 +14,7 @@ import { Service } from "@/lib/api/services.types";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Statistics", href: "/statistics" },
-  { name: "Press Releases", href: "/press-releases" },
+  { name: "About Us", href: "/about" },
 ];
 
 function NavLink({ href, label, pathname }: { href: string; label: string; pathname: string }) {
@@ -83,14 +82,14 @@ export default function Navigation() {
           isActive={pathname.startsWith("/industry") || pathname.startsWith("/reports")}
         />
 
-        {/* New Services dropdown (7 core service lines) */}
         <ServicesMenu
           services={services}
           isActive={pathname.startsWith("/services")}
         />
 
-        <NavLink href="/about" label="About Us" pathname={pathname} />
         <NavLink href="/research-methodology" label="Methodology" pathname={pathname} />
+        <NavLink href="/statistics" label="Statistics" pathname={pathname} />
+        <NavLink href="/press-releases" label="Press Releases" pathname={pathname} />
         <NavLink href="/contact" label="Contact" pathname={pathname} />
       </nav>
 
@@ -161,7 +160,7 @@ export default function Navigation() {
 
             <div className="overflow-y-auto h-[calc(100%-65px)]">
               <nav className="flex flex-col p-3 gap-0.5">
-                {[...navItems, { name: "About Us", href: "/about" }, { name: "Methodology", href: "/research-methodology" }, { name: "Contact", href: "/contact" }].map((item) => {
+                {[...navItems, { name: "Methodology", href: "/research-methodology" }, { name: "Statistics", href: "/statistics" }, { name: "Press Releases", href: "/press-releases" }, { name: "Contact", href: "/contact" }].map((item) => {
                   const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
                   return (
                     <Link

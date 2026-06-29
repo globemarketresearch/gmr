@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getAuthorBySlug, getAllAuthors, getReportsByAuthorId, isApiError } from '@/lib/api';
+import { getAuthorBySlug, getAuthorById, getAllAuthors, getReportsByAuthorId, isApiError } from '@/lib/api';
 import { slugify } from '@/lib/utils';
 import { Breadcrumb } from '@/components/ui';
 import AuthorProfile from '@/components/authors/AuthorProfile';
@@ -11,7 +11,10 @@ export const revalidate = 600;
 export async function generateStaticParams() {
   const response = await getAllAuthors();
   if (isApiError(response)) return [];
-  return response.data.map((author) => ({ slug: slugify(author.name) }));
+  return response.data.flatMap((author) => [
+    { slug: slugify(author.name) },
+    { slug: String(author.id) },
+  ]);
 }
 
 export async function generateMetadata({
@@ -21,7 +24,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   try {
     const { slug } = await params;
-    const response = await getAuthorBySlug(slug);
+    const numericId = /^\d+$/.test(slug) ? parseInt(slug, 10) : null;
+    const response = numericId !== null ? await getAuthorById(numericId) : await getAuthorBySlug(slug);
 
     if (isApiError(response)) return { title: 'Author Not Found' };
 
@@ -48,8 +52,8 @@ export default async function AuthorPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-
-  const authorResponse = await getAuthorBySlug(slug);
+  const numericId = /^\d+$/.test(slug) ? parseInt(slug, 10) : null;
+  const authorResponse = numericId !== null ? await getAuthorById(numericId) : await getAuthorBySlug(slug);
 
   if (isApiError(authorResponse)) notFound();
 

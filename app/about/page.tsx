@@ -221,9 +221,9 @@ export default function AboutPage() {
               About Globe Market Research
               <span className="w-8 h-px bg-blue-400" />
             </p>
-            <h1 className="text-2xl md:text-4xl lg:text-[3.5rem] font-bold text-white leading-[1.15]">
-              See Beyond Data.<br />
-              <span className="text-blue-400">Make Decisions That Matter.</span>
+            <h1 className="text-2xl md:text-4xl lg:text-[3.5rem] font-bold text-white leading-none">
+              <span className="block pb-3 md:pb-4">See Beyond Data.</span>
+              <span className="block text-blue-400">Make Decisions That Matter.</span>
             </h1>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl mx-auto">
               A global market intelligence and consulting company delivering reliable industry insights,

@@ -470,18 +470,18 @@ export default function ResearchMethodologyPage() {
     <>
       {/* ── Hero ── */}
       <Section className="bg-[var(--muted)]">
-        <Container size="sm">
+        <Container size="md">
           <h2 className="mb-6 text-3xl font-bold md:text-4xl lg:text-4xl">
             Research Methodology
           </h2>
-          <p className="text-xl text-[var(--muted-foreground)] mb-4 leading-relaxed">
+          <p className="text-base text-[var(--muted-foreground)] mb-4 leading-relaxed">
             This Research Methodology document governs all market intelligence outputs produced
             by Globe Market Research. It establishes the standards, processes, verification
             protocols, and quality controls that underpin every assessment, forecast, and
             analysis we publish — whether for global biofuels, smartphones, semiconductors,
             energy transition materials, or any other market sector covered by our practice.
           </p>
-          <p className="text-lg text-[var(--muted-foreground)] leading-relaxed">
+          <p className="text-base text-[var(--muted-foreground)] leading-relaxed">
             We publish this methodology openly because transparency is the foundation of trust.
             In an era when AI-generated content is widespread, clients deserve to know exactly
             how intelligence is gathered, who gathers it, how data is ranked and normalised, and
@@ -492,7 +492,7 @@ export default function ResearchMethodologyPage() {
       </Section>
 
       <Section className="pt-0">
-        <Container size="sm">
+        <Container size="md">
           {/* ── Table of Contents ── */}
           <section className="my-10" aria-label="How this methodology is organised">
             <div className="flex items-center gap-4 mb-8">
