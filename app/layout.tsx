@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     default: "Globe Market Research | Global Market Intelligence & Research Reports",
     template: "%s",
   },
-  description: "Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.",
+  description: "Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 50+ sectors worldwide.",
   keywords: ["Globe Market Research", "global market research", "market intelligence", "industry research reports", "market analysis", "business insights"],
   authors: [{ name: "Globe Market Research Team" }],
   icons: {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Globe Market Research",
     title: "Globe Market Research | Global Market Intelligence & Research Reports",
-    description: "Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.",
+    description: "Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 50+ sectors worldwide.",
   },
   robots: {
     index: true,

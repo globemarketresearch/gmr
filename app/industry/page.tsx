@@ -6,7 +6,7 @@ import IndustryHero from '@/components/reports/IndustryHero';
 
 export const metadata: Metadata = {
   title: "Global Market Research Reports & Industry Analysis",
-  description: "Browse in-depth market research reports covering industry trends, competitive analysis, forecasts, and strategic insights across 45+ global sectors.",
+  description: "Browse in-depth market research reports covering industry trends, competitive analysis, forecasts, and strategic insights across 50+ global sectors.",
   keywords: ["market research reports", "global market research", "industry reports", "market forecast", "industry analysis"],
   alternates: {
     canonical: '/industry',

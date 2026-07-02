@@ -50,7 +50,7 @@ export default function HeroSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2CC8D8] opacity-70 motion-reduce:animate-none" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#2CC8D8]" />
             </span>
-            Trusted by 500+ Fortune 500 Companies
+            Trusted By Decision-Makers Across 50+ Industries Worldwide
           </span>
 
           {/* Headline */}

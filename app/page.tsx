@@ -19,7 +19,7 @@ export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Globe Market Research | Global Market Intelligence & Research Reports",
-  description: "Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.",
+  description: "Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 50+ sectors worldwide.",
   keywords: ["Globe Market Research", "global market research", "market intelligence", "industry research reports", "market analysis", "business insights"],
   alternates: {
     canonical: 'https://www.globemarketresearch.com',

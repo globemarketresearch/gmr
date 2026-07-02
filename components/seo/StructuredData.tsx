@@ -33,7 +33,7 @@ export const generateOrganizationSchema = () => ({
   name: 'Globe Market Research',
   url: 'https://www.globemarketresearch.com',
   logo: 'https://www.globemarketresearch.com/assets/images/logo.jpg',
-  description: 'Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.',
+  description: 'Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 50+ sectors worldwide.',
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Customer Service',
@@ -55,7 +55,7 @@ export const generateWebSiteSchema = () => ({
   '@type': 'WebSite',
   name: 'Globe Market Research',
   url: 'https://www.globemarketresearch.com',
-  description: 'Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.',
+  description: 'Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 50+ sectors worldwide.',
   potentialAction: {
     '@type': 'SearchAction',
     target: 'https://www.globemarketresearch.com/search?q={search_term_string}',
@@ -292,7 +292,7 @@ export const generateLocalBusinessSchema = () => ({
   email: 'sales@globemarketresearch.com',
   image: 'https://www.globemarketresearch.com/assets/images/logo.jpg',
   priceRange: '$$$$',
-  description: 'Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 45+ sectors worldwide.',
+  description: 'Globe Market Research delivers trusted global market research, industry insights, trends, forecasts, and data-driven analysis across 50+ sectors worldwide.',
   sameAs: [
     'https://x.com/GMR172026',
     'https://www.linkedin.com/company/globemarketresearch/',

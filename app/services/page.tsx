@@ -228,7 +228,7 @@ export default function ServicesPage() {
               { value: "2,500+", label: "Reports Published" },
               { value: "150+",   label: "Market Consulting" },
               { value: "500+",   label: "Satisfied Customers" },
-              { value: "45+",    label: "Industries Covered" },
+              { value: "50+",    label: "Industries Covered" },
             ].map(({ value, label }) => (
               <div key={label}>
                 <AnimatedCounter value={value} className="text-3xl font-extrabold text-white" />

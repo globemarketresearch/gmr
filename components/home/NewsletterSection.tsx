@@ -22,7 +22,7 @@ const INTERESTS = [
 
 const STATS = [
   { value: "12K+",   label: "Subscribers" },
-  { value: "45+",    label: "Industries" },
+  { value: "50+",    label: "Industries" },
   { value: "Weekly", label: "Cadence" },
 ];
 
