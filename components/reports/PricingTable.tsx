@@ -200,11 +200,11 @@ export function PricingTable({ reportTitle, reportId, reportSlug, onBack }: Pric
         style={{ background: 'linear-gradient(135deg, #09132e 0%, #111D40 100%)' }}
       >
         <div className="flex flex-wrap items-baseline gap-x-2 mb-2">
-          <h2 className="text-lg font-bold">Choose the Right License for Your Business Needs</h2>
-          <p className="text-lg text-blue-300">- {reportTitle}</p>
+          <h2 className="text-lg font-bold text-blue-100">Choose the Right License for Your Business Needs - </h2>
+          <p className="text-lg text-sky-400">{reportTitle}</p>
         </div>
         <p className="text-sm text-blue-100 mb-3">
-          For the best value, the <strong className="text-white">Corporate User License</strong> is recommended.
+          For the best value, the <strong className="text-blue-100">Corporate User License</strong> is recommended.
         </p>
         <ul className="space-y-1">
           {[
@@ -217,7 +217,7 @@ export function PricingTable({ reportTitle, reportId, reportSlug, onBack }: Pric
           ].map((item) => (
             <li key={item} className="flex items-start gap-2 text-sm text-blue-100">
               <span className="text-blue-300 font-bold mt-0.5">•</span>
-              <span dangerouslySetInnerHTML={{ __html: item.replace(/^([^:]+):/, '<strong class="text-white">$1:</strong>') }} />
+              <span dangerouslySetInnerHTML={{ __html: item.replace(/^([^:]+):/, '<strong class="text-blue-100">$1:</strong>') }} />
             </li>
           ))}
         </ul>

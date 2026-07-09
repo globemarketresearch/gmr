@@ -43,6 +43,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
   const [showFullTOC, setShowFullTOC] = useState(false);
   const [showPricing, setShowPricing] = useState(false);
   const targetSectionRef = useRef<string | null>(null);
+  const pricingSectionRef = useRef<HTMLDivElement>(null);
 
   // Auto-generate TOC from h2 headings if not provided
   const generatedTOC = useGeneratedTOC('article');
@@ -59,6 +60,27 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
       });
     }
   }, [showFullTOC]);
+
+  // Handle scroll to the pricing table section when it is opened
+  useEffect(() => {
+    if (showPricing) {
+      const timeoutId = setTimeout(() => {
+        const element = pricingSectionRef.current;
+        if (element) {
+          const offset = 100;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      }, 0);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [showPricing]);
 
   // Handle navigation to section after closing full TOC
   useEffect(() => {
@@ -136,12 +158,14 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
       {/* Main Content Area */}
       <main>
         {showPricing ? (
-          <PricingTable
-            reportTitle={reportTitle ?? ''}
-            reportId={reportId}
-            reportSlug={reportSlug}
-            onBack={() => setShowPricing(false)}
-          />
+          <div ref={pricingSectionRef}>
+            <PricingTable
+              reportTitle={reportTitle ?? ''}
+              reportId={reportId}
+              reportSlug={reportSlug}
+              onBack={() => setShowPricing(false)}
+            />
+          </div>
         ) : showFullTOC ? (
           <FullReportTOC
             items={fullReportTOC ?? []}
