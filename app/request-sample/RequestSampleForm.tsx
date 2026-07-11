@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Section, Container, Card, CardHeader, CardTitle, CardDescription, CardContent, Button, Badge, Captcha, type CaptchaRef } from "@/components/ui";
 import { CountrySelect } from "@/components/ui/country-select";
-import { QuickContactSection, TrustedPartnersSidebar } from "@/components/contact";
+import { QuickContactSection } from "@/components/contact";
 import { submitRequestSampleForm, isFormError } from "@/lib/api";
 import { getDefaultCountry, type Country } from "@/lib/data/countries";
 import { isBusinessEmail } from "@/lib/validators";
@@ -322,10 +322,9 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
             </div>
           </div>
 
-          {/* Right Column - Quick Contact & Trusted Partners (1/3 width) */}
+          {/* Right Column - Quick Contact (1/3 width) */}
           <div className="space-y-6">
             <QuickContactSection />
-            <TrustedPartnersSidebar />
           </div>
         </div>
 
