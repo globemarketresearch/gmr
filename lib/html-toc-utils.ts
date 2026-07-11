@@ -107,6 +107,12 @@ export function addStaticSectionsToTOC(
 ): SidebarTOCItem[] {
   const result = [...toc];
 
+  result.push({
+    id: 'research-methodology',
+    title: 'Research Methodology',
+    level: 2,
+  });
+
   if (hasTeam) {
     result.push({
       id: 'meet-the-team',

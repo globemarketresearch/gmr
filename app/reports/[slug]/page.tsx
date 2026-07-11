@@ -10,6 +10,7 @@ import { ReportShareButtons } from "@/components/reports/ReportShareButtons";
 import { StyledReportContent } from "@/components/reports/StyledReportContent";
 // import { MarketGrowthChart } from "@/components/reports/charts/MarketGrowthChart";
 import MeetTheTeam from "@/components/reports/MeetTheTeam";
+import ResearchMethodologySummary from "@/components/reports/ResearchMethodologySummary";
 import FAQ from "@/components/reports/FAQ";
 import { parseHTMLAndGenerateTOC, addStaticSectionsToTOC } from "@/lib/html-toc-utils";
 import type { SidebarTOCItem } from "@/lib/toc-utils";
@@ -695,6 +696,7 @@ export default async function ReportPage({
                   </section> */}
 
                   {/* NEW SECTIONS */}
+                  <ResearchMethodologySummary />
                   <MeetTheTeam teamMembers={report.authors} />
 
                   {/* FAQ Section */}
