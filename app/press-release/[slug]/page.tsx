@@ -181,7 +181,7 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
           </h1>
 
           {/* Excerpt */}
-          <p className="mb-8 leading-relaxed max-w-3xl" style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.0625rem' }}>
+          <p className="mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.0625rem' }}>
             {pressRelease.excerpt}
           </p>
 
