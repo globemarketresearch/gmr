@@ -27,3 +27,5 @@ export { Captcha } from './captcha';
 export type { CaptchaProps, CaptchaRef } from './captcha';
 
 export { StyledArticleContent } from './StyledArticleContent';
+
+export { default as ScrollToTopButton } from './ScrollToTopButton';

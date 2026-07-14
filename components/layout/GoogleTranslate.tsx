@@ -164,7 +164,7 @@ export default function GoogleTranslate() {
         {/* Shine sweep */}
         <span className="lang-shine" aria-hidden="true" />
         <Globe className="w-3.5 h-3.5 flex-shrink-0 relative z-10" />
-        <span className="hidden lg:inline whitespace-nowrap notranslate relative z-10">{currentLabel}</span>
+        {/* <span className="hidden lg:inline whitespace-nowrap notranslate relative z-10">{currentLabel}</span> */}
         <ChevronDown
           className={`w-3 h-3 flex-shrink-0 relative z-10 lang-chevron ${isOpen ? "rotate-180" : ""}`}
         />

@@ -33,5 +33,9 @@ export * from './press-releases.types';
 export * from './legal-pages';
 export * from './legal-pages.types';
 
+// Media Mentions API
+export * from './media-mentions';
+export * from './media-mentions.types';
+
 // Data mappers
 export * from './mappers';

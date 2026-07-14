@@ -66,18 +66,28 @@ export default function ResearchMethodologySummary() {
         Research Methodology
       </h2>
       <p className="text-[var(--muted-foreground)] leading-relaxed mb-3">
-        This Research Methodology document governs all market intelligence outputs produced
-        by Globe Market Research. It establishes the standards, processes, verification
-        protocols, and quality controls that underpin every assessment, forecast, and
-        analysis we publish — whether for global biofuels, smartphones, semiconductors,
-        energy transition materials, or any other market sector covered by our practice.
+        This market study is prepared using a combination of primary and secondary research.
+        Primary research includes discussions with manufacturers, suppliers, distributors,
+        consultants, industry experts, and end users. Secondary research covers company
+        reports, government databases, trade associations, technical publications, regulatory
+        sources, and trusted industry documents. The collected information is used to assess
+        market demand, pricing trends, technology adoption, competitive activity, and
+        regional performance.
+      </p>
+      <p className="text-[var(--muted-foreground)] leading-relaxed mb-3">
+        AI language models are not used as primary data sources, and publicly available
+        AI-generated content is not treated as market evidence. Computational tools may be
+        used to support data processing, translation, data classification, and pattern
+        identification. However, every published assessment is supported by verified
+        sources, human review, and primary market discussions.
       </p>
       <p className="text-[var(--muted-foreground)] leading-relaxed mb-8">
-        We publish this methodology openly because transparency is the foundation of trust.
-        In an era when AI-generated content is widespread, clients deserve to know exactly
-        how intelligence is gathered, who gathers it, how data is ranked and normalised, and
-        what checks exist before any figure or trend is committed to a published output. This
-        document is reviewed and updated at least annually.
+        Market estimates are developed through top-down and bottom-up approaches and
+        validated using data triangulation. Revenue, production, shipment, pricing, and
+        application-level data are compared across multiple sources. Forecasts consider
+        economic conditions, regulatory changes, investment activity, innovation, supply
+        chain developments, and industry risks. All findings are reviewed through source
+        verification and internal quality checks before publication.
       </p>
 
       <div className="flex items-center gap-4 mb-6">

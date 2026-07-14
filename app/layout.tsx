@@ -3,6 +3,7 @@ import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import { StructuredData, generateOrganizationSchema, generateWebSiteSchema, generateLocalBusinessSchema } from "@/components/seo/StructuredData";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
@@ -110,6 +111,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen" style={{ paddingTop: "var(--sticky-header-height, 96px)" }}>{children}</main>
         <Footer />
+        <ScrollToTopButton />
         <GoogleAnalytics gaId="G-DY50XJZK98" />
         <Script
           type="text/javascript"

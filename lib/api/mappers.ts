@@ -302,7 +302,7 @@ export function mapApiReportToReport(apiReport: ApiReport): Report {
     description: apiReport.description,
     summary: apiReport.summary || apiReport.description,
     category: apiReport.category_name || 'Uncategorized',
-    date: formatDate(apiReport.publish_date || apiReport.created_at),
+    date: formatDate(apiReport.updated_at || apiReport.publish_date || apiReport.created_at),
     price,
     discounted_price,
     region,

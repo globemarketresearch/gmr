@@ -10,6 +10,7 @@ import { ReportShareButtons } from "@/components/reports/ReportShareButtons";
 import { StyledReportContent } from "@/components/reports/StyledReportContent";
 // import { MarketGrowthChart } from "@/components/reports/charts/MarketGrowthChart";
 import MeetTheTeam from "@/components/reports/MeetTheTeam";
+import GooglePreferredSource from "@/components/reports/GooglePreferredSource";
 import ResearchMethodologySummary from "@/components/reports/ResearchMethodologySummary";
 import FAQ from "@/components/reports/FAQ";
 import { parseHTMLAndGenerateTOC, addStaticSectionsToTOC } from "@/lib/html-toc-utils";
@@ -527,6 +528,7 @@ export default async function ReportPage({
                   { label: 'Published', value: report.date },
                   { label: 'Pages', value: report.pages ? `${report.pages}+` : '—' },
                   { label: 'Format', value: 'PDF, Excel' },
+                  { label: 'Reviewed & Verified By', value: 'GMR Data Validation Team' },
                 ].map((item) => (
                   <div key={item.label}>
                     <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>{item.label}</p>
@@ -697,6 +699,7 @@ export default async function ReportPage({
 
                   {/* NEW SECTIONS */}
                   <ResearchMethodologySummary />
+                  <GooglePreferredSource />
                   <MeetTheTeam teamMembers={report.authors} />
 
                   {/* FAQ Section */}
