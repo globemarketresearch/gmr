@@ -9,6 +9,7 @@ import { StructuredData, generateArticleSchema, generateBreadcrumbSchema } from 
 import { TrustedPartnersSidebar } from "@/components/contact";
 import { ShareButtons } from "@/components/shared/ShareButtons";
 import RelatedPressReleasesSection from "@/components/press-releases/RelatedPressReleasesSection";
+import GooglePreferredSource from "@/components/reports/GooglePreferredSource";
 
 export const revalidate = 300;
 
@@ -276,6 +277,8 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
             <article>
               <StyledReportContent htmlContent={pressRelease.content} />
             </article>
+
+            <GooglePreferredSource />
 
             <RelatedPressReleasesSection
               categorySlug={pressRelease.category.toLowerCase().replace(/\s+/g, '-')}
