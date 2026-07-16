@@ -87,7 +87,7 @@ export default function RequestAnalystMeetingPage() {
       <Section className="pt-8">
         <Container size="lg">
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Left Column â€“ Form (2/3 width) */}
+            {/* Left Column – Form (2/3 width) */}
             <div className="lg:col-span-2">
               <Card>
                 <CardHeader>
@@ -326,7 +326,7 @@ export default function RequestAnalystMeetingPage() {
               </div>
             </div>
 
-            {/* Right Column â€“ Quick Contact & Trusted Partners (1/3 width) */}
+            {/* Right Column – Quick Contact & Trusted Partners (1/3 width) */}
             <div className="space-y-6">
               <QuickContactSection />
               <TrustedPartnersSidebar />

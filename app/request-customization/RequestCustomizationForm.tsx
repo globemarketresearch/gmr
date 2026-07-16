@@ -116,7 +116,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
               </p>
             )}
             <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto">
-              Tell us what you need â€” additional regions, segments, company profiles, or data points. We will build a version of this report specifically for your business.
+              Tell us what you need — additional regions, segments, company profiles, or data points. We will build a version of this report specifically for your business.
             </p>
           </div>
         </Container>
@@ -290,7 +290,7 @@ export default function RequestCustomizationForm({ reportTitle = "", reportSlug 
                           value={formData.additionalInfo}
                           onChange={handleChange}
                           className="w-full px-4 py-2 border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] resize-none bg-[var(--background)]"
-                          placeholder="Describe what you need â€” e.g., additional geographies (Latin America, Southeast Asia), specific market segments, competitor deep-dives, proprietary data integration, or any other tailored data points..."
+                          placeholder="Describe what you need — e.g., additional geographies (Latin America, Southeast Asia), specific market segments, competitor deep-dives, proprietary data integration, or any other tailored data points..."
                         />
                         <p className="text-xs text-[var(--muted-foreground)] mt-1">
                           The more detail you provide, the more accurate our proposal will be
