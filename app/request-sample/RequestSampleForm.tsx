@@ -1,7 +1,6 @@
 ﻿"use client";
 
 import { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Section, Container, Card, CardHeader, CardTitle, CardDescription, CardContent, Button, Badge, Captcha, type CaptchaRef } from "@/components/ui";
 import { CountrySelect } from "@/components/ui/country-select";
@@ -18,7 +17,6 @@ interface RequestSampleFormProps {
 export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }: RequestSampleFormProps) {
   const defaultCountry = getDefaultCountry();
   const captchaRef = useRef<CaptchaRef>(null);
-  const router = useRouter();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -36,6 +34,7 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
   const [, setCaptchaValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -97,7 +96,7 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
     }
 
     // Success
-    router.push('/sample-charts');
+    setSubmitted(true);
   };
 
   return (
@@ -147,6 +146,19 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
                 </CardDescription>
               </CardHeader>
               <CardContent>
+                  {submitted ? (
+                    <div className="py-8 text-center">
+                      <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">Request Submitted!</h3>
+                      <p className="text-sm text-[var(--muted-foreground)]">
+                        Your sample request has been received. We will send the report to your email within 24 hours.
+                      </p>
+                    </div>
+                  ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {error && (
                       <div className="bg-red-50 border border-red-200 rounded-lg p-4">
@@ -309,6 +321,7 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
                       {isSubmitting ? "Submitting..." : "Request Free Sample"}
                     </Button>
                   </form>
+                  )}
               </CardContent>
             </Card>
 
