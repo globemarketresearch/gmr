@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import CategoryIcon from "@/components/ui/CategoryIcon";
 
 interface Category {
   id: number;
@@ -139,9 +140,10 @@ export default function MegaMenu({ categories, isActive }: MegaMenuProps) {
               >
                 <div className="flex items-start gap-2.5">
                   <div className="mt-0.5 w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 bg-slate-100 group-hover:bg-sky-100 transition-colors duration-150">
-                    <svg className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-500 transition-colors duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
+                    <CategoryIcon
+                      slug={category.slug}
+                      className="w-3.5 h-3.5 text-[#1a2b3c] group-hover:text-sky-600 transition-colors duration-150"
+                    />
                   </div>
                   <div className="min-w-0">
                     <h3 className="text-[12.5px] font-semibold text-[#1a2b3c] group-hover:text-sky-700 transition-colors duration-150 leading-tight">

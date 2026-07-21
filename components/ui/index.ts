@@ -29,3 +29,6 @@ export type { CaptchaProps, CaptchaRef } from './captcha';
 export { StyledArticleContent } from './StyledArticleContent';
 
 export { default as ScrollToTopButton } from './ScrollToTopButton';
+
+export { default as CategoryIcon } from './CategoryIcon';
+export type { CategoryIconProps } from './CategoryIcon';
