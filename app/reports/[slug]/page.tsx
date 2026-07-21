@@ -257,23 +257,26 @@ export default async function ReportPage({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          {/* Stacked coins — revenue */}
+          <ellipse cx="32" cy="16" rx="16" ry="6" stroke="#042F5A" strokeWidth="3" />
           <path
-            d="M16 44c0-6.627 5.373-12 12-12s12 5.373 12 12"
-            stroke="#0284c7"
+            d="M16 16v9c0 3.314 7.163 6 16 6s16-2.686 16-6v-9"
+            stroke="#042F5A"
             strokeWidth="3"
             strokeLinecap="round"
           />
-          <path d="M12 48h40" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
           <path
-            d="M28 28V18c0-3.314 2.686-6 6-6s6 2.686 6 6v2"
-            stroke="#0284c7"
+            d="M16 25v9c0 3.314 7.163 6 16 6s16-2.686 16-6v-9"
+            stroke="#042F5A"
             strokeWidth="3"
             strokeLinecap="round"
-            strokeLinejoin="round"
           />
-          <path d="M24 36v-6" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M38 32v-4" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="34" cy="20" r="2" fill="#0284c7" />
+          <path
+            d="M16 34v9c0 3.314 7.163 6 16 6s16-2.686 16-6v-9"
+            stroke="#00BDD1"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
         </svg>
       ),
     },
@@ -291,18 +294,24 @@ export default async function ReportPage({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          {/* Calendar with trend line — forecast year */}
+          <rect x="9" y="14" width="46" height="41" rx="5" stroke="#042F5A" strokeWidth="3" />
+          <path d="M9 26h46" stroke="#042F5A" strokeWidth="3" />
+          <path d="M21 8v10M43 8v10" stroke="#042F5A" strokeWidth="3" strokeLinecap="round" />
           <path
-            d="M10 46l10-18 10 12 12-22 12 28"
-            stroke="#0284c7"
+            d="M19 47l9-10 6 5 11-13"
+            stroke="#00BDD1"
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <path d="M10 52h44" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
-          <circle cx="20" cy="28" r="2" fill="#0284c7" />
-          <circle cx="30" cy="40" r="2" fill="#0284c7" />
-          <circle cx="42" cy="20" r="2" fill="#0284c7" />
-          <circle cx="54" cy="48" r="2" fill="#0284c7" />
+          <path
+            d="M38 29h7v7"
+            stroke="#00BDD1"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       ),
     },
@@ -320,22 +329,13 @@ export default async function ReportPage({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          {/* Percent sign whose slash is a growth arrow — CAGR */}
+          <circle cx="20" cy="20" r="7" stroke="#042F5A" strokeWidth="3" />
+          <circle cx="44" cy="44" r="7" stroke="#042F5A" strokeWidth="3" />
+          <path d="M12 52L52 12" stroke="#00BDD1" strokeWidth="3" strokeLinecap="round" />
           <path
-            d="M14 40h6v-8h-6v8zm12 0h6V20h-6v20zm12 0h6V28h-6v12zm12 0h6V16h-6v24z"
-            fill="#0284c7"
-            opacity="0.3"
-          />
-          <path d="M12 44h40" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
-          <path
-            d="M12 34c6-4 10-6 16-6s10 2 16 6 10 6 16 6"
-            stroke="#0284c7"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M40 18l4-4 4 4"
-            stroke="#0284c7"
+            d="M40 12h12v12"
+            stroke="#00BDD1"
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -357,10 +357,22 @@ export default async function ReportPage({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <circle cx="32" cy="28" r="14" stroke="#0284c7" strokeWidth="3" />
-          <path d="M32 14v4m0 28v4m14-14h4M14 32h4" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
-          <path d="M24 44l-6 6" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
-          <path d="M40 44l6 6" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
+          {/* Globe with meridians — geographic coverage */}
+          <circle cx="32" cy="32" r="21" stroke="#042F5A" strokeWidth="3" />
+          <path d="M11 32h42" stroke="#042F5A" strokeWidth="3" strokeLinecap="round" />
+          <ellipse cx="32" cy="32" rx="9" ry="21" stroke="#042F5A" strokeWidth="3" />
+          <path
+            d="M16 18c4.4 3.1 9.9 4.9 16 4.9S43.6 21.1 48 18"
+            stroke="#00BDD1"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+          <path
+            d="M16 46c4.4-3.1 9.9-4.9 16-4.9s11.6 1.8 16 4.9"
+            stroke="#00BDD1"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
         </svg>
       ),
     },
