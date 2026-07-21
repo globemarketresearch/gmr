@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Section, Container, Card, CardHeader, CardTitle, CardDescription, CardContent, Button, Badge, Captcha, type CaptchaRef } from "@/components/ui";
 import { CountrySelect } from "@/components/ui/country-select";
 import { QuickContactSection } from "@/components/contact";
+import { WhyRequestSample, SampleInclusions } from "@/components/sample/SampleValueProps";
+import TrustedPartnersSection from "@/components/home/TrustedPartnersSection";
 import { submitRequestSampleForm, isFormError } from "@/lib/api";
 import { getDefaultCountry, type Country } from "@/lib/data/countries";
 import { isBusinessEmail } from "@/lib/validators";
@@ -335,57 +337,24 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
             </div>
           </div>
 
-          {/* Right Column - Quick Contact (1/3 width) */}
+          {/* Right Column - Why Request a Sample + Quick Contact (1/3 width) */}
           <div className="space-y-6">
+            <WhyRequestSample />
             <QuickContactSection />
           </div>
         </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-lg mb-2">Comprehensive Sample</h3>
-                <p className="text-sm text-[var(--muted-foreground)]">
-                  Get 10-15 pages showcasing our methodology and insights
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-lg mb-2">Fast Delivery</h3>
-                <p className="text-sm text-[var(--muted-foreground)]">
-                  Receive your sample report within 24 hours
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-lg mb-2">No Obligation</h3>
-                <p className="text-sm text-[var(--muted-foreground)]">
-                  Completely free with no purchase required
-                </p>
-              </CardContent>
-            </Card>
+          <div className="mt-12">
+            <SampleInclusions />
           </div>
         </Container>
       </Section>
+
+      {/* Trusted by Leading Companies */}
+      <TrustedPartnersSection
+        title="Trusted by Leading Companies"
+        subtitle="Global enterprises rely on our research to guide their strategic decisions"
+      />
     </>
   );
 }

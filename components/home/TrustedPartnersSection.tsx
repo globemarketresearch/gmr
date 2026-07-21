@@ -22,7 +22,15 @@ const partners: Partner[] = [
   { id: 'trivago', name: 'Trivago', logo: '/assets/logos/Trivago.png' },
 ];
 
-export default function TrustedPartnersSection() {
+interface TrustedPartnersSectionProps {
+  title?: string;
+  subtitle?: string;
+}
+
+export default function TrustedPartnersSection({
+  title = 'Trusted Partners',
+  subtitle = 'Collaborating with industry leaders to deliver exceptional insights',
+}: TrustedPartnersSectionProps = {}) {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
@@ -31,10 +39,10 @@ export default function TrustedPartnersSection() {
         <div className="space-y-8">
           <div className="text-center space-y-3">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-[var(--text-primary)]" style={{ letterSpacing: '-0.03em' }}>
-              Trusted Partners
+              {title}
             </h2>
             <p className="font-body text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
-              Collaborating with industry leaders to deliver exceptional insights
+              {subtitle}
             </p>
           </div>
 
