@@ -30,7 +30,7 @@ Scope decisions made during brainstorming:
 
 Mirrors the existing `linkedin_url` field exactly.
 
-- **Migration** `migrations/013_add_x_url_to_authors.sql`:
+- **Migration** `migrations/028_add_x_url_to_authors.sql`:
   ```sql
   ALTER TABLE authors ADD COLUMN IF NOT EXISTS x_url VARCHAR(500);
   CREATE INDEX IF NOT EXISTS idx_authors_x_url ON authors(x_url) WHERE x_url IS NOT NULL;
