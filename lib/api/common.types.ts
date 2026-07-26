@@ -10,6 +10,7 @@ export interface ApiAuthor {
   bio?: string;
   imageUrl?: string;
   linkedinUrl?: string;
+  xUrl?: string;
   createdAt: string;
   updatedAt: string;
 }
