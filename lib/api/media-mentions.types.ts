@@ -6,6 +6,8 @@ export interface ApiMediaMention {
   link?: string;
   imageUrl?: string;
   displayOrder?: number;
+  reportSlug?: string;
+  reportLinkText?: string;
   createdAt?: string;
   updatedAt?: string;
 }
