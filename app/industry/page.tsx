@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { getReports, isApiError } from '@/lib/api';
 import { ReportsListingClient } from '@/components/reports';
 import IndustryHero from '@/components/reports/IndustryHero';
+import IndustryDescription from '@/components/reports/IndustryDescription';
 
 export const metadata: Metadata = {
   title: "Global Market Research Reports & Industry Analysis",
@@ -84,6 +85,7 @@ export default function IndustryPage() {
   return (
     <>
       <IndustryHero />
+      <IndustryDescription />
       <Suspense fallback={<ReportsListSkeleton />}>
         <ReportsContent />
       </Suspense>

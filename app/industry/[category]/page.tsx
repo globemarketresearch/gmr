@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getReports, getBlogsByCategory, getPressReleasesByCategory, isApiError } from '@/lib/api';
 import { ReportsListingClient } from '@/components/reports';
 import IndustryHero from '@/components/reports/IndustryHero';
+import IndustryDescription from '@/components/reports/IndustryDescription';
 import IndustryContentPreview from '@/components/industry/IndustryContentPreview';
 import categories from '@/data/categories.json';
 
@@ -65,6 +66,7 @@ export default async function CategoryPage({ params }: PageProps) {
   return (
     <>
       <IndustryHero activeCategory={categoryData} />
+      <IndustryDescription />
       <Suspense fallback={null}>
         <ContentPreviewSection categorySlug={category} />
       </Suspense>
