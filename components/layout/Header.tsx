@@ -109,7 +109,7 @@ export default function Header() {
                   "0 0 0 1px rgba(44,200,216,0.3), 0 2px 8px rgba(44,200,216,0.3)";
               }}
             >
-              Request Sample
+              Request Custom Research
               <svg className="w-3 h-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
               </svg>

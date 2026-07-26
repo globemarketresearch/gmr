@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Section, Container, Card, CardHeader, CardTitle, CardDescription, CardContent, Button, Badge, Captcha, type CaptchaRef } from "@/components/ui";
 import { CountrySelect } from "@/components/ui/country-select";
 import { QuickContactSection } from "@/components/contact";
-import { WhyRequestSample, SampleInclusions } from "@/components/sample/SampleValueProps";
+import { WhyRequestSample, SampleInclusionsSidebar } from "@/components/sample/SampleValueProps";
 import TrustedPartnersSection from "@/components/home/TrustedPartnersSection";
 import { submitRequestSampleForm, isFormError } from "@/lib/api";
 import { getDefaultCountry, type Country } from "@/lib/data/countries";
@@ -137,9 +137,14 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
 
       <Section className="pt-8">
         <Container size="lg">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Left Column - Form (2/3 width) */}
-            <div className="lg:col-span-2">
+          <div className="grid lg:grid-cols-4 gap-8">
+            {/* Left Column - What's Included (1/4 width) */}
+            <div className="lg:col-span-1 lg:order-1 order-3">
+              <SampleInclusionsSidebar />
+            </div>
+
+            {/* Middle Column - Form (2/4 width) */}
+            <div className="lg:col-span-2 lg:order-2 order-1">
               <Card>
               <CardHeader>
                 <CardTitle>Request Your Free Sample</CardTitle>
@@ -337,16 +342,12 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
             </div>
           </div>
 
-          {/* Right Column - Why Request a Sample + Quick Contact (1/3 width) */}
-          <div className="space-y-6">
+          {/* Right Column - Why Request a Sample + Quick Contact (1/4 width) */}
+          <div className="lg:col-span-1 lg:order-3 order-2 space-y-6">
             <WhyRequestSample />
             <QuickContactSection />
           </div>
         </div>
-
-          <div className="mt-12">
-            <SampleInclusions />
-          </div>
         </Container>
       </Section>
 

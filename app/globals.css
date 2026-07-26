@@ -96,10 +96,10 @@ input, textarea, [contenteditable] {
   --logo-g-navy: #042f5a;   /* the "G" in the GMR logo */
   --logo-m-cyan: #00bdd1;   /* the "M" in the GMR logo */
 
-  /* Table headings tinted from the logo "M" cyan */
-  --table-head-bg: #d8f5f9;
-  --table-head-border: #8fdce6;
-  --table-head-text: #042f5a;
+  /* Table headings — deep navy with white text */
+  --table-head-bg: #1e2f5c;
+  --table-head-border: rgba(255, 255, 255, 0.25);
+  --table-head-text: #ffffff;
 
   /* Bullet-list callout box */
   --list-box-bg: #f0fafc;
@@ -418,9 +418,9 @@ html body { top: 0 !important; }
     --logo-g-navy: #1F5F96;
     --logo-m-cyan: #2CC8D8;
 
-    --table-head-bg: #10334a;
-    --table-head-border: #1c5c72;
-    --table-head-text: #b8e7ee;
+    --table-head-bg: #1e2f5c;
+    --table-head-border: rgba(255, 255, 255, 0.25);
+    --table-head-text: #ffffff;
 
     --list-box-bg: #10283c;
     --list-box-border: #1f4a63;
@@ -589,6 +589,11 @@ html body { top: 0 !important; }
     font-size: 0.875rem;
     text-transform: none;
     letter-spacing: normal;
+  }
+
+  .prose th p,
+  .prose th strong {
+    color: var(--table-head-text);
   }
 
   /* Rounded corners for header cells */
@@ -898,16 +903,24 @@ html body { top: 0 !important; }
 
 .styled-report-content th,
 .styled-article-content th {
-  background-color: #d8f5f9;
-  background-color: var(--table-head-bg, #d8f5f9);
-  color: #042f5a;
-  color: var(--table-head-text, #042f5a);
+  background-color: #1e2f5c;
+  background-color: var(--table-head-bg, #1e2f5c);
+  color: #ffffff;
+  color: var(--table-head-text, #ffffff);
   font-weight: 600;
   text-align: left;
   padding: 12px 15px;
   font-size: 0.875rem;
-  border: 1px solid #8fdce6;
-  border: 1px solid var(--table-head-border, #8fdce6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid var(--table-head-border, rgba(255, 255, 255, 0.25));
+}
+
+.styled-report-content th p,
+.styled-report-content th strong,
+.styled-article-content th p,
+.styled-article-content th strong {
+  color: #ffffff;
+  color: var(--table-head-text, #ffffff);
 }
 
 .styled-report-content td,

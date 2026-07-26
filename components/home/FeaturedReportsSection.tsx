@@ -69,7 +69,7 @@ function ReportCard({ report, index }: { report: Report; index: number }) {
 
       {/* Market metrics box */}
       {hasMetrics && (
-        <div className="bg-[var(--surface)] rounded-lg px-4 py-3 flex items-center justify-between mb-4">
+        <div className="bg-[#eef4fa] dark:bg-[var(--surface)] rounded-lg px-4 py-3 flex items-center justify-between mb-4">
           <div>
             <p className="text-[1.35rem] font-bold text-[var(--text-primary)] leading-none">{marketSize}</p>
             {forecastYear && (
