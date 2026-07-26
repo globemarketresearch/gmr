@@ -70,11 +70,11 @@ export default function AuthorHoverCard({
 
       {open && (
         <div
-          className="absolute top-full left-0 mt-2 w-80 max-w-[90vw] rounded-xl border border-[var(--border)] bg-white p-5 shadow-xl z-50 text-left"
+          className="absolute bottom-full left-0 mb-2 w-80 max-w-[90vw] rounded-xl border border-[hsl(var(--border))] bg-white p-5 shadow-xl z-50 text-left"
           onMouseEnter={cancelClose}
           onMouseLeave={scheduleClose}
         >
-          <p className="text-lg font-bold text-[var(--foreground)]">{author.name}</p>
+          <p className="text-lg font-bold text-[hsl(var(--foreground))]">{author.name}</p>
           <p className="mt-1 text-sm font-semibold text-[var(--primary)]">
             {author.role}
             {author.role && ' · '}
@@ -95,25 +95,30 @@ export default function AuthorHoverCard({
           </p>
 
           {author.bio && (
-            <p className="mt-3 text-sm leading-relaxed text-[var(--muted-foreground)] line-clamp-3">
-              {author.bio}{' '}
-              <Link href={authorHref} className="text-[var(--primary)] hover:underline whitespace-nowrap">
+            <>
+              <p className="mt-3 text-sm leading-relaxed text-[hsl(var(--muted-foreground))] line-clamp-3">
+                {author.bio}
+              </p>
+              <Link
+                href={authorHref}
+                className="mt-1 inline-block text-sm text-[var(--primary)] hover:underline"
+              >
                 See full bio
               </Link>
-            </p>
+            </>
           )}
 
           {latestPosts.length > 0 && (
             <>
-              <div className="mt-4 border-t border-[var(--border)] pt-4">
-                <p className="text-xs font-bold uppercase tracking-wide text-[var(--muted-foreground)]">
+              <div className="mt-4 border-t border-[hsl(var(--border))] pt-4">
+                <p className="text-xs font-bold uppercase tracking-wide text-[hsl(var(--muted-foreground))]">
                   Latest Posts:
                 </p>
                 <ul className="mt-2 space-y-2">
                   {latestPosts.map((post) => (
                     <li key={post.slug} className="flex gap-2 text-sm">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full border border-[var(--muted-foreground)]" />
-                      <Link href={post.href} className="text-[var(--foreground)] hover:text-[var(--primary)]">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full border border-[hsl(var(--muted-foreground))]" />
+                      <Link href={post.href} className="text-[hsl(var(--foreground))] hover:text-[var(--primary)]">
                         {post.title}
                       </Link>
                     </li>
