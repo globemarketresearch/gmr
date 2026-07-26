@@ -36,40 +36,53 @@ export default async function MediaMentionsPage() {
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
           {mentions.map((mention) => {
-            const card = (
-              <div className="flex flex-col items-center justify-center gap-3 rounded-2xl border p-6 h-full bg-[var(--card)] hover:shadow-md transition-shadow">
-                <div className="w-full h-16 flex items-center justify-center">
-                  {mention.imageUrl ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={mention.imageUrl}
-                      alt={mention.title}
-                      className="max-h-16 max-w-full object-contain"
-                    />
-                  ) : (
-                    <span className="font-semibold text-[var(--foreground)] text-center">
-                      {mention.title}
-                    </span>
+            const hasReportLink = Boolean(mention.reportSlug && mention.reportLinkText);
+
+            return (
+              <div
+                key={mention.id}
+                className="relative flex flex-col items-center justify-center gap-3 rounded-2xl border p-6 h-full bg-[var(--card)] hover:shadow-md transition-shadow"
+              >
+                {mention.link && (
+                  <a
+                    href={mention.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Read coverage on ${mention.title}`}
+                    className="absolute inset-0 z-0 rounded-2xl"
+                  />
+                )}
+
+                <div className="relative z-[1] flex flex-col items-center justify-center gap-3 w-full pointer-events-none">
+                  <div className="w-full h-16 flex items-center justify-center">
+                    {mention.imageUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={mention.imageUrl}
+                        alt={mention.title}
+                        className="max-h-16 max-w-full object-contain"
+                      />
+                    ) : (
+                      <span className="font-semibold text-[var(--foreground)] text-center">
+                        {mention.title}
+                      </span>
+                    )}
+                  </div>
+                  <span className="text-sm text-[var(--muted-foreground)] text-center">
+                    {mention.title}
+                  </span>
+                  {hasReportLink && (
+                    <a
+                      href={`/reports/${mention.reportSlug}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pointer-events-auto relative z-10 text-xs underline text-[var(--muted-foreground)] hover:text-[var(--foreground)] text-center"
+                    >
+                      {mention.reportLinkText}
+                    </a>
                   )}
                 </div>
-                <span className="text-sm text-[var(--muted-foreground)] text-center">
-                  {mention.title}
-                </span>
               </div>
-            );
-
-            return mention.link ? (
-              <a
-                key={mention.id}
-                href={mention.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Read coverage on ${mention.title}`}
-              >
-                {card}
-              </a>
-            ) : (
-              <div key={mention.id}>{card}</div>
             );
           })}
         </div>
