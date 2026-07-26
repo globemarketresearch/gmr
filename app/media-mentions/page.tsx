@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getMediaMentions, isApiError } from "@/lib/api";
 
 export const metadata: Metadata = {
@@ -36,8 +37,6 @@ export default async function MediaMentionsPage() {
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
           {mentions.map((mention) => {
-            const hasReportLink = Boolean(mention.reportSlug && mention.reportLinkText);
-
             return (
               <div
                 key={mention.id}
@@ -71,15 +70,15 @@ export default async function MediaMentionsPage() {
                   <span className="text-sm text-[var(--muted-foreground)] text-center">
                     {mention.title}
                   </span>
-                  {hasReportLink && (
-                    <a
+                  {mention.reportSlug && mention.reportLinkText && (
+                    <Link
                       href={`/reports/${mention.reportSlug}`}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener"
                       className="pointer-events-auto relative z-10 text-xs underline text-[var(--muted-foreground)] hover:text-[var(--foreground)] text-center"
                     >
                       {mention.reportLinkText}
-                    </a>
+                    </Link>
                   )}
                 </div>
               </div>
