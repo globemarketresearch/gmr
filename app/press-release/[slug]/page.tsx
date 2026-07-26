@@ -3,13 +3,14 @@ import Link from "next/link";
 import { Section, Container, Button, Card, CardContent } from "@/components/ui";
 import { StyledReportContent } from "@/components/reports/StyledReportContent";
 import { ArticleContentWrapper } from "@/components/shared/ArticleContentWrapper";
-import { getPressReleases, getPressReleaseBySlug, getReportBySlug, isApiError } from "@/lib/api";
+import { getPressReleases, getPressReleaseBySlug, getReportBySlug, getReportsByAuthorId, isApiError } from "@/lib/api";
 import type { Metadata } from "next";
 import { StructuredData, generateArticleSchema, generateBreadcrumbSchema } from "@/components/seo/StructuredData";
 import { TrustedPartnersSidebar } from "@/components/contact";
 import { ShareButtons } from "@/components/shared/ShareButtons";
 import RelatedPressReleasesSection from "@/components/press-releases/RelatedPressReleasesSection";
 import GooglePreferredSource from "@/components/reports/GooglePreferredSource";
+import AuthorHoverCard from "@/components/authors/AuthorHoverCard";
 
 export const revalidate = 300;
 
@@ -89,6 +90,17 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
   }
 
   const pressRelease = response.data;
+
+  const authorReportsResponse = pressRelease.authorDetails
+    ? await getReportsByAuthorId(pressRelease.authorDetails.id, { status: 'published', limit: 1000 })
+    : null;
+  const authorReports =
+    authorReportsResponse && !isApiError(authorReportsResponse) ? authorReportsResponse.data : [];
+  const authorArticleCount = authorReports.length;
+  const authorLatestPosts = authorReports
+    .filter((r) => r.slug !== pressRelease.slug)
+    .slice(0, 4)
+    .map((r) => ({ title: r.title, slug: r.slug, href: `/reports/${r.slug}` }));
 
   let relatedReportId: number | null = null;
   if (pressRelease.reportUrl) {
@@ -191,15 +203,31 @@ export default async function PressReleaseDetailPage({ params }: PressReleasePag
             className="flex flex-wrap items-center gap-4 pt-6 text-sm"
             style={{ borderTop: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)' }}
           >
-            <div className="flex items-center gap-2.5">
-              <div
-                className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
-                style={{ background: 'var(--accent)' }}
+            {pressRelease.authorDetails ? (
+              <AuthorHoverCard
+                author={pressRelease.authorDetails}
+                articleCount={authorArticleCount}
+                latestPosts={authorLatestPosts}
               >
-                {pressRelease.author.split(' ').map((n: string) => n[0]).join('').slice(0, 2).toUpperCase()}
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
+                  style={{ background: 'var(--accent)' }}
+                >
+                  {pressRelease.author.split(' ').map((n: string) => n[0]).join('').slice(0, 2).toUpperCase()}
+                </div>
+                <span className="font-medium" style={{ color: 'rgba(255,255,255,0.8)' }}>{pressRelease.author}</span>
+              </AuthorHoverCard>
+            ) : (
+              <div className="flex items-center gap-2.5">
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
+                  style={{ background: 'var(--accent)' }}
+                >
+                  {pressRelease.author.split(' ').map((n: string) => n[0]).join('').slice(0, 2).toUpperCase()}
+                </div>
+                <span className="font-medium" style={{ color: 'rgba(255,255,255,0.8)' }}>{pressRelease.author}</span>
               </div>
-              <span className="font-medium" style={{ color: 'rgba(255,255,255,0.8)' }}>{pressRelease.author}</span>
-            </div>
+            )}
             {pressRelease.date && (
               <>
                 <span style={{ color: 'rgba(255,255,255,0.2)' }}>·</span>

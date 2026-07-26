@@ -3,13 +3,14 @@ import Link from "next/link";
 import { Section, Container } from "@/components/ui";
 import { StyledReportContent } from "@/components/reports/StyledReportContent";
 import { ArticleContentWrapper } from "@/components/shared/ArticleContentWrapper";
-import { getBlogs, getBlogBySlug, isApiError } from "@/lib/api";
+import { getBlogs, getBlogBySlug, getReportsByAuthorId, isApiError } from "@/lib/api";
 import type { Metadata } from "next";
 import { StructuredData, generateArticleSchema, generateBreadcrumbSchema } from "@/components/seo/StructuredData";
 import StatisticsSidebarForm from "@/components/statistics/StatisticsSidebarForm";
 import { QuickContactSection } from "@/components/contact";
 import { ShareButtons } from "@/components/shared/ShareButtons";
 import RelatedStatisticsSection from "@/components/statistics/RelatedStatisticsSection";
+import AuthorHoverCard from "@/components/authors/AuthorHoverCard";
 
 interface StatisticPageProps {
   params: Promise<{
@@ -88,6 +89,17 @@ export default async function StatisticDetailPage({ params }: StatisticPageProps
   }
 
   const blog = response.data;
+
+  const authorReportsResponse = blog.authorDetails
+    ? await getReportsByAuthorId(blog.authorDetails.id, { status: 'published', limit: 1000 })
+    : null;
+  const authorReports =
+    authorReportsResponse && !isApiError(authorReportsResponse) ? authorReportsResponse.data : [];
+  const authorArticleCount = authorReports.length;
+  const authorLatestPosts = authorReports
+    .filter((r) => r.slug !== blog.slug)
+    .slice(0, 4)
+    .map((r) => ({ title: r.title, slug: r.slug, href: `/reports/${r.slug}` }));
 
   // Generate structured data schemas
   const articleSchema = generateArticleSchema({
@@ -180,15 +192,31 @@ export default async function StatisticDetailPage({ params }: StatisticPageProps
             className="flex flex-wrap items-center gap-4 pt-6 text-sm"
             style={{ borderTop: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)' }}
           >
-            <div className="flex items-center gap-2.5">
-              <div
-                className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
-                style={{ background: 'var(--accent)' }}
+            {blog.authorDetails ? (
+              <AuthorHoverCard
+                author={blog.authorDetails}
+                articleCount={authorArticleCount}
+                latestPosts={authorLatestPosts}
               >
-                {blog.author.split(' ').map((n: string) => n[0]).join('').slice(0, 2).toUpperCase()}
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
+                  style={{ background: 'var(--accent)' }}
+                >
+                  {blog.author.split(' ').map((n: string) => n[0]).join('').slice(0, 2).toUpperCase()}
+                </div>
+                <span className="font-medium" style={{ color: 'rgba(255,255,255,0.8)' }}>{blog.author}</span>
+              </AuthorHoverCard>
+            ) : (
+              <div className="flex items-center gap-2.5">
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
+                  style={{ background: 'var(--accent)' }}
+                >
+                  {blog.author.split(' ').map((n: string) => n[0]).join('').slice(0, 2).toUpperCase()}
+                </div>
+                <span className="font-medium" style={{ color: 'rgba(255,255,255,0.8)' }}>{blog.author}</span>
               </div>
-              <span className="font-medium" style={{ color: 'rgba(255,255,255,0.8)' }}>{blog.author}</span>
-            </div>
+            )}
             {blog.date && (
               <>
                 <span style={{ color: 'rgba(255,255,255,0.2)' }}>·</span>
