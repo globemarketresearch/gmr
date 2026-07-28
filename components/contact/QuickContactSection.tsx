@@ -30,7 +30,7 @@ export default function QuickContactSection() {
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-xs text-[var(--muted-foreground)]">Email Us</p>
-            <p className="text-sm font-semibold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors truncate">
+            <p className="text-xs sm:text-[13px] font-semibold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors break-all">
               {CONTACT_INFO.email}
             </p>
           </div>

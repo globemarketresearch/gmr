@@ -136,7 +136,7 @@ export default function RequestSampleForm({ reportTitle = "", reportSlug = "" }:
       </Section>
 
       <Section className="pt-8">
-        <Container size="lg">
+        <Container size="xl">
           <div className="grid lg:grid-cols-4 gap-8">
             {/* Left Column - What's Included (1/4 width) */}
             <div className="lg:col-span-1 lg:order-1 order-3">

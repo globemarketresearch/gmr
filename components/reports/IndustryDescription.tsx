@@ -85,9 +85,9 @@ export default function IndustryDescription() {
   return (
     <section className="border-b border-[var(--border-color)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
-        <h2 className="text-2xl font-bold text-[var(--teal-deep)] mb-3">
+        {/* <h2 className="text-2xl font-bold text-[var(--teal-deep)] mb-3">
           Global Market Research Reports
-        </h2>
+        </h2> */}
         <p className="text-[var(--muted-foreground)] leading-relaxed mb-3">
           Explore detailed market research reports designed to support business planning,
           investment analysis, product development, market entry, and competitive strategy.

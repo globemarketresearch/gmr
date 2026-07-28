@@ -13,6 +13,11 @@ export default function MeetTheTeam({ teamMembers }: MeetTheTeamProps) {
     return null;
   }
 
+  const sortedMembers = [...teamMembers].sort((a, b) => {
+    const roleRank = (role?: string) => (role?.toLowerCase() === 'author' ? 0 : 1);
+    return roleRank(a.role) - roleRank(b.role);
+  });
+
   return (
     <section id="meet-the-team" className="mb-12 scroll-mt-24">
       <h2 className="text-2xl font-bold text-[var(--teal-deep)] mb-3">
@@ -24,7 +29,7 @@ export default function MeetTheTeam({ teamMembers }: MeetTheTeamProps) {
       </p>
 
       <Grid cols={2} gap="lg">
-        {teamMembers.map((member) => (
+        {sortedMembers.map((member) => (
           <AuthorCard key={member.id} author={member} />
         ))}
       </Grid>

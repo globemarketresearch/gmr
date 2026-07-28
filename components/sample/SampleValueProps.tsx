@@ -93,22 +93,24 @@ export function WhyRequestSample() {
 
 export function SampleInclusionsSidebar() {
   return (
-    <div>
-      <h2 className="font-display text-lg font-bold text-[var(--text-primary)] mb-5">
-        What&apos;s included in this sample?
-      </h2>
-      <ul className="space-y-5">
-        {INCLUSIONS.map((item) => (
-          <li key={item.title} className="flex items-start gap-2.5">
-            <CheckMark />
-            <p className="text-sm leading-snug text-[var(--text-secondary)]">
-              <span className="font-semibold text-[var(--text-primary)]">{item.title}:</span>{" "}
-              {item.description}
-            </p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Card>
+      <CardContent className="pt-6">
+        <h2 className="font-display text-lg font-bold text-[var(--text-primary)] mb-5">
+          What&apos;s included in this sample?
+        </h2>
+        <ul className="space-y-5">
+          {INCLUSIONS.map((item) => (
+            <li key={item.title} className="flex items-start gap-2.5">
+              <CheckMark />
+              <p className="text-sm leading-snug text-[var(--text-secondary)]">
+                <span className="font-semibold text-[var(--text-primary)]">{item.title}:</span>{" "}
+                {item.description}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
   );
 }
 
