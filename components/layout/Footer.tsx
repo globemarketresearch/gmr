@@ -16,6 +16,7 @@ export default function Footer() {
     { href: "/industry", label: "Research Reports" },
     { href: "/statistics", label: "Statistics" },
     { href: "/press-releases", label: "Press Releases" },
+    { href: "/industry-news", label: "Industry News" },
     { href: "/media-mentions", label: "Media Mentions" },
     { href: "/industry", label: "All Industries" },
   ];

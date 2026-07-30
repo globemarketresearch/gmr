@@ -90,6 +90,7 @@ export default function Navigation() {
         <NavLink href="/research-methodology" label="Methodology" pathname={pathname} />
         <NavLink href="/statistics" label="Statistics" pathname={pathname} />
         <NavLink href="/press-releases" label="Press Releases" pathname={pathname} />
+        <NavLink href="/industry-news" label="Industry News" pathname={pathname} />
         <NavLink href="/contact" label="Contact" pathname={pathname} />
       </nav>
 
@@ -160,7 +161,7 @@ export default function Navigation() {
 
             <div className="overflow-y-auto h-[calc(100%-65px)]">
               <nav className="flex flex-col p-3 gap-0.5">
-                {[...navItems, { name: "Methodology", href: "/research-methodology" }, { name: "Statistics", href: "/statistics" }, { name: "Press Releases", href: "/press-releases" }, { name: "Contact", href: "/contact" }].map((item) => {
+                {[...navItems, { name: "Methodology", href: "/research-methodology" }, { name: "Statistics", href: "/statistics" }, { name: "Press Releases", href: "/press-releases" }, { name: "Industry News", href: "/industry-news" }, { name: "Contact", href: "/contact" }].map((item) => {
                   const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
                   return (
                     <Link

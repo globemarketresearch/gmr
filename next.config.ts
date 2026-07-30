@@ -33,6 +33,10 @@ const nextConfig: NextConfig = {
           source: '/sitemap-press-releases-:page.xml',
           destination: '/api/sitemap-press-releases/:page',
         },
+        {
+          source: '/sitemap-industry-news-:page.xml',
+          destination: '/api/sitemap-industry-news/:page',
+        },
       ],
     };
   },
