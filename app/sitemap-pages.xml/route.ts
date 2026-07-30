@@ -64,6 +64,12 @@ export async function GET() {
       changeFrequency: 'daily',
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/industry-news`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'daily',
+      priority: 0.8,
+    },
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

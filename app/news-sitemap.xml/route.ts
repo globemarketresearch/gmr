@@ -1,6 +1,7 @@
 ﻿import { NextResponse } from 'next/server';
 import { getBlogs } from '@/lib/api/blogs';
 import { getPressReleases } from '@/lib/api/press-releases';
+import { getIndustryNewsList } from '@/lib/api/industry-news';
 
 const BASE_URL = 'https://www.globemarketresearch.com';
 const PUBLICATION_NAME = 'Globe Market Research';
@@ -8,9 +9,10 @@ const PUBLICATION_LANGUAGE = 'en';
 
 export async function GET() {
   try {
-    const [blogsRes, prRes] = await Promise.all([
+    const [blogsRes, prRes, industryNewsRes] = await Promise.all([
       getBlogs({ status: 'published', limit: 1000 }),
       getPressReleases({ status: 'published', limit: 1000 }),
+      getIndustryNewsList({ status: 'published', limit: 1000 }),
     ]);
 
     const blogEntries =
@@ -31,7 +33,16 @@ export async function GET() {
           }))
         : [];
 
-    const allEntries = [...blogEntries, ...prEntries];
+    const industryNewsEntries =
+      industryNewsRes.success && industryNewsRes.data
+        ? industryNewsRes.data.map((item) => ({
+            url: `${BASE_URL}/industry-news/${item.slug}`,
+            title: item.title,
+            publishDate: item.publishDate || item.updatedAt || item.date,
+          }))
+        : [];
+
+    const allEntries = [...blogEntries, ...prEntries, ...industryNewsEntries];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
