@@ -1,13 +1,16 @@
 ﻿'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter, useSearchParams } from 'next/navigation';
 import type { PressRelease } from '@/lib/api/press-releases.types';
 import PressReleaseListCard from './PressReleaseListCard';
 import Pagination from '@/components/reports/Pagination';
 import FilterSidebar from '@/components/reports/FilterSidebar';
+import SectionDescription from '@/components/reports/SectionDescription';
 import { getPressReleases, isApiError } from '@/lib/api';
+import categories from '@/data/categories.json';
 
 const ITEMS_PER_PAGE = 8;
 
@@ -23,29 +26,25 @@ export default function PressReleaseListingClient({
   totalPages: initialTotalPages,
 }: PressReleaseListingClientProps) {
   const storageKey = 'press_releases_page';
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialCategory = categories.find((c) => c.slug === searchParams.get('category')) ?? null;
+
   const [pressReleases, setPressReleases] = useState<PressRelease[]>(initialPressReleases);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(initialTotalPages);
   const [, setTotalItems] = useState(initialTotalItems);
   const [isLoading, setIsLoading] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<(typeof categories)[number] | null>(initialCategory);
 
-  // Restore page from sessionStorage and fetch on mount if not page 1
-  useEffect(() => {
-    const saved = sessionStorage.getItem(storageKey);
-    const savedPage = saved ? Math.max(1, parseInt(saved, 10) || 1) : 1;
-    if (savedPage !== 1) {
-      setCurrentPage(savedPage);
-      fetchPage(savedPage);
-    }
-  }, [storageKey]);
-
-  async function fetchPage(page: number) {
+  const fetchPage = useCallback(async (page: number, categoryId?: number) => {
     setIsLoading(true);
     const response = await getPressReleases({
       status: 'published',
       page,
       limit: ITEMS_PER_PAGE,
       sort_by: 'publish_date_desc',
+      ...(categoryId ? { categoryId } : {}),
     });
     if (!isApiError(response)) {
       setPressReleases(response.data);
@@ -55,12 +54,32 @@ export default function PressReleaseListingClient({
       }
     }
     setIsLoading(false);
-  }
+  }, []);
+
+  // Restore page from sessionStorage and fetch on mount if not page 1
+  useEffect(() => {
+    const saved = sessionStorage.getItem(storageKey);
+    const savedPage = saved ? Math.max(1, parseInt(saved, 10) || 1) : 1;
+    if (savedPage !== 1 || initialCategory) {
+      setCurrentPage(savedPage);
+      fetchPage(savedPage, initialCategory?.id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [storageKey]);
 
   const handlePageChange = async (page: number) => {
     setCurrentPage(page);
     sessionStorage.setItem(storageKey, String(page));
-    await fetchPage(page);
+    await fetchPage(page, activeCategory?.id);
+    document.getElementById('press-releases-list')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleCategorySelect = async (category: (typeof categories)[number] | null) => {
+    setActiveCategory(category);
+    setCurrentPage(1);
+    sessionStorage.setItem(storageKey, '1');
+    router.replace(category ? `/press-releases?category=${category.slug}` : '/press-releases', { scroll: false });
+    await fetchPage(1, category?.id);
     document.getElementById('press-releases-list')?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -133,6 +152,15 @@ export default function PressReleaseListingClient({
         </div>
       </div>
 
+      <SectionDescription
+        intro={[
+          "The Press Releases section presents newly published market reports, market size estimates, growth forecasts, segment analysis, regional performance, industry trends, competitive developments, and future business opportunities across major industries.",
+          "The coverage spans aerospace and defence, automotive and transportation, chemicals and materials, consumer goods, manufacturing and construction, semiconductors and electronics, healthcare and pharmaceuticals, food and beverages, information technology, agriculture, energy and power, and packaging. Recent public statistics, verified company information, and trusted industry sources are used to explain the potential business impact of each development.",
+          "These press releases help business leaders, investors, manufacturers, suppliers, consultants, and policymakers understand changing industry conditions, emerging opportunities, competitive movements, and possible risks. The information is structured to support informed decisions related to market entry, product development, investment planning, partnerships, supply-chain management, and long-term business strategy.",
+          "At Globe Market Research, press releases are developed with a strong focus on accuracy, relevance, readability, and industry context. Each update connects recent developments with their practical implications for organisations operating in the respective industry.",
+        ]}
+      />
+
       {/* ── Press Release List ───────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid lg:grid-cols-[1fr_288px] gap-10">
@@ -166,6 +194,8 @@ export default function PressReleaseListingClient({
                 filters={{ industries: [], regions: [], reportTypes: [], priceRanges: [] }}
                 onFilterChange={() => {}}
                 totalCount={0}
+                activeCategorySlug={activeCategory?.slug}
+                onCategorySelect={handleCategorySelect}
               />
             </div>
           </aside>

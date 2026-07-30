@@ -1,13 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter, useSearchParams } from 'next/navigation';
 import type { IndustryNews } from '@/lib/api/industry-news.types';
 import IndustryNewsListCard from './IndustryNewsListCard';
 import Pagination from '@/components/reports/Pagination';
 import FilterSidebar from '@/components/reports/FilterSidebar';
+import SectionDescription from '@/components/reports/SectionDescription';
 import { getIndustryNewsList, isApiError } from '@/lib/api';
+import categories from '@/data/categories.json';
 
 const ITEMS_PER_PAGE = 8;
 
@@ -23,28 +26,25 @@ export default function IndustryNewsListingClient({
   totalPages: initialTotalPages,
 }: IndustryNewsListingClientProps) {
   const storageKey = 'industry_news_page';
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialCategory = categories.find((c) => c.slug === searchParams.get('category')) ?? null;
+
   const [industryNewsList, setIndustryNewsList] = useState<IndustryNews[]>(initialIndustryNewsList);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(initialTotalPages);
   const [, setTotalItems] = useState(initialTotalItems);
   const [isLoading, setIsLoading] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<(typeof categories)[number] | null>(initialCategory);
 
-  useEffect(() => {
-    const saved = sessionStorage.getItem(storageKey);
-    const savedPage = saved ? Math.max(1, parseInt(saved, 10) || 1) : 1;
-    if (savedPage !== 1) {
-      setCurrentPage(savedPage);
-      fetchPage(savedPage);
-    }
-  }, [storageKey]);
-
-  async function fetchPage(page: number) {
+  const fetchPage = useCallback(async (page: number, categoryId?: number) => {
     setIsLoading(true);
     const response = await getIndustryNewsList({
       status: 'published',
       page,
       limit: ITEMS_PER_PAGE,
       sort_by: 'publish_date_desc',
+      ...(categoryId ? { categoryId } : {}),
     });
     if (!isApiError(response)) {
       setIndustryNewsList(response.data);
@@ -54,12 +54,31 @@ export default function IndustryNewsListingClient({
       }
     }
     setIsLoading(false);
-  }
+  }, []);
+
+  useEffect(() => {
+    const saved = sessionStorage.getItem(storageKey);
+    const savedPage = saved ? Math.max(1, parseInt(saved, 10) || 1) : 1;
+    if (savedPage !== 1 || initialCategory) {
+      setCurrentPage(savedPage);
+      fetchPage(savedPage, initialCategory?.id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [storageKey]);
 
   const handlePageChange = async (page: number) => {
     setCurrentPage(page);
     sessionStorage.setItem(storageKey, String(page));
-    await fetchPage(page);
+    await fetchPage(page, activeCategory?.id);
+    document.getElementById('industry-news-list')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleCategorySelect = async (category: (typeof categories)[number] | null) => {
+    setActiveCategory(category);
+    setCurrentPage(1);
+    sessionStorage.setItem(storageKey, '1');
+    router.replace(category ? `/industry-news?category=${category.slug}` : '/industry-news', { scroll: false });
+    await fetchPage(1, category?.id);
     document.getElementById('industry-news-list')?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -131,6 +150,43 @@ export default function IndustryNewsListingClient({
         </div>
       </div>
 
+      <SectionDescription
+        intro={[
+          "Stay updated with the latest industry developments, company announcements, investment activities, funding rounds, strategic partnerships, mergers and acquisitions, and emerging market trends. Globe Market Research provides timely coverage of major business events, technology advancements, regulatory changes, and market movements across industries. Our news updates highlight how company strategies, capital investments, innovation, and global developments are influencing market growth, competitive landscapes, and future opportunities.",
+        ]}
+        itemsHeading="What We Cover"
+        items={[
+          {
+            title: "Company Investments",
+            desc: "Track major investments, expansion plans, infrastructure development, research initiatives, and strategic spending by leading companies shaping global industries.",
+          },
+          {
+            title: "Company Announcements",
+            desc: "Stay informed about new product launches, technology advancements, business expansions, leadership updates, and strategic decisions announced by global organizations.",
+          },
+          {
+            title: "Market News",
+            desc: "Access the latest market updates, industry shifts, demand trends, regional developments, and factors influencing business growth across different sectors.",
+          },
+          {
+            title: "Funding & Venture Capital Updates",
+            desc: "Follow startup funding rounds, venture capital investments, government funding programs, and financial activities supporting innovation and emerging technologies.",
+          },
+          {
+            title: "Strategic Partnerships & Collaborations",
+            desc: "Discover key partnerships, technology collaborations, joint ventures, and ecosystem developments driving innovation and market expansion.",
+          },
+          {
+            title: "Market Impact Analysis",
+            desc: "Understand how investments, announcements, partnerships, regulations, and economic factors impact industries, companies, supply chains, and future market opportunities.",
+          },
+          {
+            title: "Recent Developments",
+            desc: "Explore recent advancements, industry milestones, technological breakthroughs, and strategic moves shaping the future direction of global markets.",
+          },
+        ]}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid lg:grid-cols-[1fr_288px] gap-10">
           <main id="industry-news-list">
@@ -163,6 +219,8 @@ export default function IndustryNewsListingClient({
                 filters={{ industries: [], regions: [], reportTypes: [], priceRanges: [] }}
                 onFilterChange={() => {}}
                 totalCount={0}
+                activeCategorySlug={activeCategory?.slug}
+                onCategorySelect={handleCategorySelect}
               />
             </div>
           </aside>

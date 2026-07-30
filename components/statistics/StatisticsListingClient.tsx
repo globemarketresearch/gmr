@@ -1,13 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter, useSearchParams } from 'next/navigation';
 import type { Blog } from '@/lib/api/blogs.types';
 import StatisticsListCard from './StatisticsListCard';
 import Pagination from '@/components/reports/Pagination';
 import FilterSidebar from '@/components/reports/FilterSidebar';
+import SectionDescription from '@/components/reports/SectionDescription';
 import { getBlogs, isApiError } from '@/lib/api';
+import categories from '@/data/categories.json';
 
 const ITEMS_PER_PAGE = 8;
 
@@ -23,25 +26,26 @@ export default function StatisticsListingClient({
   totalPages: initialTotalPages,
 }: StatisticsListingClientProps) {
   const storageKey = 'statistics_page';
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialCategory = categories.find((c) => c.slug === searchParams.get('category')) ?? null;
+
   const [blogs, setBlogs] = useState<Blog[]>(initialBlogs);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(initialTotalPages);
   const [, setTotalItems] = useState(initialTotalItems);
   const [isLoading, setIsLoading] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<(typeof categories)[number] | null>(initialCategory);
 
-  // Restore page from sessionStorage and fetch on mount if not page 1
-  useEffect(() => {
-    const saved = sessionStorage.getItem(storageKey);
-    const savedPage = saved ? Math.max(1, parseInt(saved, 10) || 1) : 1;
-    if (savedPage !== 1) {
-      setCurrentPage(savedPage);
-      fetchPage(savedPage);
-    }
-  }, [storageKey]);
-
-  async function fetchPage(page: number) {
+  const fetchPage = useCallback(async (page: number, categoryId?: number) => {
     setIsLoading(true);
-    const response = await getBlogs({ status: 'published', page, limit: ITEMS_PER_PAGE, sort_by: 'publish_date_desc' });
+    const response = await getBlogs({
+      status: 'published',
+      page,
+      limit: ITEMS_PER_PAGE,
+      sort_by: 'publish_date_desc',
+      ...(categoryId ? { categoryId } : {}),
+    });
     if (!isApiError(response)) {
       setBlogs(response.data);
       if (response.meta) {
@@ -50,12 +54,32 @@ export default function StatisticsListingClient({
       }
     }
     setIsLoading(false);
-  }
+  }, []);
+
+  // Restore page from sessionStorage and fetch on mount if not page 1
+  useEffect(() => {
+    const saved = sessionStorage.getItem(storageKey);
+    const savedPage = saved ? Math.max(1, parseInt(saved, 10) || 1) : 1;
+    if (savedPage !== 1 || initialCategory) {
+      setCurrentPage(savedPage);
+      fetchPage(savedPage, initialCategory?.id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [storageKey]);
 
   const handlePageChange = async (page: number) => {
     setCurrentPage(page);
     sessionStorage.setItem(storageKey, String(page));
-    await fetchPage(page);
+    await fetchPage(page, activeCategory?.id);
+    document.getElementById('statistics-list')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleCategorySelect = async (category: (typeof categories)[number] | null) => {
+    setActiveCategory(category);
+    setCurrentPage(1);
+    sessionStorage.setItem(storageKey, '1');
+    router.replace(category ? `/statistics?category=${category.slug}` : '/statistics', { scroll: false });
+    await fetchPage(1, category?.id);
     document.getElementById('statistics-list')?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -128,6 +152,14 @@ export default function StatisticsListingClient({
         </div>
       </div>
 
+      <SectionDescription
+        intro={[
+          "The Statistics & Insights section presents verified industry data, adoption rates, production figures, consumer trends, technology usage, investment patterns, regional indicators, and operational benchmarks across major industries. The information is collected from government agencies, international organisations, industry associations, regulatory bodies, and company disclosures.",
+          "The section helps business leaders, investors, manufacturers, suppliers, and policymakers understand how industries are changing through clear statistics and practical analysis. Each insight explains what the data indicates, which factors are influencing performance, where new opportunities are emerging, and which risks require attention.",
+          "At Globe Market Research, statistics and insights are prepared to support market planning, product development, competitive analysis, investment decisions, regional expansion, and long-term business strategy.",
+        ]}
+      />
+
       {/* ── Statistics List ─────────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid lg:grid-cols-[1fr_288px] gap-10">
@@ -161,6 +193,8 @@ export default function StatisticsListingClient({
                 filters={{ industries: [], regions: [], reportTypes: [], priceRanges: [] }}
                 onFilterChange={() => {}}
                 totalCount={0}
+                activeCategorySlug={activeCategory?.slug}
+                onCategorySelect={handleCategorySelect}
               />
             </div>
           </aside>

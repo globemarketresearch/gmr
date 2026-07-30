@@ -16,10 +16,17 @@ interface FilterSidebarProps {
   totalCount: number;
   categoryCounts?: Record<string, number>;
   activeCategorySlug?: string;
+  /**
+   * When provided, category items act as in-page filters (calling this
+   * handler) instead of navigating to /industry/[slug]. Pass `null` for
+   * "All Industries".
+   */
+  onCategorySelect?: (category: (typeof categories)[number] | null) => void;
 }
 
 export default function FilterSidebar({
   activeCategorySlug,
+  onCategorySelect,
 }: FilterSidebarProps) {
 
   return (
@@ -32,28 +39,53 @@ export default function FilterSidebar({
           </h2>
         </div>
         <nav className="py-1.5">
-          <Link
-            href="/industry"
-            className={`flex items-center px-4 py-2 text-sm transition-colors ${
-              !activeCategorySlug
-                ? 'text-[var(--accent)] bg-[var(--accent-muted)] font-semibold'
-                : 'text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-[var(--text-primary)]'
-            }`}
-          >
-            <span>All Industries</span>
-          </Link>
+          {onCategorySelect ? (
+            <button
+              type="button"
+              onClick={() => onCategorySelect(null)}
+              className={`flex w-full items-center px-4 py-2 text-sm text-left transition-colors ${
+                !activeCategorySlug
+                  ? 'text-[var(--accent)] bg-[var(--accent-muted)] font-semibold'
+                  : 'text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <span>All Industries</span>
+            </button>
+          ) : (
+            <Link
+              href="/industry"
+              className={`flex items-center px-4 py-2 text-sm transition-colors ${
+                !activeCategorySlug
+                  ? 'text-[var(--accent)] bg-[var(--accent-muted)] font-semibold'
+                  : 'text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <span>All Industries</span>
+            </Link>
+          )}
           {categories.map((category) => {
             const isActive = category.slug === activeCategorySlug;
+            const className = `flex w-full items-center px-4 py-2 text-sm text-left transition-colors ${
+              isActive
+                ? 'text-[var(--accent)] bg-[var(--accent-muted)] font-semibold border-l-[3px] border-[var(--accent)]'
+                : 'text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-[var(--text-primary)] border-l-[3px] border-transparent'
+            }`;
+
+            if (onCategorySelect) {
+              return (
+                <button
+                  key={category.id}
+                  type="button"
+                  onClick={() => onCategorySelect(category)}
+                  className={className}
+                >
+                  <span>{category.name}</span>
+                </button>
+              );
+            }
+
             return (
-              <Link
-                key={category.id}
-                href={`/industry/${category.slug}`}
-                className={`flex items-center px-4 py-2 text-sm transition-colors ${
-                  isActive
-                    ? 'text-[var(--accent)] bg-[var(--accent-muted)] font-semibold border-l-[3px] border-[var(--accent)]'
-                    : 'text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-[var(--text-primary)] border-l-[3px] border-transparent'
-                }`}
-              >
+              <Link key={category.id} href={`/industry/${category.slug}`} className={className}>
                 <span>{category.name}</span>
               </Link>
             );
