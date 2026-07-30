@@ -29,6 +29,10 @@ export * from './blogs.types';
 export * from './press-releases';
 export * from './press-releases.types';
 
+// Industry News API
+export * from './industry-news';
+export * from './industry-news.types';
+
 // Legal Pages API
 export * from './legal-pages';
 export * from './legal-pages.types';

@@ -3,6 +3,7 @@
 import type { ApiReport, Report } from './reports.types';
 import type { ApiBlog, Blog } from './blogs.types';
 import type { ApiPressRelease, PressRelease } from './press-releases.types';
+import type { ApiIndustryNews, IndustryNews } from './industry-news.types';
 
 // Helper types for JSON parsing
 interface KeyPlayer {
@@ -539,4 +540,60 @@ export function mapApiPressReleasesToPressReleases(apiPressReleases: ApiPressRel
   }
 
   return apiPressReleases.map(mapApiPressReleaseToPressRelease);
+}
+
+/**
+ * Maps API industry news response to UI IndustryNews interface
+ *
+ * @param apiIndustryNews - Industry news data from API
+ * @returns IndustryNews formatted for UI components
+ */
+export function mapApiIndustryNewsToIndustryNews(apiIndustryNews: ApiIndustryNews): IndustryNews {
+  const category = apiIndustryNews.category?.name || 'Industry News';
+  const author = apiIndustryNews.author?.name || 'Globe Market Research';
+  const date = formatDate(apiIndustryNews.publishDate || apiIndustryNews.createdAt);
+  const readTime = calculateReadTime(apiIndustryNews.content);
+  const tags = parseTags(apiIndustryNews.tags);
+
+  return {
+    id: apiIndustryNews.id,
+    slug: apiIndustryNews.slug,
+    title: apiIndustryNews.title,
+    excerpt: apiIndustryNews.excerpt,
+    category,
+    author,
+    date,
+    readTime,
+    content: apiIndustryNews.content,
+    tags,
+    location: apiIndustryNews.location,
+
+    authorId: apiIndustryNews.authorId,
+    categoryId: apiIndustryNews.categoryId,
+    authorDetails: apiIndustryNews.author,
+    categoryDetails: apiIndustryNews.category,
+
+    metadata: apiIndustryNews.metadata,
+
+    status: apiIndustryNews.status,
+    publishDate: apiIndustryNews.publishDate,
+    scheduledPublishEnabled: apiIndustryNews.scheduledPublishEnabled,
+    createdAt: apiIndustryNews.createdAt,
+    updatedAt: apiIndustryNews.updatedAt,
+  };
+}
+
+/**
+ * Maps array of API industry news to UI IndustryNews array
+ *
+ * @param apiIndustryNewsList - Array of industry news from API
+ * @returns Array of industry news formatted for UI
+ */
+export function mapApiIndustryNewsListToIndustryNewsList(apiIndustryNewsList: ApiIndustryNews[]): IndustryNews[] {
+  if (!apiIndustryNewsList || !Array.isArray(apiIndustryNewsList)) {
+    console.error('mapApiIndustryNewsListToIndustryNewsList received invalid input:', apiIndustryNewsList);
+    return [];
+  }
+
+  return apiIndustryNewsList.map(mapApiIndustryNewsToIndustryNews);
 }
