@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent, CardTitle, CardDescription } from '@/components/ui';
+import VerifiedBadge from './VerifiedBadge';
 import { slugify } from '@/lib/utils';
 import type { ApiAuthor } from '@/lib/api/common.types';
 
@@ -72,6 +73,7 @@ export default function AuthorCard({ author }: { author: ApiAuthor }) {
               )}
             </div>
             <CardDescription className="text-sm">{author.role}</CardDescription>
+            <VerifiedBadge role={author.role} className="mt-2" />
           </div>
         </div>
 

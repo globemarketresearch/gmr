@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { Card, CardContent, Badge } from '@/components/ui';
+import VerifiedBadge from './VerifiedBadge';
 import type { ApiAuthor } from '@/lib/api';
 
 interface AuthorProfileProps {
@@ -79,11 +80,14 @@ export default function AuthorProfile({ author, totalReports }: AuthorProfilePro
                 )}
               </div>
 
-              {author.role && (
-                <Badge variant="primary" size="md" className="mb-4">
-                  {author.role}
-                </Badge>
-              )}
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <VerifiedBadge role={author.role} />
+                {author.role && (
+                  <Badge variant="primary" size="md">
+                    {author.role}
+                  </Badge>
+                )}
+              </div>
 
               {author.bio && (
                 <p className="text-[var(--muted-foreground)] text-lg leading-relaxed mb-6">

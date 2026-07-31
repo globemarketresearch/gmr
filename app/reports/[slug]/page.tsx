@@ -641,12 +641,16 @@ export default async function ReportPage({
 
                   <section className="mb-12">
                     <h2 id="competitive" className="text-2xl font-bold text-[var(--teal-deep)] mb-6 scroll-mt-24">
-                      Competitive Landscape
+                      Prominent Global Market Leaders
                     </h2>
                     <p className="text-[var(--text-secondary)] mb-8 leading-relaxed">
-                      The market is characterized by intense competition among established players
-                      and emerging companies. Strategic partnerships, mergers and acquisitions, and
-                      product innovation are key strategies employed by market participants.
+                      The market includes established global companies, regional participants,
+                      specialized providers, and emerging businesses. Competition is mainly based
+                      on product quality, innovation, pricing, customer service, distribution
+                      reach, and geographic presence. Leading companies are strengthening their
+                      positions through new product launches, strategic partnerships,
+                      acquisitions, research and development, capacity expansion, and portfolio
+                      diversification to meet changing customer needs and industry requirements.
                     </p>
 
                     {report.keyPlayers && report.keyPlayers.length > 0 && (

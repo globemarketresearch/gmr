@@ -30,10 +30,10 @@ export default function Footer() {
   ];
 
   const socials = [
-    { href: "https://www.linkedin.com/company/globemarketresearch/", Icon: Linkedin, label: "LinkedIn" },
-    { href: "https://x.com/GMR172026", Icon: Twitter, label: "X (Twitter)" },
-    { href: "https://www.facebook.com/people/Globe-Market-Research/61590289933378/", Icon: Facebook, label: "Facebook" },
-    { href: "https://www.instagram.com/GlobeMarketResearch", Icon: Instagram, label: "Instagram" },
+    { href: "https://www.linkedin.com/company/globemarketresearch/", Icon: Linkedin, label: "LinkedIn", color: "#0A66C2" },
+    { href: "https://x.com/GMR172026", Icon: Twitter, label: "X (Twitter)", color: "#1DA1F2" },
+    { href: "https://www.facebook.com/people/Globe-Market-Research/61590289933378/", Icon: Facebook, label: "Facebook", color: "#1877F2" },
+    { href: "https://www.instagram.com/GlobeMarketResearch", Icon: Instagram, label: "Instagram", color: "#E1306C" },
   ];
 
   return (
@@ -109,13 +109,16 @@ export default function Footer() {
 
               {/* Social icons */}
               <div className="flex gap-3 justify-center">
-                {socials.map(({ href, Icon, label }) => (
+                {socials.map(({ href, Icon, label, color }) => (
                   <Link
                     key={label}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full border border-blue-200 flex items-center justify-center text-[#4169E1] hover:text-white hover:bg-[#4169E1] hover:border-[#4169E1] transition-all duration-200"
+                    className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 hover:text-white"
+                    style={{ borderColor: `${color}40`, color }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = color)}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
                     aria-label={label}
                   >
                     <Icon className="w-4 h-4" />

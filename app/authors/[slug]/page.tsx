@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getAuthorBySlug, getAuthorById, getAllAuthors, getReportsByAuthorId, isApiError } from '@/lib/api';
+import { getIndustryNewsList } from '@/lib/api/industry-news';
 import { slugify } from '@/lib/utils';
 import { Breadcrumb } from '@/components/ui';
 import AuthorProfile from '@/components/authors/AuthorProfile';
@@ -66,6 +67,14 @@ export default async function AuthorPage({
 
   const reports = isApiError(reportsResponse) ? [] : reportsResponse.data;
 
+  const newsResponse = await getIndustryNewsList({
+    authorId: author.id,
+    status: 'published',
+    limit: 1000,
+  });
+
+  const newsCount = isApiError(newsResponse) ? 0 : newsResponse.data.length;
+
   const breadcrumbItems = [
     { label: 'Home', href: '/' },
     { label: 'Authors', href: '/authors' },
@@ -81,7 +90,7 @@ export default async function AuthorPage({
       </div>
 
       <div className="px-4 py-8 md:px-6 max-w-7xl mx-auto">
-        <AuthorProfile author={author} totalReports={reports.length} />
+        <AuthorProfile author={author} totalReports={author?.name?.includes('Global Market Research') ? newsCount : reports.length} />
         <AuthorReportsListing reports={reports} authorName={author.name} />
       </div>
     </div>

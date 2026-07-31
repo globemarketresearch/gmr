@@ -139,12 +139,9 @@ export default function IndustryNewsListingClient({
                 <svg className="w-2.5 h-2.5" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="3"/></svg>
                 Industry Updates
               </span>
-              <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-3" style={{ color: '#fff', letterSpacing: '-0.03em' }}>
+              <h1 className="text-3xl sm:text-4xl font-bold leading-tight" style={{ color: '#fff', letterSpacing: '-0.03em' }}>
                 Industry News
               </h1>
-              <p className="text-sm sm:text-[15px] leading-relaxed max-w-2xl" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                Curated healthcare and market research industry news from Globe Market Research. Stay ahead of the trends shaping the market.
-              </p>
             </div>
           </div>
         </div>
@@ -221,6 +218,7 @@ export default function IndustryNewsListingClient({
                 totalCount={0}
                 activeCategorySlug={activeCategory?.slug}
                 onCategorySelect={handleCategorySelect}
+                ctaVariant="submit-news"
               />
             </div>
           </aside>
