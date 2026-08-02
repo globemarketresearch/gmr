@@ -81,7 +81,7 @@ export default function AuthorProfile({ author, totalReports }: AuthorProfilePro
               </div>
 
               <div className="flex flex-wrap items-center gap-2 mb-4">
-                <VerifiedBadge role={author.role} />
+                <VerifiedBadge />
                 {author.role && (
                   <Badge variant="primary" size="md">
                     {author.role}

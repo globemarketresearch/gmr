@@ -1,8 +1,8 @@
-export function getVerifiedLabel(role?: string): string {
-  return role?.toLowerCase().includes('review') ? 'Verified Reviewer' : 'Verified Analyst';
+export function getVerifiedLabel(): string {
+  return 'Verified';
 }
 
-export default function VerifiedBadge({ role, className = '' }: { role?: string; className?: string }) {
+export default function VerifiedBadge({ className = '' }: { className?: string }) {
   return (
     <span
       className={`inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-sm font-medium text-emerald-600 dark:text-emerald-400 ${className}`}
@@ -14,7 +14,7 @@ export default function VerifiedBadge({ role, className = '' }: { role?: string;
           clipRule="evenodd"
         />
       </svg>
-      {getVerifiedLabel(role)}
+      {getVerifiedLabel()}
     </span>
   );
 }

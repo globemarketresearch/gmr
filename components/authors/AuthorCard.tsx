@@ -73,7 +73,7 @@ export default function AuthorCard({ author }: { author: ApiAuthor }) {
                   </a>
                 )}
               </div>
-              <VerifiedBadge role={author.role} className="flex-shrink-0" />
+              <VerifiedBadge className="flex-shrink-0" />
             </div>
             <CardDescription className="text-sm">{author.role}</CardDescription>
           </div>
