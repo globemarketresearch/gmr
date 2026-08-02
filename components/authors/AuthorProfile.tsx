@@ -8,9 +8,10 @@ import type { ApiAuthor } from '@/lib/api';
 interface AuthorProfileProps {
   author: ApiAuthor;
   totalReports: number;
+  statLabel?: string;
 }
 
-export default function AuthorProfile({ author, totalReports }: AuthorProfileProps) {
+export default function AuthorProfile({ author, totalReports, statLabel = 'Total Reports Authored' }: AuthorProfileProps) {
   const getInitials = (name: string) => {
     return name
       .split(' ')
@@ -114,7 +115,7 @@ export default function AuthorProfile({ author, totalReports }: AuthorProfilePro
                     </svg>
                     <div>
                       <p className="text-sm text-[var(--muted-foreground)]">
-                        Total Reports Authored
+                        {statLabel}
                       </p>
                       <p className="text-2xl font-bold text-[var(--foreground)]">
                         {totalReports}

@@ -153,8 +153,8 @@ export default function AuthorHoverCard({
             <p className="text-lg font-bold text-[hsl(var(--foreground))]">{author.name}</p>
             <p className="mt-1 text-sm font-semibold text-[var(--primary)]">
               {author.role}
-              {author.role && ' · '}
-              {articleCount} Article{articleCount === 1 ? '' : 's'}
+              {author.role && articleCount > 0 && ' · '}
+              {articleCount > 0 && `${articleCount} Article${articleCount === 1 ? '' : 's'}`}
               {author.xUrl && (
                 <a
                   href={author.xUrl}

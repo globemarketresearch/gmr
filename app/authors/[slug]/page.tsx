@@ -5,6 +5,7 @@ import { slugify } from '@/lib/utils';
 import { Breadcrumb } from '@/components/ui';
 import AuthorProfile from '@/components/authors/AuthorProfile';
 import AuthorReportsListing from '@/components/authors/AuthorReportsListing';
+import AuthorNewsListing from '@/components/authors/AuthorNewsListing';
 import type { Metadata } from 'next';
 
 export const revalidate = 600;
@@ -73,7 +74,9 @@ export default async function AuthorPage({
     limit: 1000,
   });
 
-  const newsCount = isApiError(newsResponse) ? 0 : newsResponse.data.length;
+  const news = isApiError(newsResponse) ? [] : newsResponse.data;
+
+  const isEditorialTeam = author.name.includes('Editorial Team');
 
   const breadcrumbItems = [
     { label: 'Home', href: '/' },
@@ -90,8 +93,16 @@ export default async function AuthorPage({
       </div>
 
       <div className="px-4 py-8 md:px-6 max-w-7xl mx-auto">
-        <AuthorProfile author={author} totalReports={author?.name?.includes('Global Market Research') ? newsCount : reports.length} />
-        <AuthorReportsListing reports={reports} authorName={author.name} />
+        <AuthorProfile
+          author={author}
+          totalReports={isEditorialTeam ? news.length : reports.length}
+          statLabel={isEditorialTeam ? 'Total News Articles' : 'Total Reports Authored'}
+        />
+        {isEditorialTeam ? (
+          <AuthorNewsListing news={news} authorName={author.name} />
+        ) : (
+          <AuthorReportsListing reports={reports} authorName={author.name} />
+        )}
       </div>
     </div>
   );
