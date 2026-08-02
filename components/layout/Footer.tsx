@@ -115,10 +115,16 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 hover:text-white"
+                    className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200"
                     style={{ borderColor: `${color}40`, color }}
-                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = color)}
-                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = color;
+                      e.currentTarget.style.color = "#fff";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent";
+                      e.currentTarget.style.color = color;
+                    }}
                     aria-label={label}
                   >
                     <Icon className="w-4 h-4" />
