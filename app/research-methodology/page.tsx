@@ -864,9 +864,9 @@ export default function ResearchMethodologyPage() {
                   >
                     <Icon size={22} strokeWidth={1.75} style={{ color: accent }} aria-hidden="true" />
                   </div>
-                  <h4 className="font-bold text-lg text-[var(--foreground)]">{layer}</h4>
-                  <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: accent }}>
-                    {subtitle}
+                  <h4 className="font-bold text-lg" style={{ color: accent }}>{subtitle}</h4>
+                  <p className="text-xs font-semibold uppercase tracking-wider mb-3 text-[var(--foreground)]">
+                    {layer}
                   </p>
                   <p className="text-sm text-[var(--muted-foreground)] leading-relaxed mb-4">{desc}</p>
                   <ul className="space-y-2 mt-auto">
