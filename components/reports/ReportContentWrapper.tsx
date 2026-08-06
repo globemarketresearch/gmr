@@ -156,7 +156,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
       )}
 
       {/* Main Content Area */}
-      <main>
+      <main className="bg-[var(--card)]">
         {showPricing ? (
           <div ref={pricingSectionRef}>
             <PricingTable
