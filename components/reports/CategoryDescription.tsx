@@ -16,6 +16,7 @@ interface CategoryDescriptionProps {
 export default function CategoryDescription({ category }: CategoryDescriptionProps) {
   const [expanded, setExpanded] = useState(false);
   const more = INDUSTRY_MORE[category.slug];
+  const [firstPara, ...restParas] = more ? more.split("\n\n") : [];
 
   if (!category.description) return null;
 
@@ -24,19 +25,25 @@ export default function CategoryDescription({ category }: CategoryDescriptionPro
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
         {more && (
           <>
-            <div
-              className={`grid transition-[grid-template-rows] duration-300 ease-out ${
-                expanded ? "grid-rows-[1fr] mt-3" : "grid-rows-[0fr]"
-              }`}
-            >
-              <div className="overflow-hidden">
-                {more.split("\n\n").map((para, i) => (
-                  <p key={i} className="text-[var(--muted-foreground)] leading-relaxed text-sm mb-3 last:mb-0">
-                    {para}
-                  </p>
-                ))}
+            <p className="text-[var(--muted-foreground)] leading-relaxed text-sm mb-3 last:mb-0">
+              {firstPara}
+            </p>
+
+            {restParas.length > 0 && (
+              <div
+                className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                  expanded ? "grid-rows-[1fr] mt-3" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  {restParas.map((para, i) => (
+                    <p key={i} className="text-[var(--muted-foreground)] leading-relaxed text-sm mb-3 last:mb-0">
+                      {para}
+                    </p>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             <button
               type="button"
