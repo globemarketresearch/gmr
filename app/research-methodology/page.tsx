@@ -602,7 +602,7 @@ export default function ResearchMethodologyPage() {
                 >
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <span
-                      className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0"
+                      className="px-3 h-10 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0 whitespace-nowrap"
                       style={{
                         background: `color-mix(in srgb, ${accent} 12%, #f8faff)`,
                         border: `1px solid color-mix(in srgb, ${accent} 25%, #e5e7eb)`,
