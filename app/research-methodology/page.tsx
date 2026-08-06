@@ -264,8 +264,8 @@ const samplingLayers = [
     Icon: Factory,
     accent: "#2563eb",
     image: "/assets/methodology/Picture1.png",
-    imgWidth: 1533,
-    imgHeight: 739,
+    imgWidth: 1544,
+    imgHeight: 791,
     desc: "Upstream research examines the factors that influence the availability, cost, and evolution of key inputs entering the market.",
     objectives: [
       "Evaluating availability and pricing of raw materials and critical inputs",
@@ -282,8 +282,8 @@ const samplingLayers = [
     Icon: Layers,
     accent: "#059669",
     image: "/assets/methodology/Picture2.png",
-    imgWidth: 1464,
-    imgHeight: 782,
+    imgWidth: 1544,
+    imgHeight: 791,
     desc: "Midstream research focuses on the operational activities that convert inputs into commercially available products and services.",
     objectives: [
       "Production capacity, utilisation rates, and manufacturing expansion plans",
@@ -301,8 +301,8 @@ const samplingLayers = [
     Icon: ShoppingCart,
     accent: "#7c3aed",
     image: "/assets/methodology/Picture3.png",
-    imgWidth: 1377,
-    imgHeight: 731,
+    imgWidth: 1544,
+    imgHeight: 791,
     desc: "The downstream research layer focuses on understanding purchasing behaviour, commercial activity, and end-user market dynamics.",
     objectives: [
       "Examining purchasing criteria and supplier evaluation processes",
