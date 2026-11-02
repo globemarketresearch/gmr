@@ -67,10 +67,10 @@ export default function Header() {
             : "0 1px 0 rgba(0,0,0,0.06)",
         }}
       >
-        <div className="max-w-7xl mx-auto flex h-[74px] md:h-[96px] items-center justify-between px-4 sm:px-6 lg:px-8 gap-2 md:gap-3 w-full">
+        <div className="flex h-[74px] md:h-[96px] items-center justify-between px-4 sm:px-6 lg:px-10 xl:px-12 gap-2 md:gap-6 w-full">
           {/* Logo */}
           <h2 className="sr-only">Globe Market Research</h2>
-          <Link href="/" className="flex min-w-0 items-center flex-shrink group">
+          <Link href="/" className="flex min-w-0 items-center flex-shrink md:flex-shrink-0 group">
             <div className="min-w-0 transition-opacity duration-200 group-hover:opacity-90">
               <Image
                 src="/assets/images/logo.png"

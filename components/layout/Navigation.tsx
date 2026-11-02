@@ -9,6 +9,7 @@ import categories from "@/data/categories.json";
 import servicesData from "@/data/services.json";
 import MegaMenu from "./MegaMenu";
 import ServicesMenu from "./ServicesMenu";
+import InsightsMenu, { insightsLinks } from "./InsightsMenu";
 import { cn } from "@/lib/utils";
 import { Service } from "@/lib/api/services.types";
 
@@ -89,8 +90,7 @@ export default function Navigation() {
 
         <NavLink href="/research-methodology" label="Methodology" pathname={pathname} />
         <NavLink href="/statistics" label="Statistics" pathname={pathname} />
-        <NavLink href="/press-releases" label="Press Releases" pathname={pathname} />
-        <NavLink href="/industry-news" label="Industry News" pathname={pathname} />
+        <InsightsMenu pathname={pathname} />
         <NavLink href="/contact" label="Contact" pathname={pathname} />
       </nav>
 
@@ -161,7 +161,7 @@ export default function Navigation() {
 
             <div className="overflow-y-auto h-[calc(100%-65px)]">
               <nav className="flex flex-col p-3 gap-0.5">
-                {[...navItems, { name: "Methodology", href: "/research-methodology" }, { name: "Statistics", href: "/statistics" }, { name: "Press Releases", href: "/press-releases" }, { name: "Industry News", href: "/industry-news" }, { name: "Contact", href: "/contact" }].map((item) => {
+                {[...navItems, { name: "Methodology", href: "/research-methodology" }, { name: "Statistics", href: "/statistics" }, { name: "Contact", href: "/contact" }].map((item) => {
                   const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
                   return (
                     <Link
@@ -181,6 +181,33 @@ export default function Navigation() {
                   );
                 })}
               </nav>
+
+              {/* Insights Section */}
+              <div className="mx-3 mt-2 pt-4 border-t border-white/5">
+                <span className="block px-3 mb-2 text-[10px] font-bold text-white/20 tracking-[0.12em] uppercase">
+                  Insights
+                </span>
+                <div className="flex flex-col gap-0.5">
+                  {insightsLinks.map((item) => {
+                    const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={cn(
+                          "py-2 px-3 text-[13px] rounded-lg transition-colors",
+                          isActive
+                            ? "text-cyan-300 bg-cyan-500/10"
+                            : "text-white/40 hover:text-white/70 hover:bg-white/5"
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
 
               {/* Services Section (new 7 core services) */}
               <div className="mx-3 mt-2 pt-4 border-t border-white/5">
