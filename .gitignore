@@ -45,3 +45,6 @@ next-env.d.ts
 
 # Superpowers SDD scratch workspace
 .superpowers/
+
+# Local PayPal sandbox test notes (contains test data)
+PAYPAL_SANDBOX_TESTING.md

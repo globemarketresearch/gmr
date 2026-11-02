@@ -3,12 +3,19 @@ import Link from 'next/link';
 import { Button } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Request Received — GlobeMarketResearch',
+  title: 'Order Confirmation — GlobeMarketResearch',
   description: 'Your purchase request has been received. Our team will reach out within 1 business day.',
   robots: { index: false, follow: false },
 };
 
-export default function OrderSuccessPage() {
+export default async function OrderSuccessPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ paid?: string }>;
+}) {
+  const { paid } = await searchParams;
+  const isPaid = paid === '1';
+
   return (
     <div className="bg-[var(--background)] min-h-screen flex items-center justify-center px-4">
       <div className="max-w-lg w-full text-center space-y-6 py-16">
@@ -33,20 +40,30 @@ export default function OrderSuccessPage() {
 
         <div>
           <h1 className="text-3xl font-bold text-[var(--foreground)] mb-3">
-            Request Received!
+            {isPaid ? 'Payment Confirmed!' : 'Request Received!'}
           </h1>
           <p className="text-[var(--muted-foreground)]">
-            Thank you for your interest. We&apos;ve received your purchase request and will be in touch shortly.
+            {isPaid
+              ? 'Thank you for your purchase. A confirmation email with your order details is on its way.'
+              : 'Thank you for your interest. We’ve received your purchase request and will be in touch shortly.'}
           </p>
         </div>
 
         <div className="bg-[var(--card)] border border-[var(--border)] rounded-lg p-6 text-left space-y-3">
           <h2 className="font-semibold text-[var(--foreground)]">What happens next?</h2>
-          <ol className="space-y-2 text-sm text-[var(--muted-foreground)] list-decimal list-inside">
-            <li>Our team will review your request and prepare an invoice.</li>
-            <li>You&apos;ll receive an email within <strong className="text-[var(--foreground)]">1 business day</strong> with payment instructions.</li>
-            <li>Once payment is confirmed, your report will be delivered within <strong className="text-[var(--foreground)]">2–3 business days</strong>.</li>
-          </ol>
+          {isPaid ? (
+            <ol className="space-y-2 text-sm text-[var(--muted-foreground)] list-decimal list-inside">
+              <li>You&apos;ll receive an order confirmation email shortly.</li>
+              <li>Our team prepares your report for your selected license.</li>
+              <li>Your report will be delivered by email within <strong className="text-[var(--foreground)]">2–3 business days</strong>.</li>
+            </ol>
+          ) : (
+            <ol className="space-y-2 text-sm text-[var(--muted-foreground)] list-decimal list-inside">
+              <li>Our team will review your request and prepare an invoice.</li>
+              <li>You&apos;ll receive an email within <strong className="text-[var(--foreground)]">1 business day</strong> with payment instructions.</li>
+              <li>Once payment is confirmed, your report will be delivered within <strong className="text-[var(--foreground)]">2–3 business days</strong>.</li>
+            </ol>
+          )}
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">

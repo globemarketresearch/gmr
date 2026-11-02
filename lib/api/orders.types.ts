@@ -13,6 +13,8 @@ export interface CreateOrderRequest {
   customer_phone?: string;
   customer_country?: string;
   report_slug: string;
+  /** License tier id (single | corporate | excel). Price is resolved server-side. */
+  license_id?: string;
   payment_method?: 'paypal' | 'stripe';
 }
 

@@ -9,10 +9,12 @@ import { submitRequestSampleForm } from '@/lib/api/forms';
 import { getLicenseTierById, LICENSE_TIERS } from '@/lib/license-tiers';
 import { isBusinessEmail } from '@/lib/validators';
 
+import { PayPalButton, isPayPalConfigured } from './PayPalButton';
+import { createOrder, captureOrder } from '@/lib/api/orders';
+
 // ─── Payment integrations (kept for future activation) ────────────────────────
-// import { PayPalButton } from './PayPalButton';
 // import { StripePaymentForm } from './StripePaymentForm';
-// import { createOrder, captureOrder, confirmStripeOrder } from '@/lib/api/orders';
+// import { confirmStripeOrder } from '@/lib/api/orders';
 // ──────────────────────────────────────────────────────────────────────────────
 
 type Step = 'details' | 'payment' | 'processing' | 'success';
@@ -91,8 +93,67 @@ export function CheckoutForm({ reportSlug, reportTitle, licenseId = 'single', on
   const [dialCode, setDialCode] = useState<string>(getDefaultCountry().dialCode);
   const [error, setError] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [orderId, setOrderId] = useState<number | null>(null);
+  const [paypalOrderId, setPaypalOrderId] = useState<string | null>(null);
 
   const selectedLicense = getLicenseTierById(selectedLicenseId);
+
+  // PayPal takes payment online. Student licenses need ID verification and
+  // other methods are invoiced manually, so those use the request flow.
+  const payOnline =
+    paymentMethod === 'paypal' && isPayPalConfigured && !selectedLicense.isStudentTier;
+
+  const startPayPalPayment = async () => {
+    const result = await createOrder({
+      customer_name: details.customer_name,
+      customer_email: details.customer_email,
+      customer_company: details.customer_company || undefined,
+      customer_phone: details.customer_phone
+        ? details.customer_phone.trim().startsWith('+')
+          ? details.customer_phone.trim()
+          : `${dialCode} ${details.customer_phone.trim()}`
+        : undefined,
+      customer_country: details.customer_country,
+      report_slug: reportSlug,
+      license_id: selectedLicense.id,
+      payment_method: 'paypal',
+    });
+    if (!result.paypal_order_id) {
+      throw new Error('Could not start PayPal payment. Please try again.');
+    }
+    setOrderId(result.order_id);
+    setPaypalOrderId(result.paypal_order_id);
+    setStep('payment');
+  };
+
+  const handlePayPalApprove = async () => {
+    if (!orderId) return;
+    setStep('processing');
+    setError('');
+    try {
+      await captureOrder(orderId);
+      router.push('/order-success?paid=1');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Payment capture failed. Please contact support.');
+      setStep('payment');
+    }
+  };
+
+  const handlePayPalError = (err: unknown) => {
+    console.error('PayPal error:', err);
+    setError('PayPal could not complete the payment. Please try again or choose another payment method.');
+  };
+
+  const handlePayPalCancel = () => {
+    setError('Payment was cancelled. You can try again below.');
+  };
+
+  const backToDetails = () => {
+    setError('');
+    setOrderId(null);
+    setPaypalOrderId(null);
+    setStep('details');
+  };
 
   const handleDetailsSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -104,6 +165,17 @@ export function CheckoutForm({ reportSlug, reportTitle, licenseId = 'single', on
     }
 
     setIsSubmitting(true);
+
+    if (payOnline) {
+      try {
+        await startPayPalPayment();
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Could not start PayPal payment. Please try again.');
+      } finally {
+        setIsSubmitting(false);
+      }
+      return;
+    }
 
     try {
       const result = await submitRequestSampleForm({
@@ -147,7 +219,9 @@ export function CheckoutForm({ reportSlug, reportTitle, licenseId = 'single', on
     return (
       <div className="flex flex-col items-center justify-center py-16 space-y-4">
         <div className="animate-spin h-10 w-10 border-4 border-[var(--primary)] border-t-transparent rounded-full" />
-        <p className="text-[var(--foreground)] font-medium">Submitting your request...</p>
+        <p className="text-[var(--foreground)] font-medium">
+          {paypalOrderId ? 'Confirming your payment...' : 'Submitting your request...'}
+        </p>
         <p className="text-sm text-[var(--muted-foreground)]">Please do not close this page.</p>
       </div>
     );
@@ -266,7 +340,11 @@ export function CheckoutForm({ reportSlug, reportTitle, licenseId = 'single', on
               </button>
             </div>
             <p className="text-xs text-[var(--muted-foreground)] mt-2">
-              Our team will send payment instructions to your email after submission.
+              {payOnline
+                ? 'Pay securely with PayPal or a debit/credit card on the next step.'
+                : paymentMethod === 'paypal' && selectedLicense.isStudentTier
+                  ? 'Student licenses require ID verification — our team will send payment instructions after review.'
+                  : 'Our team will send payment instructions to your email after submission.'}
             </p>
           </div>
 
@@ -371,15 +449,57 @@ export function CheckoutForm({ reportSlug, reportTitle, licenseId = 'single', on
               className="w-full"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Submitting...' : `Submit Purchase Request — USD ${selectedLicense.price.toLocaleString()}`}
+              {isSubmitting
+                ? payOnline ? 'Preparing payment...' : 'Submitting...'
+                : payOnline
+                  ? `Continue to Payment — USD ${selectedLicense.price.toLocaleString()}`
+                  : `Submit Purchase Request — USD ${selectedLicense.price.toLocaleString()}`}
             </Button>
           </div>
 
           <p className="text-xs text-center text-[var(--muted-foreground)]">
-            By submitting this form you agree to our Terms of Service. Our team will
-            reach out within 1 business day with an invoice and payment details.
+            {payOnline
+              ? 'By continuing you agree to our Terms of Service. Your report is delivered by email after payment is confirmed.'
+              : 'By submitting this form you agree to our Terms of Service. Our team will reach out within 1 business day with an invoice and payment details.'}
           </p>
         </form>
+      )}
+
+      {step === 'payment' && paypalOrderId && (
+        <div className="space-y-5">
+          <div className="rounded-lg border border-[var(--border)] p-4 text-sm space-y-1">
+            <div className="flex justify-between gap-4">
+              <span className="text-[var(--muted-foreground)]">License</span>
+              <span className="font-medium text-[var(--foreground)] text-right">{selectedLicense.name}</span>
+            </div>
+            <div className="flex justify-between gap-4">
+              <span className="text-[var(--muted-foreground)]">Billed to</span>
+              <span className="font-medium text-[var(--foreground)] text-right break-all">{details.customer_email}</span>
+            </div>
+            <div className="flex justify-between gap-4 pt-2 border-t border-[var(--border)] mt-2">
+              <span className="font-semibold text-[var(--foreground)]">Total</span>
+              <span className="font-bold text-[var(--foreground)]">USD {selectedLicense.price.toLocaleString()}</span>
+            </div>
+          </div>
+
+          <PayPalButton
+            paypalOrderId={paypalOrderId}
+            onApprove={handlePayPalApprove}
+            onError={handlePayPalError}
+            onCancel={handlePayPalCancel}
+          />
+          <p className="text-xs text-center text-[var(--muted-foreground)]">
+            You can pay with PayPal or a debit/credit card — no PayPal account required.
+          </p>
+
+          <button
+            type="button"
+            onClick={backToDetails}
+            className="w-full text-sm text-[var(--primary)] hover:underline"
+          >
+            ← Change details or payment method
+          </button>
+        </div>
       )}
     </div>
   );
