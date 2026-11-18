@@ -2,6 +2,9 @@
 
 import Link from 'next/link';
 import type { Report } from '@/lib/api/reports.types';
+import { EDITIONS } from '@/lib/license-tiers';
+
+const STARTING_PRICE = `$${EDITIONS[0].prices.single.toLocaleString('en-US')}`;
 
 interface ReportCardProps {
   report: Report;
@@ -102,7 +105,7 @@ export default function ReportCard({ report }: ReportCardProps) {
           <div className="flex items-center gap-3 shrink-0">
             {hasPrice && (
               <span className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>
-                $3,199
+                {STARTING_PRICE}
               </span>
             )}
             <span

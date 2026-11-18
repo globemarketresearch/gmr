@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { Section, Container } from '@/components/ui';
 import { getReports, isApiError } from '@/lib/api';
 import type { Report } from '@/lib/api/reports.types';
+import { EDITIONS } from '@/lib/license-tiers';
+
+const STARTING_PRICE = `$${EDITIONS[0].prices.single.toLocaleString('en-US')}`;
 
 function formatShortDate(dateStr: string): string {
   const date = new Date(dateStr);
@@ -91,7 +94,7 @@ function ReportCard({ report, index }: { report: Report; index: number }) {
         </span>
         <div className="flex items-center gap-2">
           <span className="text-sm font-semibold text-[var(--text-primary)]">
-            From $3,199
+            From {STARTING_PRICE}
           </span>
           <div
             className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors duration-200 ${
