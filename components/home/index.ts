@@ -1,6 +1,7 @@
 export { default as HeroSection } from './HeroSection';
 export { default as ParticleCanvas } from './ParticleCanvas';
 export { default as FeaturedReportsSection } from './FeaturedReportsSection';
+export { default as BlackFridayStrip } from './BlackFridayStrip';
 export { default as FeaturedStatisticsSection } from './FeaturedStatisticsSection';
 export { default as FeaturedPressReleasesSection } from './FeaturedPressReleasesSection';
 export { default as IndustryCategoriesSection } from './IndustryCategoriesSection';

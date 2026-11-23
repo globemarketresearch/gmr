@@ -6,6 +6,7 @@ import { FullReportTOC } from './FullReportTOC';
 import { CTAPanel } from './CTAPanel';
 import { CustomizeReportCard } from './CustomizeReportCard';
 import { BriefWithAI } from './BriefWithAI';
+import { BlackFridayCard } from './BlackFridayCard';
 import { PricingTable } from './PricingTable';
 import { ReportStickyBar } from './ReportStickyBar';
 import { SidebarTOCItem, TOCItem } from '@/lib/toc-utils';
@@ -23,6 +24,8 @@ interface ReportContentWrapperProps {
   publishedDate?: string;
   pages?: number;
   formats?: string[];
+  /** Show Black Friday promo block (expiry decided server-side). */
+  showPromo?: boolean;
   children: ReactNode;
 }
 
@@ -38,6 +41,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
   publishedDate,
   pages,
   formats,
+  showPromo = false,
   children,
 }) => {
   const [showFullTOC, setShowFullTOC] = useState(false);
@@ -157,6 +161,12 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
 
       {/* Main Content Area */}
       <main className="bg-[var(--card)]">
+        {/* Mobile/tablet promo — the right sidebar is hidden below lg */}
+        {showPromo && !showPricing && !showFullTOC && (
+          <div className="lg:hidden mb-6">
+            <BlackFridayCard variant="inline" />
+          </div>
+        )}
         {showPricing ? (
           <div ref={pricingSectionRef}>
             <PricingTable
@@ -185,6 +195,7 @@ export const ReportContentWrapper: React.FC<ReportContentWrapperProps> = ({
             maxHeight: 'calc(100vh - var(--sticky-bar-height, 0px) - 2rem)',
           }}
         >
+          {showPromo && <BlackFridayCard variant="sidebar" />}
           <BriefWithAI reportTitle={reportTitle} reportSlug={reportSlug} />
           <CustomizeReportCard reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} />
           <CTAPanel discounted_price={discounted_price} price={price} reportTitle={reportTitle} reportSlug={reportSlug} reportId={reportId} onBuyNow={() => setShowPricing(true)} />

@@ -6,6 +6,7 @@ import { getReports, getReportBySlug, isApiError } from "@/lib/api";
 import { Breadcrumb, Card, CardContent } from "@/components/ui";
 // import { Download } from "lucide-react";
 import { ReportContentWrapper } from "@/components/reports/ReportContentWrapper";
+import { isBlackFridayActive } from "@/lib/promotions";
 import { ReportShareButtons } from "@/components/reports/ReportShareButtons";
 import { StyledReportContent } from "@/components/reports/StyledReportContent";
 // import { MarketGrowthChart } from "@/components/reports/charts/MarketGrowthChart";
@@ -577,6 +578,7 @@ export default async function ReportPage({
           publishedDate={report.date}
           pages={report.pages}
           formats={report.formats}
+          showPromo={isBlackFridayActive()}
         >
           <article>
               <section className="mb-10">

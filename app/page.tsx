@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import {
   HeroSection,
   FeaturedReportsSection,
+  BlackFridayStrip,
   FeaturedStatisticsSection,
   FeaturedPressReleasesSection,
   IndustryCategoriesSection,
@@ -30,6 +31,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <BlackFridayStrip />
       <FeaturedReportsSection />
       <IndustryCategoriesSection />
       <FeaturedStatisticsSection />
