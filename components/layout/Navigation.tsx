@@ -11,6 +11,7 @@ import MegaMenu from "./MegaMenu";
 import ServicesMenu from "./ServicesMenu";
 import InsightsMenu, { insightsLinks } from "./InsightsMenu";
 import { cn } from "@/lib/utils";
+import SaleRibbon from "./SaleRibbon";
 import { Service } from "@/lib/api/services.types";
 
 const navItems = [
@@ -91,7 +92,10 @@ export default function Navigation() {
         <NavLink href="/research-methodology" label="Methodology" pathname={pathname} />
         <NavLink href="/statistics" label="Statistics" pathname={pathname} />
         <InsightsMenu pathname={pathname} />
-        <NavLink href="/contact" label="Contact" pathname={pathname} />
+        <div className="relative">
+          <NavLink href="/contact" label="Contact" pathname={pathname} />
+          <SaleRibbon anchor="contact" />
+        </div>
       </nav>
 
       {/* Mobile Menu Button */}
